@@ -1,0 +1,121 @@
+lesson_id: s04-grouped-comparison
+title: S04：分层、加权与辛普森悖论
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: marginal-conditional-proportion
+    title: 边际比例与条件比例
+    tutor_context: 解释不分组的整体比例与在某组内计算的条件比例有何不同。
+    pair:
+      a:
+        prompt: “全校通过率”与“在一年级内的通过率”分别是？
+        options:
+          - {id: A, text: 两者都是条件比例, misconception: all-proportions-conditional}
+          - {id: B, text: 前者是边际比例，后者是以年级为条件的比例, misconception: null}
+          - {id: C, text: 前者是均值，后者是中位数, misconception: proportion-as-center}
+          - {id: D, text: 两者必然相等, misconception: marginal-equals-conditional}
+        answer: B
+        explanation: 边际比例汇总所有年级；条件比例把比较限定在指定年级内。
+      b:
+        prompt: “全部订单退货率”和“在新客户中的退货率”分别属于？
+        options:
+          - {id: A, text: 边际比例与以客户类型为条件的比例, misconception: null}
+          - {id: B, text: 两个均值, misconception: proportion-as-mean}
+          - {id: C, text: 两个边际比例, misconception: ignore-condition}
+          - {id: D, text: 总体参数与样本量, misconception: confuse-parameter-count}
+        answer: A
+        explanation: 第一个数不区分客户类型，第二个数明确限定在新客户内。
+
+  - concept_id: confounding-stratification
+    title: 混杂与分层比较
+    tutor_context: 解释一个变量如何同时关联组别和结果，以及分层为何能帮助比较。
+    pair:
+      a:
+        prompt: 两家医院的病人严重程度构成差异很大，严重程度又影响死亡率。比较医院时应优先？
+        options:
+          - {id: A, text: 只比较总死亡人数, misconception: count-only}
+          - {id: B, text: 删除所有严重病人, misconception: remove-hard-cases}
+          - {id: C, text: 在可比的严重程度层内比较，并报告构成差异, misconception: null}
+          - {id: D, text: 把医院名称改成数字, misconception: recode-removes-confounding}
+        answer: C
+        explanation: 严重程度同时关联医院和结局，整体比较会混合病例构成与层内差异。
+      b:
+        prompt: 两种教学方式所面对的入学基础水平不同，基础水平也影响成绩。哪个做法更合理？
+        options:
+          - {id: A, text: 只比较两组总均值, misconception: aggregate-only}
+          - {id: B, text: 按基础水平分层或调整后再比较教学方式, misconception: null}
+          - {id: C, text: 只要样本大就忽略基础差异, misconception: size-removes-confounding}
+          - {id: D, text: 把基础水平的数据列删除, misconception: hide-confounder}
+        answer: B
+        explanation: 在基础水平可比的条件下进行比较，可减少构成差异对组间关联的混淆。
+
+  - concept_id: weighted-composition
+    title: 加权与构成效应
+    tutor_context: 解释整体比例是各层比例的加权结果，权重变化可以在层内不变时改变整体。
+    pair:
+      a:
+        prompt: 一所学校各年级通过率均不变，但低通过率年级的学生占比上升。全校通过率可能？
+        options:
+          - {id: A, text: 下降，因为各层权重变了, misconception: null}
+          - {id: B, text: 必然不变，因为层内比例不变, misconception: ignore-weights}
+          - {id: C, text: 必然上升, misconception: reverse-composition}
+          - {id: D, text: 等于各年级通过率的不加权平均, misconception: equal-weight-strata}
+        answer: A
+        explanation: 整体比例由层内比例和各层占比共同决定，低通过率层权重上升可拉低整体。
+      b:
+        prompt: 要把两家门店的客户满意率标准化到同一客户类型构成，应如何做？
+        options:
+          - {id: A, text: 各自使用实际客户构成, misconception: keep-different-weights}
+          - {id: B, text: 只保留两店样本量相同的层, misconception: discard-strata}
+          - {id: C, text: 对客户类型编码取平均, misconception: average-labels}
+          - {id: D, text: 对两店的层内满意率使用同一组目标权重汇总, misconception: null}
+        answer: D
+        explanation: 相同目标权重去除了客户类型构成不同对整体比较的直接影响。
+
+  - concept_id: simpson-reversal
+    title: 辛普森悖论（Simpson 反转）
+    tutor_context: 解释为什么每个分层内的比较方向可以与合并后相反，以及构成权重的作用。
+    pair:
+      a:
+        prompt: 方案 X 在高难度和低难度任务中成功率都高于 Y，但合并后 X 更低。这种现象最可能与什么有关？
+        options:
+          - {id: A, text: 百分比不能用于比较, misconception: proportions-invalid}
+          - {id: B, text: X 在高难度任务中的占比更大, misconception: null}
+          - {id: C, text: 每个层内至少有一个计算必然错误, misconception: reversal-means-error}
+          - {id: D, text: 整体样本量一定太小, misconception: reversal-only-small-sample}
+        answer: B
+        explanation: 若 X 承担更多高难度任务，不同权重可使合并方向与各层方向相反。
+      b:
+        prompt: 发现整体趋势与每个年龄组内趋势相反时，最负责的报告是？
+        options:
+          - {id: A, text: 只选择支持原建议的那个结果, misconception: cherry-pick-level}
+          - {id: B, text: 只报告整体，因为样本更大, misconception: aggregate-only}
+          - {id: C, text: 同时报告整体、分层结果和构成权重，解释两者回答的问题, misconception: null}
+          - {id: D, text: 把年龄组删除后重新计算, misconception: delete-stratifier}
+        answer: C
+        explanation: 反转不能通过挑选层次解决；应透明展示层内差异、权重与整体问题的关系。
+
+  - concept_id: causal-boundary-grouped
+    title: 分层后的因果边界
+    tutor_context: 解释分层可描述条件关联，但不会自动控制未测量混杂或建立因果。
+    pair:
+      a:
+        prompt: 在所有已观测年龄组内，使用某产品者留存率都更高。可以直接断言？
+        options:
+          - {id: A, text: 年龄分层已排除所有可能混杂, misconception: one-stratifier-solves-all}
+          - {id: B, text: 产品对每个人都产生同样的因果效果, misconception: association-is-individual-effect}
+          - {id: C, text: 已观测年龄组内存在关联，但仍需考虑自选和其他混杂, misconception: null}
+          - {id: D, text: 样本越大就越能直接证明因果, misconception: size-proves-causality}
+        answer: C
+        explanation: 年龄层内关联只处理了该变量的构成问题，不排除其他已测或未测因素。
+      b:
+        prompt: 标准化后两家医院的死亡率仍不同。最稳妥的结论是？
+        options:
+          - {id: A, text: 已证明医院名称造成死亡, misconception: hospital-label-causal}
+          - {id: D, text: 在所用标准人群与已调整变量下仍有差异，但不能排除其他解释, misconception: null}
+          - {id: C, text: 标准化会自动模拟随机试验, misconception: standardization-is-randomization}
+          - {id: B, text: 可以确定每名病人换医院都会改变结果, misconception: aggregate-to-individual-causal}
+        answer: D
+        explanation: 标准化改善了已选构成变量的可比性，但不会自动消除未调整差异或建立因果。

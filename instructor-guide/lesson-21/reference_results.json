@@ -1,0 +1,47 @@
+{
+  "lesson": 21,
+  "reference_only": true,
+  "results": {
+    "train_n": 2400,
+    "correlation": 0.7149100676596623,
+    "slope_per_backlog_unit": {
+      "coefficient": 1.6364608584418114,
+      "cluster_se": 0.03971208434620477,
+      "ci95": [
+        1.5581503538294355,
+        1.7147713630541874
+      ],
+      "clusters": 200
+    },
+    "validation_mae": 6.349716990668061,
+    "residual_bins": [
+      {
+        "backlog_range": [
+          0,
+          10
+        ],
+        "n": 253,
+        "mean_residual": 2.860071013604375
+      },
+      {
+        "backlog_range": [
+          10,
+          20
+        ],
+        "n": 1570,
+        "mean_residual": -0.8886767077402278
+      },
+      {
+        "backlog_range": [
+          20,
+          40
+        ],
+        "n": 577,
+        "mean_residual": 1.1639938729804327
+      }
+    ],
+    "influence_record": "R030-04",
+    "slope_without_one_record": 1.6419948865934084,
+    "caution": "Sensitivity exclusion is not evidence that this record is invalid; association is not intervention effect."
+  }
+}

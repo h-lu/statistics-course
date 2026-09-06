@@ -1,0 +1,117 @@
+lesson_id: v2-l16-r1
+title: "第16课 · 根据实验结果决定推广、试用或停止"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l16-concept-1
+    title: "效应量"
+    tutor_context: "解释“效应量”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "工具组减常规组的平均时间差为−4分钟，直接表示什么？"
+        options:
+          - {id: A, text: "按所用目标和分析，工具组平均时间较低4分钟", misconception: null}
+          - {id: B, text: "工具使每个人都恰好快4分钟", misconception: "l16-c1-misconception-2"}
+          - {id: C, text: "工具组故障率降低4个百分点", misconception: "l16-c1-misconception-3"}
+          - {id: D, text: "零假设为假的概率为4%", misconception: "l16-c1-misconception-4"}
+        answer: A
+        explanation: "效应量必须连同单位、方向和目标解释。"
+      b:
+        prompt: "两研究都p=0.01，一个改善0.2分钟一个5分钟，推广判断还需什么？"
+        options:
+          - {id: A, text: "只需选择样本量更大的研究", misconception: "l16-c1-misconception-1"}
+          - {id: B, text: "两者p相同所以价值完全相同", misconception: "l16-c1-misconception-2"}
+          - {id: C, text: "无需进一步信息，均应全面推广", misconception: "l16-c1-misconception-3"}
+          - {id: D, text: "效应区间、业务门槛和实施成本", misconception: null}
+        answer: D
+        explanation: "p值不表达大小或成本价值。"
+  - concept_id: l16-concept-2
+    title: "意向性分析原则"
+    tutor_context: "解释“意向性分析原则”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "按最初随机分配分析未依从者，主要遵循什么原则？"
+        options:
+          - {id: A, text: "按实际治疗分析，评价使用者效果", misconception: "l16-c2-misconception-1"}
+          - {id: B, text: "删去未按方案实施的参与者以保持随机化", misconception: "l16-c2-misconception-2"}
+          - {id: C, text: "意向性分析，评价提供该处理的效应", misconception: null}
+          - {id: D, text: "把未依从者自动转入对照组", misconception: "l16-c2-misconception-4"}
+        answer: C
+        explanation: "ITT保留分配比较，依从问题不靠重新分组解决。"
+      b:
+        prompt: "使用工具者比不使用者更快，但使用是自主选择。能直接称工具因果效果吗？"
+        options:
+          - {id: A, text: "能，原研究曾经随机就能随机化任何后续分组", misconception: "l16-c2-misconception-1"}
+          - {id: B, text: "不能，实际使用分组可能受动机或工作量选择影响", misconception: null}
+          - {id: C, text: "能，只要使用者均值更低", misconception: "l16-c2-misconception-3"}
+          - {id: D, text: "不能，因为实验数据只能描述不能推断", misconception: "l16-c2-misconception-4"}
+        answer: B
+        explanation: "实际使用是分配后行为，按它分组失去原随机保障。"
+  - concept_id: l16-concept-3
+    title: "置信区间（复习）"
+    tutor_context: "解释“置信区间（复习）”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "效应95%区间为[−8,−2]分钟，业务需要至少改善3分钟。哪项恰当？"
+        options:
+          - {id: A, text: "有改善证据，但对是否达到至少3分钟仍有不确定", misconception: null}
+          - {id: B, text: "区间不含0所以保证至少改善3分钟", misconception: "l16-c3-misconception-2"}
+          - {id: C, text: "区间含−3所以已证明每人改善3分钟", misconception: "l16-c3-misconception-3"}
+          - {id: D, text: "区间宽说明不能说任何方向", misconception: "l16-c3-misconception-4"}
+        answer: A
+        explanation: "方向与实际门槛是不同判断，区间仍包含小于3分钟的改善。"
+      b:
+        prompt: "区间跨0但包括有价值的改善，应如何报告？"
+        options:
+          - {id: A, text: "宣布两个处理完全相同", misconception: "l16-c3-misconception-1"}
+          - {id: B, text: "只报告最有利端点", misconception: "l16-c3-misconception-2"}
+          - {id: C, text: "将置信度降到显著为止并不注明", misconception: "l16-c3-misconception-3"}
+          - {id: D, text: "报告不确定范围和行动成本，不把未显著当无效证明", misconception: null}
+        answer: D
+        explanation: "未拒绝零效应不等于证据证明相等。"
+  - concept_id: l16-concept-4
+    title: "随机化检验"
+    tutor_context: "解释“随机化检验”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "团队在区组内随机，做随机化检验时应怎样置换？"
+        options:
+          - {id: A, text: "随意打乱全部个体行标签", misconception: "l16-c4-misconception-1"}
+          - {id: B, text: "只交换最极端的观测结果", misconception: "l16-c4-misconception-2"}
+          - {id: C, text: "按原区组内团队分配机制重分标签", misconception: null}
+          - {id: D, text: "把所有团队均值排序后固定分组", misconception: "l16-c4-misconception-4"}
+        answer: C
+        explanation: "置换应尊重实际允许分配集合，保持团队结构。"
+      b:
+        prompt: "有处理影响失访的可能，直接对完整案例做随机化检验并称精确ITT证据，需要注意什么？"
+        options:
+          - {id: A, text: "随机化检验天然不受任何缺失影响", misconception: "l16-c4-misconception-1"}
+          - {id: B, text: "哪些人有完整结局也可能受分配影响，需额外假设或敏感性分析", misconception: null}
+          - {id: C, text: "只要置换足够多就消除失访偏差", misconception: "l16-c4-misconception-3"}
+          - {id: D, text: "删除更多不完整个案即可恢复随机", misconception: "l16-c4-misconception-4"}
+        answer: B
+        explanation: "缺失造成选择，标签置换不能自动恢复所有人结局。"
+  - concept_id: l16-concept-5
+    title: "失访与实施偏离"
+    tutor_context: "解释“失访与实施偏离”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "保留全部随机化名单但20人结局缺失，是否已经完成无假设的ITT效果估计？"
+        options:
+          - {id: A, text: "没有，分配已保留但缺失结局仍需处理假设", misconception: null}
+          - {id: B, text: "已经完成，缺失自动等于0", misconception: "l16-c5-misconception-2"}
+          - {id: C, text: "已经完成，名单存在就无需结局", misconception: "l16-c5-misconception-3"}
+          - {id: D, text: "只能改用实际治疗分析才可处理", misconception: "l16-c5-misconception-4"}
+        answer: A
+        explanation: "ITT原则不等于缺失信息凭空可知。"
+      b:
+        prompt: "敏感性检查只假设两组缺失者完全相同，可能遗漏什么？"
+        options:
+          - {id: A, text: "样本容量是否整数", misconception: "l16-c5-misconception-1"}
+          - {id: B, text: "随机种子是否足够大", misconception: "l16-c5-misconception-2"}
+          - {id: C, text: "置信区间端点是否对称", misconception: "l16-c5-misconception-3"}
+          - {id: D, text: "缺失者在两组有不同结局的情境", misconception: null}
+        answer: D
+        explanation: "处理与缺失可能关联，应考虑组间差异假设。"

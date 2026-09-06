@@ -1,0 +1,19 @@
+{% set current = session.phase %}
+<section class="phase-wrap" data-deadline="{{ session.phase_ends_at or '' }}">
+  <div class="phase-topline">
+    <div>
+      <span class="eyebrow">{{ session.lesson_id }}</span>
+      <strong>{{ session.title }}</strong>
+    </div>
+    <div class="timer" {% if not session.phase_ends_at %}hidden{% endif %}>
+      <span>剩余时间</span>
+      <b data-countdown>--:--</b>
+    </div>
+  </div>
+  <ol class="phase-list" aria-label="知识自查进度">
+    <li class="{% if current == 'a' %}active{% elif current in ['learn','b','result'] %}done{% endif %}">A 版</li>
+    <li class="{% if current == 'learn' %}active{% elif current in ['b','result'] %}done{% endif %}">AI 学习</li>
+    <li class="{% if current == 'b' %}active{% elif current == 'result' %}done{% endif %}">B 版</li>
+    <li class="{% if current == 'result' %}active{% endif %}">反馈</li>
+  </ol>
+</section>

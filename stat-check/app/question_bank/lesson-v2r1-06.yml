@@ -1,0 +1,197 @@
+lesson_id: v2-l06-r1
+title: "第06课 · 业务构成不同的机构应如何比较"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: marginal
+    title: "合并比例与隐含权重"
+    tutor_context: "用不同大小群组解释合并比例为什么不是各组百分比的简单平均。"
+    pair:
+      a:
+        prompt: "某机构小组一办结8/10，小组二办结50/100，合并办结率是多少？"
+        options:
+          - id: A
+            text: "(80%+50%)/2=65%"
+            misconception: "marginal-alternative-1"
+          - id: B
+            text: "58/110"
+            misconception: null
+          - id: C
+            text: "58/100"
+            misconception: "marginal-alternative-2"
+          - id: D
+            text: "8/50"
+            misconception: "marginal-alternative-3"
+        answer: B
+        explanation: "合并需合计分子与分母，或用各组数量权重；两组规模不等。"
+      b:
+        prompt: "两门课通过率都是80%，班级大小不同。把全体学生合并后通过率怎样？"
+        options:
+          - id: A
+            text: "班级大小不同就一定改变合并比例"
+            misconception: "marginal-alternative-1"
+          - id: B
+            text: "必须等班级人数相同才能合并"
+            misconception: "marginal-alternative-2"
+          - id: C
+            text: "合并比例为160%"
+            misconception: "marginal-alternative-3"
+          - id: D
+            text: "仍为80%，因为每组比例相同"
+            misconception: null
+        answer: D
+        explanation: "加权平均相同比例仍是相同比例；构成影响需要层内比例存在差别。"
+  - concept_id: strata
+    title: "分层比例与支持范围"
+    tutor_context: "解释相同层内比较及零分母问题，不把分层当作完全可比证明。"
+    pair:
+      a:
+        prompt: "分层后发现某中心从未承接复杂业务。其复杂业务办结率应怎样处理？"
+        options:
+          - id: A
+            text: "设为0%，表示表现最差"
+            misconception: "strata-alternative-1"
+          - id: B
+            text: "设为100%，因为没有失败工单"
+            misconception: "strata-alternative-2"
+          - id: C
+            text: "未定义，并限制比较范围或明确额外估计假设"
+            misconception: null
+          - id: D
+            text: "直接复制另一中心比例并称真实观测"
+            misconception: "strata-alternative-3"
+        answer: C
+        explanation: "零工单分母没有可观察比例，填0或100都虚构了证据。"
+      b:
+        prompt: "按业务类型比较两个中心，能够解决什么？"
+        options:
+          - id: A
+            text: "控制所分业务构成的混合影响，但其他未记录难度仍可能不同"
+            misconception: null
+          - id: B
+            text: "自动保证每张工单难度完全一样"
+            misconception: "strata-alternative-1"
+          - id: C
+            text: "证明中心名称是所有差异的原因"
+            misconception: "strata-alternative-2"
+          - id: D
+            text: "使样本量和稀疏层不再重要"
+            misconception: "strata-alternative-3"
+        answer: A
+        explanation: "分层提高特定维度可比性，不消除全部选择与未观测差异。"
+  - concept_id: standardization
+    title: "共同权重与直接标准化"
+    tutor_context: "用目标人群构成解释标准化，强调所有对象共用权重。"
+    pair:
+      a:
+        prompt: "A按自身80%复杂业务、B按自身20%复杂业务加权后比较，属于共同标准化吗？"
+        options:
+          - id: A
+            text: "属于，只要都做了乘法加法"
+            misconception: "standardization-alternative-1"
+          - id: B
+            text: "属于，因为各自权重都加起来为1"
+            misconception: "standardization-alternative-2"
+          - id: C
+            text: "只有复杂业务比例超过50%才算标准化"
+            misconception: "standardization-alternative-3"
+          - id: D
+            text: "不属于，因为仍使用不同的构成权重"
+            misconception: null
+        answer: D
+        explanation: "直接标准化需要所有比较对象使用同一目标构成。"
+      b:
+        prompt: "计划人群常规占40%、复杂占60%。中心某层办结率分别90%、70%，对应标准化率是多少？"
+        options:
+          - id: A
+            text: "80%，因为两层率应直接平均"
+            misconception: "standardization-alternative-1"
+          - id: B
+            text: "78%"
+            misconception: null
+          - id: C
+            text: "82%，因为把常规与复杂业务的权重互换"
+            misconception: "standardization-alternative-2"
+          - id: D
+            text: "160%，因为把两个百分比相加"
+            misconception: "standardization-alternative-3"
+        answer: B
+        explanation: "共同目标权重下0.4×0.9+0.6×0.7=0.78；该值代表计划构成。"
+  - concept_id: simpson
+    title: "聚合反转与解释"
+    tutor_context: "解释合并方向与各层方向为何可以相反，使用新的数据小例。"
+    pair:
+      a:
+        prompt: "A在每个业务层的办结率都高于B，但合并率更低。最应先检查什么？"
+        options:
+          - id: A
+            text: "两中心的业务构成与分层分母"
+            misconception: null
+          - id: B
+            text: "立刻认定某个率算错了"
+            misconception: "simpson-alternative-1"
+          - id: C
+            text: "直接认定分层变量不能使用"
+            misconception: "simpson-alternative-2"
+          - id: D
+            text: "把A的工单数改到与B相同"
+            misconception: "simpson-alternative-3"
+        answer: A
+        explanation: "不同构成可以导致合并方向反转；应核算分层与权重，而非立即删数或判错。"
+      b:
+        prompt: "A在两个层内的率均严格高于B，给二者使用同一组非负、和为1的权重，会怎样？"
+        options:
+          - id: A
+            text: "只要改变共同权重，B一定能反超"
+            misconception: "simpson-alternative-1"
+          - id: B
+            text: "共同权重会让二者率完全相等"
+            misconception: "simpson-alternative-2"
+          - id: C
+            text: "A的标准化率仍高于B"
+            misconception: null
+          - id: D
+            text: "无法比较，因为共同权重必然有偏"
+            misconception: "simpson-alternative-3"
+        answer: C
+        explanation: "层内差均为正，非负共同权重加权后仍为正；前提是两层均有有效率。"
+  - concept_id: causal-boundary
+    title: "标准化结果与因果解释的条件与局限"
+    tutor_context: "解释同构成比较与实际干预效果不同，用观察机构数据举例。"
+    pair:
+      a:
+        prompt: "共同业务构成下A办结率更高，可以直接推断调去A的工作人员会提高B办结率吗？"
+        options:
+          - id: A
+            text: "可以，标准化已经等同随机分配"
+            misconception: "causal-boundary-alternative-1"
+          - id: B
+            text: "不能，标准化描述没有直接识别调人干预的效果"
+            misconception: null
+          - id: C
+            text: "可以，只要差异保留足够小数"
+            misconception: "causal-boundary-alternative-2"
+          - id: D
+            text: "不能，所以标准化结果完全没有描述价值"
+            misconception: "causal-boundary-alternative-3"
+        answer: B
+        explanation: "构成调整有描述价值，但工作人员、业务难度与制度等机制未由此分离。"
+      b:
+        prompt: "某中心实际办结率75%，共同构成下标准化率82%。应怎样发布？"
+        options:
+          - id: A
+            text: "将原办结工单数改为总数的82%"
+            misconception: "causal-boundary-alternative-1"
+          - id: B
+            text: "只公布82%并称其是已观察的实际比例"
+            misconception: "causal-boundary-alternative-2"
+          - id: C
+            text: "认为两值不同就证明计算错误"
+            misconception: "causal-boundary-alternative-3"
+          - id: D
+            text: "分别说明实际业务结果与共同构成比较，不把82%写成原样本实际办结比例"
+            misconception: null
+        answer: D
+        explanation: "两者目标不同：实际比例使用自身构成，标准化使用共同目标构成。"

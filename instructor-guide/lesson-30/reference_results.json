@@ -1,0 +1,195 @@
+{
+  "lesson": 30,
+  "reference_only": true,
+  "results": {
+    "rolling_scores": {
+      "last": {
+        "validation_mae": 14.777777777777779,
+        "calibration_mae": 14.0
+      },
+      "seasonal": {
+        "validation_mae": 26.833333333333332,
+        "calibration_mae": 21.75
+      },
+      "trend_seasonal": {
+        "validation_mae": 9.037853032392608,
+        "calibration_mae": 12.78372006615974
+      }
+    },
+    "chosen": "trend_seasonal",
+    "calibrated_half_width": 29.972366989589034,
+    "test_mae": 18.431214585958486,
+    "test_coverage": 0.75,
+    "test_predictions": [
+      {
+        "week": 132,
+        "actual": 260.0,
+        "prediction": 229.8135163059986,
+        "lower": 199.84114931640957,
+        "upper": 259.7858832955876
+      },
+      {
+        "week": 133,
+        "actual": 266.0,
+        "prediction": 226.43357108500643,
+        "lower": 196.4612040954174,
+        "upper": 256.4059380745955
+      },
+      {
+        "week": 134,
+        "actual": 239.0,
+        "prediction": 223.27524714578882,
+        "lower": 193.3028801561998,
+        "upper": 253.24761413537786
+      },
+      {
+        "week": 135,
+        "actual": 241.0,
+        "prediction": 220.3925172821723,
+        "lower": 190.42015029258326,
+        "upper": 250.36488427176133
+      },
+      {
+        "week": 136,
+        "actual": 235.0,
+        "prediction": 222.00548032275847,
+        "lower": 192.03311333316944,
+        "upper": 251.9778473123475
+      },
+      {
+        "week": 137,
+        "actual": 242.0,
+        "prediction": 219.8071754021741,
+        "lower": 189.83480841258506,
+        "upper": 249.77954239176313
+      },
+      {
+        "week": 138,
+        "actual": 236.0,
+        "prediction": 218.00058466022335,
+        "lower": 188.02821767063432,
+        "upper": 247.9729516498124
+      },
+      {
+        "week": 139,
+        "actual": 252.0,
+        "prediction": 216.62040816197148,
+        "lower": 186.64804117238245,
+        "upper": 246.59277515156052
+      },
+      {
+        "week": 140,
+        "actual": 253.0,
+        "prediction": 219.14906709403925,
+        "lower": 189.17670010445022,
+        "upper": 249.1214340836283
+      },
+      {
+        "week": 141,
+        "actual": 254.0,
+        "prediction": 218.7211342424966,
+        "lower": 188.74876725290756,
+        "upper": 248.69350123208562
+      },
+      {
+        "week": 142,
+        "actual": 256.0,
+        "prediction": 218.7692786825853,
+        "lower": 188.79691169299628,
+        "upper": 248.74164567217434
+      },
+      {
+        "week": 143,
+        "actual": 245.0,
+        "prediction": 219.30149897998626,
+        "lower": 189.32913199039723,
+        "upper": 249.2738659695753
+      },
+      {
+        "week": 144,
+        "actual": 242.0,
+        "prediction": 225.4681449947394,
+        "lower": 195.49577800515036,
+        "upper": 255.44051198432842
+      },
+      {
+        "week": 145,
+        "actual": 251.0,
+        "prediction": 227.0039074368572,
+        "lower": 197.03154044726816,
+        "upper": 256.97627442644625
+      },
+      {
+        "week": 146,
+        "actual": 242.0,
+        "prediction": 228.98140631765415,
+        "lower": 199.0090393280651,
+        "upper": 258.9537733072432
+      },
+      {
+        "week": 147,
+        "actual": 239.0,
+        "prediction": 231.38098898143215,
+        "lower": 201.40862199184312,
+        "upper": 261.3533559710212
+      },
+      {
+        "week": 148,
+        "actual": 243.0,
+        "prediction": 236.61791993305548,
+        "lower": 206.64555294346644,
+        "upper": 266.5902869226445
+      },
+      {
+        "week": 149,
+        "actual": 239.0,
+        "prediction": 239.79679317912928,
+        "lower": 209.82442618954025,
+        "upper": 269.7691601687183
+      },
+      {
+        "week": 150,
+        "actual": 228.0,
+        "prediction": 243.29130341323287,
+        "lower": 213.31893642364383,
+        "upper": 273.2636704028219
+      },
+      {
+        "week": 151,
+        "actual": 240.0,
+        "prediction": 247.05989111272103,
+        "lower": 217.087524123132,
+        "upper": 277.03225810231004
+      },
+      {
+        "week": 152,
+        "actual": 242.0,
+        "prediction": 250.32590527440692,
+        "lower": 220.3535382848179,
+        "upper": 280.29827226399595
+      },
+      {
+        "week": 153,
+        "actual": 251.0,
+        "prediction": 254.49227968222667,
+        "lower": 224.51991269263763,
+        "upper": 284.4646466718157
+      },
+      {
+        "week": 154,
+        "actual": 266.0,
+        "prediction": 277.37381098869673,
+        "lower": 247.4014439991077,
+        "upper": 307.34617797828577
+      },
+      {
+        "week": 155,
+        "actual": 280.0,
+        "prediction": 281.75101344152944,
+        "lower": 251.7786464519404,
+        "upper": 311.72338043111847
+      }
+    ],
+    "note": "Approximate empirical 90% band, not guaranteed conditional coverage under serial dependence or drift. Parameters refit with past only."
+  }
+}

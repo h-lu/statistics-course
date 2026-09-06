@@ -1,0 +1,86 @@
+{
+  "lesson": 23,
+  "reference_only": true,
+  "results": {
+    "validation": {
+      "base": {
+        "n": 960,
+        "prevalence": 0.19270833333333334,
+        "mean_probability": 0.18743752900336164,
+        "brier": 0.13725916631741816,
+        "auc": 0.7303993025283347
+      },
+      "interaction": {
+        "n": 960,
+        "prevalence": 0.19270833333333334,
+        "mean_probability": 0.18804561803075737,
+        "brier": 0.1360637886836247,
+        "auc": 0.7392920662598081
+      }
+    },
+    "selected_model": "interaction",
+    "rules": [
+      {
+        "cutoff": 0,
+        "selected": 240,
+        "tp": 92,
+        "fp": 148,
+        "fn": 93,
+        "diagnostic_loss": 892,
+        "precision": 0.38333333333333336,
+        "recall": 0.4972972972972973
+      },
+      {
+        "cutoff": 0.08,
+        "selected": 240,
+        "tp": 92,
+        "fp": 148,
+        "fn": 93,
+        "diagnostic_loss": 892,
+        "precision": 0.38333333333333336,
+        "recall": 0.4972972972972973
+      },
+      {
+        "cutoff": 0.12,
+        "selected": 240,
+        "tp": 92,
+        "fp": 148,
+        "fn": 93,
+        "diagnostic_loss": 892,
+        "precision": 0.38333333333333336,
+        "recall": 0.4972972972972973
+      },
+      {
+        "cutoff": 0.18,
+        "selected": 240,
+        "tp": 92,
+        "fp": 148,
+        "fn": 93,
+        "diagnostic_loss": 892,
+        "precision": 0.38333333333333336,
+        "recall": 0.4972972972972973
+      },
+      {
+        "cutoff": 0.25,
+        "selected": 210,
+        "tp": 84,
+        "fp": 126,
+        "fn": 101,
+        "diagnostic_loss": 934,
+        "precision": 0.4,
+        "recall": 0.4540540540540541
+      },
+      {
+        "cutoff": 0.4,
+        "selected": 69,
+        "tp": 38,
+        "fp": 31,
+        "fn": 147,
+        "diagnostic_loss": 1207,
+        "precision": 0.5507246376811594,
+        "recall": 0.20540540540540542
+      }
+    ],
+    "limits": "Loss is a supplied screening scenario, not an identified treatment benefit."
+  }
+}

@@ -1,0 +1,117 @@
+lesson_id: v2-l11
+title: "第11课 · 自愿调查能够代表哪些人"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l11-concept-1
+    title: "目标总体与抽样框"
+    tutor_context: "解释“目标总体与抽样框”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "名单包含本学期3600人，当前调查最直接的目标总体应怎样界定？"
+        options:
+          - {id: A, text: "所有院校学生", misconception: "l11-c1-misconception-1"}
+          - {id: B, text: "所有曾经使用同类服务的人", misconception: "l11-c1-misconception-2"}
+          - {id: C, text: "只有回答问卷的人才可称总体", misconception: "l11-c1-misconception-3"}
+          - {id: D, text: "该名单所覆盖的本学期人群，外推需额外依据", misconception: null}
+        answer: D
+        explanation: "目标总体需明确范围，抽样框是否覆盖它是推广前提。"
+      b:
+        prompt: "研究全市居民却只从手机会员名单抽取，首先需要检查什么？"
+        options:
+          - {id: A, text: "把样本量增到会员数一半是否足够", misconception: "l11-c1-misconception-1"}
+          - {id: B, text: "只检查问卷标准差", misconception: "l11-c1-misconception-2"}
+          - {id: C, text: "抽样框遗漏了哪些目标居民", misconception: null}
+          - {id: D, text: "只保证抽取会员时每个号码等概率", misconception: "l11-c1-misconception-4"}
+        answer: C
+        explanation: "框内随机抽样不能自动解决框外覆盖不足。"
+  - concept_id: l11-concept-2
+    title: "选择偏差与非响应"
+    tutor_context: "解释“选择偏差与非响应”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "满意度较高者在同一校区内也更愿回应，只按校区加权能保证消除偏差吗？"
+        options:
+          - {id: A, text: "能，只要各校区权重和为总体人数", misconception: "l11-c2-misconception-1"}
+          - {id: B, text: "不能，层内回应机制仍可能与满意度有关", misconception: null}
+          - {id: C, text: "能，只要回应总数超过1000", misconception: "l11-c2-misconception-3"}
+          - {id: D, text: "不能，因为任何加权都必然增加偏差", misconception: "l11-c2-misconception-4"}
+        answer: B
+        explanation: "后分层只校正已处理构成，层内选择偏差仍需假设或更多信息。"
+      b:
+        prompt: "有两份调查，一份较小概率样本，一份很大自愿样本。能只凭人数说哪份更代表总体吗？"
+        options:
+          - {id: A, text: "不能，代表性还取决于覆盖与参与机制", misconception: null}
+          - {id: B, text: "能，大样本总能消除选择偏差", misconception: "l11-c2-misconception-2"}
+          - {id: C, text: "能，小样本误差总更大所以不能用", misconception: "l11-c2-misconception-3"}
+          - {id: D, text: "能，问卷题目相同就只需比人数", misconception: "l11-c2-misconception-4"}
+        answer: A
+        explanation: "样本量影响随机波动，不能代替对抽样与回应机制的分析。"
+  - concept_id: l11-concept-3
+    title: "后分层权重"
+    tutor_context: "解释“后分层权重”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "某层总体600人、回应100人，后分层权重6的直接作用是什么？"
+        options:
+          - {id: A, text: "证明每人有1/6的真实自愿回应概率", misconception: "l11-c3-misconception-1"}
+          - {id: B, text: "把每人的满意度提高6分", misconception: "l11-c3-misconception-2"}
+          - {id: C, text: "证明6名未回应者与每名回应者完全相同", misconception: "l11-c3-misconception-3"}
+          - {id: D, text: "让该层回应者合计代表600人的构成份额", misconception: null}
+        answer: D
+        explanation: "N_h/n_h调整构成，但不自动识别每人的真实纳入概率。"
+      b:
+        prompt: "总体两层各占一半，回应者中一层占80%。后分层调整主要修正哪一点？"
+        options:
+          - {id: A, text: "每层内所有非响应差异", misconception: "l11-c3-misconception-1"}
+          - {id: B, text: "每人的测量误差", misconception: "l11-c3-misconception-2"}
+          - {id: C, text: "两层在总体估计中的构成权重", misconception: null}
+          - {id: D, text: "抽样框中的遗漏人群", misconception: "l11-c3-misconception-4"}
+        answer: C
+        explanation: "后分层按已知总体构成加权，其他偏差需另行检查。"
+  - concept_id: l11-concept-4
+    title: "精度与偏差"
+    tutor_context: "解释“精度与偏差”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "一个有选择偏差的调查置信区间很窄，最恰当的解释是？"
+        options:
+          - {id: A, text: "区间窄证明无选择偏差", misconception: "l11-c4-misconception-1"}
+          - {id: B, text: "在所用随机误差模型下很精确，但仍可能系统偏离目标", misconception: null}
+          - {id: C, text: "区间窄说明问卷一定真实", misconception: "l11-c4-misconception-3"}
+          - {id: D, text: "区间窄就可忽略未回应者", misconception: "l11-c4-misconception-4"}
+        answer: B
+        explanation: "精度与偏差是不同维度，区间往往不涵盖未建模选择偏差。"
+      b:
+        prompt: "将同一自愿平台样本扩到十倍，最可能直接减少什么？"
+        options:
+          - {id: A, text: "在相同机制下的随机波动，不必然减少选择偏差", misconception: null}
+          - {id: B, text: "所有未回应偏差", misconception: "l11-c4-misconception-2"}
+          - {id: C, text: "框外覆盖不足", misconception: "l11-c4-misconception-3"}
+          - {id: D, text: "研究问题定义不清", misconception: "l11-c4-misconception-4"}
+        answer: A
+        explanation: "样本规模通常改善精度，不保证纠正参与机制。"
+  - concept_id: l11-concept-5
+    title: "敏感性分析"
+    tutor_context: "解释“敏感性分析”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "设未回应者平均满意度比回应者低0—10分并重算，所得范围是什么？"
+        options:
+          - {id: A, text: "自动具有95%覆盖的置信区间", misconception: "l11-c5-misconception-1"}
+          - {id: B, text: "未回应者真实均值的已知范围", misconception: "l11-c5-misconception-2"}
+          - {id: C, text: "证明最悲观情境必然成立", misconception: "l11-c5-misconception-3"}
+          - {id: D, text: "明确假设范围下的敏感性结果", misconception: null}
+        answer: D
+        explanation: "参数情境范围与抽样置信区间含义不同。"
+      b:
+        prompt: "结论只在假定未回应者与回应者几乎相同时成立，最有用的下一步是什么？"
+        options:
+          - {id: A, text: "继续增加已回应者的重复问卷", misconception: "l11-c5-misconception-1"}
+          - {id: B, text: "保留点估计并删去限制", misconception: "l11-c5-misconception-2"}
+          - {id: C, text: "定向补访未回应者以检验关键差异", misconception: null}
+          - {id: D, text: "增加小数位显示稳定", misconception: "l11-c5-misconception-4"}
+        answer: C
+        explanation: "补采应针对决定依赖的未识别部分，而非重复已有信息。"

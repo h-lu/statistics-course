@@ -1,0 +1,46 @@
+{
+  "actual_looks": [
+    {
+      "day": 10,
+      "confirmed_difference": 0.0025000000000000022,
+      "confirmed_p": 0.9418210146025738,
+      "complete_case_difference": 0.016303588884234
+    },
+    {
+      "day": 20,
+      "confirmed_difference": 0.011250000000000038,
+      "confirmed_p": 0.6372592260732792,
+      "complete_case_difference": 0.025961188283648073
+    },
+    {
+      "day": 30,
+      "confirmed_difference": 0.02416666666666667,
+      "confirmed_p": 0.20552103579284942,
+      "complete_case_difference": 0.03833228075626299
+    }
+  ],
+  "naive_first_crossing": null,
+  "planned_three_look_first_crossing": null,
+  "unobserved_outcome_worst_case_bounds": [
+    -0.014999999999999958,
+    0.09833333333333333
+  ],
+  "totals": {
+    "tool": {
+      "n": 1200,
+      "obs": 1111,
+      "y": 402
+    },
+    "usual": {
+      "n": 1200,
+      "obs": 1153,
+      "y": 373
+    }
+  },
+  "null_simulation": {
+    "reps": 5000,
+    "naive_any_day": 0.2824,
+    "fixed_day30": 0.0518,
+    "three_bonferroni_looks": 0.0336
+  }
+}

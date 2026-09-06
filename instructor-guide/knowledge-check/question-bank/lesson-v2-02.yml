@@ -1,0 +1,197 @@
+lesson_id: v2-l02
+title: "第02课 · 一份重要发现究竟有多稳定"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: quantile
+    title: "分位数与算法"
+    tutor_context: "解释分位数位置和软件算法差异，用新的一组短数据。"
+    pair:
+      a:
+        prompt: "按线性位置(n−1)p插值，排序数据0、10、20、30的第75百分位数是多少？"
+        options:
+          - id: A
+            text: "20"
+            misconception: "quantile-alternative-1"
+          - id: B
+            text: "22.5"
+            misconception: null
+          - id: C
+            text: "25"
+            misconception: "quantile-alternative-2"
+          - id: D
+            text: "30"
+            misconception: "quantile-alternative-3"
+        answer: B
+        explanation: "n=4，位置3×0.75=2.25；从0计数的第2个值为20，再向30插值四分之一，得22.5。"
+      b:
+        prompt: "两种软件对同一小样本报告稍有不同的P90，应先检查什么？"
+        options:
+          - id: A
+            text: "哪款软件显示的小数位更多"
+            misconception: "quantile-alternative-1"
+          - id: B
+            text: "哪个结果更接近样本最大值就选哪个"
+            misconception: "quantile-alternative-2"
+          - id: C
+            text: "必须有一款软件在任何情况下都不可靠"
+            misconception: "quantile-alternative-3"
+          - id: D
+            text: "它们采用的分位数算法及缺失处理是否相同"
+            misconception: null
+        answer: D
+        explanation: "分位数存在多种约定，小样本中算法、缺失处理和插值方式可能造成合法差异。"
+  - concept_id: dispersion
+    title: "位置、离散程度与单位"
+    tutor_context: "用平移和单位换算解释位置统计量与离散尺度的关系。"
+    pair:
+      a:
+        prompt: "所有等待时间都增加5分钟，哪项正确？"
+        options:
+          - id: A
+            text: "标准差也必然增加5分钟"
+            misconception: "dispersion-alternative-1"
+          - id: B
+            text: "中位数不变，均值增加5分钟"
+            misconception: "dispersion-alternative-2"
+          - id: C
+            text: "均值增加5分钟，标准差不变"
+            misconception: null
+          - id: D
+            text: "四分位距增加10分钟"
+            misconception: "dispersion-alternative-3"
+        answer: C
+        explanation: "平移不改变各记录之间的差距或相对均值的偏离，所以离散尺度不变。"
+      b:
+        prompt: "将一组等待从分钟统一换成秒，原标准差2分钟、IQR3分钟应变为什么？"
+        options:
+          - id: A
+            text: "标准差120秒、IQR180秒"
+            misconception: null
+          - id: B
+            text: "标准差2秒、IQR3秒"
+            misconception: "dispersion-alternative-1"
+          - id: C
+            text: "标准差3600秒、IQR180秒"
+            misconception: "dispersion-alternative-2"
+          - id: D
+            text: "只有均值换单位，标准差和IQR不用换"
+            misconception: "dispersion-alternative-3"
+        answer: A
+        explanation: "标准差与IQR都和原变量同单位，数值随单位比例乘60；方差才乘60的平方。"
+  - concept_id: definition
+    title: "分析口径与问题"
+    tutor_context: "解释改变对象或统计目标时为什么可能得到不同但同时合理的结果。"
+    pair:
+      a:
+        prompt: "报告一只分析成功获得服务者，报告二包含放弃排队者离开前等待。两者的平均值不同，首先说明什么？"
+        options:
+          - id: A
+            text: "均值算法不适合服务数据"
+            misconception: "definition-alternative-1"
+          - id: B
+            text: "其中较大的结果一定更真实"
+            misconception: "definition-alternative-2"
+          - id: C
+            text: "只要行数多，任何对象混合都不影响解释"
+            misconception: "definition-alternative-3"
+          - id: D
+            text: "两份报告的对象与等待含义不同，需要先辨明目标"
+            misconception: null
+        answer: D
+        explanation: "对象与变量定义改变可能使目标量改变，不能先把差异归为算法错误。"
+      b:
+        prompt: "一份收入报告关注总收入规模，另一份关注排序中间家庭。为何可能分别重视均值和中位数？"
+        options:
+          - id: A
+            text: "中位数能恢复每家的总收入"
+            misconception: "definition-alternative-1"
+          - id: B
+            text: "它们服务不同描述目标，两者不必给出相同故事"
+            misconception: null
+          - id: C
+            text: "均值只能用于没有任何极端值的数据"
+            misconception: "definition-alternative-2"
+          - id: D
+            text: "只要有中位数，其他指标都没有意义"
+            misconception: "definition-alternative-3"
+        answer: B
+        explanation: "均值与总量相连，中位数描述中间位置；选择应由问题支撑。"
+  - concept_id: sensitivity
+    title: "有依据的敏感性分析"
+    tutor_context: "解释如何选择合理变化并判断结论范围，不把任意删数视为稳健性。"
+    pair:
+      a:
+        prompt: "哪种做法最能支持一项服务结论的敏感性分析？"
+        options:
+          - id: A
+            text: "预先说明几种有业务理由的口径，比较方向、大小和建议是否改变"
+            misconception: null
+          - id: B
+            text: "删掉记录直到所有指标支持原建议"
+            misconception: "sensitivity-alternative-1"
+          - id: C
+            text: "随机换很多参数，只保留最漂亮的图"
+            misconception: "sensitivity-alternative-2"
+          - id: D
+            text: "只用一种算法，把运行两遍称为结论稳健"
+            misconception: "sensitivity-alternative-3"
+        answer: A
+        explanation: "敏感性需要重要且合理的选择变化；重复同一计算主要检查可复现性。"
+      b:
+        prompt: "一个排名在有依据的权重范围内多次反转，应如何报告？"
+        options:
+          - id: A
+            text: "挑一个让排名最好看的权重称为客观排名"
+            misconception: "sensitivity-alternative-1"
+          - id: B
+            text: "所有统计结果都作废，不能提供任何信息"
+            misconception: "sensitivity-alternative-2"
+          - id: C
+            text: "说明排名依赖目标权重，并展示稳定区间或改用多指标表达"
+            misconception: null
+          - id: D
+            text: "将各个名次平均后就证明原排名稳定"
+            misconception: "sensitivity-alternative-3"
+        answer: C
+        explanation: "反转揭示使用条件，不意味着数据毫无价值；需要呈现依赖范围与适当表达。"
+  - concept_id: exploration
+    title: "探索与后续检验"
+    tutor_context: "解释同数据选择与时间外评价的区别，不要求推导检验公式。"
+    pair:
+      a:
+        prompt: "在同一期数据里试了20种分组，选出最明显的一项，再在同一期报告其稳定，属于什么？"
+        options:
+          - id: A
+            text: "已经有完全独立的验证"
+            misconception: "exploration-alternative-1"
+          - id: B
+            text: "仍以探索性证据为主，选择过程需要说明"
+            misconception: null
+          - id: C
+            text: "尝试次数越多越能保证推广无误"
+            misconception: "exploration-alternative-2"
+          - id: D
+            text: "只要图像清楚就不需要后续证据"
+            misconception: "exploration-alternative-3"
+        answer: B
+        explanation: "发现和检查共享数据，可能受分析选择影响，不能把它当完全独立确认。"
+      b:
+        prompt: "规则在前期确定后保持不变，在后一期数据中评价，这增加了什么信息？"
+        options:
+          - id: A
+            text: "证明前期任何选择都没有过拟合"
+            misconception: "exploration-alternative-1"
+          - id: B
+            text: "证明所有后续数据都将给出同样数值"
+            misconception: "exploration-alternative-2"
+          - id: C
+            text: "把描述性规则自动转成随机实验"
+            misconception: "exploration-alternative-3"
+          - id: D
+            text: "提供时间外表现证据，但不保证未来时期或其他人群相同"
+            misconception: null
+        answer: D
+        explanation: "后一期评价减少直接针对该期调参的影响，但时期变化与范围限制仍存在。"

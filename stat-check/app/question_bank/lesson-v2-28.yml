@@ -1,0 +1,198 @@
+lesson_id: v2-l28
+title: "第28课 · 观察数据能够支持多强的效果结论"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "标准化调整"
+    tutor_context: "请解释“标准化调整”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "标准化调整后两组预测应在哪个人群分布上平均？"
+        options:
+          - id: A
+            text: "同一个明确目标协变量分布"
+            misconception: null
+          - id: B
+            text: "各自原有不同构成且不说明"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "只在处理结果最好的人上"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "任何软件默认的第一行"
+            misconception: "c1-a-confusion-4"
+        answer: A
+        explanation: "共同目标分布使两种处理状态对同一人群比较。"
+      b:
+        prompt: "某效果报告删去无可比病例后，标准化只对保留者进行，应怎样命名目标？"
+        options:
+          - id: A
+            text: "自动仍是最初所有人的ATE"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "保留的可支持人群中的比较"
+            misconception: null
+          - id: C
+            text: "全部未来人口的效果"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "所有个体的相同效果"
+            misconception: "c1-b-confusion-4"
+        answer: B
+        explanation: "限制支持范围改变目标人群，需要明示而非延续全体标签。"
+  - concept_id: c2
+    title: "倾向得分"
+    tutor_context: "请解释“倾向得分”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "倾向得分e(X)表示什么？"
+        options:
+          - id: A
+            text: "结果发生的概率"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "给定处理前变量时接受处理的概率"
+            misconception: null
+          - id: C
+            text: "治疗必定有效的概率"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "两人结果完全相同的概率"
+            misconception: "c2-a-confusion-4"
+        answer: B
+        explanation: "倾向得分建模处理选择机制，不是结果风险。"
+      b:
+        prompt: "倾向模型AUC很高，但两组几乎没有重叠，应该如何看待？"
+        options:
+          - id: A
+            text: "AUC高就证明调整成功"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "应直接宣布随机化"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "选择机制易区分，未必有利于效果比较"
+            misconception: null
+          - id: D
+            text: "无需检查权重或平衡"
+            misconception: "c2-b-confusion-4"
+        answer: C
+        explanation: "处理可预测性极高可能意味着可比反例稀少，需诊断重叠。"
+  - concept_id: c3
+    title: "重叠与正值性"
+    tutor_context: "请解释“重叠与正值性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "某类严重人群几乎全接受处理，估计未处理结果的主要困难是什么？"
+        options:
+          - id: A
+            text: "样本的行号不连续"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "结果变量必须离散化"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "缺少相似人群的未处理支持"
+            misconception: null
+          - id: D
+            text: "平均数不能计算"
+            misconception: "c3-a-confusion-4"
+        answer: C
+        explanation: "正值性/重叠不足迫使外推，不能仅靠复杂模型补足证据。"
+      b:
+        prompt: "把倾向0.01和0.99附近人群排除后，哪项必须报告？"
+        options:
+          - id: A
+            text: "只报告最显著p值"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "证明全体效应保持不变"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "把删去人群计为效果0"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "删去多少人及目标人群如何改变"
+            misconception: null
+        answer: D
+        explanation: "支持范围限制是实质研究选择，不是无影响的清洁步骤。"
+  - concept_id: c4
+    title: "平衡与有效样本量"
+    tutor_context: "请解释“平衡与有效样本量”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "权重集中在少数记录上，ESS通常怎样？"
+        options:
+          - id: A
+            text: "必然等于人数乘最大权重"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "一定比原始人数更大"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "只由结果均值决定"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "可能远低于原始人数"
+            misconception: null
+        answer: D
+        explanation: "ESS反映权重集中导致的信息损失，不能只看名义n。"
+      b:
+        prompt: "加权后已测变量差异变小，最合理的解释是什么？"
+        options:
+          - id: A
+            text: "这些已测变量的平衡改善"
+            misconception: null
+          - id: B
+            text: "所有未测混杂已经消除"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "处理已经变成实际随机分配"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "因果假设得到数学证明"
+            misconception: "c4-b-confusion-4"
+        answer: A
+        explanation: "平衡是必要诊断之一，只能针对观测到并检查的变量。"
+  - concept_id: c5
+    title: "可交换性与未测混杂"
+    tutor_context: "请解释“可交换性与未测混杂”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "将调整差解释为因果效应，除了重叠还需要什么重要条件？"
+        options:
+          - id: A
+            text: "给定所调变量后的可交换性等识别假设"
+            misconception: null
+          - id: B
+            text: "倾向模型至少有20个变量"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "所有权重完全一样"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "效果必须统计显著"
+            misconception: "c5-a-confusion-4"
+        answer: A
+        explanation: "一致性、可交换性、正值性等条件不能由显著性替代。"
+      b:
+        prompt: "自助区间较窄，是否已经包含未测混杂的不确定性？"
+        options:
+          - id: A
+            text: "必定包含所有可能偏差"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "通常没有，需单独分析或声明"
+            misconception: null
+          - id: C
+            text: "只有区间跨0才包含"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "增加重抽次数就自动包含"
+            misconception: "c5-b-confusion-4"
+        answer: B
+        explanation: "常规重抽量化给定资料和估计流程的抽样变化，不覆盖所有识别偏差。"
+

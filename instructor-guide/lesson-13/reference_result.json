@@ -1,0 +1,21 @@
+{
+  "sample": {
+    "n": 80,
+    "estimate": 53.53470625,
+    "se": 7.828568317830595,
+    "low": 37.95233079597317,
+    "high": 69.11708170402683
+  },
+  "bootstrap_percentile": [
+    40.20704040625,
+    70.42341618749997
+  ],
+  "action_threshold": 45,
+  "population_benchmark": 48.13249661666667,
+  "simulation_replicates": 400,
+  "coverage": {
+    "t": 0.92,
+    "percentile": 0.9125
+  },
+  "coverage_mcse_upper": 0.025
+}

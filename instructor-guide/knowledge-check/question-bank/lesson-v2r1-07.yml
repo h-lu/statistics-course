@@ -1,0 +1,197 @@
+lesson_id: v2-l07-r1
+title: "第07课 · 满意度调查的覆盖与无回答问题"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: response-denominator
+    title: "邀请、回答与目标范围"
+    tutor_context: "用另一种调查解释邀请率、受邀回答率和全体回答比例。"
+    pair:
+      a:
+        prompt: "200名目标对象中邀请120人，60人回答。受邀者回答率是多少？"
+        options:
+          - id: A
+            text: "60/200=30%"
+            misconception: "response-denominator-alternative-1"
+          - id: B
+            text: "120/200=60%"
+            misconception: "response-denominator-alternative-2"
+          - id: C
+            text: "60/120=50%"
+            misconception: null
+          - id: D
+            text: "120/60=200%"
+            misconception: "response-denominator-alternative-3"
+        answer: C
+        explanation: "受邀者回答率以受邀人数为分母；30%是全体目标中的回答比例。"
+      b:
+        prompt: "目标500张订单，400张被邀请、200张有评价。全体目标中已观察到评价的比例是？"
+        options:
+          - id: A
+            text: "200/500=40%"
+            misconception: null
+          - id: B
+            text: "200/400=50%"
+            misconception: "response-denominator-alternative-1"
+          - id: C
+            text: "400/500=80%"
+            misconception: "response-denominator-alternative-2"
+          - id: D
+            text: "只看有评价者，所以必为100%"
+            misconception: "response-denominator-alternative-3"
+        answer: A
+        explanation: "目标覆盖以全部500张订单为分母，与受邀回答率不同。"
+  - concept_id: complete-cases
+    title: "完整案例与推广"
+    tutor_context: "解释回答者可以被描述，但推广到未提供评价者需要什么。"
+    pair:
+      a:
+        prompt: "回答者中90%满意，没有未提供评价者评价。最稳妥的表述是什么？"
+        options:
+          - id: A
+            text: "全体满意比例已确定为90%"
+            misconception: "complete-cases-alternative-1"
+          - id: B
+            text: "未提供评价者都应算不满意，所以90%必错"
+            misconception: "complete-cases-alternative-2"
+          - id: C
+            text: "有缺失就无法描述任何已回答者"
+            misconception: "complete-cases-alternative-3"
+          - id: D
+            text: "回答者满意比例为90%，全体比例还依赖未提供评价者情况"
+            misconception: null
+        answer: D
+        explanation: "完整案例结果直接描述回答者；既不能自动推广，也不能否认已观察结果。"
+      b:
+        prompt: "两组回答者满意比例相同，一组只回答10%、另一组回答90%。是否可据此确定两组全体满意相同？"
+        options:
+          - id: A
+            text: "可以，相同回答者比例结果就是相同总体结果"
+            misconception: "complete-cases-alternative-1"
+          - id: B
+            text: "不能，两组未观察评价比例与机制可能不同"
+            misconception: null
+          - id: C
+            text: "不能，因为回答少的组全体必然更不满意"
+            misconception: "complete-cases-alternative-2"
+          - id: D
+            text: "可以，只需把小数四舍五入一致"
+            misconception: "complete-cases-alternative-3"
+        answer: B
+        explanation: "未知部分占比及选择机制影响总体推断，相同回答者结果不足以确定全体。"
+  - concept_id: missing-mechanism
+    title: "缺失机制与可识别性"
+    tutor_context: "解释MCAR、MAR和MNAR条件，强调不能仅凭可见相似性证明机制。"
+    pair:
+      a:
+        prompt: "即使给定业务和等待，相同条件下越不满意者仍越不愿回答。对应哪种可能机制？"
+        options:
+          - id: A
+            text: "非随机缺失：回答仍依赖未观察到的满意结果"
+            misconception: null
+          - id: B
+            text: "完全随机缺失：只要有人随机不答就成立"
+            misconception: "missing-mechanism-alternative-1"
+          - id: C
+            text: "随机缺失：因为已记录了业务变量就必然成立"
+            misconception: "missing-mechanism-alternative-2"
+          - id: D
+            text: "不存在缺失：没有回答表示满意"
+            misconception: "missing-mechanism-alternative-3"
+        answer: A
+        explanation: "条件化可见变量后仍依赖缺失结果，属于MNAR的情形。"
+      b:
+        prompt: "回答者与未提供评价者在几个可见变量上的分布相近，能否证明缺失完全随机？"
+        options:
+          - id: A
+            text: "能，可见变量相近就覆盖所有可能机制"
+            misconception: "missing-mechanism-alternative-1"
+          - id: B
+            text: "能，只要样本大于30"
+            misconception: "missing-mechanism-alternative-2"
+          - id: C
+            text: "不能，未观察评价仍可能与回答有关"
+            misconception: null
+          - id: D
+            text: "不能，所以必定存在严重MNAR且方向已知"
+            misconception: "missing-mechanism-alternative-3"
+        answer: C
+        explanation: "可见相似提供有限信息，既不能证明MCAR，也不能确定未知机制及偏差方向。"
+  - concept_id: imputation
+    title: "调整与插补的假设"
+    tutor_context: "用组内代表性说明调整结果不是恢复的观察真值。"
+    pair:
+      a:
+        prompt: "按业务组把回答者满意比例推广到组内全部工单，依赖什么关键假设？"
+        options:
+          - id: A
+            text: "只要组名相同，代表性已由数学保证"
+            misconception: "imputation-alternative-1"
+          - id: B
+            text: "组内回答者对未提供评价者结果具有适当代表性，并有足够回答支持"
+            misconception: null
+          - id: C
+            text: "缺失者与回答者人数必须完全相等"
+            misconception: "imputation-alternative-2"
+          - id: D
+            text: "所有组满意比例必须相同"
+            misconception: "imputation-alternative-3"
+        answer: B
+        explanation: "分组调整把组内结果相似性作为假设，且无回答组不能直接用组内比例。"
+      b:
+        prompt: "一个目标组没有任何回答，软件用其他组模型预测填入满意度。哪项正确？"
+        options:
+          - id: A
+            text: "填入后该组就拥有真实调查结果"
+            misconception: "imputation-alternative-1"
+          - id: B
+            text: "模型能输出数字证明外推无须假设"
+            misconception: "imputation-alternative-2"
+          - id: C
+            text: "没有回答可直接定义满意比例为0"
+            misconception: "imputation-alternative-3"
+          - id: D
+            text: "这是依赖跨组模型外推的估计，应明确支持不足及敏感性"
+            misconception: null
+        answer: D
+        explanation: "软件输出不消除识别与支持问题，外推假设必须单独说明。"
+  - concept_id: bounds
+    title: "未知结果的界限与情景"
+    tutor_context: "用二元满意定义解释极端界限和指定未知比例的情景计算。"
+    pair:
+      a:
+        prompt: "100人中40人回答，其中30人满意。对其余60人不增加评价假设，全体满意比例的极端界限是？"
+        options:
+          - id: A
+            text: "75%至100%"
+            misconception: "bounds-alternative-1"
+          - id: B
+            text: "30%至40%"
+            misconception: "bounds-alternative-2"
+          - id: C
+            text: "30%至90%"
+            misconception: null
+          - id: D
+            text: "固定75%"
+            misconception: "bounds-alternative-3"
+        answer: C
+        explanation: "最少30人满意，最多30+60=90人满意；75%只是回答者比例。"
+      b:
+        prompt: "200人中100人回答，其中60人满意。若假设另外100人中40%满意，全体满意比例为多少？"
+        options:
+          - id: A
+            text: "50%，这是依赖该假设的情景值"
+            misconception: null
+          - id: B
+            text: "60%，因为回答者决定全体"
+            misconception: "bounds-alternative-1"
+          - id: C
+            text: "40%，因为只看未提供评价者"
+            misconception: "bounds-alternative-2"
+          - id: D
+            text: "100%，把60%与40%相加"
+            misconception: "bounds-alternative-3"
+        answer: A
+        explanation: "总满意人数60+100×0.4=100，除以200得50%；未知者40%是假设不是观察。"

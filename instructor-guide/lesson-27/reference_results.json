@@ -1,0 +1,24 @@
+{
+  "lesson": 27,
+  "reference_only": true,
+  "results": {
+    "n": 1400,
+    "crude_burden_difference": 12.779038927965075,
+    "support_rate": 0.62,
+    "severity_by_group": [
+      2.680676691729323,
+      6.251682027649771
+    ],
+    "baseline_covariates": [
+      "severity",
+      "baseline_burden",
+      "access",
+      "age"
+    ],
+    "post_treatment_not_baseline": [
+      "contact_after",
+      "responded_after"
+    ],
+    "note": "Unobserved common causes remain possible. Generator settings are not observational identification evidence."
+  }
+}

@@ -1,0 +1,34 @@
+name: statistics-project-check
+
+on:
+  push:
+    branches:
+      - "**"
+    tags:
+      - "v2-l*-final"
+      - "v2-l*-revision-*"
+
+jobs:
+  check:
+    if: ${{ gitea.repository_owner != 'statistics' }}
+    runs-on: node-20
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create isolated Python environment
+        run: |
+          if ! python3 -c 'import ensurepip' 2>/dev/null; then
+            apt-get update -qq
+            apt-get install -y --no-install-recommends python3-venv
+          fi
+          python3 -m venv .venv
+          .venv/bin/python -m pip install -r requirements.txt
+      - name: Check workflow tools
+        run: .venv/bin/python -m unittest discover -s tests -v
+      - name: Reproduce submitted project evidence
+        env:
+          GITHUB_REF: ${{ gitea.ref }}
+        run: .venv/bin/python scripts/course.py ci
+      - name: Keep supplied data unchanged during analysis
+        run: git diff --exit-code -- data

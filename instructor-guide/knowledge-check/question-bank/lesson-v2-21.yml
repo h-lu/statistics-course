@@ -1,0 +1,197 @@
+lesson_id: v2-l21
+title: "第21课 · 一个关系能否用于实际解释"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "相关"
+    tutor_context: "请解释“相关”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "回归报告称“相关系数0.8”，可直接理解为什么？"
+        options:
+          - id: A
+            text: "每增加1单位输入，结果增加0.8单位"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "两个变量在样本中有较强正线性关联"
+            misconception: null
+          - id: C
+            text: "80%的个体会被该因素改变"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "该因素解释了80%的因果效果"
+            misconception: "c1-a-confusion-4"
+        answer: B
+        explanation: "相关系数无单位，只描述线性关联强度和方向。"
+      b:
+        prompt: "某城市冰饮销量与中暑人数同升，最需要避免哪种表述？"
+        options:
+          - id: A
+            text: "两者在所观察时段正相关"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "温度可能同时影响两者"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "增加冰饮销量会导致更多中暑"
+            misconception: null
+          - id: D
+            text: "应进一步研究共同背景因素"
+            misconception: "c1-b-confusion-4"
+        answer: C
+        explanation: "观察关联不能排除温度等共同原因，不能直接作干预结论。"
+  - concept_id: c2
+    title: "线性回归与斜率"
+    tutor_context: "请解释“线性回归与斜率”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "回归中Y为分钟、X为积压件数，斜率1.5的单位是什么？"
+        options:
+          - id: A
+            text: "件/分钟"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "百分比"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "分钟/件"
+            misconception: null
+          - id: D
+            text: "没有单位"
+            misconception: "c2-a-confusion-4"
+        answer: C
+        explanation: "斜率表示X每增加1单位对应的条件平均Y差，单位为Y单位除以X单位。"
+      b:
+        prompt: "房租以元/月计，面积以平方米计，斜率80如何恰当解释？"
+        options:
+          - id: A
+            text: "任意住房加建1平方米必赚80元"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "房屋面积解释了80%的租金差"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "每月租金必定增加80%"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "在模型条件下面积每多1平方米，月租平均相差80元"
+            misconception: null
+        answer: D
+        explanation: "斜率是指定模型中的条件关联，不保证个体结果或改建收益。"
+  - concept_id: c3
+    title: "残差"
+    tutor_context: "请解释“残差”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "低、中、高负荷段残差均值为3、−4、3，最合理的下一步是什么？"
+        options:
+          - id: A
+            text: "只凭总体RMSE较小就认为没有结构遗漏"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "因总体平均残差近0而宣布模型充分"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "仅把残差标准化，不再检查随负荷的形态"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "检查直线是否遗漏弯曲关系"
+            misconception: null
+        answer: D
+        explanation: "残差随自变量有系统形态，提示均值模型可能不充分。"
+      b:
+        prompt: "一个预测模型在大金额客户中误差幅度明显更大，这主要提示什么？"
+        options:
+          - id: A
+            text: "误差变异可能随输入条件变化"
+            misconception: null
+          - id: B
+            text: "斜率必然为0"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "所有大客户数据都录错"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "只要相关系数为正即可忽略"
+            misconception: "c3-b-confusion-4"
+        answer: A
+        explanation: "误差尺度变化提示异方差，需影响区间或使用范围的处理。"
+  - concept_id: c4
+    title: "影响观测"
+    tutor_context: "请解释“影响观测”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "删除一条记录后斜率变化明显，说明什么？"
+        options:
+          - id: A
+            text: "该记录具有影响，需核查来源并做敏感性说明"
+            misconception: null
+          - id: B
+            text: "该记录必定是录入错误"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "删除后的结果必定正确"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "应该按最想要的斜率决定保留"
+            misconception: "c4-a-confusion-4"
+        answer: A
+        explanation: "影响性是拟合对记录敏感，不等于数据无效。"
+      b:
+        prompt: "一所规模很大的医院显著影响地区回归结果，最妥当的做法是什么？"
+        options:
+          - id: A
+            text: "为使各医院系数接近自动删除"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "保留可核实记录，报告含它与其他合理口径的差异"
+            misconception: null
+          - id: C
+            text: "把医院规模改成平均数"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "仅隐藏该医院的残差图"
+            misconception: "c4-b-confusion-4"
+        answer: B
+        explanation: "真实高影响对象可能正属目标人群；处理必须由用途和证据决定。"
+  - concept_id: c5
+    title: "区间与重复观测"
+    tutor_context: "请解释“区间与重复观测”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "200台设备各有12个月记录，估计斜率区间时应特别注意什么？"
+        options:
+          - id: A
+            text: "2400行必然等同2400个独立设备"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "同一设备内结果可能相关"
+            misconception: null
+          - id: C
+            text: "只要模型拟合好就不需要区间"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "月份越多区间就一定等比例缩小"
+            misconception: "c5-a-confusion-4"
+        answer: B
+        explanation: "重复观测的相关性影响有效信息和标准误。"
+      b:
+        prompt: "40所学校每校调查30名学生，学校政策比较的自助重抽首先应考虑什么单位？"
+        options:
+          - id: A
+            text: "把1200名学生视作完全独立单位"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "只重抽最高分学生"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "学校及其完整学生组"
+            misconception: null
+          - id: D
+            text: "每次仅改变量名称"
+            misconception: "c5-b-confusion-4"
+        answer: C
+        explanation: "共同学校环境可能造成组内相关，重抽单位要对应设计结构。"

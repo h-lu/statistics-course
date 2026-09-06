@@ -1,0 +1,197 @@
+lesson_id: v2-l28-r1
+title: "第28课 · 观察数据中的效应估计与共同支持"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "结果标准化"
+    tutor_context: "请解释“结果标准化”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "进行结果标准化时，两种处理状态下的预测结果，应在哪个人群的协变量分布上取平均？"
+        options:
+          - id: A
+            text: "同一个明确的目标人群的协变量分布"
+            misconception: null
+          - id: B
+            text: "两组各自原有且不同的协变量分布，而且不说明这一差别"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "仅在处理后结果最好的人群中取平均"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "任何软件默认的第一行"
+            misconception: "c1-a-confusion-4"
+        answer: A
+        explanation: "使用共同的目标分布，才能比较同一人群在两种处理状态下的预测结果。"
+      b:
+        prompt: "某项效应分析排除了缺乏可比观测的个体，随后仅对保留者进行结果标准化。应怎样说明目标人群？"
+        options:
+          - id: A
+            text: "自动仍是最初所有人的ATE"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "保留的可比人群中的比较"
+            misconception: null
+          - id: C
+            text: "全部未来人口的效果"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "所有个体的相同效果"
+            misconception: "c1-b-confusion-4"
+        answer: B
+        explanation: "限制共同支持范围可能改变目标人群，应明确说明，不能仍将结论推广到原来的全体人群。"
+  - concept_id: c2
+    title: "倾向得分"
+    tutor_context: "请解释“倾向得分”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "倾向得分e(X)表示什么？"
+        options:
+          - id: A
+            text: "结果发生的概率"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "给定处理前变量时接受处理的概率"
+            misconception: null
+          - id: C
+            text: "治疗必定有效的概率"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "两人结果完全相同的概率"
+            misconception: "c2-a-confusion-4"
+        answer: B
+        explanation: "倾向得分建模处理选择机制，不是结果风险。"
+      b:
+        prompt: "倾向得分模型的AUC很高，但两组的倾向得分分布几乎不重叠。应如何理解？"
+        options:
+          - id: A
+            text: "AUC高就证明调整成功"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "应直接宣布随机化"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "两组很容易被区分，但缺乏可比观测，未必有利于效应估计"
+            misconception: null
+          - id: D
+            text: "无需检查权重或平衡"
+            misconception: "c2-b-confusion-4"
+        answer: C
+        explanation: "如果几乎能根据协变量判断个体是否接受处理，可能很难找到协变量相近但处理状态不同的个体，因此需要检查重叠情况。"
+  - concept_id: c3
+    title: "重叠与正值性"
+    tutor_context: "请解释“重叠与正值性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "严重程度较高的人群几乎都接受了支持。估计这些人在未接受支持时的结果，主要困难是什么？"
+        options:
+          - id: A
+            text: "样本的行号不连续"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "结果变量必须离散化"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "缺少协变量相近的未处理者数据"
+            misconception: null
+          - id: D
+            text: "平均数不能计算"
+            misconception: "c3-a-confusion-4"
+        answer: C
+        explanation: "正值性/重叠不足迫使外推，不能仅靠复杂模型补足证据。"
+      b:
+        prompt: "排除倾向得分接近0.01或0.99的人群后，哪项必须报告？"
+        options:
+          - id: A
+            text: "只报告最显著p值"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "证明全体效应保持不变"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "把删去人群计为效果0"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "排除了多少人，以及目标人群如何改变"
+            misconception: null
+        answer: D
+        explanation: "限制共同支持区域可能改变研究对象，并非不影响目标量的数据清理步骤。"
+  - concept_id: c4
+    title: "平衡与有效样本量"
+    tutor_context: "请解释“平衡与有效样本量”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "权重集中在少数记录上，ESS通常怎样？"
+        options:
+          - id: A
+            text: "必然等于人数乘最大权重"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "一定比原始人数更大"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "只由结果均值决定"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "可能远低于原始人数"
+            misconception: null
+        answer: D
+        explanation: "ESS反映权重集中后有效信息量的减少，不能只看原始样本量n。"
+      b:
+        prompt: "加权后已测变量差异变小，最合理的解释是什么？"
+        options:
+          - id: A
+            text: "这些已测变量的平衡改善"
+            misconception: null
+          - id: B
+            text: "所有未测混杂已经消除"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "处理已经变成实际随机分配"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "因果假设得到数学证明"
+            misconception: "c4-b-confusion-4"
+        answer: A
+        explanation: "平衡是必要诊断之一，只能针对观测到并检查的变量。"
+  - concept_id: c5
+    title: "条件可交换性与未测量混杂"
+    tutor_context: "请解释“条件可交换性与未测量混杂”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "将调整后的组间差异解释为因果效应，除了重叠，还需要什么重要条件？"
+        options:
+          - id: A
+            text: "给定所调整协变量后的条件可交换性等识别假设"
+            misconception: null
+          - id: B
+            text: "倾向模型至少有20个变量"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "所有权重完全一样"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "效果必须统计显著"
+            misconception: "c5-a-confusion-4"
+        answer: A
+        explanation: "一致性、可交换性、正值性等条件不能由显著性替代。"
+      b:
+        prompt: "自助法区间较窄，是否表示它已经涵盖未测量混杂带来的不确定性？"
+        options:
+          - id: A
+            text: "必定包含所有可能偏差"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "通常没有，需单独分析或声明"
+            misconception: null
+          - id: C
+            text: "只有区间跨0才包含"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "增加重抽样次数就自动包含"
+            misconception: "c5-b-confusion-4"
+        answer: B
+        explanation: "常规重抽样量化的是在给定数据和估计流程下的抽样变化，并不涵盖所有因果识别偏差。"

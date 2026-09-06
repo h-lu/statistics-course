@@ -1,0 +1,167 @@
+[
+  {
+    "teams": 12,
+    "people": 240,
+    "true_ITT_improvement": 1.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.09966666666666667,
+    "power_mcse": 0.005469101761173774,
+    "cost": 6120,
+    "within_budget": true,
+    "approx_95_halfwidth": 4.560113700005622
+  },
+  {
+    "teams": 12,
+    "people": 240,
+    "true_ITT_improvement": 3,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.24333333333333335,
+    "power_mcse": 0.007834160712806067,
+    "cost": 6120,
+    "within_budget": true,
+    "approx_95_halfwidth": 4.560113700005622
+  },
+  {
+    "teams": 12,
+    "people": 240,
+    "true_ITT_improvement": 4.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.5,
+    "power_mcse": 0.009128709291752768,
+    "cost": 6120,
+    "within_budget": true,
+    "approx_95_halfwidth": 4.560113700005622
+  },
+  {
+    "teams": 20,
+    "people": 400,
+    "true_ITT_improvement": 1.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.148,
+    "power_mcse": 0.006483209081928485,
+    "cost": 9800,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.330573193007572
+  },
+  {
+    "teams": 20,
+    "people": 400,
+    "true_ITT_improvement": 3,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.438,
+    "power_mcse": 0.009058255902766273,
+    "cost": 9800,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.330573193007572
+  },
+  {
+    "teams": 20,
+    "people": 400,
+    "true_ITT_improvement": 4.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.7556666666666667,
+    "power_mcse": 0.00784505269911247,
+    "cost": 9800,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.330573193007572
+  },
+  {
+    "teams": 24,
+    "people": 480,
+    "true_ITT_improvement": 1.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.16966666666666666,
+    "power_mcse": 0.006852733977250464,
+    "cost": 11640,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.0012390858473377
+  },
+  {
+    "teams": 24,
+    "people": 480,
+    "true_ITT_improvement": 3,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.5123333333333333,
+    "power_mcse": 0.009125931712961128,
+    "cost": 11640,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.0012390858473377
+  },
+  {
+    "teams": 24,
+    "people": 480,
+    "true_ITT_improvement": 4.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.8413333333333334,
+    "power_mcse": 0.0066706210494364895,
+    "cost": 11640,
+    "within_budget": true,
+    "approx_95_halfwidth": 3.0012390858473377
+  },
+  {
+    "teams": 40,
+    "people": 800,
+    "true_ITT_improvement": 1.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.251,
+    "power_mcse": 0.007916207004199254,
+    "cost": 19000,
+    "within_budget": false,
+    "approx_95_halfwidth": 2.269285425172603
+  },
+  {
+    "teams": 40,
+    "people": 800,
+    "true_ITT_improvement": 3,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.743,
+    "power_mcse": 0.007978115901222126,
+    "cost": 19000,
+    "within_budget": false,
+    "approx_95_halfwidth": 2.269285425172603
+  },
+  {
+    "teams": 40,
+    "people": 800,
+    "true_ITT_improvement": 4.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.9713333333333334,
+    "power_mcse": 0.0030465767066708846,
+    "cost": 19000,
+    "within_budget": false,
+    "approx_95_halfwidth": 2.269285425172603
+  },
+  {
+    "teams": 60,
+    "people": 1200,
+    "true_ITT_improvement": 1.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.3596666666666667,
+    "power_mcse": 0.008761783599921413,
+    "cost": 28200,
+    "within_budget": false,
+    "approx_95_halfwidth": 1.8321085448211005
+  },
+  {
+    "teams": 60,
+    "people": 1200,
+    "true_ITT_improvement": 3,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.8976666666666666,
+    "power_mcse": 0.005533570945366782,
+    "cost": 28200,
+    "within_budget": false,
+    "approx_95_halfwidth": 1.8321085448211005
+  },
+  {
+    "teams": 60,
+    "people": 1200,
+    "true_ITT_improvement": 4.5,
+    "planning_team_sd": 3.544818856176606,
+    "power": 0.9976666666666667,
+    "power_mcse": 0.0008808875995057209,
+    "cost": 28200,
+    "within_budget": false,
+    "approx_95_halfwidth": 1.8321085448211005
+  }
+]

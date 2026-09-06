@@ -1,0 +1,117 @@
+lesson_id: v2-l20-r1
+title: "第20课 · 序贯分析与实验停止规则"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l20-concept-1
+    title: "可选停止与重复查看"
+    tutor_context: "解释“可选停止与重复查看”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "每天检验、首次p<0.05即停，整体误报率一定为5%吗？"
+        options:
+          - {id: A, text: "不一定，根据结果决定何时停止，改变了完整的检验程序", misconception: null}
+          - {id: B, text: "一定，每次检验都用了0.05", misconception: "l20-c1-misconception-2"}
+          - {id: C, text: "只要每天样本都新增就一定", misconception: "l20-c1-misconception-3"}
+          - {id: D, text: "只要最后只公布一次就一定", misconception: "l20-c1-misconception-4"}
+        answer: A
+        explanation: "反复查看和可选停止需评价整体规则的错误率。"
+      b:
+        prompt: "事后从30天中挑效应最好的日子作为终点，主要问题是什么？"
+        options:
+          - {id: A, text: "天数增加会让所有效应失去单位", misconception: "l20-c1-misconception-1"}
+          - {id: B, text: "只要被选日样本大于30就可忽略", misconception: "l20-c1-misconception-2"}
+          - {id: C, text: "时间数据不能估计均值", misconception: "l20-c1-misconception-3"}
+          - {id: D, text: "终点由结果选择，常规固定终点解释不再直接适用", misconception: null}
+        answer: D
+        explanation: "选择最有利时点属于结果驱动分析，应透明并用适当程序。"
+  - concept_id: l20-concept-2
+    title: "序贯规则与α分配"
+    tutor_context: "解释“序贯规则与α分配”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "预定三次查看，每次有效检验用α=0.05/3，概率的并集上界控制依赖什么？"
+        options:
+          - {id: A, text: "三次p值必须彼此完全独立", misconception: "l20-c2-misconception-1"}
+          - {id: B, text: "必须三次都得到相同p值", misconception: "l20-c2-misconception-2"}
+          - {id: C, text: "每次p值有效且确实按所述三次规则执行，不要求独立", misconception: null}
+          - {id: D, text: "任何额外查看都自动被这三次预算覆盖", misconception: "l20-c2-misconception-4"}
+        answer: C
+        explanation: "Bonferroni概率的并集上界不要求独立，但实际规则和单次有效性要成立。"
+      b:
+        prompt: "计划第10/20/30天查看，却第15天因p<0.05宣布成功，应怎样解释？"
+        options:
+          - {id: A, text: "仍属于第20天附近查看，不影响控制", misconception: "l20-c2-misconception-1"}
+          - {id: B, text: "实际规则偏离计划，不能沿用原三次错误控制声明", misconception: null}
+          - {id: C, text: "只要真实效果可能为正就不影响", misconception: "l20-c2-misconception-3"}
+          - {id: D, text: "把第15天改名第20天即可", misconception: "l20-c2-misconception-4"}
+        answer: B
+        explanation: "错误控制对应执行中的完整程序，不能事后改标签。"
+  - concept_id: l20-concept-3
+    title: "累计样本量与独立单位"
+    tutor_context: "解释“累计样本量与独立单位”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "每日是新参与者，累计样本量应怎样得到？"
+        options:
+          - {id: A, text: "按分配组累加新分配人数，并另报观察人数", misconception: null}
+          - {id: B, text: "把每天累计人数再全部相加", misconception: "l20-c3-misconception-2"}
+          - {id: C, text: "只累加有转化的人数", misconception: "l20-c3-misconception-3"}
+          - {id: D, text: "使用当天最大一组人数代表两组", misconception: "l20-c3-misconception-4"}
+        answer: A
+        explanation: "累计人数避免重复计数，分配与可观察分母需区分。"
+      b:
+        prompt: "同一用户每周访问一次，应怎样理解他的6周记录？"
+        options:
+          - {id: A, text: "任何周访问都不能用于研究", misconception: "l20-c3-misconception-1"}
+          - {id: B, text: "只要累计数据够大就变成独立", misconception: "l20-c3-misconception-2"}
+          - {id: C, text: "用户ID可以删除后当独立", misconception: "l20-c3-misconception-3"}
+          - {id: D, text: "6条记录不等于6个独立随机分配用户", misconception: null}
+        answer: D
+        explanation: "重复观测的依赖结构仍需保留。"
+  - concept_id: l20-concept-4
+    title: "失访与意向性分析（复习）"
+    tutor_context: "解释“失访与意向性分析（复习）”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "按全部分配人数作分母、仅观测到的转化作分子，最准确名称是什么？"
+        options:
+          - {id: A, text: "无任何假设的真实转化率", misconception: "l20-c4-misconception-1"}
+          - {id: B, text: "仅完整案例的转化率", misconception: "l20-c4-misconception-2"}
+          - {id: C, text: "被确认转化率，包含观测过程的复合结局", misconception: null}
+          - {id: D, text: "已自动纠正失访偏差的总体转化率", misconception: "l20-c4-misconception-4"}
+        answer: C
+        explanation: "缺失是否转化未知；该可计算比例定义了确认转化事件。"
+      b:
+        prompt: "两组失访率不同，完整案例转化差与全分配确认转化差不同，说明什么？"
+        options:
+          - {id: A, text: "其中一个一定算术错误", misconception: "l20-c4-misconception-1"}
+          - {id: B, text: "目标/观测分母不同，应检查缺失假设再作因果解释", misconception: null}
+          - {id: C, text: "只需选择差异更大的一个", misconception: "l20-c4-misconception-3"}
+          - {id: D, text: "按分配分组足以让两者必然相等", misconception: "l20-c4-misconception-4"}
+        answer: B
+        explanation: "失访会影响有随访结果的人群及结局与估计目标的对应关系。"
+  - concept_id: l20-concept-5
+    title: "停止决定与实际价值"
+    tutor_context: "解释“停止决定与实际价值”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "第30天仍未达统计门槛，能直接说产品绝无价值吗？"
+        options:
+          - {id: A, text: "不能，需看效应区间、价值阈值、成本与信息是否足够", misconception: null}
+          - {id: B, text: "能，终点未显著就是零效应", misconception: "l20-c5-misconception-2"}
+          - {id: C, text: "能，只要先前某天也未显著", misconception: "l20-c5-misconception-3"}
+          - {id: D, text: "不能，所以必须无限继续到显著", misconception: "l20-c5-misconception-4"}
+        answer: A
+        explanation: "停止可基于信息与成本，未显著不证明零价值。"
+      b:
+        prompt: "一条提前停止规则节省天数却提高误报，合格报告应怎样呈现？"
+        options:
+          - {id: A, text: "只展示节省时间以免混淆", misconception: "l20-c5-misconception-1"}
+          - {id: B, text: "只展示本次恰好没有误报", misconception: "l20-c5-misconception-2"}
+          - {id: C, text: "把更多模拟重复称为降低实际误报", misconception: "l20-c5-misconception-3"}
+          - {id: D, text: "并列错误率、停止时间与业务后果，再说明可接受取舍", misconception: null}
+        answer: D
+        explanation: "程序质量同时涉及概率控制、资源与后果。"

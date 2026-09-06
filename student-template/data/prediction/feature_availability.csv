@@ -1,0 +1,16 @@
+field,available_at,meaning
+record_id,工单登记时,记录标识，不作为预测变量
+entity_id,工单登记时,重复观测的设备标识；用于分组划分数据和聚类分析
+month,工单登记时,0—23的顺序月份；20起为后续环境
+region,工单登记时,服务地区east/west/north
+backlog,工单登记时,当前积压件数；可含平均化后的小数
+workload,工单登记时,当日每人预计工单负荷
+complexity,工单登记时,初始复杂程度，不是事后难度
+prior_failures,工单登记时,该设备此前已发生的故障次数
+age_years,工单登记时,设备年限，年
+staffing_index,工单登记时,与负荷相关的排班指数，不等于随机处理
+sensor_quality,工单登记时,0—1质量评分；后期存在缺失
+resolution_minutes,工单办结后,连续预测目标，分钟
+escalated,工单办结后,是否升级处理，0/1预测目标
+after_close_minutes,工单办结后,工单办结后登记时长，可能造成数据泄漏的字段
+satisfaction_after,工单办结后,事后满意度；不能用于工单登记时预测

@@ -1,0 +1,197 @@
+lesson_id: v2-l24-r1
+title: "第24课 · 模型比较与泛化能力评价"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "训练、验证与测试"
+    tutor_context: "请解释“训练、验证与测试”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "选择超参数应使用哪批数据，而不是使用留作最终独立评价的数据？"
+        options:
+          - id: A
+            text: "模型开发阶段的验证集"
+            misconception: null
+          - id: B
+            text: "留作最终评价的测试集"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "未来全部结果"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "已发布的最终指标本身"
+            misconception: "c1-a-confusion-4"
+        answer: A
+        explanation: "验证用于选择，测试只评价事先冻结的方案。"
+      b:
+        prompt: "团队根据最终测试集的结果调整了阈值，又在同一测试集上报告表现。应怎样说明这次评价？"
+        options:
+          - id: A
+            text: "从未用过的外部验证"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "参与开发后的历史评估，不再是完全独立测试"
+            misconception: null
+          - id: C
+            text: "随机实验效果"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "由于没有重新拟合模型参数，评价仍完全独立"
+            misconception: "c1-b-confusion-4"
+        answer: B
+        explanation: "阈值选择也是开发步骤，测试反馈参与选择会破坏独立性。"
+  - concept_id: c2
+    title: "交叉验证"
+    tutor_context: "请解释“交叉验证”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "评价模型对全新设备的预测能力时，划分交叉验证各折最需要满足什么条件？"
+        options:
+          - id: A
+            text: "每折行数完全相同就足够"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "同一设备的全部记录不能同时出现在训练部分和验证部分"
+            misconception: null
+          - id: C
+            text: "各折的阳性比例必须完全相同"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "按记录编号奇偶分折即可"
+            misconception: "c2-a-confusion-4"
+        answer: B
+        explanation: "对新设备的泛化能力评价需要按设备分组，避免共享对象信息。"
+      b:
+        prompt: "每周更新需求预测时，将周次随机打乱后进行交叉验证，最主要忽略了什么？"
+        options:
+          - id: A
+            text: "数据必须按数值大小排列"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "所有周的需求必须独立且服从相同分布"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "实际预测只能使用预测时已经获得的历史数据"
+            misconception: null
+          - id: D
+            text: "模型不允许包含节假日"
+            misconception: "c2-b-confusion-4"
+        answer: C
+        explanation: "评估设计应模拟预测时点的信息可用范围，随机拆分可能把未来带入训练。"
+  - concept_id: c3
+    title: "数据泄漏"
+    tutor_context: "请解释“数据泄漏”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "工单登记时预测升级，哪项属于明确的未来信息泄漏？"
+        options:
+          - id: A
+            text: "已知设备年限"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "此前发生故障次数"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "工单办结后满意度"
+            misconception: null
+          - id: D
+            text: "工单登记时积压"
+            misconception: "c3-a-confusion-4"
+        answer: C
+        explanation: "事后满意度在登记工单时尚不可得，不能用作该时点的预测变量。"
+      b:
+        prompt: "先用全部数据的均值插补缺失值，再划分训练集和测试集，主要风险是什么？"
+        options:
+          - id: A
+            text: "均值不允许用于任何插补"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "标签变成分类变量"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "模型必须使用更多参数"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "测试集的分布信息参与了预处理参数的确定"
+            misconception: null
+        answer: D
+        explanation: "预处理也需要仅用训练数据拟合，避免评价资料影响开发。"
+  - concept_id: c4
+    title: "时间切分与设备分组"
+    tutor_context: "请解释“时间切分与设备分组”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "时间切分与设备分组的关系是什么？"
+        options:
+          - id: A
+            text: "二者总是完全等价"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "只要用时间切分就一定没有共享设备"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "按设备切分能自动解决未来泄漏"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "回答未来时段与新对象的不同泛化问题"
+            misconception: null
+        answer: D
+        explanation: "需要根据上线对象和时点分别设计，有时两种约束都要满足。"
+      b:
+        prompt: "训练集包含某台设备1—6月的记录，测试集使用该设备7月的记录。这直接评价哪种场景？"
+        options:
+          - id: A
+            text: "对已知设备后续记录的预测"
+            misconception: null
+          - id: B
+            text: "对训练中从未出现的设备进行冷启动预测"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "模型在全新地区的使用效果"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "随机干预后的因果收益"
+            misconception: "c4-b-confusion-4"
+        answer: A
+        explanation: "对象已出现过，因此不能把该测试称作新设备评价。"
+  - concept_id: c5
+    title: "独立评价与重复使用"
+    tutor_context: "请解释“独立评价与重复使用”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "某测试集已经在几次课中用于改模型，下一课应如何说明？"
+        options:
+          - id: A
+            text: "它是已使用的历史评估资料"
+            misconception: null
+          - id: B
+            text: "改文件名后就是全新测试"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "只换随机种子即可抹去历史使用"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "只要不复制结果文字就仍未使用"
+            misconception: "c5-a-confusion-4"
+        answer: A
+        explanation: "资料用途由实际信息使用决定，不由名称决定。"
+      b:
+        prompt: "冻结模型后遇到一个新季度，何时可把它作为本轮后续检验？"
+        options:
+          - id: A
+            text: "用它挑最好模型后仍称预先验证"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "先评价模型并完整报告结果，再考虑是否根据结果调整方案"
+            misconception: null
+          - id: C
+            text: "只保留表现好的周"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "删除不符合预期的记录后当完整样本"
+            misconception: "c5-b-confusion-4"
+        answer: B
+        explanation: "后续检验应先评价再调整，并完整说明评价数据和结论的适用范围。"

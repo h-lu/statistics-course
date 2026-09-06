@@ -1,0 +1,197 @@
+lesson_id: v2-l32
+title: "第32课 · 为新使用者发布一项完整证据成果"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "问题与目标量"
+    tutor_context: "请解释“问题与目标量”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "把旧描述报告交给新用户作个体预测，首先要检查什么？"
+        options:
+          - id: A
+            text: "问题、目标量和所需证据是否改变"
+            misconception: null
+          - id: B
+            text: "旧报告拟合优度高是否足以替代预测验证"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "只检查变量同名便沿用旧结论"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "仅更新显示格式而保持旧评价口径"
+            misconception: "c1-a-confusion-4"
+        answer: A
+        explanation: "新用途可能改变目标与验证要求，不是换措辞即可。"
+      b:
+        prompt: "从“全体平均收益”改成“高风险群体收益”，哪项必须重新说明？"
+        options:
+          - id: A
+            text: "只把标题改成高风险"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "目标人群与效果量及其数据支持"
+            misconception: null
+          - id: C
+            text: "平均值一定保持不变"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "不确定区间自动缩小"
+            misconception: "c1-b-confusion-4"
+        answer: B
+        explanation: "人群变化可能改变估计与适用范围，需要重新评价。"
+  - concept_id: c2
+    title: "证据可追溯"
+    tutor_context: "请解释“证据可追溯”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "一条报告数字怎样才可追溯？"
+        options:
+          - id: A
+            text: "仅截图保存到PPT"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "能指明原始资料、处理规则、版本和生成步骤"
+            misconception: null
+          - id: C
+            text: "保证数字带三位小数"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "口头说由AI算过"
+            misconception: "c2-a-confusion-4"
+        answer: B
+        explanation: "可追溯要求读者能沿数据和过程复核，而非依赖输入者身份。"
+      b:
+        prompt: "分析入口可运行但读入的是手工改过且无记录的数据，主要缺少什么？"
+        options:
+          - id: A
+            text: "更高级的模型"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "缺失值插补是否统一采用均值"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "数据来源与变换的可追溯性"
+            misconception: null
+          - id: D
+            text: "运行两次输出是否完全相同"
+            misconception: "c2-b-confusion-4"
+        answer: C
+        explanation: "可运行不等于可复现原始证据，数据变换需有记录。"
+  - concept_id: c3
+    title: "不确定性与敏感性"
+    tutor_context: "请解释“不确定性与敏感性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "改变合理缺失假设后结论变化，主要体现哪类检查？"
+        options:
+          - id: A
+            text: "仅抽样误差的标准误"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "模型运行速度"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "假设敏感性"
+            misconception: null
+          - id: D
+            text: "显著性阈值越小越好"
+            misconception: "c3-a-confusion-4"
+        answer: C
+        explanation: "不同合理假设的影响不是单纯抽样波动。"
+      b:
+        prompt: "报告置信区间很窄，但目标人群与样本不同，能否据此放心推广？"
+        options:
+          - id: A
+            text: "能，窄区间涵盖所有偏差"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "能，只要样本超过30"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "只有区间跨0时才不能推广"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "不能，精度不替代代表性与适用性"
+            misconception: null
+        answer: D
+        explanation: "区间对应特定模型和抽样条件，不自动解决推广偏差。"
+  - concept_id: c4
+    title: "适用范围与因果边界"
+    tutor_context: "请解释“适用范围与因果边界”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "风险预测模型表现不错，可否直接宣称干预该群体最有效？"
+        options:
+          - id: A
+            text: "可以，因为AUC就是因果效应"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "可以，只要预测概率校准"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "只有使用线性模型时不可以"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "不能，风险与干预效果需要不同证据"
+            misconception: null
+        answer: D
+        explanation: "预测问题与因果问题的目标和识别条件不同。"
+      b:
+        prompt: "合成数据上验证的政策流程对真实部门最恰当的发布方式是什么？"
+        options:
+          - id: A
+            text: "教学示范及需补充真实数据/假设验证的条件"
+            misconception: null
+          - id: B
+            text: "已证明真实政策效应"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "可以直接给具体个人承诺收益"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "只要固定种子就相当于随机试验"
+            misconception: "c4-b-confusion-4"
+        answer: A
+        explanation: "合成实验能演示方法，不能冒充真实业务证据。"
+  - concept_id: c5
+    title: "行动与修订"
+    tutor_context: "请解释“行动与修订”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "最终发布稿称“资料变化时及时更新”，怎样更可执行？"
+        options:
+          - id: A
+            text: "写清检查什么、何时检查、谁采取什么行动"
+            misconception: null
+          - id: B
+            text: "只重复一遍这句话"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "把所有源文件隐藏"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "保证永远不需修订"
+            misconception: "c5-a-confusion-4"
+        answer: A
+        explanation: "使用说明需要具体触发条件和后续行动。"
+      b:
+        prompt: "新用户预算上限6，而原调查成本8、净信息价值为正，应如何处理？"
+        options:
+          - id: A
+            text: "因净价值为正就忽略预算"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "原调查不满足硬预算，需替代方案或不购买"
+            misconception: null
+          - id: C
+            text: "把成本写成6后沿用原性能"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "不必说明预算变化"
+            misconception: "c5-b-confusion-4"
+        answer: B
+        explanation: "经济价值和可行性是不同条件，正净值不能突破未获授权的预算。"

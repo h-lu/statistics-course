@@ -1,0 +1,117 @@
+lesson_id: v2-l15
+title: "第15课 · 设计能回答实际问题的随机实验"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l15-concept-1
+    title: "实验单位与随机化单位"
+    tutor_context: "解释“实验单位与随机化单位”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "24个团队被随机分组，每队20人。随机化单位是什么？"
+        options:
+          - {id: A, text: "每名成员", misconception: "l15-c1-misconception-1"}
+          - {id: B, text: "每次处理记录", misconception: "l15-c1-misconception-2"}
+          - {id: C, text: "最终有结果的成员", misconception: "l15-c1-misconception-3"}
+          - {id: D, text: "团队", misconception: null}
+        answer: D
+        explanation: "处理安排在团队层随机，成员记录不是独立随机化次数。"
+      b:
+        prompt: "学校按班级分配教学方式，每人测两次成绩。判断独立分配数应首先数什么？"
+        options:
+          - {id: A, text: "所有成绩记录行数", misconception: "l15-c1-misconception-1"}
+          - {id: B, text: "学生数乘测量次数", misconception: "l15-c1-misconception-2"}
+          - {id: C, text: "被随机分配的班级数", misconception: null}
+          - {id: D, text: "只数最高分学生", misconception: "l15-c1-misconception-4"}
+        answer: C
+        explanation: "依赖与推断应尊重实际分配单位。"
+  - concept_id: l15-concept-2
+    title: "随机化"
+    tutor_context: "解释“随机化”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "随机分配处理与随机抽取样本主要区别是什么？"
+        options:
+          - {id: A, text: "两者完全相同，术语可互换", misconception: "l15-c2-misconception-1"}
+          - {id: B, text: "前者支持组间可比，后者关系到从总体抽取的代表性", misconception: null}
+          - {id: C, text: "前者保证代表全社会，后者保证处理因果", misconception: "l15-c2-misconception-3"}
+          - {id: D, text: "两者都保证每个基线变量完全相等", misconception: "l15-c2-misconception-4"}
+        answer: B
+        explanation: "随机化处理与概率抽样解决不同问题。"
+      b:
+        prompt: "随机后两组基线均值略有差异，应如何理解？"
+        options:
+          - {id: A, text: "随机分配允许偶然不平衡，可按预定方法调整", misconception: null}
+          - {id: B, text: "说明随机程序必然失败", misconception: "l15-c2-misconception-2"}
+          - {id: C, text: "需要不断换种子直到差异为零", misconception: "l15-c2-misconception-3"}
+          - {id: D, text: "应只保留基线完全相同的人", misconception: "l15-c2-misconception-4"}
+        answer: A
+        explanation: "随机化并非每次精确平衡所有特征；重新挑分配需预先规则。"
+  - concept_id: l15-concept-3
+    title: "区组随机化"
+    tutor_context: "解释“区组随机化”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "先按地区组成区组，在各地区内随机分团队，目的是什么？"
+        options:
+          - {id: A, text: "保证每个成员都实际使用工具", misconception: "l15-c3-misconception-1"}
+          - {id: B, text: "消除所有未测量效应异质性", misconception: "l15-c3-misconception-2"}
+          - {id: C, text: "保证实验结果显著", misconception: "l15-c3-misconception-3"}
+          - {id: D, text: "使重要处理前差异在分配和比较中受到控制", misconception: null}
+        answer: D
+        explanation: "区组用于设计可比性与精度，不保证依从或效果。"
+      b:
+        prompt: "若按处理后满意度分区组再决定主要比较，会有什么问题？"
+        options:
+          - {id: A, text: "与按处理前地区分区组完全相同", misconception: "l15-c3-misconception-1"}
+          - {id: B, text: "一定提高随机化的有效性", misconception: "l15-c3-misconception-2"}
+          - {id: C, text: "用处理后变量形成比较条件可能改变目标或引入偏差", misconception: null}
+          - {id: D, text: "只要各组人数相等便没有问题", misconception: "l15-c3-misconception-4"}
+        answer: C
+        explanation: "区组应基于分配前可知特征；处理后分组不能当原随机设计。"
+  - concept_id: l15-concept-4
+    title: "目标效应"
+    tutor_context: "解释“目标效应”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "“工具有效”作为主要研究目标缺少什么？"
+        options:
+          - {id: A, text: "一个更复杂的软件包名称", misconception: "l15-c4-misconception-1"}
+          - {id: B, text: "目标人群、对照、结局和比较时间等明确含义", misconception: null}
+          - {id: C, text: "至少三种检验方法", misconception: "l15-c4-misconception-3"}
+          - {id: D, text: "一份已显著的结果", misconception: "l15-c4-misconception-4"}
+        answer: B
+        explanation: "目标效应需明确对谁、什么处理、与谁比、比较什么。"
+      b:
+        prompt: "平均改善3分钟，能否断言每名员工都改善3分钟？"
+        options:
+          - {id: A, text: "不能，平均效应允许个体效果不同", misconception: null}
+          - {id: B, text: "能，随机化使所有人效果相同", misconception: "l15-c4-misconception-2"}
+          - {id: C, text: "能，只要置信区间很窄", misconception: "l15-c4-misconception-3"}
+          - {id: D, text: "不能，因为均值不能用于实验", misconception: "l15-c4-misconception-4"}
+        answer: A
+        explanation: "平均目标量与个体效果是不同层次。"
+  - concept_id: l15-concept-5
+    title: "干扰、污染与预先计划"
+    tutor_context: "解释“干扰、污染与预先计划”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "控制组成员从同队工具使用者学到方法，这主要提示什么？"
+        options:
+          - {id: A, text: "这是单纯随机误差，不必考虑", misconception: "l15-c5-misconception-1"}
+          - {id: B, text: "只要总人数多就自动消除", misconception: "l15-c5-misconception-2"}
+          - {id: C, text: "应把所有控制组改标工具组以恢复随机", misconception: "l15-c5-misconception-3"}
+          - {id: D, text: "存在干扰或污染，需要设计与解释处理", misconception: null}
+        answer: D
+        explanation: "处理可能影响其他单位，实际分组与目标效应需审视。"
+      b:
+        prompt: "看到结果后把最显著的次要指标改称主要指标，问题是什么？"
+        options:
+          - {id: A, text: "只要公开p值就仍属于原预定主分析", misconception: "l15-c5-misconception-1"}
+          - {id: B, text: "它提高了原设计功效而不改变错误率", misconception: "l15-c5-misconception-2"}
+          - {id: C, text: "原验证问题被结果驱动选择，应透明称探索并另验证", misconception: null}
+          - {id: D, text: "只要指标名称相似就不影响解释", misconception: "l15-c5-misconception-4"}
+        answer: C
+        explanation: "预先计划与探索的界限影响证据强度和多重选择。"

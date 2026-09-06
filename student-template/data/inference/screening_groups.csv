@@ -1,0 +1,4 @@
+group,daily_volume,base_rate,base_rate_low,base_rate_high,review_minutes,missed_case_loss,unnecessary_review_loss
+routine,1200,0.01,0.005,0.02,12,60,2
+referred,600,0.04,0.02,0.07,12,80,2
+priority,200,0.14,0.08,0.22,12,120,2

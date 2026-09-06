@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}反馈 · 统计学知识自查{% endblock %}
+{% block phase_bar %}{% include "_phase_bar.html" %}{% endblock %}
+{% block content %}
+  <section
+    class="result-panel"
+    data-state-watch
+    data-state-url="{{ base_path }}/state"
+    data-session-id="{{ session.id }}"
+    data-phase="{{ session.phase }}"
+    data-phase-ends-at="{{ session.phase_ends_at or '' }}"
+  >
+    <div class="section-heading">
+      <span class="eyebrow">本课学习反馈</span>
+      <h1>核对答案，复习仍有疑问的概念。</h1>
+      <p>A、B 两次练习帮助你检查概念理解，结果只作学习反馈。没有作答的题目显示为“未完成”。</p>
+    </div>
+    <div class="result-list">
+      {% for result in results %}
+        <article class="result-row">
+          <div>
+            <h2>{{ result.title }}</h2>
+            <p>{{ result.explanation }}</p>
+          </div>
+          <div class="result-badges">
+            <span class="{% if result.a and result.a.correct %}correct{% elif result.a %}incorrect{% endif %}">A：{% if not result.a %}未完成{% elif result.a.correct %}正确{% else %}需复习{% endif %}</span>
+            <span class="{% if result.b and result.b.correct %}correct{% elif result.b %}incorrect{% endif %}">B：{% if not result.b %}未完成{% elif result.b.correct %}正确{% else %}需复习{% endif %}</span>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+{% endblock %}

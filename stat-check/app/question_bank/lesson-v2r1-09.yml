@@ -1,0 +1,117 @@
+lesson_id: v2-l09-r1
+title: "第09课 · 筛查阳性之后怎样安排复核"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l09-concept-1
+    title: "条件概率"
+    tutor_context: "解释“条件概率”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "在一组设备中，90%的故障设备初筛阳性。“90%”的分母是哪一群？"
+        options:
+          - {id: A, text: "所有初筛阳性设备", misconception: "l09-c1-misconception-1"}
+          - {id: B, text: "真实故障设备", misconception: null}
+          - {id: C, text: "全部受检设备", misconception: "l09-c1-misconception-3"}
+          - {id: D, text: "所有最终接受复核的设备", misconception: "l09-c1-misconception-4"}
+        answer: B
+        explanation: "这是P(阳性|故障)，以真实故障设备为条件。"
+      b:
+        prompt: "录取者中30%来自外地，能否据此说外地申请者录取率30%？"
+        options:
+          - {id: A, text: "不能，两项比例的条件人群不同", misconception: null}
+          - {id: B, text: "能，两者都涉及外地和录取", misconception: "l09-c1-misconception-2"}
+          - {id: C, text: "只要申请人数很大就能", misconception: "l09-c1-misconception-3"}
+          - {id: D, text: "只要录取名额固定就能", misconception: "l09-c1-misconception-4"}
+        answer: A
+        explanation: "P(外地|录取)与P(录取|外地)分母不同。"
+  - concept_id: l09-concept-2
+    title: "基础率"
+    tutor_context: "解释“基础率”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "验证研究故意纳入200台故障和200台正常设备。400台中的50%最适合用作什么？"
+        options:
+          - {id: A, text: "现场每组设备的基础率", misconception: "l09-c2-misconception-1"}
+          - {id: B, text: "该初筛的阳性预测值", misconception: "l09-c2-misconception-2"}
+          - {id: C, text: "所有未来场景统一的先验概率", misconception: "l09-c2-misconception-3"}
+          - {id: D, text: "验证样本的构成描述，不能直接当现场故障率", misconception: null}
+        answer: D
+        explanation: "验证抽样的构成不代表目标来源组的基础率。"
+      b:
+        prompt: "某故障筛查在两地的敏感度和特异度相同，但甲地故障率更低。其他条件相同时，初筛阳性设备中的实际故障比例通常怎样？"
+        options:
+          - {id: A, text: "相同，因为敏感度和特异度相同", misconception: "l09-c2-misconception-1"}
+          - {id: B, text: "甲地更高，因为阳性更稀少", misconception: "l09-c2-misconception-2"}
+          - {id: C, text: "甲地更低，因为故障基础率较低", misconception: null}
+          - {id: D, text: "只由两地受检总人数决定", misconception: "l09-c2-misconception-4"}
+        answer: C
+        explanation: "较低基础率使阳性中假正例占比通常更高。"
+  - concept_id: l09-concept-3
+    title: "敏感度与特异度"
+    tutor_context: "解释“敏感度与特异度”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "真实正常1000台，其中940台初筛阴性。特异度是多少？"
+        options:
+          - {id: A, text: "6%", misconception: "l09-c3-misconception-1"}
+          - {id: B, text: "94%", misconception: null}
+          - {id: C, text: "940/全部阳性台数", misconception: "l09-c3-misconception-3"}
+          - {id: D, text: "940/全部故障台数", misconception: "l09-c3-misconception-4"}
+        answer: B
+        explanation: "特异度是正常中正确阴性的比例940/1000。"
+      b:
+        prompt: "某告警检出80%的实际异常。提高特异度、保持敏感度不变，最直接改变哪部分？"
+        options:
+          - {id: A, text: "实际正常中的误报比例下降", misconception: null}
+          - {id: B, text: "实际异常中的漏报比例下降", misconception: "l09-c3-misconception-2"}
+          - {id: C, text: "目标人群的异常基础率下降", misconception: "l09-c3-misconception-3"}
+          - {id: D, text: "异常中检出的比例上升", misconception: "l09-c3-misconception-4"}
+        answer: A
+        explanation: "特异度提高对应假阳性率下降，并不直接改变敏感度或基础率。"
+  - concept_id: l09-concept-4
+    title: "贝叶斯公式与阳性预测值"
+    tutor_context: "解释“贝叶斯公式与阳性预测值”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "基础率1%、敏感度90%、特异度90%。阳性预测值最接近多少？"
+        options:
+          - {id: A, text: "90%", misconception: "l09-c4-misconception-1"}
+          - {id: B, text: "1%", misconception: "l09-c4-misconception-2"}
+          - {id: C, text: "99%", misconception: "l09-c4-misconception-3"}
+          - {id: D, text: "8.3%", misconception: null}
+        answer: D
+        explanation: "每10000台约90真阳性和990假阳性，PPV=90/1080约8.3%。"
+      b:
+        prompt: "某欺诈检测阳性中一半为真正欺诈。这个数最直接回答什么？"
+        options:
+          - {id: A, text: "欺诈交易被检出的比例", misconception: "l09-c4-misconception-1"}
+          - {id: B, text: "所有交易中欺诈的比例", misconception: "l09-c4-misconception-2"}
+          - {id: C, text: "收到阳性后该组交易中的欺诈比例", misconception: null}
+          - {id: D, text: "正常交易被误报的比例", misconception: "l09-c4-misconception-4"}
+        answer: C
+        explanation: "阳性预测值的分母是阳性交易，与敏感度、基础率和假阳性率不同。"
+  - concept_id: l09-concept-5
+    title: "期望损失与容量"
+    tutor_context: "解释“期望损失与容量”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "两组阳性复核用时相同，甲故障概率更高但漏掉乙组故障的损失大得多。优先顺序应依据什么？"
+        options:
+          - {id: A, text: "只按故障概率从高到低", misconception: "l09-c5-misconception-1"}
+          - {id: B, text: "比较每单位复核资源预期减少的损失", misconception: null}
+          - {id: C, text: "只按每组阳性数量从多到少", misconception: "l09-c5-misconception-3"}
+          - {id: D, text: "只选择检测费用较低的一组", misconception: "l09-c5-misconception-4"}
+        answer: B
+        explanation: "资源排序应结合状态概率、后果和资源占用，不能只按一个概率。"
+      b:
+        prompt: "审核预算固定，给所有群体保留名额会提高总期望损失。如何报告该方案？"
+        options:
+          - {id: A, text: "说明保障目的及其效率代价，由使用者取舍", misconception: null}
+          - {id: B, text: "因不是损失最小就判为计算错误", misconception: "l09-c5-misconception-2"}
+          - {id: C, text: "隐去总损失，只报告覆盖更广", misconception: "l09-c5-misconception-3"}
+          - {id: D, text: "把保障名额解释为提高检验特异度", misconception: "l09-c5-misconception-4"}
+        answer: A
+        explanation: "不同目标可合理冲突，报告要明确公平保障与效率的后果。"

@@ -1,0 +1,117 @@
+lesson_id: v2-l18
+title: "第18课 · 预算允许的实验是否值得开展"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l18-concept-1
+    title: "第一类错误与显著性水平"
+    tutor_context: "解释“第一类错误与显著性水平”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "显著性水平α=0.05最恰当含义是？"
+        options:
+          - {id: A, text: "本次显著结果有5%概率为假", misconception: "l18-c1-misconception-1"}
+          - {id: B, text: "真实效应有95%概率存在", misconception: "l18-c1-misconception-2"}
+          - {id: C, text: "零假设成立时该检验程序错误拒绝的概率控制目标", misconception: null}
+          - {id: D, text: "实验有95%概率产生业务收益", misconception: "l18-c1-misconception-4"}
+        answer: C
+        explanation: "α是给定零假设的程序性质，不是事后假设概率。"
+      b:
+        prompt: "把双侧α从0.05降至0.01，其他条件不变，通常怎样？"
+        options:
+          - {id: A, text: "功效必然上升", misconception: "l18-c1-misconception-1"}
+          - {id: B, text: "更少第一类错误，同时功效可能下降", misconception: null}
+          - {id: C, text: "效应点估计必然变小", misconception: "l18-c1-misconception-3"}
+          - {id: D, text: "样本量自动增加", misconception: "l18-c1-misconception-4"}
+        answer: B
+        explanation: "更严格拒绝门槛通常减少假警报也减少检测能力。"
+  - concept_id: l18-concept-2
+    title: "第二类错误与功效"
+    tutor_context: "解释“第二类错误与功效”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "功效80%是针对什么条件计算的？"
+        options:
+          - {id: A, text: "指定真实效应、变异、设计与分析方法", misconception: null}
+          - {id: B, text: "任何可能真实效应都同为80%", misconception: "l18-c2-misconception-2"}
+          - {id: C, text: "零假设为假的后验概率", misconception: "l18-c2-misconception-3"}
+          - {id: D, text: "每名参与者改善的概率", misconception: "l18-c2-misconception-4"}
+        answer: A
+        explanation: "功效是明确备择情境下拒绝零假设的概率。"
+      b:
+        prompt: "预计真实改善从3分钟降到1分钟，样本设计不变，功效通常怎样？"
+        options:
+          - {id: A, text: "上升，小效果更稳定", misconception: "l18-c2-misconception-1"}
+          - {id: B, text: "不变，功效只由α决定", misconception: "l18-c2-misconception-2"}
+          - {id: C, text: "自动变成0", misconception: "l18-c2-misconception-3"}
+          - {id: D, text: "下降，更难区分小效果与噪声", misconception: null}
+        answer: D
+        explanation: "效果相对噪声变小通常降低检测概率。"
+  - concept_id: l18-concept-3
+    title: "最小值得关注效应与MDE"
+    tutor_context: "解释“最小值得关注效应与MDE”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "业务认为改善3分钟才值得，设计在80%功效下只能检出5分钟。说明什么？"
+        options:
+          - {id: A, text: "业务价值阈值应自动改为5分钟", misconception: "l18-c3-misconception-1"}
+          - {id: B, text: "设计已经足以排除所有小于5分钟的效果", misconception: "l18-c3-misconception-2"}
+          - {id: C, text: "当前设计可能不足以可靠识别最小有价值效果", misconception: null}
+          - {id: D, text: "最小可检测效应与价值阈值必然相等", misconception: "l18-c3-misconception-4"}
+        answer: C
+        explanation: "MDE与业务门槛不同，错位提示资源或设计取舍。"
+      b:
+        prompt: "根据前次显著结果大小设定唯一未来效应，不作范围检查，风险是什么？"
+        options:
+          - {id: A, text: "只要前次p小就没有风险", misconception: "l18-c3-misconception-1"}
+          - {id: B, text: "规划过度依赖不确定或被选择放大的效应估计", misconception: null}
+          - {id: C, text: "会使随机化单位数无法计数", misconception: "l18-c3-misconception-3"}
+          - {id: D, text: "会让α自动变成前次p值", misconception: "l18-c3-misconception-4"}
+        answer: B
+        explanation: "规划效应应有业务依据及合理范围。"
+  - concept_id: l18-concept-4
+    title: "聚类与有效信息"
+    tutor_context: "解释“聚类与有效信息”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "同样400人，20队与2队的团队随机试验信息量可否仅按人数等同？"
+        options:
+          - {id: A, text: "不可，独立团队数与队内相关很重要", misconception: null}
+          - {id: B, text: "可以，总人数决定全部标准误", misconception: "l18-c4-misconception-2"}
+          - {id: C, text: "可以，只要每人观测次数相同", misconception: "l18-c4-misconception-3"}
+          - {id: D, text: "不可，因为团队数多必然产生更大效应", misconception: "l18-c4-misconception-4"}
+        answer: A
+        explanation: "聚类设计的信息并不只取决于个体数。"
+      b:
+        prompt: "队内人数增加但独立队数不变，若队内高度相关，边际收益通常怎样？"
+        options:
+          - {id: A, text: "与增加同样数量独立队完全相同", misconception: "l18-c4-misconception-1"}
+          - {id: B, text: "真实效应会随人数成比例变大", misconception: "l18-c4-misconception-2"}
+          - {id: C, text: "必须把所有重复观测删除", misconception: "l18-c4-misconception-3"}
+          - {id: D, text: "精度收益递减，不能替代增加独立队", misconception: null}
+        answer: D
+        explanation: "相关信息重复程度高，新增独立单位更关键。"
+  - concept_id: l18-concept-5
+    title: "规划不确定性与模拟（复习）"
+    tutor_context: "解释“规划不确定性与模拟（复习）”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "前次样本估计SD=3.5，用它规划应怎样处理？"
+        options:
+          - {id: A, text: "当作未来总体精确已知常数", misconception: "l18-c5-misconception-1"}
+          - {id: B, text: "只用最小SD以减少预算", misconception: "l18-c5-misconception-2"}
+          - {id: C, text: "把它作为不确定输入，检查较大/较小SD情境", misconception: null}
+          - {id: D, text: "用重复运行同一估计使其不确定性消失", misconception: "l18-c5-misconception-4"}
+        answer: C
+        explanation: "估计误差和场景变化需进入设计敏感性。"
+      b:
+        prompt: "将功效模拟次数从1000升到10000，实际实验功效会因此变高吗？"
+        options:
+          - {id: A, text: "会，相当于增加9000名参与者", misconception: "l18-c5-misconception-1"}
+          - {id: B, text: "不会，主要减少对功效数值的模拟误差", misconception: null}
+          - {id: C, text: "会，α随模拟次数下降", misconception: "l18-c5-misconception-3"}
+          - {id: D, text: "不会，因为模拟次数对任何结果都无影响", misconception: "l18-c5-misconception-4"}
+        answer: B
+        explanation: "计算更精确不等于实际设计获得更多信息。"

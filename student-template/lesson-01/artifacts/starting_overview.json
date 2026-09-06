@@ -1,0 +1,27 @@
+{
+  "scope": "第一期已登记工单；等待时间的均值和中位数仅根据未放弃者计算",
+  "note": "这是数据概览示例，尚未确定具体分析问题或形成结论。",
+  "centers": [
+    {
+      "center": "A",
+      "registered_tickets": 1200,
+      "served_n": 1160,
+      "served_wait_mean_minutes": 13.481318965517241,
+      "served_wait_median_minutes": 10.524999999999999
+    },
+    {
+      "center": "B",
+      "registered_tickets": 1200,
+      "served_n": 1178,
+      "served_wait_mean_minutes": 11.488471986417657,
+      "served_wait_median_minutes": 7.895
+    },
+    {
+      "center": "C",
+      "registered_tickets": 1200,
+      "served_n": 1172,
+      "served_wait_mean_minutes": 12.674069965870308,
+      "served_wait_median_minutes": 8.85
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+lesson_id: v2-l03
+title: "第03课 · 为业务数据作出采用、限用或暂不采用决定"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: record-version
+    title: "重复、修订与分析单位"
+    tutor_context: "用订单更新和多次消费区分重复导出、版本与不同对象。"
+    pair:
+      a:
+        prompt: "同工单出现两条完全相同第1版和一条第2版，约定较高版本为更新记录。工单级报告应怎样做？"
+        options:
+          - id: A
+            text: "三行分别算三张工单"
+            misconception: "record-version-alternative-1"
+          - id: B
+            text: "先随机去掉一行，再对剩余求平均"
+            misconception: "record-version-alternative-2"
+          - id: C
+            text: "按工单保留第2版，并记录重复与修订处理"
+            misconception: null
+          - id: D
+            text: "只保留最早一行，因为原始记录永远优先"
+            misconception: "record-version-alternative-3"
+        answer: C
+        explanation: "导出行不等于独立工单；已知修订协议决定有效版本，重复和版本变化应可追溯。"
+      b:
+        prompt: "同一顾客一周下了三张不同订单，订单表以订单编号唯一。分析订单履约率时应该怎样计数？"
+        options:
+          - id: A
+            text: "三张订单分别计数，不能仅因顾客重复而删成一张"
+            misconception: null
+          - id: B
+            text: "只保留顾客的第一张订单"
+            misconception: "record-version-alternative-1"
+          - id: C
+            text: "把所有顾客合并成一个订单"
+            misconception: "record-version-alternative-2"
+          - id: D
+            text: "不同编号但同顾客一定是重复导出"
+            misconception: "record-version-alternative-3"
+        answer: A
+        explanation: "分析单位是订单，不是顾客；多个真实订单并非数据重复错误。"
+  - concept_id: missing-units
+    title: "缺失编码与单位"
+    tutor_context: "解释缺失标记与真实数量的区别，说明先识别含义再做量纲变换。"
+    pair:
+      a:
+        prompt: "导出约定999表示未测量。一行wait_unit为second、原值999，应如何处理等待值？"
+        options:
+          - id: A
+            text: "换成16.65分钟并视为有效观察"
+            misconception: "missing-units-alternative-1"
+          - id: B
+            text: "先除60后已不等于999，因此无需缺失标记"
+            misconception: "missing-units-alternative-2"
+          - id: C
+            text: "把它替换为0，表示没有等待"
+            misconception: "missing-units-alternative-3"
+          - id: D
+            text: "标记缺失，不把999秒换成16.65分钟当测量值"
+            misconception: null
+        answer: D
+        explanation: "缺失编码描述状态而非真实数量，必须在单位换算之前识别。"
+      b:
+        prompt: "库存表中的0按字典表示确实没有库存，空白表示尚未盘点。哪项合理？"
+        options:
+          - id: A
+            text: "把0和空白都删掉以免拉低均值"
+            misconception: "missing-units-alternative-1"
+          - id: B
+            text: "保留0作为有效数值，将空白与0区分"
+            misconception: null
+          - id: C
+            text: "将空白全设0后称已完成盘点"
+            misconception: "missing-units-alternative-2"
+          - id: D
+            text: "数值0不可能携带真实业务含义"
+            misconception: "missing-units-alternative-3"
+        answer: B
+        explanation: "有效零与未观测不同；混合处理会改变统计含义和结论。"
+  - concept_id: outlier
+    title: "离群与无效取值"
+    tutor_context: "用等待或测量情境解释极端不等于错误，规则需要领域依据。"
+    pair:
+      a:
+        prompt: "一张工单等待90分钟，虽远高于其他记录，但没有证据显示录入错误。最合适的处理是？"
+        options:
+          - id: A
+            text: "保留或明确单列，并检验它对结论的影响"
+            misconception: null
+          - id: B
+            text: "超过箱线图上界就必然是错误，应删除"
+            misconception: "outlier-alternative-1"
+          - id: C
+            text: "改成中位数并称为真实等待"
+            misconception: "outlier-alternative-2"
+          - id: D
+            text: "只要影响均值就不能用于任何分析"
+            misconception: "outlier-alternative-3"
+        answer: A
+        explanation: "离群值可能是重要经历；是否排除要依据测量或目标定义，而非仅看极端。"
+      b:
+        prompt: "传感器测量的是非负长度，一条记录为−12且没有特殊编码约定。应怎样判断？"
+        options:
+          - id: A
+            text: "任何离群值都应直接保留为真实长度"
+            misconception: "outlier-alternative-1"
+          - id: B
+            text: "负数只比其他值小，所以一定有效"
+            misconception: "outlier-alternative-2"
+          - id: C
+            text: "它违反测量取值约束，需要核实或标记无效，不能解释为正常离群长度"
+            misconception: null
+          - id: D
+            text: "取绝对值后即可声称已核实修正"
+            misconception: "outlier-alternative-3"
+        answer: C
+        explanation: "违反已知取值约束与仅在分布上极端不同；绝对值修正也需要来源依据。"
+  - concept_id: purpose-denominator
+    title: "用途与有效分母"
+    tutor_context: "解释不同指标为何可以使用不同有效记录集合。"
+    pair:
+      a:
+        prompt: "100张工单中10张缺等待，2张缺办结状态。只计算办结率且其他条件满足，合适的有效分母是多少？"
+        options:
+          - id: A
+            text: "90"
+            misconception: "purpose-denominator-alternative-1"
+          - id: B
+            text: "98"
+            misconception: null
+          - id: C
+            text: "100，不管状态是否未知"
+            misconception: "purpose-denominator-alternative-2"
+          - id: D
+            text: "88，必须假设两类缺失互不重叠"
+            misconception: "purpose-denominator-alternative-3"
+        answer: B
+        explanation: "办结率需要有效办结状态，等待是否缺失不直接决定是否进入该指标分母。"
+      b:
+        prompt: "某工单窗口未知，但等待测量有效。哪项最合理？"
+        options:
+          - id: A
+            text: "对任何统计目的都必须删除整张工单"
+            misconception: "purpose-denominator-alternative-1"
+          - id: B
+            text: "按最相似窗口编号自动归类"
+            misconception: "purpose-denominator-alternative-2"
+          - id: C
+            text: "把未知窗口视为等待0分钟"
+            misconception: "purpose-denominator-alternative-3"
+          - id: D
+            text: "可进入指定范围的总体等待描述，但不能直接归入某窗口比较"
+            misconception: null
+        answer: D
+        explanation: "数据适用性针对用途；缺少归属不必抹去有效等待，但限制分组使用。"
+  - concept_id: selection-cleaning
+    title: "处理选择与推广边界"
+    tutor_context: "解释删除或填补数据为什么会改变目标集合或引入假设。"
+    pair:
+      a:
+        prompt: "长等待工单更容易缺满意度，删除缺满意度的工单后再评价全部等待，会有什么风险？"
+        options:
+          - id: A
+            text: "只要剩余行完整就没有任何选择问题"
+            misconception: "selection-cleaning-alternative-1"
+          - id: B
+            text: "缺一个字段会使其他已测字段都没有含义"
+            misconception: "selection-cleaning-alternative-2"
+          - id: C
+            text: "保留下来的等待分布可能偏向较短经历，目标集合已改变"
+            misconception: null
+          - id: D
+            text: "删除只改变文件大小，不会影响统计对象"
+            misconception: "selection-cleaning-alternative-3"
+        answer: C
+        explanation: "完整案例选择可能与结果相关，需对具体指标评估而非统一删整行。"
+      b:
+        prompt: "用同业务组的平均等待填入缺失值后，怎样表述最准确？"
+        options:
+          - id: A
+            text: "得到依赖组内代表性假设的填补值，仍需与不填补等方案比较"
+            misconception: null
+          - id: B
+            text: "已经恢复了每张工单真实未记录的等待"
+            misconception: "selection-cleaning-alternative-1"
+          - id: C
+            text: "缺失率降为0证明没有偏差"
+            misconception: "selection-cleaning-alternative-2"
+          - id: D
+            text: "同组均值填补不涉及任何假设"
+            misconception: "selection-cleaning-alternative-3"
+        answer: A
+        explanation: "填补将假设加入数据，不创造真实观察；影响与不确定性需要说明。"

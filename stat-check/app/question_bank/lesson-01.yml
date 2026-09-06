@@ -1,0 +1,121 @@
+lesson_id: bootcamp-01
+title: 第一次课：数据与描述的基本概念
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: observation-variable
+    title: 观测单位与变量
+    tutor_context: 解释数据表中观测单位（也常称观察单位）、记录与变量之间的区别，用一个不同于服务窗口的例子提问。
+    pair:
+      a:
+        prompt: service_times.csv 中每一行最直接代表什么？
+        options:
+          - {id: B, text: 一个服务窗口, misconception: confuse-group-with-unit}
+          - {id: A, text: 一张服务工单, misconception: null}
+          - {id: C, text: 一分钟等待时间, misconception: confuse-value-with-unit}
+          - {id: D, text: 全部来访者总体, misconception: confuse-sample-with-population}
+        answer: A
+        explanation: ticket_id 对每行唯一，因此一行的观测单位是一张工单；窗口和等待时间是变量。
+      b:
+        prompt: 一张“每行一名学生、列为专业和考试成绩”的表中，观测单位是什么？
+        options:
+          - {id: B, text: 一名学生, misconception: null}
+          - {id: A, text: 一个专业, misconception: confuse-category-with-unit}
+          - {id: C, text: 一次考试分数, misconception: confuse-value-with-unit}
+          - {id: D, text: 全校学生总体, misconception: confuse-sample-with-population}
+        answer: B
+        explanation: 每行对应一名学生，所以学生是观测单位；专业和成绩是变量。
+
+  - concept_id: variable-type
+    title: 变量类型
+    tutor_context: 解释数值变量与分类变量（也称类别变量）如何由其含义而不是字符外观决定，并给出新例子。
+    pair:
+      a:
+        prompt: 本项目中的 channel（A或B）属于哪类变量？
+        options:
+          - {id: C, text: 分类变量, misconception: null}
+          - {id: B, text: 连续数值变量, misconception: letters-imply-measurement}
+          - {id: A, text: 离散计数变量, misconception: confuse-code-with-count}
+          - {id: D, text: 缺失变量, misconception: no-concept}
+        answer: C
+        explanation: A和B是窗口类别的标签，不表示可计算距离的数值。
+      b:
+        prompt: 某数据表用1、2、3分别编码三个校区。“校区编码”应视为什么？
+        options:
+          - {id: A, text: 连续数值变量, misconception: numeric-code-implies-quantity}
+          - {id: D, text: 分类变量, misconception: null}
+          - {id: C, text: 时间变量, misconception: no-concept}
+          - {id: B, text: 比率变量, misconception: numeric-code-implies-quantity}
+        answer: D
+        explanation: 数字只是校区标签，编码之间的加减没有实质意义。
+
+  - concept_id: mean-median-outlier
+    title: 均值、中位数与极端值
+    tutor_context: 解释均值和中位数对单个极端值的敏感性差异，用另一组短数据引导学习。
+    pair:
+      a:
+        prompt: A窗口有一个20分钟的极端等待。若仅把该记录改为50分钟，哪项最合理？
+        options:
+          - {id: A, text: 均值明显上升，中位数通常不变, misconception: null}
+          - {id: B, text: 中位数明显上升，均值不变, misconception: reverse-robustness}
+          - {id: C, text: 均值和中位数一定同幅度上升, misconception: treat-statistics-identically}
+          - {id: D, text: 两者都一定不变, misconception: ignore-outlier}
+        answer: A
+        explanation: 均值使用每个数值，极端值会直接拉高均值；只改变排序末端通常不改变中间位置。
+      b:
+        prompt: 某组工资的最大值从5万元改为50万元，其余记录不变。最可能发生什么？
+        options:
+          - {id: A, text: 均值不变，中位数大幅上升, misconception: reverse-robustness}
+          - {id: B, text: 均值上升，中位数可能不变, misconception: null}
+          - {id: C, text: 均值与中位数都必然变成50万元, misconception: confuse-statistic-with-maximum}
+          - {id: D, text: 无法计算任何统计量, misconception: no-concept}
+        answer: B
+        explanation: 极端最大值会拉高均值，但不一定改变排序中间位置。
+
+  - concept_id: sample-population
+    title: 样本与总体
+    tutor_context: 解释样本与目标总体的区别，以及样本来源为什么限制结论推广。
+    pair:
+      a:
+        prompt: 若20条工单都来自周一上午，最稳妥的结论是什么？
+        options:
+          - {id: C, text: 可以描述这20条工单，但不能自动代表整学期, misconception: null}
+          - {id: B, text: 已经证明整学期A窗口更快, misconception: overgeneralization}
+          - {id: A, text: 样本有20条，所以一定没有偏差, misconception: sample-size-removes-bias}
+          - {id: D, text: 只要算出均值就等于总体均值, misconception: estimate-equals-parameter}
+        answer: C
+        explanation: 取样只覆盖周一上午，推广到整学期需要额外的代表性依据。
+      b:
+        prompt: 用某平台自愿填写问卷的100人推断全校学生，哪项最合理？
+        options:
+          - {id: A, text: 人数超过30就必然代表全校, misconception: magic-sample-size}
+          - {id: D, text: 需考虑自愿参与者与全校是否系统不同, misconception: null}
+          - {id: C, text: 自愿样本一定比随机样本准确, misconception: reverse-selection-bias}
+          - {id: B, text: 只要百分比精确到小数就可以推广, misconception: precision-implies-validity}
+        answer: D
+        explanation: 自愿参与可能造成选择偏差，样本量和小数精度不能消除这种问题。
+
+  - concept_id: descriptive-causal
+    title: 描述性结论与因果结论
+    tutor_context: 解释“两个群体不同”与“某因素造成差异”的区别，用新的观察数据情境提问。
+    pair:
+      a:
+        prompt: 观察到A、B窗口等待时间不同，仅凭这份数据可以直接断言什么？
+        options:
+          - {id: B, text: 窗口名称造成等待差异, misconception: association-is-causation}
+          - {id: A, text: 样本中两个窗口的等待分布不同, misconception: null}
+          - {id: C, text: 给A增员一定使全体等待下降, misconception: unsupported-intervention-effect}
+          - {id: D, text: B窗口工作人员效率一定较低, misconception: unmeasured-mechanism}
+        answer: A
+        explanation: 数据可以描述样本差异；没有随机分配或充分设计，不能确定原因或干预效果。
+      b:
+        prompt: 观察到参加辅导的学生平均成绩更高，最稳妥的表述是什么？
+        options:
+          - {id: A, text: 辅导必然提高了每名学生成绩, misconception: association-is-causation}
+          - {id: B, text: 参加者与未参加者在样本中成绩有关联, misconception: null}
+          - {id: C, text: 未参加者一定不努力, misconception: unmeasured-mechanism}
+          - {id: D, text: 只要样本大就证明辅导有效, misconception: sample-size-proves-causality}
+        answer: B
+        explanation: 参加辅导并非随机，基础水平或动机等因素可能同时影响参加和成绩。

@@ -1,0 +1,5 @@
+plan,capacity,daily_fixed_cost,unused_unit_cost,unserved_unit_loss
+C140,140,420,0.4,24
+C170,170,510,0.4,24
+C200,200,600,0.4,24
+C230,230,690,0.4,24

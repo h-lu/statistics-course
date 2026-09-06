@@ -1,0 +1,86 @@
+{
+  "lesson": 32,
+  "reference_only": true,
+  "results": {
+    "expected_losses": {
+      "pilot": 39.0,
+      "rollout": 63.75,
+      "wait": 56.0
+    },
+    "best_now": "pilot",
+    "expected_loss_with_signal": 35.099999999999994,
+    "evsi_before_cost": 3.9000000000000057,
+    "evpi": 33.75,
+    "sample_information": {
+      "positive": {
+        "probability": 0.4075,
+        "posterior": {
+          "low": 0.39877300613496935,
+          "high": 0.6012269938650306
+        },
+        "expected_losses": {
+          "pilot": 49.04907975460123,
+          "rollout": 44.9079754601227,
+          "wait": 96.1963190184049
+        }
+      },
+      "negative": {
+        "probability": 0.5925,
+        "posterior": {
+          "low": 0.8227848101265823,
+          "high": 0.17721518987341772
+        },
+        "expected_losses": {
+          "pilot": 32.08860759493671,
+          "rollout": 76.70886075949367,
+          "wait": 28.354430379746837
+        }
+      }
+    },
+    "sensitivity": [
+      {
+        "high_probability": 0.1,
+        "best_action": "wait"
+      },
+      {
+        "high_probability": 0.2,
+        "best_action": "wait"
+      },
+      {
+        "high_probability": 0.30000000000000004,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.4,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.5,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.6,
+        "best_action": "rollout"
+      },
+      {
+        "high_probability": 0.7000000000000001,
+        "best_action": "rollout"
+      },
+      {
+        "high_probability": 0.8,
+        "best_action": "rollout"
+      }
+    ],
+    "note": "Priors, test properties and losses are supplied scenarios; not causal estimates from the panel.",
+    "budget_ceiling": 6,
+    "original_cost8_feasible": false,
+    "alternative_survey_cost": 4,
+    "alternative_signal_positive_probabilities": {
+      "low": 0.25,
+      "high": 0.7
+    },
+    "delay_cost": 3,
+    "alternative_net_information_value": -3.0999999999999943,
+    "recommendation": "Keep the current pilot action: original survey exceeds budget; cheaper survey does not repay cost plus delay."
+  }
+}

@@ -1,0 +1,197 @@
+lesson_id: v2-l25-r1
+title: "第25课 · 预测性能与模型维护成本"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "偏差—方差权衡"
+    tutor_context: "请解释“偏差—方差权衡”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "模型复杂度增加后训练误差降低，能直接推出什么？"
+        options:
+          - id: A
+            text: "未来误差一定更低"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "只说明对训练资料拟合更好"
+            misconception: null
+          - id: C
+            text: "所有参数因果含义更清楚"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "需要的维护成本一定更少"
+            misconception: "c1-a-confusion-4"
+        answer: B
+        explanation: "训练集拟合得更好，不保证对新数据预测得更好，仍需按实际使用场景评价。"
+      b:
+        prompt: "小样本中，灵活性很高的模型在不同重抽样样本上的拟合结果差别很大，可能反映什么？"
+        options:
+          - id: A
+            text: "偏差必定为零且无需评价"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "数据已经证明未来不会变化"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "对样本细节敏感，方差较大"
+            misconception: null
+          - id: D
+            text: "模型越长结果越稳定"
+            misconception: "c1-b-confusion-4"
+        answer: C
+        explanation: "灵活模型可能追随样本波动，稳定性需实证检查。"
+  - concept_id: c2
+    title: "正则化"
+    tutor_context: "请解释“正则化”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "岭回归增加惩罚强度通常会怎样？"
+        options:
+          - id: A
+            text: "保证所有新样本误差为零"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "自动删除全部类别变量"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "收缩系数，以一定偏差换取可能的稳定性"
+            misconception: null
+          - id: D
+            text: "把观察关联转成因果效果"
+            misconception: "c2-a-confusion-4"
+        answer: C
+        explanation: "正则化改变拟合约束，不能保证泛化或识别。"
+      b:
+        prompt: "同一个变量分别以“元”和“万元”为单位，采用相同的岭回归惩罚参数，为什么结果可能不同？"
+        options:
+          - id: A
+            text: "货币单位改变了真实因果关系"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "岭回归禁止数值变量"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "截距必定等于0"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "惩罚依赖特征尺度，需要一致处理"
+            misconception: null
+        answer: D
+        explanation: "惩罚项受变量尺度影响；变量尺度标准化所用的参数应仅由训练数据确定。"
+  - concept_id: c3
+    title: "特征稳定性"
+    tutor_context: "请解释“特征稳定性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "某特征在不同时间窗口系数变号，最合适的做法是什么？"
+        options:
+          - id: A
+            text: "按喜欢的方向只保留一个窗口"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "将系数取绝对值后，仍声称这是原模型的结果"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "仅因一次显著就宣布稳定因果作用"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "检查数据支持、共线性和模型结构，限制单项解释"
+            misconception: null
+        answer: D
+        explanation: "应分析系数变化与数据、共线性及模型设定的关系，不能只保留有利的结果。"
+      b:
+        prompt: "两种模型预测接近，但重要性排名差异大，说明什么？"
+        options:
+          - id: A
+            text: "特征重要性取决于模型及相关变量，不能直接据此确定真实作用机制"
+            misconception: null
+          - id: B
+            text: "两个模型必有一个算术错误"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "排名越长越有因果可信度"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "应选参数名称更熟悉的模型"
+            misconception: "c3-b-confusion-4"
+        answer: A
+        explanation: "解释变量作用与预测结果是不同目标；相关变量可能共同承担预测信息。"
+  - concept_id: c4
+    title: "泛化误差"
+    tutor_context: "请解释“泛化误差”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "哪项结果更适合用于评价模型在计划使用场景中的泛化能力？"
+        options:
+          - id: A
+            text: "按实际时点与对象设计的验证误差"
+            misconception: null
+          - id: B
+            text: "仅训练集最高准确率"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "参数总个数"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "报告字数"
+            misconception: "c4-a-confusion-4"
+        answer: A
+        explanation: "评价数据应尽量接近实际要预测的新记录，训练集表现不能替代泛化能力评价。"
+      b:
+        prompt: "各条记录的实际时长与预测时长之差，取绝对值后平均为5分钟。这个指标的单位是什么？"
+        options:
+          - id: A
+            text: "分钟平方"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "分钟"
+            misconception: null
+          - id: C
+            text: "百分比"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "无单位"
+            misconception: "c4-b-confusion-4"
+        answer: B
+        explanation: "MAE沿用结果变量的单位；MSE才是平方单位。"
+  - concept_id: c5
+    title: "降级与可用性"
+    tutor_context: "请解释“降级与可用性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "维护成本较高的字段突然无法获取时，合理的备用方案是什么？"
+        options:
+          - id: A
+            text: "临时填0且不说明影响"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "事先定义、可运行并评估过的替代分析程序"
+            misconception: null
+          - id: C
+            text: "继续输入上月任何人的值"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "不改变流程却声称数据完整"
+            misconception: "c5-a-confusion-4"
+        answer: B
+        explanation: "备用方案应能实际运行，并有相应的性能评价，不能只在报告中列出一个备选名称。"
+      b:
+        prompt: "甲方案误差4分钟、成本2元，乙误差5分钟、成本0元，能直接把误差与成本相加吗？"
+        options:
+          - id: A
+            text: "可以，因为都是数值"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "可以，只要都保留两位小数"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "不能，需明确误差到损失的转换或并列取舍"
+            misconception: null
+          - id: D
+            text: "不能比较任何带成本的模型"
+            misconception: "c5-b-confusion-4"
+        answer: C
+        explanation: "不同单位不能直接相加。可以分别比较预测性能与成本，或说明依据后将二者转换到同一损失尺度。"

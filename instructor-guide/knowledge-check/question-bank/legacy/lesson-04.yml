@@ -1,0 +1,121 @@
+lesson_id: s02-typical-value
+title: S02：典型值、离散与行动阈值
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: mean-versus-median
+    title: 均值与中位数
+    tutor_context: 解释均值和中位数分别利用了哪些信息，以及偏态数据中如何选择。
+    pair:
+      a:
+        prompt: 处理时长高度右偏，少数工单异常长。如果要描述一个“常见工单”，首选哪个统计量？
+        options:
+          - {id: A, text: 最大值, misconception: extreme-as-typical}
+          - {id: B, text: 中位数, misconception: null}
+          - {id: C, text: 极差, misconception: spread-as-center}
+          - {id: D, text: 样本量, misconception: count-as-center}
+        answer: B
+        explanation: 中位数受少数极长时长影响较小，更接近右偏分布中的典型位置。
+      b:
+        prompt: 一个社区的收入含少数极高值。哪个统计量满足“至少一半家庭收入不高于它、至少一半不低于它”？
+        options:
+          - {id: A, text: 均值, misconception: mean-is-middle-rank}
+          - {id: B, text: 标准差, misconception: spread-as-center}
+          - {id: C, text: 最大值, misconception: extreme-as-center}
+          - {id: D, text: 中位数, misconception: null}
+        answer: D
+        explanation: 中位数是排序后的中间位置；使用“至少一半”可兼容样本量为偶数或存在并列值的情况。
+
+  - concept_id: quantile-and-iqr
+    title: 分位数与 IQR
+    tutor_context: 解释分位数是位置指标，IQR 是中间一半数据的离散尺度。
+    pair:
+      a:
+        prompt: 配送时长的第 90 百分位数为 42 分钟。哪项解释最合理？
+        options:
+          - {id: A, text: 90% 的订单恰好用时 42 分钟, misconception: quantile-is-mode}
+          - {id: B, text: 平均配送时长为 42 分钟, misconception: quantile-is-mean}
+          - {id: C, text: 约 90% 的订单配送时长不超过 42 分钟, misconception: null}
+          - {id: D, text: 最长配送时长为 42 分钟, misconception: quantile-is-maximum}
+        answer: C
+        explanation: 第 90 百分位数是使约 90% 观测不高于它的位置值。
+      b:
+        prompt: 两家门店的中位数相同，但门店 X 的 IQR 更大。这直接表明什么？
+        options:
+          - {id: A, text: X 中间 50% 数据的离散程度更大, misconception: null}
+          - {id: B, text: X 的均值一定更大, misconception: spread-implies-mean}
+          - {id: C, text: X 的样本量一定更多, misconception: spread-implies-count}
+          - {id: D, text: X 所有值都更大, misconception: spread-implies-shift}
+        answer: A
+        explanation: IQR 比较的是 Q1 到 Q3 的跨度，不单独决定均值、样本量或整体高低。
+
+  - concept_id: standard-deviation-and-unit
+    title: 标准差的离散含义与计算口径
+    tutor_context: 解释标准差是数值围绕均值的离散尺度、与原变量单位相同，并区分本课分母 n 的描述性口径和分母 n−1 的样本标准差。
+    pair:
+      a:
+        prompt: 两个窗口的平均等待都是 10 分钟，X 的标准差是 2 分钟，Y 的标准差是 6 分钟。哪项解释最合理？
+        options:
+          - {id: A, text: Y 的等待时间通常围绕均值更分散, misconception: null}
+          - {id: B, text: Y 的平均等待一定更长, misconception: spread-implies-mean}
+          - {id: C, text: Y 的记录数一定更多, misconception: spread-implies-count}
+          - {id: D, text: Y 的每条记录都高于 X, misconception: spread-implies-ordering}
+        answer: A
+        explanation: 在均值相同时，更大的标准差表明数值围绕均值的离散程度更大，不能单独推出样本量或每条记录的高低。
+      b:
+        prompt: 本课使用 statistics.pstdev 描述手头完整批次。它计算方差时采用什么分母？
+        options:
+          - {id: A, text: n−1, misconception: confuse-sample-standard-deviation}
+          - {id: B, text: n, misconception: null}
+          - {id: C, text: 样本均值, misconception: denominator-is-mean}
+          - {id: D, text: 标准差没有分母, misconception: no-denominator}
+        answer: B
+        explanation: pstdev 使用 n。本课称其为“当前批次描述性标准差”；采用 n 不表示这批记录自动等于目标总体。
+
+  - concept_id: extreme-value-impact
+    title: 极端值对汇总的影响
+    tutor_context: 解释单个极端值对均值、中位数和最大值的不同影响。
+    pair:
+      a:
+        prompt: 在其他记录不变时，把最大值从 30 改为 300。哪项最可能？
+        options:
+          - {id: A, text: 中位数一定增加 270, misconception: median-follows-maximum}
+          - {id: B, text: 均值与中位数都不变, misconception: ignore-extreme}
+          - {id: C, text: 样本量从 n 变为 n+1, misconception: edit-adds-row}
+          - {id: D, text: 均值明显增加，中位数可能不变, misconception: null}
+        answer: D
+        explanation: 均值使用每个数值，而修改排序末端通常不改变中间位置。
+      b:
+        prompt: 如果删除一个真实但极高的销售额，哪项报告方式最负责？
+        options:
+          - {id: A, text: 只报告删除后更好看的均值, misconception: selective-reporting}
+          - {id: B, text: 把该值称为错误，无需核查, misconception: extreme-is-error}
+          - {id: C, text: 同时报告保留与排除时的结果，并说明适用的决定问题, misconception: null}
+          - {id: D, text: 用零取代该值, misconception: replace-with-zero}
+        answer: C
+        explanation: 真实极端值是否应进入目标量取决于问题；敏感性对照能透明显示影响。
+
+  - concept_id: action-threshold
+    title: 描述数字与决策阈值
+    tutor_context: 解释一个统计量何时足以触发行动，并区分“数字更大”与“值得行动”。
+    pair:
+      a:
+        prompt: 客户事先规定：超时率高于 20% 才增员。当前估计为 18%。直接依此规则应如何？
+        options:
+          - {id: A, text: 因为 18% 大于 0 就增员, misconception: any-positive-triggers}
+          - {id: B, text: 把 18% 四舍五入到 20% 后增员, misconception: round-to-threshold}
+          - {id: C, text: 阈值没有任何作用, misconception: ignore-rule}
+          - {id: D, text: 当前点估计未越过阈值，同时应报告不确定性, misconception: null}
+        answer: D
+        explanation: 按事先规则，18% 未超过 20%；但点估计附近的不确定性仍应告知决策者。
+      b:
+        prompt: 两个方案的中位时长相差 0.2 分钟，而实施成本巨大。最合理的做法是？
+        options:
+          - {id: A, text: 只要数字不完全相同就立即切换, misconception: any-difference-matters}
+          - {id: B, text: 把 0.2 放大成百分比后决策, misconception: rescale-to-impress}
+          - {id: C, text: 把差异与事先设定的实际意义阈值和成本比较, misconception: null}
+          - {id: D, text: 忽略所有统计数字, misconception: discard-evidence}
+        answer: C
+        explanation: 行动应由差异是否越过实际重要性阈值以及行动成本共同决定。

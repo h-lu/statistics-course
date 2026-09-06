@@ -1,0 +1,7 @@
+action,state,loss
+wait,low,0
+wait,high,160
+pilot,low,25
+pilot,high,65
+rollout,low,90
+rollout,high,15

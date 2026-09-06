@@ -1,0 +1,117 @@
+lesson_id: v2-l19-r1
+title: "第19课 · 大量发现中哪些可以对外发布"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l19-concept-1
+    title: "多重比较"
+    tutor_context: "解释“多重比较”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "大量比较时，检验族最合理由什么定义？"
+        options:
+          - {id: A, text: "只由哪个校正能保留最多显著结果", misconception: "l19-c1-misconception-1"}
+          - {id: B, text: "只由数据文件名决定", misconception: "l19-c1-misconception-2"}
+          - {id: C, text: "每个显著结果自动各自构成一个检验族", misconception: "l19-c1-misconception-3"}
+          - {id: D, text: "研究目的与准备共同报告的检验结论", misconception: null}
+        answer: D
+        explanation: "比较集合应服务研究目的，不能结果驱动分拆。"
+      b:
+        prompt: "20个独立真零假设各以0.05检验，至少一次误报概率是？"
+        options:
+          - {id: A, text: "仍为5%", misconception: "l19-c1-misconception-1"}
+          - {id: B, text: "0.05除以20，约0.25%", misconception: "l19-c1-misconception-2"}
+          - {id: C, text: "1−0.95的20次方，约64%", misconception: null}
+          - {id: D, text: "每次p值的平均数", misconception: "l19-c1-misconception-4"}
+        answer: C
+        explanation: "独立时全不误报概率0.95^20，取补；相关情况下需另看结构。"
+  - concept_id: l19-concept-2
+    title: "族错误率FWER"
+    tutor_context: "解释“族错误率FWER”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "FWER控制0.05主要控制什么？"
+        options:
+          - {id: A, text: "每条显著结论为假的概率", misconception: "l19-c2-misconception-1"}
+          - {id: B, text: "检验族中至少错误拒绝一个真实原假设的概率", misconception: null}
+          - {id: C, text: "所有拒绝中错误比例每次恰为5%", misconception: "l19-c2-misconception-3"}
+          - {id: D, text: "每个效应至少改善5%的概率", misconception: "l19-c2-misconception-4"}
+        answer: B
+        explanation: "FWER是一个检验族中至少错误拒绝一个真实原假设的概率。"
+      b:
+        prompt: "验证性发布不希望出现任何一条错误分析结论，哪种控制目标更直接？"
+        options:
+          - {id: A, text: "FWER", misconception: null}
+          - {id: B, text: "仅让原始p均值小于0.05", misconception: "l19-c2-misconception-2"}
+          - {id: C, text: "仅提高未校正检验数", misconception: "l19-c2-misconception-3"}
+          - {id: D, text: "只报告效应最大的指标", misconception: "l19-c2-misconception-4"}
+        answer: A
+        explanation: "FWER与避免检验族内任何错误分析结论的目标直接相关。"
+  - concept_id: l19-concept-3
+    title: "错误发现率FDR"
+    tutor_context: "解释“错误发现率FDR”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "FDR=0.05的控制声明最恰当是什么？"
+        options:
+          - {id: A, text: "当前每条显著结果恰有5%概率是假", misconception: "l19-c3-misconception-1"}
+          - {id: B, text: "每次结果一定恰好5%为假", misconception: "l19-c3-misconception-2"}
+          - {id: C, text: "至少一个错误发现概率必为5%", misconception: "l19-c3-misconception-3"}
+          - {id: D, text: "重复程序中错误发现比例的期望受控", misconception: null}
+        answer: D
+        explanation: "FDR是错误发现比例的期望，不是逐条后验概率或固定比例。"
+      b:
+        prompt: "一次探索报告拒绝10项，采用5%FDR方法能否断言最多0.5项为假？"
+        options:
+          - {id: A, text: "能，可以把0.5项当可保证的错误上限", misconception: "l19-c3-misconception-1"}
+          - {id: B, text: "能，向下取整就保证没有错误", misconception: "l19-c3-misconception-2"}
+          - {id: C, text: "不能，控制的是长期期望，不是本次错误数上界", misconception: null}
+          - {id: D, text: "不能，因为FDR与发现比例无关", misconception: "l19-c3-misconception-4"}
+        answer: C
+        explanation: "FDR不为单次报告提供确定错误数保证。"
+  - concept_id: l19-concept-4
+    title: "探索与验证"
+    tutor_context: "解释“探索与验证”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "从12项中挑最显著一项，接下来最合适怎样定位？"
+        options:
+          - {id: A, text: "改称预先主指标", misconception: "l19-c4-misconception-1"}
+          - {id: B, text: "透明作为探索线索，明确选择并安排验证", misconception: null}
+          - {id: C, text: "只要p小于0.05就不必提其余11项", misconception: "l19-c4-misconception-3"}
+          - {id: D, text: "将未选指标从原始数据删除", misconception: "l19-c4-misconception-4"}
+        answer: B
+        explanation: "结果驱动选择应诚实标注探索并考虑独立验证。"
+      b:
+        prompt: "用同一数据反复挑分组、指标和模型后“验证”选中发现，有何限制？"
+        options:
+          - {id: A, text: "同一数据已用于选择，确认性解释受到选择影响", misconception: null}
+          - {id: B, text: "只要最后只保留一个p值就无多重检验问题", misconception: "l19-c4-misconception-2"}
+          - {id: C, text: "调整最终显示的小数位可恢复验证", misconception: "l19-c4-misconception-3"}
+          - {id: D, text: "选择不涉及随机抽样所以无需考虑", misconception: "l19-c4-misconception-4"}
+        answer: A
+        explanation: "分析路径选择也会影响证据，不能只数最终表格行数。"
+  - concept_id: l19-concept-5
+    title: "统计显著与实际重要（复习）"
+    tutor_context: "解释“统计显著与实际重要（复习）”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "某指标校正后显著变差，应如何写分析报告？"
+        options:
+          - {id: A, text: "只要显著就称工具有效", misconception: "l19-c5-misconception-1"}
+          - {id: B, text: "删去不符合宣传目的的方向", misconception: "l19-c5-misconception-2"}
+          - {id: C, text: "把指标乘−1后不解释即可称正向", misconception: "l19-c5-misconception-3"}
+          - {id: D, text: "报告不利方向及实际后果，不把显著统一称改善", misconception: null}
+        answer: D
+        explanation: "显著只说明证据，方向与意义须独立解释。"
+      b:
+        prompt: "安全指标p>0.05就能宣布“没有损害”吗？"
+        options:
+          - {id: A, text: "能，未显著就是无效应", misconception: "l19-c5-misconception-1"}
+          - {id: B, text: "能，只要其他指标显著改善", misconception: "l19-c5-misconception-2"}
+          - {id: C, text: "不能，应看区间是否排除预先定义的不可接受损害", misconception: null}
+          - {id: D, text: "不能，因为安全指标不应统计分析", misconception: "l19-c5-misconception-4"}
+        answer: C
+        explanation: "未拒绝差异不等于证明安全或等效。"

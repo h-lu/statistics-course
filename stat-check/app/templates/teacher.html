@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+{% block title %}教师控制 · 统计学知识自查{% endblock %}
+{% block phase_bar %}{% include "_phase_bar.html" %}{% endblock %}
+{% block content %}
+  <section class="teacher-panel" data-auto-reload="5000">
+    <div class="teacher-heading">
+      <div>
+        <span class="eyebrow">教师控制</span>
+        <h1>当前阶段：{{ phase_labels[session.phase] }}</h1>
+      </div>
+      <a class="secondary-button" href="{{ base_path }}/teacher/export.csv">导出 CSV</a>
+    </div>
+    <form method="post" action="{{ base_path }}/teacher/session" class="session-controls">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <label for="lesson-id">选择课次</label>
+      <select id="lesson-id" name="lesson_id" required>
+        {% for bank in question_banks %}
+          <option value="{{ bank.lesson_id }}" {% if bank.lesson_id == session.lesson_id %}selected{% endif %}>{{ bank.title }}</option>
+        {% endfor %}
+      </select>
+      <button class="secondary-button" type="submit">新建本课自查（暂不开放）</button>
+    </form>
+    <p class="teacher-note">新场次创建后暂不开放答题；旧场次及答题记录继续保留。</p>
+    <form method="post" action="{{ base_path }}/teacher/phase" class="phase-controls">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <input type="hidden" name="session_id" value="{{ session.id }}">
+      {% for phase in phases %}
+        <button name="phase" value="{{ phase }}" class="{% if session.phase == phase %}current{% endif %}" type="submit">{{ phase_labels[phase] }}</button>
+      {% endfor %}
+    </form>
+    <div class="metric-grid">
+      <article><span>已登录学生</span><strong>{{ summary.students }}</strong></article>
+      <article><span>A 版完成</span><strong>{{ summary.completed.a }}</strong></article>
+      <article><span>学习完成</span><strong>{{ summary.completed.learn }}</strong></article>
+      <article><span>B 版完成</span><strong>{{ summary.completed.b }}</strong></article>
+    </div>
+    <div class="concept-summary">
+      <div class="summary-header"><span>概念</span><span>A 正确率</span><span>B 正确率</span></div>
+      {% for concept in concepts %}
+        <div class="summary-row">
+          <strong>{{ concept.title }}</strong>
+          <span>{% if concept.a is none %}—{% else %}{{ concept.a }}%{% endif %}</span>
+          <span>{% if concept.b is none %}—{% else %}{{ concept.b }}%{% endif %}</span>
+        </div>
+      {% endfor %}
+    </div>
+    <section class="session-history">
+      <h2>最近场次</h2>
+      {% for saved_session in session_history %}
+        <div class="session-row {% if saved_session.id == session.id %}current{% endif %}">
+          <span>#{{ saved_session.id }}</span>
+          <strong>{{ saved_session.title }}</strong>
+          <span>{{ phase_labels[saved_session.phase] }}</span>
+          <a href="{{ base_path }}/teacher/export.csv?session_id={{ saved_session.id }}">导出</a>
+          {% if saved_session.phase == 'closed' %}
+            <form method="post" action="{{ base_path }}/teacher/session/delete" class="inline-form">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+              <input type="hidden" name="session_id" value="{{ saved_session.id }}">
+              <button type="submit" class="danger-button">删除</button>
+            </form>
+          {% endif %}
+        </div>
+      {% endfor %}
+    </section>
+    <p class="teacher-note">切换阶段会立即影响全班；系统不会自动切换，也不会清除已有答案。</p>
+  </section>
+{% endblock %}

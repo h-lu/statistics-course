@@ -1,0 +1,13 @@
+metric,family,desirable_direction,practical_threshold
+handling_minutes,primary,lower,3
+error_rate,safety,lower,0.02
+quality_score,safety,higher,3
+weekly_output,exploratory,higher,3
+fatigue_score,exploratory,lower,3
+satisfaction,exploratory,higher,4
+training_minutes,exploratory,lower,5
+handoff_count,exploratory,lower,1
+rework_minutes,exploratory,lower,2
+escalations,exploratory,lower,1
+confidence_score,exploratory,higher,4
+workload_score,exploratory,lower,3

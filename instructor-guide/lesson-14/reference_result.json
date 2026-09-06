@@ -1,0 +1,224 @@
+[
+  {
+    "budget": 4500,
+    "cost": 4499.0,
+    "approx_margin": 1.5393183783139441,
+    "sd_up_30pct_margin": 2.0011138918081275,
+    "allocation": [
+      {
+        "stratum": "north_early",
+        "contacts": 125,
+        "expected_completed": 77.5,
+        "inclusion_probability": 0.25,
+        "sample_preview": [
+          "P1-0001",
+          "P1-0002",
+          "P1-0005"
+        ]
+      },
+      {
+        "stratum": "north_late",
+        "contacts": 207,
+        "expected_completed": 72.44999999999999,
+        "inclusion_probability": 0.2957142857142857,
+        "sample_preview": [
+          "P2-0005",
+          "P2-0006",
+          "P2-0007"
+        ]
+      },
+      {
+        "stratum": "central_early",
+        "contacts": 128,
+        "expected_completed": 64.0,
+        "inclusion_probability": 0.21333333333333335,
+        "sample_preview": [
+          "P3-0001",
+          "P3-0005",
+          "P3-0010"
+        ]
+      },
+      {
+        "stratum": "central_late",
+        "contacts": 199,
+        "expected_completed": 55.720000000000006,
+        "inclusion_probability": 0.24875,
+        "sample_preview": [
+          "P4-0005",
+          "P4-0009",
+          "P4-0011"
+        ]
+      },
+      {
+        "stratum": "south_early",
+        "contacts": 152,
+        "expected_completed": 63.839999999999996,
+        "inclusion_probability": 0.27636363636363637,
+        "sample_preview": [
+          "P5-0002",
+          "P5-0003",
+          "P5-0006"
+        ]
+      },
+      {
+        "stratum": "south_late",
+        "contacts": 122,
+        "expected_completed": 24.400000000000002,
+        "inclusion_probability": 0.27111111111111114,
+        "sample_preview": [
+          "P6-0002",
+          "P6-0007",
+          "P6-0008"
+        ]
+      }
+    ]
+  },
+  {
+    "budget": 6000,
+    "cost": 6000.0,
+    "approx_margin": 1.310329217587651,
+    "sd_up_30pct_margin": 1.7034279828639465,
+    "allocation": [
+      {
+        "stratum": "north_early",
+        "contacts": 166,
+        "expected_completed": 102.92,
+        "inclusion_probability": 0.332,
+        "sample_preview": [
+          "P1-0003",
+          "P1-0010",
+          "P1-0015"
+        ]
+      },
+      {
+        "stratum": "north_late",
+        "contacts": 276,
+        "expected_completed": 96.6,
+        "inclusion_probability": 0.3942857142857143,
+        "sample_preview": [
+          "P2-0004",
+          "P2-0005",
+          "P2-0006"
+        ]
+      },
+      {
+        "stratum": "central_early",
+        "contacts": 171,
+        "expected_completed": 85.5,
+        "inclusion_probability": 0.285,
+        "sample_preview": [
+          "P3-0004",
+          "P3-0006",
+          "P3-0012"
+        ]
+      },
+      {
+        "stratum": "central_late",
+        "contacts": 265,
+        "expected_completed": 74.2,
+        "inclusion_probability": 0.33125,
+        "sample_preview": [
+          "P4-0005",
+          "P4-0007",
+          "P4-0013"
+        ]
+      },
+      {
+        "stratum": "south_early",
+        "contacts": 203,
+        "expected_completed": 85.25999999999999,
+        "inclusion_probability": 0.3690909090909091,
+        "sample_preview": [
+          "P5-0003",
+          "P5-0008",
+          "P5-0010"
+        ]
+      },
+      {
+        "stratum": "south_late",
+        "contacts": 163,
+        "expected_completed": 32.6,
+        "inclusion_probability": 0.3622222222222222,
+        "sample_preview": [
+          "P6-0002",
+          "P6-0008",
+          "P6-0011"
+        ]
+      }
+    ]
+  },
+  {
+    "budget": 7500,
+    "cost": 7498.0,
+    "approx_margin": 1.1516076659280379,
+    "sd_up_30pct_margin": 1.4970899657064494,
+    "allocation": [
+      {
+        "stratum": "north_early",
+        "contacts": 208,
+        "expected_completed": 128.96,
+        "inclusion_probability": 0.416,
+        "sample_preview": [
+          "P1-0001",
+          "P1-0002",
+          "P1-0003"
+        ]
+      },
+      {
+        "stratum": "north_late",
+        "contacts": 345,
+        "expected_completed": 120.74999999999999,
+        "inclusion_probability": 0.4928571428571429,
+        "sample_preview": [
+          "P2-0001",
+          "P2-0003",
+          "P2-0010"
+        ]
+      },
+      {
+        "stratum": "central_early",
+        "contacts": 213,
+        "expected_completed": 106.5,
+        "inclusion_probability": 0.355,
+        "sample_preview": [
+          "P3-0003",
+          "P3-0005",
+          "P3-0007"
+        ]
+      },
+      {
+        "stratum": "central_late",
+        "contacts": 332,
+        "expected_completed": 92.96000000000001,
+        "inclusion_probability": 0.415,
+        "sample_preview": [
+          "P4-0001",
+          "P4-0010",
+          "P4-0011"
+        ]
+      },
+      {
+        "stratum": "south_early",
+        "contacts": 254,
+        "expected_completed": 106.67999999999999,
+        "inclusion_probability": 0.4618181818181818,
+        "sample_preview": [
+          "P5-0001",
+          "P5-0002",
+          "P5-0004"
+        ]
+      },
+      {
+        "stratum": "south_late",
+        "contacts": 203,
+        "expected_completed": 40.6,
+        "inclusion_probability": 0.45111111111111113,
+        "sample_preview": [
+          "P6-0003",
+          "P6-0006",
+          "P6-0007"
+        ]
+      }
+    ]
+  }
+]

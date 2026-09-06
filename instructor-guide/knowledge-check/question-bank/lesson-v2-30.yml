@@ -1,0 +1,198 @@
+lesson_id: v2-l30
+title: "第30课 · 为未来需求建立可信预测与预警"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "趋势与季节性"
+    tutor_context: "请解释“趋势与季节性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "每年同一季节需求反复升高，主要属于什么？"
+        options:
+          - id: A
+            text: "独立随机抽样"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "固定处理效果"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "季节性"
+            misconception: null
+          - id: D
+            text: "一次录入错误"
+            misconception: "c1-a-confusion-4"
+        answer: C
+        explanation: "按周期重复的结构称季节性，可能同时存在趋势。"
+      b:
+        prompt: "需求每年同月差不多波动，但总体逐年上升，应如何描述？"
+        options:
+          - id: A
+            text: "只能有两者之一"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "全部是随机噪声"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "周期结构证明政策因果作用"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "同时有季节性和趋势"
+            misconception: null
+        answer: D
+        explanation: "趋势和季节性可并存，模型应分别考虑。"
+  - concept_id: c2
+    title: "自相关"
+    tutor_context: "请解释“自相关”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "相邻周残差经常同正同负，提示什么？"
+        options:
+          - id: A
+            text: "各周已被证明独立"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "需要随机改符号"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "只要均值0就无需检查"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "可能存在自相关或遗漏时间结构"
+            misconception: null
+        answer: D
+        explanation: "残差依赖会影响预测及区间，均值0不保证独立。"
+      b:
+        prompt: "评估周需求时把顺序随机打乱，为什么可能误导？"
+        options:
+          - id: A
+            text: "破坏了真实预测的信息顺序和相关结构"
+            misconception: null
+          - id: B
+            text: "所有模型必须使用日期字符串"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "平均数将无法计算"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "时间单位自动改变"
+            misconception: "c2-b-confusion-4"
+        answer: A
+        explanation: "评价需模拟先过去后未来，随机拆分不能直接代表该流程。"
+  - concept_id: c3
+    title: "滚动回测"
+    tutor_context: "请解释“滚动回测”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "在第100周作未来四周预测，训练可以使用哪些结果？"
+        options:
+          - id: A
+            text: "第100周预测时点已经观测到的历史结果"
+            misconception: null
+          - id: B
+            text: "第104周真实需求"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "为了方便使用全年均值含未来"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "所有未来节假日的真实需求"
+            misconception: "c3-a-confusion-4"
+        answer: A
+        explanation: "可用结果受预测时点约束；已知日历与未知需求不同。"
+      b:
+        prompt: "比较一周预测和四周预测的MAE直接选较小者，有何问题？"
+        options:
+          - id: A
+            text: "MAE完全不能用于预测"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "预测跨度不同，任务难度和用途不一致"
+            misconception: null
+          - id: C
+            text: "四周误差必须恰好是一周四倍"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "一周预测永远更有业务价值"
+            misconception: "c3-b-confusion-4"
+        answer: B
+        explanation: "候选方法应在同起点、同跨度和同评价目标下比较。"
+  - concept_id: c4
+    title: "预测区间"
+    tutor_context: "请解释“预测区间”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "未来一周需求的预测区间与均值区间相比，通常还需包含什么？"
+        options:
+          - id: A
+            text: "仅参数名称的不确定性"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "未来观测本身的随机波动"
+            misconception: null
+          - id: C
+            text: "所有政策效果的偏差"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "报告排版的变动"
+            misconception: "c4-a-confusion-4"
+        answer: B
+        explanation: "预测观测区间包含参数估计与新的观测噪声等来源。"
+      b:
+        prompt: "用历史误差90%分位数形成预测带，新环境覆盖75%，应如何报告？"
+        options:
+          - id: A
+            text: "仍保证每周90%正确"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "删除带外周后报告100%"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "名义目标90%，本次实际回放覆盖75%，需讨论变化"
+            misconception: null
+          - id: D
+            text: "把75改称更保守的90"
+            misconception: "c4-b-confusion-4"
+        answer: C
+        explanation: "经验校准不保证漂移下覆盖，必须如实报告实际表现。"
+  - concept_id: c5
+    title: "异常与结构变化"
+    tutor_context: "请解释“异常与结构变化”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "某周需求远超预测区间，首先应如何理解？"
+        options:
+          - id: A
+            text: "已经证明政策造成需求增加"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "该周记录必定错误"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "需要复核的信号，可能来自波动、输入问题或结构改变"
+            misconception: null
+          - id: D
+            text: "模型所有历史结果都无效"
+            misconception: "c5-a-confusion-4"
+        answer: C
+        explanation: "异常预测误差有多种解释，需进一步证据。"
+      b:
+        prompt: "连续多周同向低估后，合理措施是什么？"
+        options:
+          - id: A
+            text: "只把每周都称随机异常"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "事后重算好再声称原规则完全有效"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "直接把预测误差当因果效应"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "检查结构变化并评价修订或容量余量"
+            misconception: null
+        answer: D
+        explanation: "持续偏差提示进一步检查，修订应与原回放证据区分。"
+

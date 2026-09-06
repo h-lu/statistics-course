@@ -1,0 +1,197 @@
+lesson_id: v2-l23-r1
+title: "第23课 · 风险预测与复核决策"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "逻辑回归与概率"
+    tutor_context: "请解释“逻辑回归与概率”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "逻辑回归输出p=0.2，首先表示什么？"
+        options:
+          - id: A
+            text: "事件一定不会发生"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "该人接受干预后风险会下降20%"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "该特征解释了20%结果差异"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "给定当前输入，模型估计事件发生概率为20%"
+            misconception: null
+        answer: D
+        explanation: "这是模型给出的概率预测，不是对个体结果的确定判断，也不是对干预收益的估计。"
+      b:
+        prompt: "二分类模型给出概率0.8。若要将其解释为类似对象中约80%会发生事件，还应检查什么？"
+        options:
+          - id: A
+            text: "模型在目标人群中的概率校准情况和适用性"
+            misconception: null
+          - id: B
+            text: "仅检查所有对象的风险分数是否互不相同"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "把阈值固定为0.5即可"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "模型使用了非线性方法即可"
+            misconception: "c1-b-confusion-4"
+        answer: A
+        explanation: "将分数作为概率使用，需要检查模型在目标人群中的校准情况；只有排序能力还不够。"
+  - concept_id: c2
+    title: "优势与优势比"
+    tutor_context: "请解释“优势与优势比”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "事件概率0.2对应的优势是多少？"
+        options:
+          - id: A
+            text: "0.25"
+            misconception: null
+          - id: B
+            text: "0.2"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "0.8"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "4"
+            misconception: "c2-a-confusion-4"
+        answer: A
+        explanation: "优势=p/(1−p)=0.2/0.8=0.25。"
+      b:
+        prompt: "在其他条件相同时，某变量对应的优势比为2。哪项解释恰当？"
+        options:
+          - id: A
+            text: "每个人的概率恰好乘2"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "优势乘2，概率的变化幅度取决于原来的风险水平"
+            misconception: null
+          - id: C
+            text: "每个人概率增加2个百分点"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "事件次数必定翻倍"
+            misconception: "c2-b-confusion-4"
+        answer: B
+        explanation: "优势比不是风险比，概率变化不是恒定比例或差值。"
+  - concept_id: c3
+    title: "查准率与查全率"
+    tutor_context: "请解释“查准率与查全率”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "报告20条报警，其中8条为真阳性；全部样本中共有10条真实阳性。查准率是多少？"
+        options:
+          - id: A
+            text: "80%"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "40%"
+            misconception: null
+          - id: C
+            text: "8%"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "20%"
+            misconception: "c3-a-confusion-4"
+        answer: B
+        explanation: "查准率=TP/(TP+FP)=8/20，分母为全部报警。"
+      b:
+        prompt: "40名实际患病者中，筛查识别出30名。查全率是多少？"
+        options:
+          - id: A
+            text: "30%"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "40%"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "75%"
+            misconception: null
+          - id: D
+            text: "必须知道全部阳性报告数才可计算"
+            misconception: "c3-b-confusion-4"
+        answer: C
+        explanation: "查全率的分母是实际阳性总数，因此为30/40=75%。"
+  - concept_id: c4
+    title: "ROC与PR"
+    tutor_context: "请解释“ROC与PR”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "基础率很低时，只报总体准确率可能有什么问题？"
+        options:
+          - id: A
+            text: "准确率必然超过100%"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "ROC无法计算任何点"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "大量负例使少报阳性的模型看起来很好"
+            misconception: null
+          - id: D
+            text: "所有PR曲线都相同"
+            misconception: "c4-a-confusion-4"
+        answer: C
+        explanation: "类别失衡时准确率可掩盖阳性检出和误报负担。"
+      b:
+        prompt: "两个人群的基础率不同。即使灵敏度和特异度相同，阳性预测值仍可能怎样？"
+        options:
+          - id: A
+            text: "必定完全相同"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "恒等于灵敏度"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "恒等于1减特异度"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "随基础率变化"
+            misconception: null
+        answer: D
+        explanation: "阳性预测值还取决于基础率；它与灵敏度所计算的条件概率方向不同。"
+  - concept_id: c5
+    title: "阈值、损失与容量"
+    tutor_context: "请解释“阈值、损失与容量”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "每月最多复核25%的工单，某个报警阈值却会选出40%的工单。应如何处理？"
+        options:
+          - id: A
+            text: "仅把报告中的40%写成25%"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "因为AUC高就忽略名额"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "把多出的记录算作非报警但仍复核"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "重新制定满足复核上限的排序或阈值规则，并评价其后果"
+            misconception: null
+        answer: D
+        explanation: "行动规则必须在实际容量下评价，而不是只看模型指标。"
+      b:
+        prompt: "复核名额很少，最高风险者是否必然是干预收益最大者？"
+        options:
+          - id: A
+            text: "不是，预测风险与估计干预效应是不同的问题"
+            misconception: null
+          - id: B
+            text: "是，风险概率就是因果效应"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "是，只要概率经过校准"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "只有风险大于0.5时才必然是"
+            misconception: "c5-b-confusion-4"
+        answer: A
+        explanation: "高风险不说明其结果能被干预改变多少，需要干预效果证据。"

@@ -1,0 +1,155 @@
+"""Small, transparent course workflow. Checks delivery, never authorship or reasoning."""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import re
+import shutil
+import subprocess
+import sys
+import tempfile
+
+ROOT = Path(__file__).resolve().parents[1]
+STATUSES = {"not_started", "in_progress", "complete"}
+TAG = re.compile(r"^v2-l(\d{2})-(?:final|revision-[1-9]\d*)$")
+
+
+def lesson_name(value: str | int) -> str:
+    raw = str(value).removeprefix("lesson-")
+    if not raw.isdigit() or not 1 <= int(raw) <= 32:
+        raise ValueError("课次必须为01—32")
+    return f"lesson-{int(raw):02d}"
+
+
+def inside(root: Path, relative: str) -> Path:
+    if not isinstance(relative, str) or not relative.strip() or Path(relative).is_absolute():
+        raise ValueError("提交文件的路径必须是非空的仓库相对路径")
+    path = (root / relative).resolve()
+    if not path.is_relative_to(root.resolve()):
+        raise ValueError(f"路径超出仓库：{relative}")
+    return path
+
+
+def manifest(root: Path, lesson: str) -> dict:
+    path = root / lesson / "submission.json"
+    obj = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(obj, dict) or obj.get("lesson") != lesson:
+        raise ValueError(f"{lesson}：submission.json课次不符")
+    if obj.get("status") not in STATUSES:
+        raise ValueError(f"{lesson}：status应为not_started、in_progress或complete")
+    inside(root, obj.get("report", ""))
+    paths = obj.get("artifacts")
+    if not isinstance(paths, list) or any(not isinstance(p, str) for p in paths):
+        raise ValueError(f"{lesson}：artifacts必须为文件路径列表")
+    if len(set(paths)) != len(paths):
+        raise ValueError(f"{lesson}：artifacts有重复路径")
+    for item in paths:
+        inside(root, item)
+    command = obj.get("run")
+    if not isinstance(command, list) or not command or any(not isinstance(p, str) or not p for p in command):
+        raise ValueError(f"{lesson}：run必须为非空命令参数列表")
+    return obj
+
+
+def start(root: Path, lesson: str) -> None:
+    obj = manifest(root, lesson)
+    if obj["status"] == "complete":
+        print(f"{lesson}已有完成声明；继续修订时保留原标签。")
+        return
+    obj["status"] = "in_progress"
+    (root / lesson / "submission.json").write_text(
+        json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+    print(f"已开始{lesson}。请阅读本课README和LEARN。")
+
+
+def run(root: Path, lesson: str) -> None:
+    command = list(manifest(root, lesson)["run"])
+    if command[0] in {"python", "python3"}:
+        command[0] = sys.executable
+    print(f"运行{lesson}：{' '.join(command)}", flush=True)
+    subprocess.run(command, cwd=root, check=True, timeout=600)
+
+
+def check(root: Path, lesson: str) -> dict:
+    obj = manifest(root, lesson)
+    if obj["status"] != "complete":
+        raise ValueError(f"{lesson}：尚未标记complete；请先完成项目，再检查提交文件")
+    report = inside(root, obj["report"])
+    if not report.is_file() or report.stat().st_size == 0:
+        raise ValueError(f"{lesson}：报告不存在或为空")
+    if not obj["artifacts"]:
+        raise ValueError(f"{lesson}：请列出支持报告结论的结果文件；仅运行示例代码不等于完成项目")
+    for value in obj["artifacts"]:
+        evidence = inside(root, value)
+        if not evidence.is_file() or evidence.stat().st_size == 0:
+            raise ValueError(f"{lesson}：结果文件不存在或为空：{value}")
+        if value == obj["report"] or evidence.name == "submission.json":
+            raise ValueError(f"{lesson}：结果文件应包含分析结果，不能填写完成声明或报告本身")
+    print(f"{lesson}提交文件检查通过；仍需核对分析问题、计算结果和结论。")
+    return obj
+
+
+def digest(root: Path, paths: list[str]) -> dict[str, str]:
+    return {p: hashlib.sha256(inside(root, p).read_bytes()).hexdigest() for p in paths}
+
+
+def reproduce(root: Path, lesson: str) -> None:
+    obj = check(root, lesson)
+    before = digest(root, obj["artifacts"])
+    # Work on a disposable copy: a no-op must not pass by reusing old outputs,
+    # and a failed reproduction must not destroy the student's submitted files.
+    with tempfile.TemporaryDirectory(prefix="statistics-reproduce-") as temp:
+        scratch = Path(temp) / "project"
+        shutil.copytree(root, scratch, ignore=shutil.ignore_patterns(".git", ".venv", "__pycache__"))
+        for path in obj["artifacts"]:
+            inside(scratch, path).unlink()
+        run(scratch, lesson)
+        check(scratch, lesson)
+        if before != digest(scratch, obj["artifacts"]):
+            raise ValueError(f"{lesson}：重新运行得到的结果与已提交文件不同；请检查随机种子，或重新生成结果后提交")
+
+
+def ci(root: Path, ref: str = "") -> None:
+    objects = {lesson_name(i): manifest(root, lesson_name(i)) for i in range(1, 33)}
+    selected = None
+    if ref.startswith("refs/tags/v2-"):
+        match = TAG.fullmatch(ref.removeprefix("refs/tags/"))
+        if not match:
+            raise ValueError("V2标签应为v2-lNN-final或v2-lNN-revision-N")
+        selected = lesson_name(match.group(1))
+        check(root, selected)
+    for lesson, obj in objects.items():
+        if selected and lesson != selected:
+            continue
+        if obj["status"] == "complete":
+            reproduce(root, lesson)
+        elif obj["status"] == "in_progress":
+            run(root, lesson)
+    print("检查结束。尚未开始的项目未计为完成；统计质量由成果评价。")
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("action", choices=["start", "run", "check", "ci"])
+    parser.add_argument("lesson", nargs="?")
+    args = parser.parse_args()
+    try:
+        if args.action == "ci":
+            ci(ROOT, os.getenv("GITHUB_REF", ""))
+        else:
+            if args.lesson is None:
+                parser.error("请填写课次，如：python scripts/course.py run 03")
+            name = lesson_name(args.lesson)
+            {"start": start, "run": run, "check": check}[args.action](ROOT, name)
+        return 0
+    except (OSError, ValueError, subprocess.CalledProcessError, subprocess.TimeoutExpired) as error:
+        print(f"检查未通过：{error}", file=sys.stderr)
+        return 1
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

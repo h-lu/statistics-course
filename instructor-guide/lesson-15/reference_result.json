@@ -1,0 +1,45 @@
+{
+  "seed": 1501,
+  "randomization_unit": "team",
+  "assignments": {
+    "T05": "tool",
+    "T03": "tool",
+    "T01": "tool",
+    "T04": "usual",
+    "T02": "usual",
+    "T06": "usual",
+    "T07": "tool",
+    "T08": "tool",
+    "T10": "tool",
+    "T12": "usual",
+    "T09": "usual",
+    "T11": "usual",
+    "T18": "tool",
+    "T16": "tool",
+    "T17": "tool",
+    "T15": "usual",
+    "T14": "usual",
+    "T13": "usual",
+    "T23": "tool",
+    "T22": "tool",
+    "T19": "tool",
+    "T24": "usual",
+    "T21": "usual",
+    "T20": "usual"
+  },
+  "balance": {
+    "tool": {
+      "people": 240,
+      "teams": 12,
+      "baseline_mean": 56.20841666666667,
+      "workload_mean": 1.0522458333333333
+    },
+    "usual": {
+      "people": 240,
+      "teams": 12,
+      "baseline_mean": 57.6096875,
+      "workload_mean": 1.0412124999999999
+    }
+  },
+  "primary_estimand": "all assigned participants' mean follow-up minutes, tool minus usual; missing outcomes require assumptions"
+}

@@ -1,0 +1,197 @@
+lesson_id: v2-l31-r1
+title: "第31课 · 追加调查是否值得：信息价值分析"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "期望损失"
+    tutor_context: "请解释“期望损失”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "低需求和高需求状态的概率分别为0.7和0.3，某行动在两种状态下的损失分别为10和50。期望损失是多少？"
+        options:
+          - id: A
+            text: "30"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "60"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "40"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "22"
+            misconception: null
+        answer: D
+        explanation: "期望损失=0.7×10+0.3×50=22。"
+      b:
+        prompt: "一种行动平均损失较低，但有很小概率越过安全红线，必须怎样处理？"
+        options:
+          - id: A
+            text: "明确安全约束或风险偏好后再决策"
+            misconception: null
+          - id: B
+            text: "因均值低就必然采用"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "删去小概率状态"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "把安全约束改成0成本"
+            misconception: "c1-b-confusion-4"
+        answer: A
+        explanation: "期望损失不是唯一可能目标，硬约束需要显式纳入。"
+  - concept_id: c2
+    title: "效用与风险偏好"
+    tutor_context: "请解释“效用与风险偏好”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "两个行动的期望货币损失相同，风险厌恶者是否一定认为二者同样好？"
+        options:
+          - id: A
+            text: "不必，后果分布和效用可能不同"
+            misconception: null
+          - id: B
+            text: "必须，期望值决定所有偏好"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "不必，因为可以随意改概率"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "只有样本量较大时才必须认为二者同样好"
+            misconception: "c2-a-confusion-4"
+        answer: A
+        explanation: "非线性效用会关注后果分布，不只货币均值。"
+      b:
+        prompt: "把服务中断视为不可接受的后果，而不只是可以与其他损失相加的成本。这应如何纳入决策？"
+        options:
+          - id: A
+            text: "统计量计算错误"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "硬约束或不同效用结构，需要明确"
+            misconception: null
+          - id: C
+            text: "自动等价于风险中性"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "可以在报告中省略的个人习惯"
+            misconception: "c2-b-confusion-4"
+        answer: B
+        explanation: "决策标准由使用者目标决定，必须公开而非藏在公式中。"
+  - concept_id: c3
+    title: "贝叶斯更新"
+    tutor_context: "请解释“贝叶斯更新”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "调查出现阳性信号的概率，在高需求状态下为0.8、低需求状态下为0.2。高需求状态的先验概率为0.25。观察到阳性信号后，高需求状态的概率是多少？"
+        options:
+          - id: A
+            text: "0.8"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "约0.5714"
+            misconception: null
+          - id: C
+            text: "0.25"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "0.2"
+            misconception: "c3-a-confusion-4"
+        answer: B
+        explanation: "分子0.8×0.25=0.2，阳性总概率0.2+0.2×0.75=0.35。"
+      b:
+        prompt: "某信号在两种状态下出现概率相同，它通常提供多少区分状态的信息？"
+        options:
+          - id: A
+            text: "总能确定真实状态"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "把高需求状态的概率改成0.5"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "两种状态的后验概率比值与先验概率比值相同"
+            misconception: null
+          - id: D
+            text: "使最坏状态必定发生"
+            misconception: "c3-b-confusion-4"
+        answer: C
+        explanation: "似然比为1时，信号不会更新状态相对概率。"
+  - concept_id: c4
+    title: "信息价值"
+    tutor_context: "请解释“信息价值”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "在相同行动和损失设定下，完美信息价值与某个样本调查的信息价值通常有什么关系？"
+        options:
+          - id: A
+            text: "样本调查必定更大"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "两者必定相同"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "同一行动与损失问题下，完美信息价值是上界"
+            misconception: null
+          - id: D
+            text: "只由调查样本人数决定"
+            misconception: "c4-a-confusion-4"
+        answer: C
+        explanation: "完全知道真实状态时，优化行动所能减少的期望损失，不小于只获得有误差信号时的减少量。"
+      b:
+        prompt: "一项更精确的调查，无论出现哪种结果都不会改变最优行动。它的信息价值可能是多少？"
+        options:
+          - id: A
+            text: "必定为正且等于样本量"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "必定等于调查成本"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "必定使当前行动损失为0"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "为0，即使统计上更精确"
+            misconception: null
+        answer: D
+        explanation: "信息价值来自它如何改变行动及后果，不是精度本身。"
+  - concept_id: c5
+    title: "敏感性与延迟成本"
+    tutor_context: "请解释“敏感性与延迟成本”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "样本信息价值12，调查成本8、延迟成本5，净价值是多少？"
+        options:
+          - id: A
+            text: "4"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "12"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "25"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "−1"
+            misconception: null
+        answer: D
+        explanation: "净价值=12−8−5=−1，不能漏算等待成本。"
+      b:
+        prompt: "先验概率略微改变，最优选择就从试点变为全面实施。报告最应突出什么？"
+        options:
+          - id: A
+            text: "使最优决策发生改变的先验概率范围及先验依据"
+            misconception: null
+          - id: B
+            text: "只报告当前先验下的精确点值，不展示邻近情境"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "将几个先验等权平均后给出单一建议，不说明权重依据"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "把当前先验视为已知常数，忽略其来源不确定性"
+            misconception: "c5-b-confusion-4"
+        answer: A
+        explanation: "接近决策转换条件时，选择对输入值敏感，应让使用者看到该敏感性。"

@@ -1,0 +1,77 @@
+{
+  "lesson": 31,
+  "reference_only": true,
+  "results": {
+    "expected_losses": {
+      "pilot": 39.0,
+      "rollout": 63.75,
+      "wait": 56.0
+    },
+    "best_now": "pilot",
+    "expected_loss_with_signal": 27.099999999999994,
+    "evsi_before_cost": 11.900000000000006,
+    "evpi": 33.75,
+    "sample_information": {
+      "positive": {
+        "probability": 0.41,
+        "posterior": {
+          "low": 0.3170731707317073,
+          "high": 0.6829268292682926
+        },
+        "expected_losses": {
+          "pilot": 52.3170731707317,
+          "rollout": 38.78048780487805,
+          "wait": 109.26829268292681
+        }
+      },
+      "negative": {
+        "probability": 0.59,
+        "posterior": {
+          "low": 0.8813559322033899,
+          "high": 0.11864406779661014
+        },
+        "expected_losses": {
+          "pilot": 29.74576271186441,
+          "rollout": 81.10169491525424,
+          "wait": 18.983050847457623
+        }
+      }
+    },
+    "net_information_value_at_cost8_delay3": 0.9000000000000057,
+    "sensitivity": [
+      {
+        "high_probability": 0.1,
+        "best_action": "wait"
+      },
+      {
+        "high_probability": 0.2,
+        "best_action": "wait"
+      },
+      {
+        "high_probability": 0.30000000000000004,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.4,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.5,
+        "best_action": "pilot"
+      },
+      {
+        "high_probability": 0.6,
+        "best_action": "rollout"
+      },
+      {
+        "high_probability": 0.7000000000000001,
+        "best_action": "rollout"
+      },
+      {
+        "high_probability": 0.8,
+        "best_action": "rollout"
+      }
+    ],
+    "note": "Priors, test properties and losses are supplied scenarios; not causal estimates from the panel."
+  }
+}

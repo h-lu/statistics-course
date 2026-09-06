@@ -1,0 +1,117 @@
+lesson_id: v2-l17
+title: "第17课 · 为不同比较结构选择分析方案"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l17-concept-1
+    title: "配对与独立样本"
+    tutor_context: "解释“配对与独立样本”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "两列分别是相同人的A/B体验，配对依据应是什么？"
+        options:
+          - {id: A, text: "两列刚好行数相等", misconception: "l17-c1-misconception-1"}
+          - {id: B, text: "能识别同一人的可靠ID", misconception: null}
+          - {id: C, text: "两列均值接近", misconception: "l17-c1-misconception-3"}
+          - {id: D, text: "软件默认的当前排序", misconception: "l17-c1-misconception-4"}
+        answer: B
+        explanation: "实质配对来自单位关系，不能仅凭行序和数量。"
+      b:
+        prompt: "两组不同顾客各50人，应否按行号一一相减当配对？"
+        options:
+          - {id: A, text: "不应，没有实质一一对应关系", misconception: null}
+          - {id: B, text: "应，配对总会提高精度", misconception: "l17-c1-misconception-2"}
+          - {id: C, text: "应，只要都测了满意度", misconception: "l17-c1-misconception-3"}
+          - {id: D, text: "应，人数相等足以建立配对", misconception: "l17-c1-misconception-4"}
+        answer: A
+        explanation: "人为行号不创造配对设计或相关信息。"
+  - concept_id: l17-concept-2
+    title: "差值的均值与标准误"
+    tutor_context: "解释“差值的均值与标准误”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "配对研究有60人各两次测量，平均差标准误中的n是什么？"
+        options:
+          - {id: A, text: "120行观测", misconception: "l17-c2-misconception-1"}
+          - {id: B, text: "两种方法数2", misconception: "l17-c2-misconception-2"}
+          - {id: C, text: "不同差值取值个数", misconception: "l17-c2-misconception-3"}
+          - {id: D, text: "60个有效配对", misconception: null}
+        answer: D
+        explanation: "先算每对差，再把60个差作为分析单位。"
+      b:
+        prompt: "同人水平差很大但A/B差异稳定，保留配对通常有什么作用？"
+        options:
+          - {id: A, text: "必然增大方法效应的点估计", misconception: "l17-c2-misconception-1"}
+          - {id: B, text: "使A与B的原始标准差变为0", misconception: "l17-c2-misconception-2"}
+          - {id: C, text: "去除一部分人间水平噪声，更精确估计平均差", misconception: null}
+          - {id: D, text: "把每人两次当独立样本更合适", misconception: "l17-c2-misconception-4"}
+        answer: C
+        explanation: "配对利用人内关系，精度取决于差值变异。"
+  - concept_id: l17-concept-3
+    title: "重复观测与相关"
+    tutor_context: "解释“重复观测与相关”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "48人每人6周共288行，误按288个独立人分析最可能怎样？"
+        options:
+          - {id: A, text: "必然改变均差符号", misconception: "l17-c3-misconception-1"}
+          - {id: B, text: "低估相关造成的不确定性", misconception: null}
+          - {id: C, text: "自动提高真实独立样本量", misconception: "l17-c3-misconception-3"}
+          - {id: D, text: "使均值不可计算", misconception: "l17-c3-misconception-4"}
+        answer: B
+        explanation: "人内相关使行数不等于独立信息数。"
+      b:
+        prompt: "将每人6周均值作为一条记录分析，主要代价是什么？"
+        options:
+          - {id: A, text: "可能丢失效应随时间变化的信息", misconception: null}
+          - {id: B, text: "必然引入每人6倍权重", misconception: "l17-c3-misconception-2"}
+          - {id: C, text: "仍把周数错误当独立人数", misconception: "l17-c3-misconception-3"}
+          - {id: D, text: "不能再比较两组均值", misconception: "l17-c3-misconception-4"}
+        answer: A
+        explanation: "汇总保留人级独立但可能舍弃时间动态。"
+  - concept_id: l17-concept-4
+    title: "时期、顺序与残留效应"
+    tutor_context: "解释“时期、顺序与残留效应”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "AB序列的B−A差与BA序列差异明显，首先应考虑什么？"
+        options:
+          - {id: A, text: "只选效果更大的一种序列", misconception: "l17-c4-misconception-1"}
+          - {id: B, text: "认定配对差公式一定错误", misconception: "l17-c4-misconception-2"}
+          - {id: C, text: "把顺序变量删除以避免干扰", misconception: "l17-c4-misconception-3"}
+          - {id: D, text: "时期、顺序或残留效应及随机波动", misconception: null}
+        answer: D
+        explanation: "交叉差可能包含时期与携带影响，需设计相容分析。"
+      b:
+        prompt: "第二期所有人因练习普遍更快，如何避免把它全归给某方法？"
+        options:
+          - {id: A, text: "只分析第二期并忽略顺序", misconception: "l17-c4-misconception-1"}
+          - {id: B, text: "给第二期结果统一加随机噪声", misconception: "l17-c4-misconception-2"}
+          - {id: C, text: "利用随机顺序并在分析中考虑时期结构", misconception: null}
+          - {id: D, text: "认为同人配对已自动排除任何时间影响", misconception: "l17-c4-misconception-4"}
+        answer: C
+        explanation: "配对控制人间差异，不自动消除时间/顺序效应。"
+  - concept_id: l17-concept-5
+    title: "方法假设与目标量"
+    tutor_context: "解释“方法假设与目标量”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "选择配对、独立或混合模型前首先应明确什么？"
+        options:
+          - {id: A, text: "哪个软件默认p值最小", misconception: "l17-c5-misconception-1"}
+          - {id: B, text: "目标量、分配与观测依赖结构", misconception: null}
+          - {id: C, text: "哪种方法名字最新", misconception: "l17-c5-misconception-3"}
+          - {id: D, text: "只看每列是否通过正态性检验", misconception: "l17-c5-misconception-4"}
+        answer: B
+        explanation: "比较结构和目标先于算法选型。"
+      b:
+        prompt: "个人六周平均差与第六周差不同，能说其中一个一定算错吗？"
+        options:
+          - {id: A, text: "不能，它们可能正确回答不同时间目标", misconception: null}
+          - {id: B, text: "能，相同数据只允许一个效果", misconception: "l17-c5-misconception-2"}
+          - {id: C, text: "能，平均差必然等于任一周差", misconception: "l17-c5-misconception-3"}
+          - {id: D, text: "不能，因为所有方法都无需核对", misconception: "l17-c5-misconception-4"}
+        answer: A
+        explanation: "不同目标量允许不同结果，需明确用途和假设。"

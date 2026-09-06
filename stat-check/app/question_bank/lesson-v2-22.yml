@@ -1,0 +1,198 @@
+lesson_id: v2-l22
+title: "第22课 · 哪种多变量描述适合目标群体"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "多元回归"
+    tutor_context: "请解释“多元回归”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "多元回归“控制年龄和严重度后”的支持系数首先是什么？"
+        options:
+          - id: A
+            text: "随机分配支持的效果"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "所有人的个体支持效果"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "给定这些变量的模型条件关联"
+            misconception: null
+          - id: D
+            text: "不依赖其他假设的总体因果效应"
+            misconception: "c1-a-confusion-4"
+        answer: C
+        explanation: "加入协变量仍需识别假设，不能把调整自动当随机化。"
+      b:
+        prompt: "同一薪酬模型加入教育和工龄后，地区差缩小，能直接断言什么？"
+        options:
+          - id: A
+            text: "教育解释了所有地区不公平"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "搬家必然改变该差额的工资"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "遗漏混杂已经完全消除"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "在所设模型下条件地区差比未调整差小"
+            misconception: null
+        answer: D
+        explanation: "调整差的变化是一项模型描述，因果或公平解释需要更多依据。"
+  - concept_id: c2
+    title: "分类变量与参照组"
+    tutor_context: "请解释“分类变量与参照组”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "地区A、B、C以A为参照编码，B系数通常比较什么？"
+        options:
+          - id: A
+            text: "B地区所有人的平均值"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "B与全体平均差且与编码无关"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "地区标签数值的增量"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "在其他输入相同时B相对A的模型差"
+            misconception: null
+        answer: D
+        explanation: "分类系数依赖明确参照水平和其他条件。"
+      b:
+        prompt: "把参照组从城市改为乡村，拟合预测可能不变而系数改变，为什么？"
+        options:
+          - id: A
+            text: "系数描述的比较基准变了"
+            misconception: null
+          - id: B
+            text: "数据被改写了"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "模型一定失去预测能力"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "分类变量自动变成连续变量"
+            misconception: "c2-b-confusion-4"
+        answer: A
+        explanation: "等价编码可以给相同预测，但参数的表述基准不同。"
+  - concept_id: c3
+    title: "交互作用"
+    tutor_context: "请解释“交互作用”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "模型y=10+2x+5g+3xg，g为0/1，g=1的x斜率是多少？"
+        options:
+          - id: A
+            text: "5"
+            misconception: null
+          - id: B
+            text: "2"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "3"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "7"
+            misconception: "c3-a-confusion-4"
+        answer: A
+        explanation: "交互项使g=1的斜率为2+3=5。"
+      b:
+        prompt: "某培训与成绩的关联在基础较弱者更大，哪种模型结构可直接表达这种差异？"
+        options:
+          - id: A
+            text: "只改变截距但强制共同培训差"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "培训与基础水平的交互"
+            misconception: null
+          - id: C
+            text: "把所有基础水平取平均后删除"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "只扩大样本而不改结构"
+            misconception: "c3-b-confusion-4"
+        answer: B
+        explanation: "交互允许一个变量的关联随另一条件改变。"
+  - concept_id: c4
+    title: "多重共线性"
+    tutor_context: "请解释“多重共线性”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "负荷与排班指数高度相关，加入两者后单个系数不稳定，主要问题可能是什么？"
+        options:
+          - id: A
+            text: "因变量必定记录错误"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "多重共线性导致解释信息重叠"
+            misconception: null
+          - id: C
+            text: "样本总体均值不存在"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "地区类别数必然太多"
+            misconception: "c4-a-confusion-4"
+        answer: B
+        explanation: "高度相关输入使分别估计贡献困难，不必同时破坏预测。"
+      b:
+        prompt: "两个高度相关化验指标的回归系数在重抽中变号，但联合预测尚稳定，最合理的解释是什么？"
+        options:
+          - id: A
+            text: "预测稳定就证明两个系数因果正确"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "应把负系数全部设为正"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "单项解释不稳，不能仅据变号断定生理作用反向"
+            misconception: null
+          - id: D
+            text: "每次变号都证明检验计算失败"
+            misconception: "c4-b-confusion-4"
+        answer: C
+        explanation: "共线性下联合预测和单项参数稳定性可以不同。"
+  - concept_id: c5
+    title: "条件关联与推广"
+    tutor_context: "请解释“条件关联与推广”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "模型只见积压0—30件，却报告积压200件的可靠预计，主要缺少什么？"
+        options:
+          - id: A
+            text: "更多结果小数位"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "重新命名地区"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "超出观测范围的适用性证据"
+            misconception: null
+          - id: D
+            text: "把样本量写在标题中"
+            misconception: "c5-a-confusion-4"
+        answer: C
+        explanation: "模型外推需要额外证据，软件能给数值不等于可靠。"
+      b:
+        prompt: "用老客户资料给首次到访者定价，即使加入很多变量，还应检查什么？"
+        options:
+          - id: A
+            text: "变量越多是否自动保证可比"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "是否把所有系数都变成正数"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "训练相关系数是否精确为1"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "目标人群是否在训练资料的支持范围内"
+            misconception: null
+        answer: D
+        explanation: "目标群体构成和输入范围可能不同，不能仅靠调整变量数量保证推广。"
+

@@ -1,0 +1,8 @@
+item,value,unit
+fixed_setup,600,currency
+per_participant,18,currency
+per_team,100,currency
+team_size,20,people
+budget,12000,currency
+minimum_worthwhile_effect,3,minutes
+minute_value,2,currency/minute

@@ -1,0 +1,117 @@
+lesson_id: v2-l14
+title: "第14课 · 在有限预算下设计一项调查"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l14-concept-1
+    title: "分层随机抽样"
+    tutor_context: "解释“分层随机抽样”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "分层随机抽样要求怎样组织总体？"
+        options:
+          - {id: A, text: "先看满意度高低再只抽高满意层", misconception: "l14-c1-misconception-1"}
+          - {id: B, text: "每人可以同时出现在所有层的名单", misconception: "l14-c1-misconception-2"}
+          - {id: C, text: "各层不重叠且覆盖目标框，再在层内随机抽", misconception: null}
+          - {id: D, text: "只在最大层随机即可代表其他层", misconception: "l14-c1-misconception-4"}
+        answer: C
+        explanation: "层划分需清楚且可在抽样前确定，层内概率抽样。"
+      b:
+        prompt: "城市区和农村区成本不同，先分区再独立随机抽人，这属于？"
+        options:
+          - {id: A, text: "按回应时间抽样", misconception: "l14-c1-misconception-1"}
+          - {id: B, text: "分层抽样", misconception: null}
+          - {id: C, text: "方便抽样", misconception: "l14-c1-misconception-3"}
+          - {id: D, text: "把城市区当全部总体的简单随机抽样", misconception: "l14-c1-misconception-4"}
+        answer: B
+        explanation: "预先分层后层内随机是分层抽样，分配可不等比例。"
+  - concept_id: l14-concept-2
+    title: "样本分配"
+    tutor_context: "解释“样本分配”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "成本相同且总体规模相近，两层标准差10和30。为提高总体均值精度通常应如何考虑分配？"
+        options:
+          - {id: A, text: "在满足最低要求后给波动较大层更多样本", misconception: null}
+          - {id: B, text: "只因层数为2就必须等分", misconception: "l14-c2-misconception-2"}
+          - {id: C, text: "给波动较小层更多样本以报告更窄层内区间", misconception: "l14-c2-misconception-3"}
+          - {id: D, text: "完全按回应先后决定样本", misconception: "l14-c2-misconception-4"}
+        answer: A
+        explanation: "总均值方差优化会考虑层大小与变异，而非机械均分。"
+      b:
+        prompt: "最优总体精度方案使小层只有3个回应，业务却要报告每层。应怎样处理？"
+        options:
+          - {id: A, text: "忽略小层，因为总体精度最优已解决所有目标", misconception: "l14-c2-misconception-1"}
+          - {id: B, text: "用复制这3人记录补足样本", misconception: "l14-c2-misconception-2"}
+          - {id: C, text: "把小层从目标总体定义中悄悄删除", misconception: "l14-c2-misconception-3"}
+          - {id: D, text: "加入每层最低可用量并报告总体精度代价", misconception: null}
+        answer: D
+        explanation: "多目标调查需把小域可用性作为真实约束。"
+  - concept_id: l14-concept-3
+    title: "纳入概率与设计权重"
+    tutor_context: "解释“纳入概率与设计权重”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "一层500人无放回随机联系100人，其纳入概率和设计权重是？"
+        options:
+          - {id: A, text: "0.5和2", misconception: "l14-c3-misconception-1"}
+          - {id: B, text: "100和0.01", misconception: "l14-c3-misconception-2"}
+          - {id: C, text: "0.2和5", misconception: null}
+          - {id: D, text: "回应人数/500和其倒数即可视为联系设计权重", misconception: "l14-c3-misconception-4"}
+        answer: C
+        explanation: "联系抽样概率100/500，回应是随后另一个机制。"
+      b:
+        prompt: "抽中的100人只有60人回应，直接用500/60作为原设计权重应注意什么？"
+        options:
+          - {id: A, text: "它仍完全等同已知的原联系纳入概率倒数", misconception: "l14-c3-misconception-1"}
+          - {id: B, text: "它混入回应调整，需要额外回应代表性假设", misconception: null}
+          - {id: C, text: "原设计权重自动失效所以所有分析都不能做", misconception: "l14-c3-misconception-3"}
+          - {id: D, text: "只要总权重等于500就没有额外假设", misconception: "l14-c3-misconception-4"}
+        answer: B
+        explanation: "抽样权重与非响应调整要区分。"
+  - concept_id: l14-concept-4
+    title: "精度与成本"
+    tutor_context: "解释“精度与成本”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "预算不变，某层联系单价翻倍，什么会发生？"
+        options:
+          - {id: A, text: "可行样本分配与精度取舍可能改变", misconception: null}
+          - {id: B, text: "该层总体真实方差自动翻倍", misconception: "l14-c4-misconception-2"}
+          - {id: C, text: "已抽样估计值必然减半", misconception: "l14-c4-misconception-3"}
+          - {id: D, text: "该层人数自动不再属于目标总体", misconception: "l14-c4-misconception-4"}
+        answer: A
+        explanation: "成本改变可实现设计，不改变总体统计量本身。"
+      b:
+        prompt: "使用回应者标准差规划得到误差界±1.3分，这应称为什么？"
+        options:
+          - {id: A, text: "下一次调查必定实现的误差上限", misconception: "l14-c4-misconception-1"}
+          - {id: B, text: "所有非响应偏差的最大可能值", misconception: "l14-c4-misconception-2"}
+          - {id: C, text: "当前调查均值的真实偏差", misconception: "l14-c4-misconception-3"}
+          - {id: D, text: "给定规划方差和回应假设下的近似精度", misconception: null}
+        answer: D
+        explanation: "规划精度有输入和近似条件，不能当保证。"
+  - concept_id: l14-concept-5
+    title: "设计效应与非响应"
+    tutor_context: "解释“设计效应与非响应”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "概率抽样后部分人不回应，原来随机抽样能保证最终回应者无偏吗？"
+        options:
+          - {id: A, text: "能，名单最初随机已经保证全部步骤", misconception: "l14-c5-misconception-1"}
+          - {id: B, text: "能，只要最初抽样比例超过10%", misconception: "l14-c5-misconception-2"}
+          - {id: C, text: "不能，非响应可能重新引入选择差异", misconception: null}
+          - {id: D, text: "不能，因为任何概率抽样都没有价值", misconception: "l14-c5-misconception-4"}
+        answer: C
+        explanation: "随机纳入与结果可观察性是不同环节。"
+      b:
+        prompt: "某复杂设计方差是同规模简单随机抽样的1.5倍，设计效应怎样解释？"
+        options:
+          - {id: A, text: "均值必定高估1.5倍", misconception: "l14-c5-misconception-1"}
+          - {id: B, text: "该比较条件下估计方差膨胀1.5倍", misconception: null}
+          - {id: C, text: "样本中有50%记录必须删除", misconception: "l14-c5-misconception-3"}
+          - {id: D, text: "所有置信区间覆盖率都变成1/1.5", misconception: "l14-c5-misconception-4"}
+        answer: B
+        explanation: "设计效应比较方差，不是偏差比例或删样规则。"

@@ -1,0 +1,117 @@
+lesson_id: v2-l13
+title: "第13课 · 不确定区间是否足以支持行动"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l13-concept-1
+    title: "点估计与区间估计"
+    tutor_context: "解释“点估计与区间估计”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "点估计和置信区间应首先保持哪项一致？"
+        options:
+          - {id: A, text: "端点都等于某个观测值", misconception: "l13-c1-misconception-1"}
+          - {id: B, text: "目标量、目标人群和单位", misconception: null}
+          - {id: C, text: "所有方法给相同宽度", misconception: "l13-c1-misconception-3"}
+          - {id: D, text: "置信度越高点估计越大", misconception: "l13-c1-misconception-4"}
+        answer: B
+        explanation: "区间应围绕同一明确估计问题解释。"
+      b:
+        prompt: "平均每次支出与中位数支出的区间不同，应如何报告？"
+        options:
+          - {id: A, text: "说明它们对应不同目标，而非只挑较窄区间", misconception: null}
+          - {id: B, text: "用两个区间交集作为更精确平均值区间", misconception: "l13-c1-misconception-2"}
+          - {id: C, text: "把中位数区间称为均值稳健版本即可", misconception: "l13-c1-misconception-3"}
+          - {id: D, text: "宽区间说明对应方法计算错误", misconception: "l13-c1-misconception-4"}
+        answer: A
+        explanation: "不同位置量回答不同问题，不能直接取交集或换名称。"
+  - concept_id: l13-concept-2
+    title: "置信区间与置信水平"
+    tutor_context: "解释“置信区间与置信水平”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "95%置信区间最合适的频率解释是？"
+        options:
+          - {id: A, text: "当前固定区间内含95%的原始数据", misconception: "l13-c2-misconception-1"}
+          - {id: B, text: "当前真值以95%概率随机落在这两个固定端点间", misconception: "l13-c2-misconception-2"}
+          - {id: C, text: "样本均值有95%概率等于总体均值", misconception: "l13-c2-misconception-3"}
+          - {id: D, text: "同样设计反复生成的区间约95%覆盖固定真值", misconception: null}
+        answer: D
+        explanation: "置信水平是区间程序的长期覆盖性质。"
+      b:
+        prompt: "同一数据与方法把置信度从95%升为99%，区间通常怎样？"
+        options:
+          - {id: A, text: "更窄，因为更确定", misconception: "l13-c2-misconception-1"}
+          - {id: B, text: "端点不变，只改标签", misconception: "l13-c2-misconception-2"}
+          - {id: C, text: "更宽，换取更高长期覆盖率", misconception: null}
+          - {id: D, text: "中心必然上移", misconception: "l13-c2-misconception-4"}
+        answer: C
+        explanation: "更高覆盖一般需要更大的临界范围。"
+  - concept_id: l13-concept-3
+    title: "自助法"
+    tutor_context: "解释“自助法”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "自助法从80条独立观测有放回抽80条的主要目的是什么？"
+        options:
+          - {id: A, text: "制造80条独立的新现实观测", misconception: "l13-c3-misconception-1"}
+          - {id: B, text: "近似估计量在重复样本中的变异", misconception: null}
+          - {id: C, text: "修复未进入样本的选择偏差", misconception: "l13-c3-misconception-3"}
+          - {id: D, text: "保证所有稀有极端机制都被包含", misconception: "l13-c3-misconception-4"}
+        answer: B
+        explanation: "重抽样利用经验分布近似抽样不确定性，不创造新来源信息。"
+      b:
+        prompt: "数据每个家庭有4名成员，直接逐人自助抽样可能忽略什么？"
+        options:
+          - {id: A, text: "家庭内相关，应考虑家庭等合适重抽单位", misconception: null}
+          - {id: B, text: "每个家庭均值只能取整数", misconception: "l13-c3-misconception-2"}
+          - {id: C, text: "重抽样次数必须等于家庭数", misconception: "l13-c3-misconception-3"}
+          - {id: D, text: "自助法不能处理任何分组数据", misconception: "l13-c3-misconception-4"}
+        answer: A
+        explanation: "依赖结构应在重抽样中保留，按行抽可能低估波动。"
+  - concept_id: l13-concept-4
+    title: "覆盖率"
+    tutor_context: "解释“覆盖率”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "500次仿真中460个区间覆盖已知基准，经验覆盖率是多少？"
+        options:
+          - {id: A, text: "95%，因为区间名为95%", misconception: "l13-c4-misconception-1"}
+          - {id: B, text: "460%的置信度", misconception: "l13-c4-misconception-2"}
+          - {id: C, text: "当前某区间含真值的92%概率", misconception: "l13-c4-misconception-3"}
+          - {id: D, text: "92%", misconception: null}
+        answer: D
+        explanation: "经验覆盖率为460/500，需再报告模拟误差。"
+      b:
+        prompt: "一种方法在对称总体覆盖接近95%，可否推到所有长尾总体？"
+        options:
+          - {id: A, text: "能，只要模拟次数足够多", misconception: "l13-c4-misconception-1"}
+          - {id: B, text: "能，置信水平是方法固有精确属性", misconception: "l13-c4-misconception-2"}
+          - {id: C, text: "不能，覆盖评价仅支持已检查的机制范围", misconception: null}
+          - {id: D, text: "不能，因为长尾分布不能计算均值", misconception: "l13-c4-misconception-4"}
+        answer: C
+        explanation: "覆盖依赖样本设计、分布及近似条件。"
+  - concept_id: l13-concept-5
+    title: "实际阈值与决策"
+    tutor_context: "解释“实际阈值与决策”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "平均成本区间[38,69]，行动门槛45。哪项最恰当？"
+        options:
+          - {id: A, text: "已证明成本不超过45", misconception: "l13-c5-misconception-1"}
+          - {id: B, text: "数据与低于、高于门槛都相容，行动需结合损失和追加信息", misconception: null}
+          - {id: C, text: "因样本均值高于45就必然全面改造", misconception: "l13-c5-misconception-3"}
+          - {id: D, text: "因跨45就不能采取任何行动", misconception: "l13-c5-misconception-4"}
+        answer: B
+        explanation: "跨界表示证据尚不能单独排除两类行动情境。"
+      b:
+        prompt: "效应区间[0.1,0.3]，业务上至少改善1才值得部署。怎样理解？"
+        options:
+          - {id: A, text: "可能有正效应，但未达到业务价值门槛的证据更相关", misconception: null}
+          - {id: B, text: "只要区间不含0就必须部署", misconception: "l13-c5-misconception-2"}
+          - {id: C, text: "正效应说明实际重要门槛应删去", misconception: "l13-c5-misconception-3"}
+          - {id: D, text: "区间窄说明效果大小无需报告", misconception: "l13-c5-misconception-4"}
+        answer: A
+        explanation: "统计方向证据与实际重要程度应分开。"

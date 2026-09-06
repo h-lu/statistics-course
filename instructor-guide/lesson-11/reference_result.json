@@ -1,0 +1,72 @@
+{
+  "N": 3600,
+  "n": 1347,
+  "unweighted": 58.102086117297695,
+  "poststratified": 56.37603663577558,
+  "nonresponse_sensitivity": [
+    50.11770330244224,
+    62.63436996910891
+  ],
+  "strata": [
+    {
+      "stratum": "north_early",
+      "N": 500,
+      "n": 330,
+      "response_rate": 0.66,
+      "respondent_mean": 65.05363636363637,
+      "weight": 1.5151515151515151,
+      "frame_baseline": 63.41594,
+      "response_baseline": 64.13463636363636
+    },
+    {
+      "stratum": "north_late",
+      "N": 700,
+      "n": 268,
+      "response_rate": 0.38285714285714284,
+      "respondent_mean": 62.64276119402986,
+      "weight": 2.611940298507463,
+      "frame_baseline": 60.8586,
+      "response_baseline": 62.868768656716426
+    },
+    {
+      "stratum": "central_early",
+      "N": 600,
+      "n": 291,
+      "response_rate": 0.485,
+      "respondent_mean": 57.7212027491409,
+      "weight": 2.0618556701030926,
+      "frame_baseline": 57.868583333333326,
+      "response_baseline": 59.692474226804116
+    },
+    {
+      "stratum": "central_late",
+      "N": 800,
+      "n": 201,
+      "response_rate": 0.25125,
+      "respondent_mean": 54.80248756218905,
+      "weight": 3.9800995024875623,
+      "frame_baseline": 55.0861625,
+      "response_baseline": 57.104228855721395
+    },
+    {
+      "stratum": "south_early",
+      "N": 550,
+      "n": 202,
+      "response_rate": 0.36727272727272725,
+      "respondent_mean": 46.8639108910891,
+      "weight": 2.722772277227723,
+      "frame_baseline": 50.824709090909096,
+      "response_baseline": 53.21019801980198
+    },
+    {
+      "stratum": "south_late",
+      "N": 450,
+      "n": 55,
+      "response_rate": 0.12222222222222222,
+      "respondent_mean": 49.61581818181819,
+      "weight": 8.181818181818182,
+      "frame_baseline": 48.75293333333333,
+      "response_baseline": 54.405636363636354
+    }
+  ]
+}

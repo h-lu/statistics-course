@@ -1,0 +1,197 @@
+lesson_id: v2-l26-r1
+title: "第26课 · 风险模型的校准与试运行评价"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "校准"
+    tutor_context: "请解释“校准”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "模型对一大组记录都给出概率0.2，但实际约40%发生了事件。最直接的问题是什么？"
+        options:
+          - id: A
+            text: "AUC必定为0"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "所有特征都不存在"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "该组风险被低估，校准不佳"
+            misconception: null
+          - id: D
+            text: "每个个体概率都应直接改成0.4"
+            misconception: "c1-a-confusion-4"
+        answer: C
+        explanation: "组内实际发生比例与预测概率不符，提示校准不佳，但不表示每个个体的真实概率都相同。"
+      b:
+        prompt: "模型排序几乎不变但整体发生率升高，为什么原阈值仍可能失效？"
+        options:
+          - id: A
+            text: "排序不变就保证全部行动不变"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "发生率不影响任何成本"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "只要准确率超过50%就足够"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "概率校准情况以及该阈值对应的复核数量可能改变"
+            misconception: null
+        answer: D
+        explanation: "排序与概率、行动后果是不同层次，需要重新评价适用性。"
+  - concept_id: c2
+    title: "Brier分数"
+    tutor_context: "请解释“Brier分数”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "Brier分数计算什么？"
+        options:
+          - id: A
+            text: "误报数除以所有报警"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "预测排名中第一名的分数"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "仅错误样本的平均概率"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "预测概率与0/1结果的平均平方差"
+            misconception: null
+        answer: D
+        explanation: "Brier是概率预测的平方损失，不能与查准率混淆。"
+      b:
+        prompt: "模型在两家医院的Brier分数不同，为什么不能仅据此判断哪家医院的结果更公平？"
+        options:
+          - id: A
+            text: "基础率、样本量和群体目标等也影响比较"
+            misconception: null
+          - id: B
+            text: "Brier只允许用在同一性别"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "Brier高就证明医院歧视"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "Brier与概率完全无关"
+            misconception: "c2-b-confusion-4"
+        answer: A
+        explanation: "概率误差受多方面影响，公平判断还需明确标准与条件。"
+  - concept_id: c3
+    title: "群体表现"
+    tutor_context: "请解释“群体表现”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "小群体只有10条记录，错误率20%，报告时最应补充什么？"
+        options:
+          - id: A
+            text: "样本量与不确定性，避免把波动当稳定差异"
+            misconception: null
+          - id: B
+            text: "更多小数位"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "删除该群体"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "直接把20%当所有未来时期真值"
+            misconception: "c3-a-confusion-4"
+        answer: A
+        explanation: "样本量较小时，比率容易波动，需要结合样本量和区间估计解释。"
+      b:
+        prompt: "模型总体表现较好，但持续低估某个地区的风险。报告和使用模型时，较合理的做法是什么？"
+        options:
+          - id: A
+            text: "只发布总体指标"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "报告分地区证据并限制或调整该地区使用规则"
+            misconception: null
+          - id: C
+            text: "把地区名称去掉就消除问题"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "声明总体合格意味着所有群体合格"
+            misconception: "c3-b-confusion-4"
+        answer: B
+        explanation: "总体平均会掩盖分组问题，使用范围需要具体证据。"
+  - concept_id: c4
+    title: "分布漂移"
+    tutor_context: "请解释“分布漂移”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "尚未获得后续记录的真实结果标签时，哪项可以直接监测？"
+        options:
+          - id: A
+            text: "真实漏报率已经提高多少"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "输入缺失率和取值分布变化"
+            misconception: null
+          - id: C
+            text: "新批次Brier已变化多少"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "干预真实减少多少损失"
+            misconception: "c4-a-confusion-4"
+        answer: B
+        explanation: "输入监测不需要结果标签，性能和效果检验通常需要。"
+      b:
+        prompt: "发现年龄分布变化，能直接断言模型一定失效吗？"
+        options:
+          - id: A
+            text: "能，任何输入变化都使AUC为0"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "能，只要样本量超过30"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "不能，还需获得相应结果标签，并结合使用场景评价性能"
+            misconception: null
+          - id: D
+            text: "不能，因此永远无需复核"
+            misconception: "c4-b-confusion-4"
+        answer: C
+        explanation: "输入变化是检查信号，不是性能变化的充分证明。"
+  - concept_id: c5
+    title: "撤回条件"
+    tutor_context: "请解释“撤回条件”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "“持续监测模型”怎样才成为可执行规则？"
+        options:
+          - id: A
+            text: "只在报告结尾笼统地提醒风险"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "仅提供模型名称"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "明确指标、检查频率、触发阈值和触发后的行动"
+            misconception: null
+          - id: D
+            text: "把所有责任写成用户自行承担"
+            misconception: "c5-a-confusion-4"
+        answer: C
+        explanation: "撤回或复核条件应能指导实际操作。"
+      b:
+        prompt: "用历史数据校准模型后，新季度的预测概率仍明显偏低。最合理的决定是什么？"
+        options:
+          - id: A
+            text: "既然已经校准过，就继续无条件使用"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "用后续标签调整模型后，声称原模型没有问题"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "只保留预测正确的记录"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "考虑限制使用、人工复核或重新开发，并独立评价修订后的方案"
+            misconception: null
+        answer: D
+        explanation: "校准不是永久保证；修订后的方案需要透明的再评价。"

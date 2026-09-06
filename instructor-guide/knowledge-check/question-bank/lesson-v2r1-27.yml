@@ -1,0 +1,197 @@
+lesson_id: v2-l27-r1
+title: "第27课 · 从观察关联到因果研究设计"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "潜在结果"
+    tutor_context: "请解释“潜在结果”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "同一个人在接受支持和不接受支持时各有一个潜在结果。现实中通常能观察到什么？"
+        options:
+          - id: A
+            text: "同一时间下两个结果都直接可见"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "只要样本大就能同时看到两个结果"
+            misconception: "c1-a-confusion-2"
+          - id: C
+            text: "回归预测值等于另一个真实潜在结果"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "该人实际接受的处理状态所对应的结果"
+            misconception: null
+        answer: D
+        explanation: "另一个处理状态的潜在结果没有被同时观察到，模型预测不能替代对它的直接观测。"
+      b:
+        prompt: "对接受培训者观察到成绩80分，未培训时会得多少分？"
+        options:
+          - id: A
+            text: "不能仅从这个人的已观测结果直接知道"
+            misconception: null
+          - id: B
+            text: "一定也是80分"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "一定是全班未培训者平均分"
+            misconception: "c1-b-confusion-3"
+          - id: D
+            text: "一定等于80减训练小时数"
+            misconception: "c1-b-confusion-4"
+        answer: A
+        explanation: "另一处理状态的结果未被同时观察，需设计和假设推断。"
+  - concept_id: c2
+    title: "目标效应"
+    tutor_context: "请解释“目标效应”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "研究方案为什么要明确起始时间和随访窗口？"
+        options:
+          - id: A
+            text: "确保入组、处理和结果对应同一清晰问题"
+            misconception: null
+          - id: B
+            text: "只是方便文件排序"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "可使混杂自动消失"
+            misconception: "c2-a-confusion-3"
+          - id: D
+            text: "能保证每人效果相同"
+            misconception: "c2-a-confusion-4"
+        answer: A
+        explanation: "目标量依赖处理起点和随访时间的定义；时间零点不一致，可能使比较回答不同的问题。"
+      b:
+        prompt: "比较“提供培训机会”与“实际参加培训”的效果，二者关系如何？"
+        options:
+          - id: A
+            text: "永远完全相同"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "是不同处理策略和目标量，应分别定义"
+            misconception: null
+          - id: C
+            text: "只有变量名不同"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "样本量大时必然相同"
+            misconception: "c2-b-confusion-4"
+        answer: B
+        explanation: "提供机会可能影响参加但不等于实际参加，目标效应不同。"
+  - concept_id: c3
+    title: "混杂"
+    tutor_context: "请解释“混杂”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "严重程度同时影响支持选择和后续负担，它在因果图中主要是什么？"
+        options:
+          - id: A
+            text: "仅是结果之后的变量"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "处理前混杂因素"
+            misconception: null
+          - id: C
+            text: "完全无关的标签"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "必然是处理的中介"
+            misconception: "c3-a-confusion-4"
+        answer: B
+        explanation: "处理和结果的共同原因，会使观察到的组间结果差异同时反映人群构成差异。"
+      b:
+        prompt: "更积极的人更愿意参加培训，而且表现更好。若没有测量积极性，会造成什么风险？"
+        options:
+          - id: A
+            text: "只影响图形配色"
+            misconception: "c3-b-confusion-1"
+          - id: B
+            text: "保证训练效果被低估"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "把选择差异误当训练效果"
+            misconception: null
+          - id: D
+            text: "使随机化自动成立"
+            misconception: "c3-b-confusion-4"
+        answer: C
+        explanation: "未测共同原因可造成混杂，偏差方向不能随意断定。"
+  - concept_id: c4
+    title: "中介与碰撞变量"
+    tutor_context: "请解释“中介与碰撞变量”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "研究目标是支持项目的总效应。把接受支持后的联系次数直接作为基线协变量调整，可能有什么问题？"
+        options:
+          - id: A
+            text: "自动恢复随机化"
+            misconception: "c4-a-confusion-1"
+          - id: B
+            text: "一定改善对总效应的识别"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "可能调整作用路径上的中介，改变目标"
+            misconception: null
+          - id: D
+            text: "不会影响任何估计"
+            misconception: "c4-a-confusion-4"
+        answer: C
+        explanation: "处理后变量可能是中介，控制它不再对应同一总效应问题。"
+      b:
+        prompt: "是否参与回访同时受到治疗和健康状态的影响。只分析回访者有何风险？"
+        options:
+          - id: A
+            text: "只要样本够大就无偏"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "回访比例不影响任何人群定义"
+            misconception: "c4-b-confusion-2"
+          - id: C
+            text: "总能等同于面向全体人群的随机试验"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "只保留这一共同结果变量取特定值的人，可能引入碰撞偏差或选择偏差"
+            misconception: null
+        answer: D
+        explanation: "限定共同后果的取值可能打开非因果路径，并改变人群。"
+  - concept_id: c5
+    title: "识别假设"
+    tutor_context: "请解释“识别假设”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "因果图在研究中最恰当的作用是什么？"
+        options:
+          - id: A
+            text: "由相关矩阵自动证明的事实"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "替代所有数据收集"
+            misconception: "c5-a-confusion-2"
+          - id: C
+            text: "保证调整任何变量都正确"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "明确研究者的结构假设和需要的证据"
+            misconception: null
+        answer: D
+        explanation: "因果图表达研究者的假设，需要领域知识、研究设计和证据支持，不能自动证明因果效应已经被识别。"
+      b:
+        prompt: "合成数据的生成脚本将支持效应设为−4，能否据此声称现实观察研究已经证明效应为−4？"
+        options:
+          - id: A
+            text: "不能，模拟设定与现实识别证据不同"
+            misconception: null
+          - id: B
+            text: "能，只要程序能重跑"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "能，只要保留固定种子"
+            misconception: "c5-b-confusion-3"
+          - id: D
+            text: "只有写入CSV才算真实证明"
+            misconception: "c5-b-confusion-4"
+        answer: A
+        explanation: "已知模拟机制可评价方法，但不能替代现实世界的识别假设。"

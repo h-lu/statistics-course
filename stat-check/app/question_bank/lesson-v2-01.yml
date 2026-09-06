@@ -1,0 +1,197 @@
+lesson_id: v2-l01
+title: "第01课 · 从陌生服务数据中发现值得调查的问题"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: unit
+    title: "观测单位与分析单位"
+    tutor_context: "用线上购物的新例子解释记录单位与最终分析单位的区别，并请学习者选择适当分母。"
+    pair:
+      a:
+        prompt: "工单表每行一张工单，同一人可能有多张。要比较每位来访者在本期的累计等待，应怎样处理？"
+        options:
+          - id: A
+            text: "先按来访者汇总累计等待，再以人为单位分析"
+            misconception: null
+          - id: B
+            text: "直接把工单等待均值称为每人累计等待均值"
+            misconception: "unit-alternative-1"
+          - id: C
+            text: "按人去重只保留第一张工单，其余都算重复错误"
+            misconception: "unit-alternative-2"
+          - id: D
+            text: "把工单行数当来访者人数"
+            misconception: "unit-alternative-3"
+        answer: A
+        explanation: "工单与人是不同分析单位；累计等待需要先汇总每人的全部相关工单。"
+      b:
+        prompt: "一个网页日志表每行记录一次点击，目标是分析每名用户的使用习惯。原表的一行是什么单位？"
+        options:
+          - id: A
+            text: "一名用户，哪怕他有多次点击"
+            misconception: "unit-alternative-1"
+          - id: B
+            text: "一个网页的全部访问"
+            misconception: "unit-alternative-2"
+          - id: C
+            text: "一次点击事件"
+            misconception: null
+          - id: D
+            text: "所有用户组成的总体"
+            misconception: "unit-alternative-3"
+        answer: C
+        explanation: "原始观测单位是点击；用户是可能进一步汇总形成的分析单位。"
+  - concept_id: variable-type
+    title: "变量类型与编码含义"
+    tutor_context: "解释数值外观、分类编码和有序评价的区别，使用不同于服务中心的场景。"
+    pair:
+      a:
+        prompt: "满意度用1到5表示从非常不满意到非常满意。仅凭这个编码，哪项可以成立？"
+        options:
+          - id: A
+            text: "5分体验必然是1分体验的五倍"
+            misconception: "variable-type-alternative-1"
+          - id: B
+            text: "评价有顺序，但相邻等级的实际差距未必相等"
+            misconception: null
+          - id: C
+            text: "相邻等级差距已经由数字证明相等"
+            misconception: "variable-type-alternative-2"
+          - id: D
+            text: "它与设备编号一样完全没有顺序"
+            misconception: "variable-type-alternative-3"
+        answer: B
+        explanation: "1—5表达有序等级；等间距或倍数解释需要额外测量依据。"
+      b:
+        prompt: "物流中心用101、102、103编码三个仓库。哪种理解合适？"
+        options:
+          - id: A
+            text: "103比101的容量大2个单位"
+            misconception: "variable-type-alternative-1"
+          - id: B
+            text: "可以用平均编码解释典型仓库的规模"
+            misconception: "variable-type-alternative-2"
+          - id: C
+            text: "编码是整数，所以表示货物计数"
+            misconception: "variable-type-alternative-3"
+          - id: D
+            text: "这些是分类标签，编码差值不是仓库间的统计距离"
+            misconception: null
+        answer: D
+        explanation: "变量类型由实际含义决定，数字标签不自动成为数量。"
+  - concept_id: location
+    title: "均值、中位数与极端值"
+    tutor_context: "解释总量平均与排序中间位置的差别，用小数据演示改变最大值会怎样。"
+    pair:
+      a:
+        prompt: "五个数为1、2、3、4、90。仅把90改成190后，哪项正确？"
+        options:
+          - id: A
+            text: "均值仍为20，中位数变为103"
+            misconception: "location-alternative-1"
+          - id: B
+            text: "均值和中位数都增加100"
+            misconception: "location-alternative-2"
+          - id: C
+            text: "均值从20变为40，中位数仍为3"
+            misconception: null
+          - id: D
+            text: "只要有极端值，均值就不能定义"
+            misconception: "location-alternative-3"
+        answer: C
+        explanation: "总和增加100，均值增加100/5=20；中间位置不变。"
+      b:
+        prompt: "六张工单的总等待为120分钟。只知道这些信息，可以确定什么？"
+        options:
+          - id: A
+            text: "每张工单平均等待20分钟，但不能确定中位数"
+            misconception: null
+          - id: B
+            text: "中位数必然为20分钟"
+            misconception: "location-alternative-1"
+          - id: C
+            text: "每张工单都等待20分钟"
+            misconception: "location-alternative-2"
+          - id: D
+            text: "超过20分钟的工单一定占一半"
+            misconception: "location-alternative-3"
+        answer: A
+        explanation: "均值由总和和数量确定，中位数、个体值和阈值比例还需要分布信息。"
+  - concept_id: population
+    title: "样本与目标总体"
+    tutor_context: "解释观察覆盖范围如何限制推广，用一个包含未登记对象的例子。"
+    pair:
+      a:
+        prompt: "数据包括某月全部已登记工单。可以不增加假设地怎样表述？"
+        options:
+          - id: A
+            text: "既然是全部记录，就代表所有潜在办事需求"
+            misconception: "population-alternative-1"
+          - id: B
+            text: "完整登记等于对全校人群随机抽样"
+            misconception: "population-alternative-2"
+          - id: C
+            text: "记录超过1000条后可以直接推广到全年"
+            misconception: "population-alternative-3"
+          - id: D
+            text: "描述该月已登记工单，未取号者和其他月份仍不在范围内"
+            misconception: null
+        answer: D
+        explanation: "对登记系统完整不等于对所有需求完整，时间和进入记录的机制仍限制推广。"
+      b:
+        prompt: "某平台收集了3万名自愿回复者。人数很大是否足以保证代表全部用户？"
+        options:
+          - id: A
+            text: "足以，大样本必然消除选择偏差"
+            misconception: "population-alternative-1"
+          - id: B
+            text: "不足以，还需考虑谁更可能主动回复"
+            misconception: null
+          - id: C
+            text: "足以，只要比例保留四位小数"
+            misconception: "population-alternative-2"
+          - id: D
+            text: "不足以，所以连回复者本身也不能描述"
+            misconception: "population-alternative-3"
+        answer: B
+        explanation: "较大样本可能降低部分随机波动，但不会自动消除系统选择差异；仍可描述回复者。"
+  - concept_id: description-cause
+    title: "描述差异与因果解释"
+    tutor_context: "解释观察关联与改变因素的效果之间的区别，用非课堂数据情境提问。"
+    pair:
+      a:
+        prompt: "预约工单平均等待更短，且是否预约由来访者自行决定。最有依据的结论是？"
+        options:
+          - id: A
+            text: "当前记录中预约状态与等待有关联，效果解释还需处理选择差异"
+            misconception: null
+          - id: B
+            text: "预约必然让每个人等待缩短同样分钟数"
+            misconception: "description-cause-alternative-1"
+          - id: C
+            text: "预约用户本来就更守时，这是数据证明的原因"
+            misconception: "description-cause-alternative-2"
+          - id: D
+            text: "只要两组都有很多人，关联就自动成为因果"
+            misconception: "description-cause-alternative-3"
+        answer: A
+        explanation: "自选预约可能与业务、时间等因素共同变化；样本差异不直接识别预约效果。"
+      b:
+        prompt: "观察数据显示增员的日期排队更长。仅凭这点，最适合向管理者说明什么？"
+        options:
+          - id: A
+            text: "应立即撤掉所有增援人员"
+            misconception: "description-cause-alternative-1"
+          - id: B
+            text: "已经证明工作人员越多效率越差"
+            misconception: "description-cause-alternative-2"
+          - id: C
+            text: "可能是繁忙日才增员，观察差异不能直接说明增员让排队变长"
+            misconception: null
+          - id: D
+            text: "把日期名称删掉后差异就成为因果"
+            misconception: "description-cause-alternative-3"
+        answer: C
+        explanation: "行动可能是对需求的反应，需求同时影响增员和排队，需区分观察与干预效果。"

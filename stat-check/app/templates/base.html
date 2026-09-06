@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block title %}统计学知识自查{% endblock %}</title>
+    <link rel="stylesheet" href="{{ base_path }}/static/style.css">
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <div class="header-inner">
+          <a class="brand" href="{{ base_path }}/">统计学知识自查</a>
+          {% if user %}
+            <div class="account">
+              <span>{{ user.display_name }}</span>
+              <form method="post" action="{{ base_path }}/logout">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+                <button class="link-button" type="submit">退出</button>
+              </form>
+            </div>
+          {% endif %}
+        </div>
+      </header>
+      {% block phase_bar %}{% endblock %}
+      <main class="main-content">
+        {% block content %}{% endblock %}
+      </main>
+      <footer class="site-footer">
+        <span>STAT CHECK · 课堂自查</span>
+        <span>AI 全程可以使用</span>
+      </footer>
+    </div>
+    <script src="{{ base_path }}/static/app.js" defer></script>
+  </body>
+</html>

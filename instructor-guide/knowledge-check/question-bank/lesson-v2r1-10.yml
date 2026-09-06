@@ -1,0 +1,117 @@
+lesson_id: v2-l10-r1
+title: "第10课 · 为随机需求设计容量方案"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l10-concept-1
+    title: "随机变量与分布"
+    tutor_context: "解释“随机变量与分布”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "每日需求随机变量D的分布描述什么？"
+        options:
+          - {id: A, text: "下一天已经确定的需求数", misconception: "l10-c1-misconception-1"}
+          - {id: B, text: "容量方案的购买价格", misconception: "l10-c1-misconception-2"}
+          - {id: C, text: "各种需求数量出现的可能性", misconception: null}
+          - {id: D, text: "所有天需求完全相同的程度", misconception: "l10-c1-misconception-4"}
+        answer: C
+        explanation: "分布包含可能结果与概率，不能被一个点预测替代。"
+      b:
+        prompt: "两商店每日平均销量相同，一个稳定、一个常有大促。采购规划还需比较什么？"
+        options:
+          - {id: A, text: "只需比较平均值的小数位", misconception: "l10-c1-misconception-1"}
+          - {id: B, text: "销量分布的波动和尾部", misconception: null}
+          - {id: C, text: "只需确认商品名称相同", misconception: "l10-c1-misconception-3"}
+          - {id: D, text: "平均相同就应统一安全库存", misconception: "l10-c1-misconception-4"}
+        answer: B
+        explanation: "平均值相同不保证缺货风险相同。"
+  - concept_id: l10-concept-2
+    title: "期望与方差"
+    tutor_context: "解释“期望与方差”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "需求均值约160、方差约1170，直接用均值160的泊松分布有什么问题？"
+        options:
+          - {id: A, text: "该泊松模型的方差160可能低估波动", misconception: null}
+          - {id: B, text: "泊松模型因均值不是整数而不能计算", misconception: "l10-c2-misconception-2"}
+          - {id: C, text: "方差较大说明均值一定算错", misconception: "l10-c2-misconception-3"}
+          - {id: D, text: "方差单位应与均值相同才可比较", misconception: "l10-c2-misconception-4"}
+        answer: A
+        explanation: "泊松均值方差相等，该设定与明显过度离散可能不匹配。"
+      b:
+        prompt: "把随机成本X改为2X，其期望和方差怎样变？"
+        options:
+          - {id: A, text: "两者都变2倍", misconception: "l10-c2-misconception-1"}
+          - {id: B, text: "期望变4倍，方差变2倍", misconception: "l10-c2-misconception-2"}
+          - {id: C, text: "期望不变，方差变2倍", misconception: "l10-c2-misconception-3"}
+          - {id: D, text: "期望变2倍，方差变4倍", misconception: null}
+        answer: D
+        explanation: "线性缩放使均值乘2，平方离差乘4。"
+  - concept_id: l10-concept-3
+    title: "蒙特卡洛模拟"
+    tutor_context: "解释“蒙特卡洛模拟”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "把模拟重复次数从1000增至100000，主要改善什么？"
+        options:
+          - {id: A, text: "未来需求模型假设的真实性", misconception: "l10-c3-misconception-1"}
+          - {id: B, text: "实际已观测天数", misconception: "l10-c3-misconception-2"}
+          - {id: C, text: "给定模型下计算的蒙特卡洛精度", misconception: null}
+          - {id: D, text: "历史样本对极端事件的覆盖", misconception: "l10-c3-misconception-4"}
+        answer: C
+        explanation: "更多重复降低模拟误差，不修复模型或数据覆盖问题。"
+      b:
+        prompt: "比较两个策略时使用同一批模拟需求，主要有什么好处？"
+        options:
+          - {id: A, text: "确保两个策略成本相同", misconception: "l10-c3-misconception-1"}
+          - {id: B, text: "减少因模拟情境不同造成的比较噪声", misconception: null}
+          - {id: C, text: "免除对需求机制的假设", misconception: "l10-c3-misconception-3"}
+          - {id: D, text: "使留出数据自动独立于策略选择", misconception: "l10-c3-misconception-4"}
+        answer: B
+        explanation: "共同情境使策略差更可比，仍需合理模型和独立评估。"
+  - concept_id: l10-concept-4
+    title: "期望损失"
+    tutor_context: "解释“期望损失”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "容量等于期望需求，能否推断平均缺额为零？"
+        options:
+          - {id: A, text: "不能，超过容量的需求仍会产生正缺额", misconception: null}
+          - {id: B, text: "能，因为正负需求偏差会在缺额中抵消", misconception: "l10-c4-misconception-2"}
+          - {id: C, text: "能，只要模拟重复足够多", misconception: "l10-c4-misconception-3"}
+          - {id: D, text: "不能，因为期望需求必然高于中位数", misconception: "l10-c4-misconception-4"}
+        answer: A
+        explanation: "缺额max(D−c,0)不允许富余抵消缺额，非线性期望不能直接代入均值。"
+      b:
+        prompt: "甲方案平均成本较低，乙方案严重缺额概率较低。最合理的选择依据是？"
+        options:
+          - {id: A, text: "总选甲，因为均值包含全部风险偏好", misconception: "l10-c4-misconception-1"}
+          - {id: B, text: "总选乙，因为只要有缺额就不合格", misconception: "l10-c4-misconception-2"}
+          - {id: C, text: "只比较两者的模拟次数", misconception: "l10-c4-misconception-3"}
+          - {id: D, text: "明确成本与尾部风险的业务取舍后选择", misconception: null}
+        answer: D
+        explanation: "风险中性与风险约束目标可给不同建议，应写清目标。"
+  - concept_id: l10-concept-5
+    title: "留出数据评估"
+    tutor_context: "解释“留出数据评估”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "看完留出期表现后挑出其中最便宜方案，再报告其“独立验证成本”，问题在哪里？"
+        options:
+          - {id: A, text: "留出期不应按时间靠后安排", misconception: "l10-c5-misconception-1"}
+          - {id: B, text: "只要留出期超过30天就没有问题", misconception: "l10-c5-misconception-2"}
+          - {id: C, text: "留出期已参与选方案，不再是未使用的验证", misconception: null}
+          - {id: D, text: "成本指标不能用于留出评价", misconception: "l10-c5-misconception-4"}
+        answer: C
+        explanation: "选方案与评价使用同一数据会使验证偏向被选结果。"
+      b:
+        prompt: "已有历史规则遇到一次留出期失效，应该怎样处理？"
+        options:
+          - {id: A, text: "删去失效天后继续称独立验证通过", misconception: "l10-c5-misconception-1"}
+          - {id: B, text: "报告失效及场景变化，再说明修订需新的验证", misconception: null}
+          - {id: C, text: "把留出期并入训练但保留原验证标签", misconception: "l10-c5-misconception-3"}
+          - {id: D, text: "认定任何模拟方法都不可使用", misconception: "l10-c5-misconception-4"}
+        answer: B
+        explanation: "留出失效是重要证据，修订后的规则需要诚实区分评估阶段。"

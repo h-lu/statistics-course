@@ -1,0 +1,197 @@
+lesson_id: v2-l04-r1
+title: "第04课 · 设计服务质量评价办法"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: center-tail
+    title: "中心位置与尾部"
+    tutor_context: "解释中间位置与长尾风险可以如何同时描述，用新数据情境。"
+    pair:
+      a:
+        prompt: "两个窗口中位数均为8分钟，一个P90为15、另一个为40。可以怎样解读？"
+        options:
+          - id: A
+            text: "中位数相同说明全部分布相同"
+            misconception: "center-tail-alternative-1"
+          - id: B
+            text: "P90只是最大值的另一名称"
+            misconception: "center-tail-alternative-2"
+          - id: C
+            text: "应丢弃P90，因为它与中位数不一致"
+            misconception: "center-tail-alternative-3"
+          - id: D
+            text: "中间位置相似，但较长等待的分位位置不同，体验不能视为完全相同"
+            misconception: null
+        answer: D
+        explanation: "位置相同并不限制尾部形状，两个指标描述不同分布特征。"
+      b:
+        prompt: "一种新规则让多数等待略降，但少量等待显著变长。只发布中位数可能遗漏什么？"
+        options:
+          - id: A
+            text: "只要中位数下降，所有人的等待必然下降"
+            misconception: "center-tail-alternative-1"
+          - id: B
+            text: "少量长等待者承担的尾部负担"
+            misconception: null
+          - id: C
+            text: "总人数，因为中位数必然等于人数"
+            misconception: "center-tail-alternative-2"
+          - id: D
+            text: "中位数无法计算任何含极端值的数据"
+            misconception: "center-tail-alternative-3"
+        answer: B
+        explanation: "中位数主要描述排序中部，可能对尾部变化不敏感。"
+  - concept_id: iqr-robustness
+    title: "IQR与稳健性局限性"
+    tutor_context: "解释四分位距主要刻画中间跨度，不能排除极端经历。"
+    pair:
+      a:
+        prompt: "数据1、5、5、5、100按线性分位数计算IQR为0，说明什么？"
+        options:
+          - id: A
+            text: "中间四分位位置重合，但仍有极端记录"
+            misconception: null
+          - id: B
+            text: "所有记录都等于5"
+            misconception: "iqr-robustness-alternative-1"
+          - id: C
+            text: "最大值与最小值差为0"
+            misconception: "iqr-robustness-alternative-2"
+          - id: D
+            text: "100一定是录入错误"
+            misconception: "iqr-robustness-alternative-3"
+        answer: A
+        explanation: "Q1和Q3都为5，不代表范围为0，也不能据此认定极端值无效。"
+      b:
+        prompt: "评价中选用对少量极端值不敏感的统计量，哪项需要同时考虑？"
+        options:
+          - id: A
+            text: "稳健统计量对任何目标都优于均值"
+            misconception: "iqr-robustness-alternative-1"
+          - id: B
+            text: "稳健意味着不需要报告样本范围"
+            misconception: "iqr-robustness-alternative-2"
+          - id: C
+            text: "它可能较稳定，也可能弱化使用者关心的极端体验"
+            misconception: null
+          - id: D
+            text: "稳健可以证明原数据中没有错误"
+            misconception: "iqr-robustness-alternative-3"
+        answer: C
+        explanation: "稳健性是对特定扰动的性质，是否适合要看评价目标。"
+  - concept_id: composite
+    title: "综合指标的量纲与权重"
+    tutor_context: "解释不同单位指标如何进入评价，以及权重的目标含义。"
+    pair:
+      a:
+        prompt: "要把等待分钟和满意比例合成一个分数，哪项是必要考虑？"
+        options:
+          - id: A
+            text: "直接相加，因为两个字段都是数字"
+            misconception: "composite-alternative-1"
+          - id: B
+            text: "定义方向、缩放、权重及允许怎样互相补偿"
+            misconception: null
+          - id: C
+            text: "哪个字段数值大就自然更重要"
+            misconception: "composite-alternative-2"
+          - id: D
+            text: "把小数位统一就已统一量纲"
+            misconception: "composite-alternative-3"
+        answer: B
+        explanation: "数字外观相同不等于量纲相同；合成需要可解释的尺度与取舍。"
+      b:
+        prompt: "两套合理权重得出不同中心顺序，最合适的处理是什么？"
+        options:
+          - id: A
+            text: "选择使自己喜欢的中心靠前的权重即可证明公平"
+            misconception: "composite-alternative-1"
+          - id: B
+            text: "对所有结果取平均便无需解释目标"
+            misconception: "composite-alternative-2"
+          - id: C
+            text: "权重只影响代码，不影响评价含义"
+            misconception: "composite-alternative-3"
+          - id: D
+            text: "说明各权重对应的目标及排名敏感性，不把某套称为无条件客观"
+            misconception: null
+        answer: D
+        explanation: "权重表达目标交换关系，排序变化是需要呈现的制度后果。"
+  - concept_id: goal-metric
+    title: "指标必须服务目标"
+    tutor_context: "解释总负担、典型体验和底线目标对应不同统计信息。"
+    pair:
+      a:
+        prompt: "负责人关心整期全部工单消耗的总等待分钟，人数可能不同。最贴近该目标的信息是？"
+        options:
+          - id: A
+            text: "只比较中位数，无需知道工单数"
+            misconception: "goal-metric-alternative-1"
+          - id: B
+            text: "只看每组最大值"
+            misconception: "goal-metric-alternative-2"
+          - id: C
+            text: "各组工单数与平均等待共同确定的总等待"
+            misconception: null
+          - id: D
+            text: "只看平均名次，忽略等待单位"
+            misconception: "goal-metric-alternative-3"
+        answer: C
+        explanation: "总等待等于相应数量乘均值；中位数不能单独恢复总量。"
+      b:
+        prompt: "制度承诺关注超过30分钟的等待经历，只公布均值和中位数是否充分？"
+        options:
+          - id: A
+            text: "不充分，还需能反映超过30分钟记录比例或数量的信息"
+            misconception: null
+          - id: B
+            text: "充分，因为中位数控制所有较大值"
+            misconception: "goal-metric-alternative-1"
+          - id: C
+            text: "充分，只要均值保留三位小数"
+            misconception: "goal-metric-alternative-2"
+          - id: D
+            text: "不充分，因此只能公布最大值并隐藏人数"
+            misconception: "goal-metric-alternative-3"
+        answer: A
+        explanation: "阈值目标需要相应尾部数量或比例；中心位置不能直接回答达标问题。"
+  - concept_id: incentive
+    title: "评价制度与行为激励"
+    tutor_context: "解释指标发布后可能改变对象选择，用别的公共服务场景。"
+    pair:
+      a:
+        prompt: "若只按容易办结的工单算办结率，却不报告拒接与复杂业务，可能产生什么激励？"
+        options:
+          - id: A
+            text: "必然提高每一种业务的真实质量"
+            misconception: "incentive-alternative-1"
+          - id: B
+            text: "使分母变化完全不影响结果"
+            misconception: "incentive-alternative-2"
+          - id: C
+            text: "自动消除不同业务构成差异"
+            misconception: "incentive-alternative-3"
+          - id: D
+            text: "减少承接困难工单以提高表面比例"
+            misconception: null
+        answer: D
+        explanation: "评价范围会影响行为，需记录业务覆盖与拒接等防护信息。"
+      b:
+        prompt: "调查评价只奖励回复者满意比例，不关注邀请覆盖。哪项防护更有针对性？"
+        options:
+          - id: A
+            text: "鼓励删除低分回复以增加稳定性"
+            misconception: "incentive-alternative-1"
+          - id: B
+            text: "同时报告邀请和回答情况，检查是否只联系容易满意的人"
+            misconception: null
+          - id: C
+            text: "规定所有没有评价的工单都算满意"
+            misconception: "incentive-alternative-2"
+          - id: D
+            text: "只增加百分比显示的小数位"
+            misconception: "incentive-alternative-3"
+        answer: B
+        explanation: "选择谁进入调查会改变评价，覆盖信息有助于发现选择性邀请风险。"

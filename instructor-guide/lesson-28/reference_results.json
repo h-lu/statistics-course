@@ -1,0 +1,36 @@
+{
+  "lesson": 28,
+  "reference_only": true,
+  "results": {
+    "crude": 12.779038927965075,
+    "retained_n": 919,
+    "excluded_n": 481,
+    "propensity_range": [
+      0.046386488729108055,
+      0.9910790066577659
+    ],
+    "restricted_hajek_difference": -5.127934597639879,
+    "restricted_standardized_difference": -5.243448448740399,
+    "bootstrap_ci95": [
+      -6.237280609416403,
+      -3.897456565091094
+    ],
+    "unweighted_smd": [
+      0.906325183361904,
+      0.4907780096965911,
+      0.12289969594319672,
+      -0.024787319572149306
+    ],
+    "weighted_smd": [
+      0.038859639835773105,
+      -0.009794145537223851,
+      0.013266174383760624,
+      0.005975645017675205
+    ],
+    "effective_sample_size": {
+      "0": 338.8479789370442,
+      "1": 349.3699500178724
+    },
+    "caution": "Trimmed target differs from full-population ATE. Bootstrap interval conditional on original retained set; no uncertainty about unmeasured confounding is included."
+  }
+}

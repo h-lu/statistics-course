@@ -1,0 +1,7 @@
+group,test,condition_positive_n,true_positive_n,condition_negative_n,true_negative_n,test_cost
+routine,rapid,200,180,1000,940,1
+routine,precise,200,172,1000,985,4
+referred,rapid,200,180,1000,940,1
+referred,precise,200,172,1000,985,4
+priority,rapid,200,180,1000,940,1
+priority,precise,200,172,1000,985,4

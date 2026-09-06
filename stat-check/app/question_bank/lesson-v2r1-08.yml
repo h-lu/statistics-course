@@ -1,0 +1,197 @@
+lesson_id: v2-l08-r1
+title: "第08课 · 多表数据整合与统计指标核查"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: keys
+    title: "主键与联合主键"
+    tutor_context: "用门店日数据解释单字段与联合键，不以列名判断唯一。"
+    pair:
+      a:
+        prompt: "排班表每窗口每天一行，有多个日期。适合的唯一标识是什么？"
+        options:
+          - id: A
+            text: "只有窗口编号"
+            misconception: "keys-alternative-1"
+          - id: B
+            text: "只有排班人数"
+            misconception: "keys-alternative-2"
+          - id: C
+            text: "只有日期，忽略多个窗口"
+            misconception: "keys-alternative-3"
+          - id: D
+            text: "窗口编号与日期的组合"
+            misconception: null
+        answer: D
+        explanation: "窗口跨日期重复、日期跨窗口重复，组合才对应一条窗口日排班。"
+      b:
+        prompt: "订单明细表每行一个订单中的一个商品序号，同订单可有多行。哪项最合理？"
+        options:
+          - id: A
+            text: "订单编号重复说明所有额外商品都是错误"
+            misconception: "keys-alternative-1"
+          - id: B
+            text: "验证订单编号与明细序号组合唯一，不能只把订单编号当行主键"
+            misconception: null
+          - id: C
+            text: "商品价格可以唯一识别一行"
+            misconception: "keys-alternative-2"
+          - id: D
+            text: "文件行号永远等于真实业务主键"
+            misconception: "keys-alternative-3"
+        answer: B
+        explanation: "主键与表记录层次相关，订单级键在明细记录层次通常不唯一。"
+  - concept_id: cardinality
+    title: "连接基数与行扩增"
+    tutor_context: "用订单、商品与标签解释一对多、多对多连接。"
+    pair:
+      a:
+        prompt: "一张工单对应3次接触，与接触表连接后出现3行。这本身说明什么？"
+        options:
+          - id: A
+            text: "可能是预期的一对多扩展，但工单指标不能因此按3张计数"
+            misconception: null
+          - id: B
+            text: "一定是连接程序出错"
+            misconception: "cardinality-alternative-1"
+          - id: C
+            text: "原来其实有3张工单"
+            misconception: "cardinality-alternative-2"
+          - id: D
+            text: "任何一对多连接都禁止使用"
+            misconception: "cardinality-alternative-3"
+        answer: A
+        explanation: "连接行数体现关联记录组合；正确与否取决于后续记录层次和汇总。"
+      b:
+        prompt: "同一订单有3行商品明细、4行标签，直接按订单号把两表相连，该订单可能得到几行？"
+        options:
+          - id: A
+            text: "7行"
+            misconception: "cardinality-alternative-1"
+          - id: B
+            text: "4行"
+            misconception: "cardinality-alternative-2"
+          - id: C
+            text: "12行"
+            misconception: null
+          - id: D
+            text: "1行"
+            misconception: "cardinality-alternative-3"
+        answer: C
+        explanation: "多对多会产生3×4个组合，需按目标关系或先汇总避免连接造成的重复计算。"
+  - concept_id: duplication
+    title: "连接造成的重复计算与隐式权重"
+    tutor_context: "用新的数字展示连接后均值、总量的单位改变。"
+    pair:
+      a:
+        prompt: "工单T1等待2分钟、有3次接触；T2等待10分钟、有1次。直接按接触行求等待均值为4分钟，而工单均值为6。这是为什么？"
+        options:
+          - id: A
+            text: "2和10相加计算有误"
+            misconception: "duplication-alternative-1"
+          - id: B
+            text: "T1被重复3次，均值隐式按接触次数加权"
+            misconception: null
+          - id: C
+            text: "接触自动缩短了真实等待"
+            misconception: "duplication-alternative-2"
+          - id: D
+            text: "只要使用distinct计数，现有4分钟均值也会自动修复"
+            misconception: "duplication-alternative-3"
+        answer: B
+        explanation: "重复改变工单权重，计数修补不自动修复均值计算。"
+      b:
+        prompt: "两张订单金额100、200，各连接到两条配送记录。连接行金额相加600，实际订单总额应怎样处理？"
+        options:
+          - id: A
+            text: "600正确，因为配送记录是真实存在"
+            misconception: "duplication-alternative-1"
+          - id: B
+            text: "取600除以订单数2永远能修复任何连接"
+            misconception: "duplication-alternative-2"
+          - id: C
+            text: "把所有相同金额只保留一个值，不管订单编号"
+            misconception: "duplication-alternative-3"
+          - id: D
+            text: "按订单记录层次保留金额各一次，得到300"
+            misconception: null
+        answer: D
+        explanation: "金额属于订单记录层次，不能按配送次数累加；去重应按业务键而非数值本身。"
+  - concept_id: unmatched
+    title: "连接范围与未匹配"
+    tutor_context: "解释内连接、左连接对目标覆盖的影响。"
+    pair:
+      a:
+        prompt: "工单中有未知窗口，内连接窗口字典后这些工单消失。最重要的处理是什么？"
+        options:
+          - id: A
+            text: "行数减少说明数据质量一定改善"
+            misconception: "unmatched-alternative-1"
+          - id: B
+            text: "直接认定消失工单从未发生"
+            misconception: "unmatched-alternative-2"
+          - id: C
+            text: "量化丢失范围及对指标影响，再决定限用、补核或保留未知组"
+            misconception: null
+          - id: D
+            text: "用连接后总量称为全部工单而不解释"
+            misconception: "unmatched-alternative-3"
+        answer: C
+        explanation: "内连接限制到匹配对象，可能改变目标覆盖，不能静默改变全体定义。"
+      b:
+        prompt: "左连接后某工单缺少窗口信息，等待字段仍有效。窗口字段空白意味着什么？"
+        options:
+          - id: A
+            text: "没有匹配到窗口信息，不意味着等待为0或工单不存在"
+            misconception: null
+          - id: B
+            text: "应把所有数值字段自动设0"
+            misconception: "unmatched-alternative-1"
+          - id: C
+            text: "该工单必然是重复错误"
+            misconception: "unmatched-alternative-2"
+          - id: D
+            text: "左连接保证所有未知信息都已解决"
+            misconception: "unmatched-alternative-3"
+        answer: A
+        explanation: "未匹配是关联信息缺口，其他已观测字段可按用途使用。"
+  - concept_id: reconciliation
+    title: "记录层次一致与核对"
+    tutor_context: "解释关键总量守恒和排班记录层次检查，避免只检查文件可打开。"
+    pair:
+      a:
+        prompt: "窗口日排班8工时被连接到当天20张工单。计算当日计划工时应怎样做？"
+        options:
+          - id: A
+            text: "累加成160工时，因为每行都有8"
+            misconception: "reconciliation-alternative-1"
+          - id: B
+            text: "用工单等待均值替代工时"
+            misconception: "reconciliation-alternative-2"
+          - id: C
+            text: "只要删掉一张工单就能修复重复"
+            misconception: "reconciliation-alternative-3"
+          - id: D
+            text: "在窗口日记录层次计算一次8工时，而不是按工单行累加"
+            misconception: null
+        answer: D
+        explanation: "排班属于窗口日，不属于每张工单；聚合层次应与量的定义一致。"
+      b:
+        prompt: "哪组检查最能支持多表管理报告的发布？"
+        options:
+          - id: A
+            text: "只确认CSV都能打开"
+            misconception: "reconciliation-alternative-1"
+          - id: B
+            text: "验证键与连接关系，核对记录覆盖、关键总量和各指标分母"
+            misconception: null
+          - id: C
+            text: "只确认最后输出非空"
+            misconception: "reconciliation-alternative-2"
+          - id: D
+            text: "只要连接前后行数相同，就证明所有指标正确"
+            misconception: "reconciliation-alternative-3"
+        answer: B
+        explanation: "行数或文件存在只是局部检查；错配、重复与范围改变都需要对应统计证据。"

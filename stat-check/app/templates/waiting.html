@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} · 统计学知识自查{% endblock %}
+{% block phase_bar %}{% include "_phase_bar.html" %}{% endblock %}
+{% block content %}
+  <section
+    class="state-panel"
+    data-state-watch
+    data-state-url="{{ base_path }}/state"
+    data-session-id="{{ session.id }}"
+    data-phase="{{ session.phase }}"
+    data-phase-ends-at="{{ session.phase_ends_at or '' }}"
+  >
+    <span class="status-badge"><i></i>{{ phase_labels[session.phase] }}</span>
+    <h1>{{ title }}</h1>
+    <p>{{ message }}</p>
+    <a class="secondary-button" href="{{ base_path }}/current">刷新状态</a>
+  </section>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}{{ phase_labels[phase] }} · 统计学知识自查{% endblock %}
+{% block phase_bar %}{% include "_phase_bar.html" %}{% endblock %}
+{% block content %}
+  <section
+    class="attempt-panel"
+    data-state-watch
+    data-state-url="{{ base_path }}/state"
+    data-session-id="{{ session.id }}"
+    data-phase="{{ session.phase }}"
+    data-phase-ends-at="{{ session.phase_ends_at or '' }}"
+    data-reload-on-deadline
+  >
+    <div class="question-meta">
+      <span>题目 {{ question_number }} / {{ question_total }}</span>
+      <span>概念：{{ item.title }}</span>
+    </div>
+    <h1 class="question-title">{{ question.prompt }}</h1>
+    <form method="post" action="{{ base_path }}/answer" class="answer-form">
+      <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+      <input type="hidden" name="session_id" value="{{ session.id }}">
+      <input type="hidden" name="concept_id" value="{{ item.concept_id }}">
+      <input type="hidden" name="phase" value="{{ phase }}">
+      <fieldset class="option-list">
+        <legend class="sr-only">请选择答案</legend>
+        {% for option in question.options %}
+          <label class="option-row">
+            <input type="radio" name="option_id" value="{{ option.id }}" required>
+            <span class="option-key">{{ option.id }}</span>
+            <span>{{ option.text }}</span>
+          </label>
+        {% endfor %}
+      </fieldset>
+      <fieldset class="confidence-field">
+        <legend>你有多大把握？</legend>
+        <div class="segmented">
+          {% for value, label in confidence_labels.items() %}
+            <label>
+              <input type="radio" name="confidence" value="{{ value }}" required>
+              <span>{{ label }}</span>
+            </label>
+          {% endfor %}
+        </div>
+      </fieldset>
+      <button class="primary-button submit-button" type="submit">提交并进入下一题</button>
+      <p class="lock-note">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="10" width="16" height="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg>
+        AI 全程可以使用。建议先尝试自己作答；本题提交后不能修改。
+      </p>
+    </form>
+  </section>
+{% endblock %}

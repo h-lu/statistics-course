@@ -1,0 +1,3 @@
+business_code,name,complexity,reference_wait_minutes
+basic,常规材料办理,常规,15
+case,复杂个案处理,复杂,30

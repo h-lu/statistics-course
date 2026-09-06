@@ -1,0 +1,121 @@
+lesson_id: s03-distribution-threshold
+title: S03：分布、阈值与错误代价
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: ecdf-reading
+    title: 分布与 ECDF
+    tutor_context: 解释 ECDF 在任意横轴值上表示的累积比例，并与直方图区分。
+    pair:
+      a:
+        prompt: ECDF 在 10 分钟处的纵坐标是 0.75。这表示？
+        options:
+          - {id: A, text: 75% 的记录恰好等于 10 分钟, misconception: cumulative-is-exact}
+          - {id: B, text: 约 75% 的记录不超过 10 分钟, misconception: null}
+          - {id: C, text: 均值为 7.5 分钟, misconception: ecdf-is-mean}
+          - {id: D, text: 还有 75 条记录未观测, misconception: proportion-is-count}
+        answer: B
+        explanation: ECDF(x) 是样本中取值小于或等于 x 的比例。
+      b:
+        prompt: 某温度 ECDF 在 30°C 处为 0.9。最合理的解释是？
+        options:
+          - {id: A, text: 约 10% 的观测不高于 30°C, misconception: reverse-complement}
+          - {id: B, text: 最高温度必然是 30°C, misconception: quantile-is-maximum}
+          - {id: C, text: 约 90% 的观测不高于 30°C, misconception: null}
+          - {id: D, text: 平均温度为 27°C, misconception: ecdf-is-mean}
+        answer: C
+        explanation: 0.9 是截止 30°C 累积起来的样本比例，不是均值或最大值。
+
+  - concept_id: skewness-meaning
+    title: 偏态与分布形状
+    tutor_context: 解释右偏和左偏所指的长尾方向，以及均值与中位数的常见关系。
+    pair:
+      a:
+        prompt: 订单金额的大多数值较小，少数值非常大，形成向右的长尾。这称为？
+        options:
+          - {id: A, text: 完全对称, misconception: ignore-tail}
+          - {id: B, text: 左偏, misconception: reverse-tail}
+          - {id: C, text: 双峰必然分布, misconception: tail-is-mode}
+          - {id: D, text: 右偏, misconception: null}
+        answer: D
+        explanation: 偏态方向由长尾所指方向命名，少数大值使尾部向右。
+      b:
+        prompt: 对一个明显右偏且无其他异常结构的正数据集，哪项常见？
+        options:
+          - {id: A, text: 均值往往高于中位数, misconception: null}
+          - {id: B, text: 均值必然为零, misconception: skew-means-zero}
+          - {id: C, text: 中位数必然等于最大值, misconception: median-is-maximum}
+          - {id: D, text: 标准差必然为零, misconception: skew-means-no-spread}
+        answer: A
+        explanation: 右尾的大值会向上拉动均值，而中位数对尾部大值较稳健。
+
+  - concept_id: threshold-error-cost
+    title: 阈值与错误代价
+    tutor_context: 解释降低或提高阈值对误报与漏报的方向性影响，以及为何不存在脱离代价的唯一最佳阈值。
+    pair:
+      a:
+        prompt: 在其他条件不变时，把报警阈值降低通常会？
+        options:
+          - {id: A, text: 同时减少误报和漏报, misconception: free-improvement}
+          - {id: B, text: 减少报警数量, misconception: reverse-alert-count}
+          - {id: C, text: 增加报警，可能减少漏报但增加误报, misconception: null}
+          - {id: D, text: 使数据的分布自动对称, misconception: threshold-changes-data}
+        answer: C
+        explanation: 更低阈值使更多观测被标记，通常在漏报和误报之间产生取舍。
+      b:
+        prompt: 若漏掉真正故障的代价大幅上升，阈值决策应如何更新？
+        options:
+          - {id: A, text: 阈值永远与错误代价无关, misconception: threshold-cost-independent}
+          - {id: B, text: 重新比较各阈值的漏报、误报和总代价, misconception: null}
+          - {id: C, text: 只选使报警数最少的阈值, misconception: minimize-alerts-only}
+          - {id: D, text: 删除所有没有报警的记录, misconception: delete-negatives}
+        answer: B
+        explanation: 错误代价改变了决策目标，需要用新代价重新评估阈值。
+
+  - concept_id: risk-score-probability
+    title: 风险分数与概率
+    tutor_context: 解释排序用风险分数与经过校准的概率之间的区别；换一个情境追问学生能作出什么解释。
+    pair:
+      a:
+        prompt: 某系统只说明“分数越高，越应优先复核”，没有提供概率校准证据。设备得到 80 分时，哪项解释最稳妥？
+        options:
+          - {id: A, text: 设备发生故障的概率一定是 80%, misconception: score-is-probability}
+          - {id: B, text: 设备一定已经发生故障, misconception: score-is-certainty}
+          - {id: C, text: 它应比 40 分设备优先复核，但故障概率仍未知, misconception: null}
+          - {id: D, text: 80% 的设备都会得到这一分数, misconception: score-is-frequency}
+        answer: C
+        explanation: 未经概率校准的分数可以用于排序，但不能直接解释为故障概率。
+      b:
+        prompt: 一个贷款风险等级从 40 升到 70，模型文档只承诺“更高表示风险排序更靠前”。可以直接断言什么？
+        options:
+          - {id: A, text: 违约概率必然增加了 30 个百分点, misconception: score-difference-is-probability}
+          - {id: D, text: 新分数表示风险排序更高，但概率大小需另行校准, misconception: null}
+          - {id: C, text: 贷款一定会违约, misconception: score-is-certainty}
+          - {id: B, text: 分数越高说明样本量越大, misconception: score-is-count}
+        answer: D
+        explanation: 排序分数的数值差不自动等于概率差；需要校准信息才能作概率解释。
+
+  - concept_id: false-positive-denominator
+    title: 假阳性率的分母
+    tutor_context: 用不同于正式项目的混淆矩阵，解释假阳性率、报警中误报占比和报警率使用不同分母。
+    pair:
+      a:
+        prompt: 真实非故障共有 20 次，其中 4 次被误报。假阳性率是多少？
+        options:
+          - {id: A, text: 4/20 = 20%, misconception: null}
+          - {id: B, text: 4/4 = 100%, misconception: denominator-fp-only}
+          - {id: C, text: 必须用全部报警数作分母，现有信息无法计算, misconception: denominator-predicted-positive}
+          - {id: D, text: 必须用全部记录作分母，现有信息无法计算, misconception: denominator-all}
+        answer: A
+        explanation: 假阳性率是 FP/(FP+TN)，分母为所有真实阴性；这里为 4/20。
+      b:
+        prompt: 某筛查有 FP=6、TN=24、TP=18、FN=2。假阳性率是多少？
+        options:
+          - {id: A, text: 6/(6+18) = 25%, misconception: denominator-predicted-positive}
+          - {id: B, text: 6/(6+24) = 20%, misconception: null}
+          - {id: C, text: 6/(6+24+18+2) = 12%, misconception: denominator-all}
+          - {id: D, text: 2/(2+18) = 10%, misconception: false-negative-rate}
+        answer: B
+        explanation: 假阳性率以真实阴性为条件，分母是 FP+TN，因此为 6/30=20%。

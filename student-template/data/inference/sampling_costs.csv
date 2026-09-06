@@ -1,0 +1,7 @@
+stratum,population_n,contact_cost,expected_response_rate,min_completed
+north_early,500,3,0.62,15
+north_late,700,4,0.35,15
+central_early,600,5,0.5,15
+central_late,800,6,0.28,15
+south_early,550,4,0.42,15
+south_late,450,7,0.2,15

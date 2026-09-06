@@ -1,0 +1,117 @@
+lesson_id: v2-l12-r1
+title: "第12课 · 比较估计方法的适用条件"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: l12-concept-1
+    title: "抽样分布"
+    tutor_context: "解释“抽样分布”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "按相同设计独立重复抽100次样本、每次算均值，这100个均值的经验分布近似什么分布？"
+        options:
+          - {id: A, text: "样本均值的抽样分布", misconception: null}
+          - {id: B, text: "原始观测值的经验分布", misconception: "l12-c1-misconception-2"}
+          - {id: C, text: "总体所有单位的分布", misconception: "l12-c1-misconception-3"}
+          - {id: D, text: "单次样本的缺失分布", misconception: "l12-c1-misconception-4"}
+        answer: A
+        explanation: "抽样分布是统计量在给定抽样设计下的概率分布，有限次模拟得到的经验分布可近似它。"
+      b:
+        prompt: "原始数据明显右偏，但大样本均值的重复抽样分布接近对称，是否矛盾？"
+        options:
+          - {id: A, text: "矛盾，均值必须与原始数据同形状", misconception: "l12-c1-misconception-1"}
+          - {id: B, text: "说明模拟把原始数据改成了正态", misconception: "l12-c1-misconception-2"}
+          - {id: C, text: "说明总体偏度一定为0", misconception: "l12-c1-misconception-3"}
+          - {id: D, text: "不矛盾，原始变量与样本均值的分布不同", misconception: null}
+        answer: D
+        explanation: "统计量聚合后的分布可以不同于原始变量。"
+  - concept_id: l12-concept-2
+    title: "标准误"
+    tutor_context: "解释“标准误”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "独立同分布样本的标准差为20、样本量100，均值标准误的估计值约为？"
+        options:
+          - {id: A, text: "20", misconception: "l12-c2-misconception-1"}
+          - {id: B, text: "0.2", misconception: "l12-c2-misconception-2"}
+          - {id: C, text: "2", misconception: null}
+          - {id: D, text: "200", misconception: "l12-c2-misconception-4"}
+        answer: C
+        explanation: "用s/√n估计均值标准误，20/10=2；这里均值标准误与原变量的单位相同。"
+      b:
+        prompt: "独立同分布且总体方差不变时，调查样本量增至4倍，均值标准误大约怎样？"
+        options:
+          - {id: A, text: "减为四分之一", misconception: "l12-c2-misconception-1"}
+          - {id: B, text: "减为一半", misconception: null}
+          - {id: C, text: "保持不变，只改置信度", misconception: "l12-c2-misconception-3"}
+          - {id: D, text: "变为原来的2倍", misconception: "l12-c2-misconception-4"}
+        answer: B
+        explanation: "在独立同分布及方差稳定条件下SE与√n成反比。"
+  - concept_id: l12-concept-3
+    title: "中心极限定理"
+    tutor_context: "解释“中心极限定理”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "关于中心极限定理，哪项恰当？"
+        options:
+          - {id: A, text: "适当条件下标准化均值趋近正态，速度受分布影响", misconception: null}
+          - {id: B, text: "只要n达到30，任何区间都精确覆盖", misconception: "l12-c3-misconception-2"}
+          - {id: C, text: "随着n增加原始观测值会变正态", misconception: "l12-c3-misconception-3"}
+          - {id: D, text: "无需独立或其他依赖条件都适用相同结论", misconception: "l12-c3-misconception-4"}
+        answer: A
+        explanation: "CLT涉及统计量极限与条件，不提供统一样本量保证。"
+      b:
+        prompt: "稀有巨额成本样本常常一个也没抽到。增加样本量最可能改善什么？"
+        options:
+          - {id: A, text: "自动证明总体没有长尾", misconception: "l12-c3-misconception-1"}
+          - {id: B, text: "使每个观测成本更接近均值", misconception: "l12-c3-misconception-2"}
+          - {id: C, text: "让置信区间必然包含真值", misconception: "l12-c3-misconception-3"}
+          - {id: D, text: "更可能覆盖稀有部分，但有限样本近似仍需检查", misconception: null}
+        answer: D
+        explanation: "稀有事件导致有限样本困难，样本增加不是单次覆盖保证。"
+  - concept_id: l12-concept-4
+    title: "偏差与均方误差"
+    tutor_context: "解释“偏差与均方误差”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "用样本中位数估计总体平均成本时，它波动较小就一定更好吗？"
+        options:
+          - {id: A, text: "一定，小标准误优先于目标定义", misconception: "l12-c4-misconception-1"}
+          - {id: B, text: "一定，中位数总比均值稳健", misconception: "l12-c4-misconception-2"}
+          - {id: C, text: "不一定，需要计入对平均成本目标的偏差", misconception: null}
+          - {id: D, text: "不一定，因为中位数不能计算标准误", misconception: "l12-c4-misconception-4"}
+        answer: C
+        explanation: "同一目标下需比较偏差和波动；稳健位置可能改变目标。"
+      b:
+        prompt: "估计量甲无偏但方差大，估计量乙有小偏差但方差小。如何按MSE比较？"
+        options:
+          - {id: A, text: "只比较是否无偏", misconception: "l12-c4-misconception-1"}
+          - {id: B, text: "比较各自偏差平方加方差", misconception: null}
+          - {id: C, text: "只比较方差，不看目标", misconception: "l12-c4-misconception-3"}
+          - {id: D, text: "比较输出的小数位数", misconception: "l12-c4-misconception-4"}
+        answer: B
+        explanation: "MSE=偏差²+方差，不能只按其中一项判断。"
+  - concept_id: l12-concept-5
+    title: "蒙特卡洛误差"
+    tutor_context: "解释“蒙特卡洛误差”，换一个不同情境说明分母、含义或适用条件，再向学习者提出一个判断问题。"
+    pair:
+      a:
+        prompt: "覆盖率实验重复模拟1500次，得到的区间中95%包含总体参数。1500指什么？"
+        options:
+          - {id: A, text: "评价程序的重复次数，不是每次调查样本量", misconception: null}
+          - {id: B, text: "每个区间用了1500个受访者", misconception: "l12-c5-misconception-2"}
+          - {id: C, text: "总体人数一定为1500", misconception: "l12-c5-misconception-3"}
+          - {id: D, text: "置信度为1500分之一", misconception: "l12-c5-misconception-4"}
+        answer: A
+        explanation: "重复次数决定覆盖率估计的模拟误差，与调查n不同。"
+      b:
+        prompt: "两法覆盖估计0.94和0.95，各仅100次模拟。最稳妥的做法？"
+        options:
+          - {id: A, text: "因0.95更大即断言第二法普遍更好", misconception: "l12-c5-misconception-1"}
+          - {id: B, text: "把置信水平改为0.94以匹配第一法", misconception: "l12-c5-misconception-2"}
+          - {id: C, text: "只报告较高值免于混淆", misconception: "l12-c5-misconception-3"}
+          - {id: D, text: "报告模拟误差并增加重复或承认差异证据弱", misconception: null}
+        answer: D
+        explanation: "有限模拟的随机误差可能大于0.01差异。"

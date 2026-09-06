@@ -1,0 +1,188 @@
+{
+  "lesson": 29,
+  "reference_only": true,
+  "results": {
+    "group_means": {
+      "treated": {
+        "early": 49.34901388888889,
+        "late_pre": 51.31448611111111,
+        "post": 48.56303472222223
+      },
+      "near_control": {
+        "early": 50.33881944444445,
+        "late_pre": 51.094625,
+        "post": 51.635527777777774
+      },
+      "far_control": {
+        "early": 52.08538888888889,
+        "late_pre": 52.97484722222222,
+        "post": 54.17293055555555
+      }
+    },
+    "comparisons": {
+      "near_control": {
+        "did": -2.6875208333333305,
+        "cluster_bootstrap_ci95": [
+          -3.521955555555554,
+          -1.912707118055553
+        ],
+        "pre_placebo": 1.2096666666666636
+      },
+      "far_control": {
+        "did": -3.4115277777777777,
+        "cluster_bootstrap_ci95": [
+          -4.058642534722222,
+          -2.8225020833333367
+        ],
+        "pre_placebo": 1.0760138888888875
+      }
+    },
+    "event_time": [
+      {
+        "event_time": -18,
+        "treated_minus_far": -2.897750000000002
+      },
+      {
+        "event_time": -17,
+        "treated_minus_far": -2.413499999999999
+      },
+      {
+        "event_time": -16,
+        "treated_minus_far": -2.6824999999999974
+      },
+      {
+        "event_time": -15,
+        "treated_minus_far": -4.150625000000005
+      },
+      {
+        "event_time": -14,
+        "treated_minus_far": -2.814
+      },
+      {
+        "event_time": -13,
+        "treated_minus_far": -2.774249999999995
+      },
+      {
+        "event_time": -12,
+        "treated_minus_far": -2.390374999999999
+      },
+      {
+        "event_time": -11,
+        "treated_minus_far": -2.059500000000007
+      },
+      {
+        "event_time": -10,
+        "treated_minus_far": -2.4448750000000032
+      },
+      {
+        "event_time": -9,
+        "treated_minus_far": -2.170625000000001
+      },
+      {
+        "event_time": -8,
+        "treated_minus_far": -2.5885000000000034
+      },
+      {
+        "event_time": -7,
+        "treated_minus_far": -1.6488749999999968
+      },
+      {
+        "event_time": -6,
+        "treated_minus_far": -0.7359999999999971
+      },
+      {
+        "event_time": -5,
+        "treated_minus_far": -1.9876249999999942
+      },
+      {
+        "event_time": -4,
+        "treated_minus_far": -0.7912500000000051
+      },
+      {
+        "event_time": -3,
+        "treated_minus_far": -1.4652499999999975
+      },
+      {
+        "event_time": -2,
+        "treated_minus_far": -1.6497499999999974
+      },
+      {
+        "event_time": -1,
+        "treated_minus_far": -1.9053749999999994
+      },
+      {
+        "event_time": 0,
+        "treated_minus_far": -6.095125000000003
+      },
+      {
+        "event_time": 1,
+        "treated_minus_far": -6.384999999999998
+      },
+      {
+        "event_time": 2,
+        "treated_minus_far": -6.134749999999997
+      },
+      {
+        "event_time": 3,
+        "treated_minus_far": -6.204624999999993
+      },
+      {
+        "event_time": 4,
+        "treated_minus_far": -6.392499999999998
+      },
+      {
+        "event_time": 5,
+        "treated_minus_far": -5.1484999999999985
+      },
+      {
+        "event_time": 6,
+        "treated_minus_far": -6.124375000000001
+      },
+      {
+        "event_time": 7,
+        "treated_minus_far": -6.488375000000005
+      },
+      {
+        "event_time": 8,
+        "treated_minus_far": -4.797750000000001
+      },
+      {
+        "event_time": 9,
+        "treated_minus_far": -5.869249999999994
+      },
+      {
+        "event_time": 10,
+        "treated_minus_far": -5.680250000000001
+      },
+      {
+        "event_time": 11,
+        "treated_minus_far": -5.950624999999995
+      },
+      {
+        "event_time": 12,
+        "treated_minus_far": -5.268000000000001
+      },
+      {
+        "event_time": 13,
+        "treated_minus_far": -3.7403750000000073
+      },
+      {
+        "event_time": 14,
+        "treated_minus_far": -5.6741249999999965
+      },
+      {
+        "event_time": 15,
+        "treated_minus_far": -5.296875
+      },
+      {
+        "event_time": 16,
+        "treated_minus_far": -4.643375000000006
+      },
+      {
+        "event_time": 17,
+        "treated_minus_far": -5.084249999999997
+      }
+    ],
+    "note": "Equal-district target; district is bootstrap unit. Few clusters and interference limit inference; pre-trend compatibility does not establish parallel counterfactual trends."
+  }
+}

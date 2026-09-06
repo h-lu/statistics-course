@@ -1,0 +1,1 @@
+"""Stat Check application package."""

@@ -1,0 +1,197 @@
+lesson_id: v2-l05-r1
+title: "第05课 · 有限复核名额下的告警策略"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: ecdf
+    title: "经验累积分布函数"
+    tutor_context: "用成绩或交货时间解释累计比例与事件概率的差别，并设计新例子。"
+    pair:
+      a:
+        prompt: "方案制定期风险分数的ECDF在60处为0.8，意味着什么？"
+        options:
+          - id: A
+            text: "方案制定期80%的分数不超过60"
+            misconception: null
+          - id: B
+            text: "分数60的设备故障概率为80%"
+            misconception: "ecdf-alternative-1"
+          - id: C
+            text: "80%的故障一定已被找出"
+            misconception: "ecdf-alternative-2"
+          - id: D
+            text: "每一天恰有80%的设备需要复核"
+            misconception: "ecdf-alternative-3"
+        answer: A
+        explanation: "ECDF描述分数的累计分布，不是条件故障概率，也不保证每日相同。"
+      b:
+        prompt: "四个分数为30、50、50、90，经验累积分布函数在50处是多少？"
+        options:
+          - id: A
+            text: "1/2，因为只有两个分数等于50"
+            misconception: "ecdf-alternative-1"
+          - id: B
+            text: "1/4，因为只数小于50的分数"
+            misconception: "ecdf-alternative-2"
+          - id: C
+            text: "3/4"
+            misconception: null
+          - id: D
+            text: "1，因为50是中位数"
+            misconception: "ecdf-alternative-3"
+        answer: C
+        explanation: "F_n(50)计入所有≤50的观测，包括两个并列50，因此为3/4。"
+  - concept_id: capacity-ties
+    title: "容量、分位数与并列"
+    tutor_context: "解释分位数阈值和精确名额的区别，并考虑按日约束。"
+    pair:
+      a:
+        prompt: "每天最多复核10台，某分数线以上已有8台，恰在线上有6台。若要最多10台，应如何处理？"
+        options:
+          - id: A
+            text: "把线上6台全选，因为阈值正确就不会超容量"
+            misconception: "capacity-ties-alternative-1"
+          - id: B
+            text: "事先规定可解释的并列排序或分配规则，最多从并列者选2台"
+            misconception: null
+          - id: C
+            text: "把容量视为平均数，当天14台无需说明"
+            misconception: "capacity-ties-alternative-2"
+          - id: D
+            text: "根据当天未来故障标签选出并列者"
+            misconception: "capacity-ties-alternative-3"
+        answer: B
+        explanation: "并列使阈值不自动满足名额；需要行动前可执行、无未来标签的处理。"
+      b:
+        prompt: "周一复核30台、周二10台，两个工作日容量各20。平均20台能否说明可行？"
+        options:
+          - id: A
+            text: "能，只要两天合计不超过40"
+            misconception: "capacity-ties-alternative-1"
+          - id: B
+            text: "能，样本均值正确即代表所有天合规"
+            misconception: "capacity-ties-alternative-2"
+          - id: C
+            text: "不能，所以任何使用均值的策略都不可用"
+            misconception: "capacity-ties-alternative-3"
+          - id: D
+            text: "不能，周一违反当日约束，平均数不能替代逐日检查"
+            misconception: null
+        answer: D
+        explanation: "容量限制施加在每日，而非只有跨日平均；不同约束单位不能互相替换。"
+  - concept_id: fpr
+    title: "假阳性率的分母"
+    tutor_context: "用一张新的四格表区分假阳性率与复核名单无故障比例。"
+    pair:
+      a:
+        prompt: "100条记录中实际故障20条，复核30条且其中12条故障。假阳性率是多少？"
+        options:
+          - id: A
+            text: "18/30"
+            misconception: "fpr-alternative-1"
+          - id: B
+            text: "8/20"
+            misconception: "fpr-alternative-2"
+          - id: C
+            text: "18/80"
+            misconception: null
+          - id: D
+            text: "30/100"
+            misconception: "fpr-alternative-3"
+        answer: C
+        explanation: "FP=30−12=18，真实无故障=80；FPR=FP/(FP+TN)=18/80。"
+      b:
+        prompt: "某批次所有10台设备都实际故障，其中复核8台。假阳性率应怎样报告？"
+        options:
+          - id: A
+            text: "未定义，因为没有真实无故障记录作为分母"
+            misconception: null
+          - id: B
+            text: "0，表示对无故障设备完全正确"
+            misconception: "fpr-alternative-1"
+          - id: C
+            text: "2/10，因为遗漏了2台"
+            misconception: "fpr-alternative-2"
+          - id: D
+            text: "8/10，因为复核了8台"
+            misconception: "fpr-alternative-3"
+        answer: A
+        explanation: "真实负例数量为0时，FPR分母为0；不能将没有该类记录解释为已证明低误报。"
+  - concept_id: fnr
+    title: "假阴性率与后果数量"
+    tutor_context: "用不同复核场景解释漏报数、漏报比例和名单比例的区别。"
+    pair:
+      a:
+        prompt: "100条记录中实际故障20条，复核名单找出12条故障。假阴性率是多少？"
+        options:
+          - id: A
+            text: "8/100"
+            misconception: "fnr-alternative-1"
+          - id: B
+            text: "12/20"
+            misconception: "fnr-alternative-2"
+          - id: C
+            text: "8/复核名单人数"
+            misconception: "fnr-alternative-3"
+          - id: D
+            text: "8/20"
+            misconception: null
+        answer: D
+        explanation: "漏报8条，分母为实际故障20条；它不是全体记录中的漏报比例。"
+      b:
+        prompt: "一项策略漏掉9次真实故障，期间实际故障30次，复核80次。哪项正确？"
+        options:
+          - id: A
+            text: "假阴性率9/80"
+            misconception: "fnr-alternative-1"
+          - id: B
+            text: "假阴性率30%，复核80次不是这个比例的分母"
+            misconception: null
+          - id: C
+            text: "假阴性率70%，因为其余21次故障被识别出来"
+            misconception: "fnr-alternative-2"
+          - id: D
+            text: "只知道漏报数就能判断故障损失一定更低"
+            misconception: "fnr-alternative-3"
+        answer: B
+        explanation: "FNR=9/30；漏报损失还与哪些设备被漏掉有关。"
+  - concept_id: loss-action
+    title: "损失、能力与行动假设"
+    tutor_context: "解释错误数量、异质代价和复核效果假设如何共同影响行动。"
+    pair:
+      a:
+        prompt: "策略甲漏报更少，却漏掉更多高损失设备；策略乙漏报更多但多为低损失设备。应怎样比较？"
+        options:
+          - id: A
+            text: "在相同成本与复核效果假设下核算总后果，不能只按漏报数选"
+            misconception: null
+          - id: B
+            text: "漏报数较少一定总损失较低"
+            misconception: "loss-action-alternative-1"
+          - id: C
+            text: "总准确率最高一定满足所有业务目标"
+            misconception: "loss-action-alternative-2"
+          - id: D
+            text: "只要使用AI优化就不需要说明损失定义"
+            misconception: "loss-action-alternative-3"
+        answer: A
+        explanation: "不同错误代价可能相差很大，数量与损失不是同一评价目标。"
+      b:
+        prompt: "历史数据评估使用“复核避免85%故障损失”的约定并得到节省结果。可以怎样解释？"
+        options:
+          - id: A
+            text: "已经用历史数据评估识别出85%的因果效果"
+            misconception: "loss-action-alternative-1"
+          - id: B
+            text: "85%来自字典，所以对任何现实设备都成立"
+            misconception: "loss-action-alternative-2"
+          - id: C
+            text: "在该效果假设下的按历史记录模拟执行的结果，不能由此证明真实干预效果就是85%"
+            misconception: null
+          - id: D
+            text: "只要故障标签完整，任何行动效果都无需假设"
+            misconception: "loss-action-alternative-3"
+        answer: C
+        explanation: "标签完整可支持历史后果核算，但未同时观察行动与不行动的反事实；效果约定仍是假设。"

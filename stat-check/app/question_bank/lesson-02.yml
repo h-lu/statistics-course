@@ -1,0 +1,121 @@
+lesson_id: bootcamp-02
+title: 第二次课：稳健描述与迁移判断
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: iqr-middle-spread
+    title: 四分位数与 IQR
+    tutor_context: 解释 Q1、Q3 和 IQR 分别描述什么，并用一组新数据让我计算。
+    pair:
+      a:
+        prompt: 等待时间的 Q1=5 分钟、Q3=11 分钟。哪项解释正确？
+        options:
+          - {id: A, text: IQR 为 6 分钟，描述中间 50% 数据的跨度, misconception: null}
+          - {id: B, text: IQR 为 16 分钟，就是最大值减最小值, misconception: confuse-iqr-with-range}
+          - {id: C, text: 所有等待时间都在 5 到 11 分钟, misconception: quartiles-cover-all}
+          - {id: D, text: 一半记录恰好等于 6 分钟, misconception: spread-is-value}
+        answer: A
+        explanation: IQR=Q3-Q1=6，它表示中间 50% 记录所覆盖的区间宽度。
+      b:
+        prompt: 某组工资的 Q1=4 千元、Q3=7 千元。最合理的表述是什么？
+        options:
+          - {id: B, text: IQR=3 千元，中间一半工资位于 4 到 7 千元, misconception: null}
+          - {id: A, text: IQR=11 千元，表示全部工资范围, misconception: add-quartiles}
+          - {id: C, text: 平均工资一定是 5.5 千元, misconception: quartiles-determine-mean}
+          - {id: D, text: 没有任何工资低于 4 千元, misconception: quartiles-cover-all}
+        answer: B
+        explanation: IQR=7-4=3 千元；Q1 与 Q3 之间包含中间约 50% 的记录。
+
+  - concept_id: outlier-rule-decision
+    title: 离群值规则与处理
+    tutor_context: 解释 1.5×IQR 规则只是筛查离群候选值（也常称异常值），不是自动删除命令。
+    pair:
+      a:
+        prompt: 一条记录高于 Q3+1.5×IQR。下一步最负责的做法是？
+        options:
+          - {id: C, text: 标记并核查来源，再比较保留与排除时的结论, misconception: null}
+          - {id: B, text: 立即删除，因为统计规则已证明它错了, misconception: flag-means-error}
+          - {id: A, text: 修改成中位数，不必留记录, misconception: silent-replacement}
+          - {id: D, text: 只要样本大就可以忽略, misconception: sample-size-removes-outlier}
+        answer: C
+        explanation: IQR 规则只识别值得调查的记录；真实极端情况与录入错误需要不同处理。
+      b:
+        prompt: 一次真实的大型故障使修复时长成为箱线图中的离群点。应如何处理？
+        options:
+          - {id: D, text: 因为它真实就保留，并做有无该点的敏感性比较, misconception: null}
+          - {id: B, text: 只要在箱线图外就必须删除, misconception: automatic-deletion}
+          - {id: C, text: 把它拆成多条平均记录, misconception: fabricate-data}
+          - {id: A, text: 为了保持均值不变而删除, misconception: protect-result}
+        answer: D
+        explanation: 真实极端事件属于目标过程，应保留并报告它对决定的影响。
+
+  - concept_id: threshold-sensitivity
+    title: 阈值敏感性
+    tutor_context: 解释为什么决定在多个合理阈值下都不变更稳健，以及翻转时怎样报告。
+    pair:
+      a:
+        prompt: 把“超时”阈值从 8 分钟改到 12 分钟后，增员建议反转。这说明什么？
+        options:
+          - {id: A, text: 建议对合理阈值敏感，应报告翻转区间和阈值依据, misconception: null}
+          - {id: B, text: 8 和 12 中必有一个是计算错误, misconception: sensitivity-means-error}
+          - {id: C, text: 只需选使建议最好看的阈值, misconception: cherry-pick-threshold}
+          - {id: D, text: 样本量足够时阈值不应影响决定, misconception: ignore-decision-rule}
+        answer: A
+        explanation: 决定反转表明结论依赖规则选择，必须透明报告阈值的理由与敏感性。
+      b:
+        prompt: 设备报警阈值在 70–75 之间时方案排名不变，这项结果最能支持什么？
+        options:
+          - {id: B, text: 方案排名在这个合理阈值范围内较稳定, misconception: null}
+          - {id: A, text: 75 一定是唯一正确阈值, misconception: stable-means-unique}
+          - {id: C, text: 阈值对任何数据都不重要, misconception: overgeneralize-stability}
+          - {id: D, text: 无需再报告报警率, misconception: stability-removes-reporting}
+        answer: B
+        explanation: 在事先认为合理的范围内决定不变，是局部稳健性证据，但不代表阈值永远不重要。
+
+  - concept_id: batch-transfer
+    title: 新批次与结论迁移
+    tutor_context: 解释旧批次结论为什么不会自动适用新批次，以及应比较哪些分布特征。
+    pair:
+      a:
+        prompt: 新一周数据中两个窗口的样本量和等待分布都变了。最合理的做法是？
+        options:
+          - {id: C, text: 用同一指标重新计算并比较新旧建议, misconception: null}
+          - {id: B, text: 旧结论已通过测试，可以永久沿用, misconception: once-valid-always-valid}
+          - {id: A, text: 只把新数据追加到图上，不必重新决定, misconception: plot-without-update}
+          - {id: D, text: 删除与旧批次不一致的新记录, misconception: force-transfer}
+        answer: C
+        explanation: 批次变化可能改变目标量与决定，应保留相同定义进行新旧比较。
+      b:
+        prompt: 上学期的问卷结论要用于本学期，首先应检查什么？
+        options:
+          - {id: D, text: 目标人群、采集方式和关键变量分布是否可比, misconception: null}
+          - {id: B, text: 上学期的小数位是否足够多, misconception: precision-implies-transfer}
+          - {id: C, text: 两个文件名是否相同, misconception: filename-implies-same-population}
+          - {id: A, text: 旧结论是否显著, misconception: significance-implies-transfer}
+        answer: D
+        explanation: 迁移需要人群、测量和数据生成过程具有可比性，不由文件名或显著性保证。
+
+  - concept_id: descriptive-versus-causal-transfer
+    title: 描述更新与因果主张
+    tutor_context: 解释新批次中再次看到差异，为什么仍不等于证明干预效果。
+    pair:
+      a:
+        prompt: 连续两周都观察到 A 窗口等待更长。仅凭这些数据能够得出什么？
+        options:
+          - {id: A, text: 两周样本都显示分布差异，但不证明窗口本身造成差异, misconception: null}
+          - {id: B, text: 已证明增加 A 的人手一定降低等待, misconception: repeated-association-is-causal}
+          - {id: C, text: 连续两周就等于随机实验, misconception: repetition-is-randomization}
+          - {id: D, text: 可以确定 A 员工效率更低, misconception: unsupported-mechanism}
+        answer: A
+        explanation: 重复观察增加了描述稳定性，但人群构成、时段和任务类型仍可能解释差异。
+      b:
+        prompt: 两个月份都显示参加培训者绩效更高。最稳妥的表述是？
+        options:
+          - {id: A, text: 培训必然使绩效提高, misconception: association-is-causation}
+          - {id: B, text: 该关联在两个月份都出现，但自主参加等因素仍限制因果解释, misconception: null}
+          - {id: C, text: 重复出现已排除所有混杂, misconception: replication-removes-confounding}
+          - {id: D, text: 只要两个月样本总数足够就能证明因果, misconception: sample-size-proves-causality}
+        answer: B
+        explanation: 跨批次重现可支持关联的稳定性，但不替代随机化或充分的因果识别设计。

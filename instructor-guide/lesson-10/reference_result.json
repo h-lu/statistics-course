@@ -1,0 +1,134 @@
+[
+  {
+    "scenario": "history",
+    "n": 126,
+    "mean": 160.77777777777777,
+    "variance": 1169.9982222222225,
+    "plans": [
+      {
+        "plan": "C140",
+        "mean_loss": 1023.431746031746,
+        "overflow_probability": 0.7777777777777778,
+        "mean_unserved": 25.071428571428573,
+        "loss_p90": 1728.0,
+        "mc_mean_loss": 1021.3956,
+        "mc_standard_error": 6.902618519337887,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C170",
+        "mean_loss": 719.1523809523809,
+        "overflow_probability": 0.3412698412698413,
+        "mean_unserved": 8.420634920634921,
+        "loss_p90": 1098.0,
+        "mc_mean_loss": 721.03228,
+        "mc_standard_error": 5.071803848970148,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C200",
+        "mean_loss": 685.4031746031748,
+        "overflow_probability": 0.07142857142857142,
+        "mean_unserved": 2.857142857142857,
+        "loss_p90": 643.0,
+        "mc_mean_loss": 688.8274,
+        "mc_standard_error": 3.4124032331637726,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C230",
+        "mean_loss": 743.0571428571429,
+        "overflow_probability": 0.03968253968253968,
+        "mean_unserved": 1.0396825396825398,
+        "loss_p90": 736.4,
+        "mc_mean_loss": 744.3063599999999,
+        "mc_standard_error": 2.313439225062946,
+        "mc_repetitions": 10000
+      }
+    ]
+  },
+  {
+    "scenario": "event_history",
+    "n": 12,
+    "mean": 208.66666666666666,
+    "variance": 578.4242424242424,
+    "plans": [
+      {
+        "plan": "C140",
+        "mean_loss": 2068.0,
+        "overflow_probability": 1.0,
+        "mean_unserved": 68.66666666666667,
+        "loss_p90": 2716.8,
+        "mc_mean_loss": 2065.752,
+        "mc_standard_error": 5.534029685324773,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C170",
+        "mean_loss": 1438.0,
+        "overflow_probability": 1.0,
+        "mean_unserved": 38.666666666666664,
+        "loss_p90": 2086.8,
+        "mc_mean_loss": 1435.752,
+        "mc_standard_error": 5.534029685324773,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C200",
+        "mean_loss": 966.6,
+        "overflow_probability": 0.5,
+        "mean_unserved": 15.166666666666666,
+        "loss_p90": 1456.8,
+        "mc_mean_loss": 965.4744,
+        "mc_standard_error": 3.783448212847895,
+        "mc_repetitions": 10000
+      },
+      {
+        "plan": "C230",
+        "mean_loss": 735.1333333333333,
+        "overflow_probability": 0.25,
+        "mean_unserved": 1.5,
+        "loss_p90": 826.8000000000001,
+        "mc_mean_loss": 735.5514400000001,
+        "mc_standard_error": 0.6543972192519589,
+        "mc_repetitions": 10000
+      }
+    ]
+  },
+  {
+    "scenario": "holdout",
+    "n": 42,
+    "mean": 154.9047619047619,
+    "variance": 1213.2590011614402,
+    "plans": [
+      {
+        "plan": "C140",
+        "mean_loss": 896.2285714285714,
+        "overflow_probability": 0.6428571428571429,
+        "mean_unserved": 19.761904761904763,
+        "loss_p90": 1739.9999999999995
+      },
+      {
+        "plan": "C170",
+        "mean_loss": 696.1333333333334,
+        "overflow_probability": 0.23809523809523808,
+        "mean_unserved": 7.380952380952381,
+        "loss_p90": 1109.9999999999995
+      },
+      {
+        "plan": "C200",
+        "mean_loss": 692.9809523809524,
+        "overflow_probability": 0.09523809523809523,
+        "mean_unserved": 3.0714285714285716,
+        "loss_p90": 637.16
+      },
+      {
+        "plan": "C230",
+        "mean_loss": 763.6095238095238,
+        "overflow_probability": 0.023809523809523808,
+        "mean_unserved": 1.7857142857142858,
+        "loss_p90": 733.1600000000001
+      }
+    ]
+  }
+]

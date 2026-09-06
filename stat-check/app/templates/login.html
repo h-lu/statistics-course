@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}登录 · 统计学知识自查{% endblock %}
+{% block content %}
+  <section class="login-panel">
+    <span class="status-badge"><i></i>课末知识自查</span>
+    <h1>每节课最后 15 分钟，<br>复习本课的统计学基本概念。</h1>
+    <p>先回答基础题，再借助 AI 复习概念，最后完成新情境中的变式题。正确率只用于学习反馈，不直接计入平时成绩。</p>
+    {% if oauth_ready %}
+      <a class="primary-button" href="{{ base_path }}/login">使用 Gitea 登录</a>
+    {% else %}
+      <p class="notice">服务正在配置登录，请稍后刷新。</p>
+    {% endif %}
+  </section>
+{% endblock %}

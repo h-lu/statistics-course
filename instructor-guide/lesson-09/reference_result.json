@@ -1,0 +1,272 @@
+[
+  {
+    "base_rate_scenario": "base_rate_low",
+    "policy": "all_rapid",
+    "screening_cost": 2000.0,
+    "budget_feasible": true,
+    "expected_total_loss": 2626.9158878504672,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.5660377358490564,
+        "expected_positive": 25.440000000000012,
+        "reviewed": 25.440000000000012,
+        "expected_missed": 1.5999999999999996
+      },
+      {
+        "group": "referred",
+        "ppv": 0.2343749999999999,
+        "expected_positive": 46.08000000000003,
+        "reviewed": 46.08000000000003,
+        "expected_missed": 1.1999999999999993
+      },
+      {
+        "group": "routine",
+        "ppv": 0.07009345794392519,
+        "expected_positive": 77.04000000000006,
+        "reviewed": 48.47999999999996,
+        "expected_missed": 2.60186915887851
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate_low",
+    "policy": "mixed",
+    "screening_cost": 4400.0,
+    "budget_feasible": true,
+    "expected_total_loss": 5005.639999999999,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.8329297820823243,
+        "expected_positive": 16.520000000000003,
+        "reviewed": 16.520000000000003,
+        "expected_missed": 2.24
+      },
+      {
+        "group": "referred",
+        "ppv": 0.5391849529780562,
+        "expected_positive": 19.140000000000008,
+        "reviewed": 19.140000000000008,
+        "expected_missed": 1.6799999999999997
+      },
+      {
+        "group": "routine",
+        "ppv": 0.07009345794392519,
+        "expected_positive": 77.04000000000006,
+        "reviewed": 77.04000000000006,
+        "expected_missed": 0.5999999999999996
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate_low",
+    "policy": "all_precise",
+    "screening_cost": 8000.0,
+    "budget_feasible": false,
+    "expected_total_loss": 8512.58,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.8329297820823243,
+        "expected_positive": 16.520000000000003,
+        "reviewed": 16.520000000000003,
+        "expected_missed": 2.24
+      },
+      {
+        "group": "referred",
+        "ppv": 0.5391849529780562,
+        "expected_positive": 19.140000000000008,
+        "reviewed": 19.140000000000008,
+        "expected_missed": 1.6799999999999997
+      },
+      {
+        "group": "routine",
+        "ppv": 0.22366710013003888,
+        "expected_positive": 23.070000000000014,
+        "reviewed": 23.070000000000014,
+        "expected_missed": 0.8399999999999999
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate",
+    "policy": "all_rapid",
+    "screening_cost": 2000.0,
+    "budget_feasible": true,
+    "expected_total_loss": 3163.368421052632,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.7094594594594593,
+        "expected_positive": 35.52000000000001,
+        "reviewed": 35.52000000000001,
+        "expected_missed": 2.8000000000000007
+      },
+      {
+        "group": "referred",
+        "ppv": 0.3846153846153844,
+        "expected_positive": 56.16000000000003,
+        "reviewed": 56.16000000000003,
+        "expected_missed": 2.3999999999999986
+      },
+      {
+        "group": "routine",
+        "ppv": 0.13157894736842096,
+        "expected_positive": 82.08000000000006,
+        "reviewed": 28.319999999999958,
+        "expected_missed": 8.273684210526323
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate",
+    "policy": "mixed",
+    "screening_cost": 4400.0,
+    "budget_feasible": true,
+    "expected_total_loss": 5487.165263157895,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.9032258064516129,
+        "expected_positive": 26.660000000000004,
+        "reviewed": 26.660000000000004,
+        "expected_missed": 3.9200000000000017
+      },
+      {
+        "group": "referred",
+        "ppv": 0.704918032786885,
+        "expected_positive": 29.28000000000001,
+        "reviewed": 29.28000000000001,
+        "expected_missed": 3.3599999999999994
+      },
+      {
+        "group": "routine",
+        "ppv": 0.13157894736842096,
+        "expected_positive": 82.08000000000006,
+        "reviewed": 64.06,
+        "expected_missed": 3.5710526315789526
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate",
+    "policy": "all_precise",
+    "screening_cost": 8000.0,
+    "budget_feasible": false,
+    "expected_total_loss": 8898.08,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.9032258064516129,
+        "expected_positive": 26.660000000000004,
+        "reviewed": 26.660000000000004,
+        "expected_missed": 3.9200000000000017
+      },
+      {
+        "group": "referred",
+        "ppv": 0.704918032786885,
+        "expected_positive": 29.28000000000001,
+        "reviewed": 29.28000000000001,
+        "expected_missed": 3.3599999999999994
+      },
+      {
+        "group": "routine",
+        "ppv": 0.36673773987206804,
+        "expected_positive": 28.140000000000015,
+        "reviewed": 28.140000000000015,
+        "expected_missed": 1.6799999999999997
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate_high",
+    "policy": "all_rapid",
+    "screening_cost": 2000.0,
+    "budget_feasible": true,
+    "expected_total_loss": 4399.636363636366,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.8088235294117646,
+        "expected_positive": 48.96000000000001,
+        "reviewed": 48.96000000000001,
+        "expected_missed": 4.399999999999999
+      },
+      {
+        "group": "referred",
+        "ppv": 0.5303030303030302,
+        "expected_positive": 71.28000000000003,
+        "reviewed": 71.03999999999999,
+        "expected_missed": 4.327272727272749
+      },
+      {
+        "group": "routine",
+        "ppv": 0.2343749999999999,
+        "expected_positive": 92.16000000000005,
+        "reviewed": 0.0,
+        "expected_missed": 24.0
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate_high",
+    "policy": "mixed",
+    "screening_cost": 4400.0,
+    "budget_feasible": true,
+    "expected_total_loss": 6628.290937500001,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.9417620706819312,
+        "expected_positive": 40.18,
+        "reviewed": 40.18,
+        "expected_missed": 6.160000000000004
+      },
+      {
+        "group": "referred",
+        "ppv": 0.8118678354686446,
+        "expected_positive": 44.49000000000001,
+        "reviewed": 44.49000000000001,
+        "expected_missed": 5.880000000000003
+      },
+      {
+        "group": "routine",
+        "ppv": 0.2343749999999999,
+        "expected_positive": 92.16000000000005,
+        "reviewed": 35.329999999999984,
+        "expected_missed": 15.719531250000008
+      }
+    ]
+  },
+  {
+    "base_rate_scenario": "base_rate_high",
+    "policy": "all_precise",
+    "screening_cost": 8000.0,
+    "budget_feasible": false,
+    "expected_total_loss": 9560.616927899688,
+    "groups": [
+      {
+        "group": "priority",
+        "ppv": 0.9417620706819312,
+        "expected_positive": 40.18,
+        "reviewed": 40.18,
+        "expected_missed": 6.160000000000004
+      },
+      {
+        "group": "referred",
+        "ppv": 0.8118678354686446,
+        "expected_positive": 44.49000000000001,
+        "reviewed": 44.49000000000001,
+        "expected_missed": 5.880000000000003
+      },
+      {
+        "group": "routine",
+        "ppv": 0.5391849529780562,
+        "expected_positive": 38.280000000000015,
+        "reviewed": 35.329999999999984,
+        "expected_missed": 4.950595611285284
+      }
+    ]
+  }
+]

@@ -1,0 +1,121 @@
+lesson_id: s01-data-quality
+title: S01：数据、测量与适用性
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: analysis-unit
+    title: 分析单位
+    tutor_context: 解释分析单位与表格的每行、每个人或每次事件之间的关系。
+    pair:
+      a:
+        prompt: 某工单表每行是一次报修，同一设备可出现多行。分析“每次报修的处理时长”时，分析单位是？
+        options:
+          - {id: A, text: 一次报修事件, misconception: null}
+          - {id: B, text: 一台设备, misconception: confuse-subject-with-event}
+          - {id: C, text: 一名修理员, misconception: confuse-actor-with-unit}
+          - {id: D, text: 整个工单文件, misconception: confuse-dataset-with-unit}
+        answer: A
+        explanation: 问题针对每次报修，且每行对应一次事件，因此分析单位是报修事件。
+      b:
+        prompt: 健康表中每行是一名患者的一次就诊，一人可多次就诊。研究“每次就诊的候诊时间”时的分析单位是？
+        options:
+          - {id: A, text: 一名患者的所有就诊, misconception: aggregate-too-early}
+          - {id: B, text: 一次就诊, misconception: null}
+          - {id: C, text: 一家医院, misconception: confuse-site-with-unit}
+          - {id: D, text: 候诊时间这一列, misconception: confuse-variable-with-unit}
+        answer: B
+        explanation: 研究问题针对每次就诊，所以一次就诊是分析单位。
+
+  - concept_id: semantic-variable-type
+    title: 变量类型由含义决定
+    tutor_context: 解释为什么数字编码不一定是数值变量，并区分类别、计数与测量。
+    pair:
+      a:
+        prompt: 投诉类型用 1=质量、2=价格、3=服务编码。该变量应视为？
+        options:
+          - {id: C, text: 分类变量, misconception: null}
+          - {id: B, text: 连续数值变量, misconception: numeric-code-is-quantity}
+          - {id: A, text: 有比率意义的变量, misconception: code-has-ratio}
+          - {id: D, text: 时间变量, misconception: no-concept}
+        answer: C
+        explanation: 1、2、3 只是类型标签，它们之间的差和比没有业务含义。
+      b:
+        prompt: 一个字段记录“当日设备故障次数”。它最适合视为？
+        options:
+          - {id: A, text: 无序分类变量, misconception: all-integers-are-codes}
+          - {id: D, text: 离散数值计数, misconception: null}
+          - {id: C, text: 文本变量, misconception: stored-as-text}
+          - {id: B, text: 二分变量, misconception: count-is-binary}
+        answer: D
+        explanation: 故障次数是可以进行加减和比较的非负整数计数。
+
+  - concept_id: duplicate-meaning
+    title: 重复记录与重复测量
+    tutor_context: 解释完全重复、主键重复和同一对象多次合法测量的区别。
+    pair:
+      a:
+        prompt: 两行的 ticket_id、时间、窗口和等待时长全部相同。最先应做什么？
+        options:
+          - {id: A, text: 核查是否因导入重复而多计了一次, misconception: null}
+          - {id: B, text: 一定保留，因为行数越多越好, misconception: more-rows-always-better}
+          - {id: C, text: 两行取平均后再保留两行, misconception: average-duplicates}
+          - {id: D, text: 随机删除文件中任意一行, misconception: delete-without-key}
+        answer: A
+        explanation: 完全相同且主键相同的记录可能是导入重复，但仍应核查数据来源再去重。
+      b:
+        prompt: 同一 student_id 在不同日期有多行学习记录。对“每日学习时长”分析而言，这些行是？
+        options:
+          - {id: A, text: 必须全部删掉的重复学生, misconception: repeated-subject-is-duplicate}
+          - {id: B, text: 可能合法的重复测量，需用学生加日期识别一行, misconception: null}
+          - {id: C, text: 只能保留最后一天, misconception: keep-last-without-question}
+          - {id: D, text: 证明 student_id 不是任何键, misconception: no-composite-key}
+        answer: B
+        explanation: 同一学生多日出现是合法纵向记录；复合键可由学生与日期构成。
+
+  - concept_id: missing-is-not-zero
+    title: 缺失值不等于零
+    tutor_context: 解释缺失表示“未观测”，为什么不能默认改成 0，以及要按组检查缺失。
+    pair:
+      a:
+        prompt: 收入字段为空，直接填为 0 的主要风险是？
+        options:
+          - {id: C, text: 把“未回答”错当成“确实没有收入”, misconception: null}
+          - {id: B, text: 会使文件变得太小, misconception: no-concept}
+          - {id: A, text: 零在统计软件中不是数字, misconception: zero-not-number}
+          - {id: D, text: 会自动删除其他行, misconception: no-concept}
+        answer: C
+        explanation: 缺失是未观测，0 是一个具体观测值；两者混淆会系统性改变分布和比较。
+      b:
+        prompt: B 组关键结果的缺失率远高于 A 组。最需要报告什么？
+        options:
+          - {id: A, text: 只报告完整记录的精确小数, misconception: precision-hides-missingness}
+          - {id: D, text: 分组缺失模式以及处理方法对组间结论的影响, misconception: null}
+          - {id: C, text: 把两组缺失率取平均即可, misconception: average-hides-differential-missingness}
+          - {id: B, text: 只要总样本足够就不必处理, misconception: size-removes-missing-bias}
+        answer: D
+        explanation: 差异缺失可能改变组间比较，需显示缺失模式并做处理敏感性分析。
+
+  - concept_id: range-and-applicability
+    title: 取值范围与适用性
+    tutor_context: 解释业务规则如何定义合法范围，以及数据合法不代表能回答任何问题。
+    pair:
+      a:
+        prompt: 满意度定义为 1–5，数据中出现 9。最先应怎样处理？
+        options:
+          - {id: A, text: 根据数据字典和原始来源核查编码或录入问题, misconception: null}
+          - {id: B, text: 因为 9 是数字就直接计入均值, misconception: numeric-means-valid}
+          - {id: C, text: 自动改为 5 且不做记录, misconception: silent-clipping}
+          - {id: D, text: 删除整个文件, misconception: one-error-invalidates-all}
+        answer: A
+        explanation: 超出合法域是质量警报，应先溯源，再依据可追溯规则修正、标记或排除。
+      b:
+        prompt: 一份数据没有重复、缺失或越界值。由此可以确定什么？
+        options:
+          - {id: A, text: 它已经能代表任何目标总体, misconception: clean-means-representative}
+          - {id: B, text: 它通过了这些结构性质量检查，但仍需检查来源与研究问题是否匹配, misconception: null}
+          - {id: C, text: 从中得出的所有因果结论都成立, misconception: clean-means-causal}
+          - {id: D, text: 不再需要数据字典, misconception: checks-replace-documentation}
+        answer: B
+        explanation: 数据干净只是可用性的一部分；代表性、测量含义和问题匹配仍需单独论证。

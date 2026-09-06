@@ -1,0 +1,197 @@
+lesson_id: v2-l29-r1
+title: "第29课 · 政策效果的双重差分评估"
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+  - concept_id: c1
+    title: "双重差分"
+    tutor_context: "请解释“双重差分”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "处理组下降6，对照组下降2，双重差分是多少？"
+        options:
+          - id: A
+            text: "−6"
+            misconception: "c1-a-confusion-1"
+          - id: B
+            text: "−4"
+            misconception: null
+          - id: C
+            text: "−8"
+            misconception: "c1-a-confusion-3"
+          - id: D
+            text: "4"
+            misconception: "c1-a-confusion-4"
+        answer: B
+        explanation: "处理变化−6减对照变化−2得到−4。"
+      b:
+        prompt: "政策实施后，处理组均值从60升到70，对照组从40升到48。只关注处理组上涨10，忽略了什么？"
+        options:
+          - id: A
+            text: "政策必然造成了10的增长"
+            misconception: "c1-b-confusion-1"
+          - id: B
+            text: "差分必须等于两组后期差22"
+            misconception: "c1-b-confusion-2"
+          - id: C
+            text: "同期共同变化，DiD为2"
+            misconception: null
+          - id: D
+            text: "需要先把所有值除以100"
+            misconception: "c1-b-confusion-4"
+        answer: C
+        explanation: "对照变化8提供共同时间变化参照，10−8=2。"
+  - concept_id: c2
+    title: "平行趋势"
+    tutor_context: "请解释“平行趋势”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "双重差分的平行趋势假设针对什么？"
+        options:
+          - id: A
+            text: "两组结果水平始终相同"
+            misconception: "c2-a-confusion-1"
+          - id: B
+            text: "政策后两组必须继续完全平行"
+            misconception: "c2-a-confusion-2"
+          - id: C
+            text: "没有政策时两组平均结果的变化趋势具有可比性"
+            misconception: null
+          - id: D
+            text: "两组人口数量必须相等"
+            misconception: "c2-a-confusion-4"
+        answer: C
+        explanation: "水平可不同，关键是无处理情况下趋势的可比性。"
+      b:
+        prompt: "政策前的趋势差异检验不显著，能够说明什么？"
+        options:
+          - id: A
+            text: "已经严格证明没有政策时两组趋势平行"
+            misconception: "c2-b-confusion-1"
+          - id: B
+            text: "不需要再讨论同期冲击"
+            misconception: "c2-b-confusion-2"
+          - id: C
+            text: "政策效果必定无偏"
+            misconception: "c2-b-confusion-3"
+          - id: D
+            text: "未检出显著的政策前趋势差异，但不能证明平行趋势假设成立"
+            misconception: null
+        answer: D
+        explanation: "检验未拒绝原假设，可能是因为检验功效较低或观察时段有限，不能据此证明反事实假设成立。"
+  - concept_id: c3
+    title: "事件时间"
+    tutor_context: "请解释“事件时间”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "政策在月18开始，月15的事件时间是多少？"
+        options:
+          - id: A
+            text: "15"
+            misconception: "c3-a-confusion-1"
+          - id: B
+            text: "3"
+            misconception: "c3-a-confusion-2"
+          - id: C
+            text: "18"
+            misconception: "c3-a-confusion-3"
+          - id: D
+            text: "−3"
+            misconception: null
+        answer: D
+        explanation: "事件时间=当前月减政策开始月，因此为−3。"
+      b:
+        prompt: "把不同政策时点的地区按“距实施几个月”对齐，主要帮助什么？"
+        options:
+          - id: A
+            text: "比较政策相对时点的动态变化"
+            misconception: null
+          - id: B
+            text: "自动消除处理异质性问题"
+            misconception: "c3-b-confusion-2"
+          - id: C
+            text: "自动随机化地区"
+            misconception: "c3-b-confusion-3"
+          - id: D
+            text: "保证所有估计权重合理"
+            misconception: "c3-b-confusion-4"
+        answer: A
+        explanation: "事件时间方便看动态，但不自动解决识别或异质性问题。"
+  - concept_id: c4
+    title: "聚类推断"
+    tutor_context: "请解释“聚类推断”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "数据包含24个地区各36个月的记录。计算区间估计时，为什么不能直接将864行视为独立观测？"
+        options:
+          - id: A
+            text: "同一地区月度结果可能相关"
+            misconception: null
+          - id: B
+            text: "每个地区只能有一行数据"
+            misconception: "c4-a-confusion-2"
+          - id: C
+            text: "月度结果不能是数值"
+            misconception: "c4-a-confusion-3"
+          - id: D
+            text: "大于30行就没有标准误"
+            misconception: "c4-a-confusion-4"
+        answer: A
+        explanation: "计算不确定性时，需要考虑聚类单位和重复观测之间的相关性，而不能只看数据行数。"
+      b:
+        prompt: "按地区自助抽样时通常应怎样抽？"
+        options:
+          - id: A
+            text: "每次独立打散所有月份"
+            misconception: "c4-b-confusion-1"
+          - id: B
+            text: "每次抽地区并带上其完整时间序列"
+            misconception: null
+          - id: C
+            text: "只抽政策后结果较好的地区"
+            misconception: "c4-b-confusion-3"
+          - id: D
+            text: "只复制人口最多的地区"
+            misconception: "c4-b-confusion-4"
+        answer: B
+        explanation: "按地区整群重抽样可以保留地区内的时间相关性，但地区数较少时仍需谨慎解释。"
+  - concept_id: c5
+    title: "安慰剂与干扰"
+    tutor_context: "请解释“安慰剂与干扰”，换一个不同于原题的情境举例并反问一道短题，等待学习者回答后反馈。关注概念含义、适用条件与常见混淆，不代答原题。"
+    pair:
+      a:
+        prompt: "附近的对照地区也受到政策传播的影响，这主要威胁什么？"
+        options:
+          - id: A
+            text: "所有数据必定没有季节性"
+            misconception: "c5-a-confusion-1"
+          - id: B
+            text: "对照不再代表完全未受政策影响的反事实"
+            misconception: null
+          - id: C
+            text: "处理组均值不能计算"
+            misconception: "c5-a-confusion-3"
+          - id: D
+            text: "政策开始月必须改成0"
+            misconception: "c5-a-confusion-4"
+        answer: B
+        explanation: "干扰可能污染对照，改变DiD解释。"
+      b:
+        prompt: "将虚假的政策实施时点设在真实政策之前，进行安慰剂检验。如果也出现明显变化，应怎样使用这一结果？"
+        options:
+          - id: A
+            text: "直接证明真实政策毫无作用"
+            misconception: "c5-b-confusion-1"
+          - id: B
+            text: "自动寻找最显著的时点发布"
+            misconception: "c5-b-confusion-2"
+          - id: C
+            text: "检查趋势、同期差异，或研究设计是否合适"
+            misconception: null
+          - id: D
+            text: "将安慰剂结果从报告中删去"
+            misconception: "c5-b-confusion-4"
+        answer: C
+        explanation: "安慰剂用于检验替代解释，不能机械取代实质识别讨论。"

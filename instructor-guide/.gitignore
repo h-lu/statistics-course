@@ -1,0 +1,11 @@
+.env
+.env.*
+*.sqlite
+*.sqlite3
+exports/
+reports/
+roster/*.csv
+roster/*.tsv
+!roster/*.example.csv
+__pycache__/
+*.py[cod]

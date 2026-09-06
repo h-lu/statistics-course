@@ -1,0 +1,41 @@
+{
+  "arm_records": {
+    "tool": {
+      "assigned": 240,
+      "observed": 225,
+      "received": 203
+    },
+    "usual": {
+      "assigned": 240,
+      "observed": 217,
+      "received": 16
+    }
+  },
+  "cluster_change_difference": {
+    "effect": -5.840484862687765,
+    "se": 1.4471662380381656,
+    "df": 20.626482946733546,
+    "low": -8.853353681897774,
+    "high": -2.827616043477756,
+    "p": 0.0006144488185603142
+  },
+  "block_adjusted_observed_case_change": -5.840484862687765,
+  "randomization_p": 0.0004999166805532411,
+  "missing_change_by_arm_sensitivity": {
+    "tool:-5,usual:-5": -5.367429166666667,
+    "tool:-5,usual:0": -5.846595833333334,
+    "tool:-5,usual:5": -6.3257625,
+    "tool:0,usual:-5": -5.054929166666667,
+    "tool:0,usual:0": -5.534095833333334,
+    "tool:0,usual:5": -6.0132625,
+    "tool:5,usual:-5": -4.742429166666667,
+    "tool:5,usual:0": -5.221595833333334,
+    "tool:5,usual:5": -5.7007625
+  },
+  "block_differences": [
+    -4.197376447655085,
+    -6.325049965600276,
+    -7.417610990712075,
+    -5.421902046783624
+  ]
+}
