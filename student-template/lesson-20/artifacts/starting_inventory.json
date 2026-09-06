@@ -1,0 +1,71 @@
+{
+  "purpose": "数据读取与合并描述统计示例；未完成分组、设计、推断或政策比较",
+  "tables": [
+    {
+      "file": "data/experiments/daily_experiment.csv",
+      "rows": 60,
+      "columns": [
+        "day",
+        "arm",
+        "n_assigned",
+        "n_observed",
+        "conversions"
+      ],
+      "missing": {
+        "day": 0,
+        "arm": 0,
+        "n_assigned": 0,
+        "n_observed": 0,
+        "conversions": 0
+      },
+      "pooled_numeric_description": {
+        "day": {
+          "numeric_n": 60,
+          "mean": 15.5,
+          "min": 1.0,
+          "max": 30.0
+        },
+        "n_assigned": {
+          "numeric_n": 60,
+          "mean": 40.0,
+          "min": 40.0,
+          "max": 40.0
+        },
+        "n_observed": {
+          "numeric_n": 60,
+          "mean": 37.733333333333334,
+          "min": 34.0,
+          "max": 40.0
+        },
+        "conversions": {
+          "numeric_n": 60,
+          "mean": 12.916666666666666,
+          "min": 6.0,
+          "max": 23.0
+        }
+      }
+    },
+    {
+      "file": "data/experiments/experiment_costs.csv",
+      "rows": 7,
+      "columns": [
+        "item",
+        "value",
+        "unit"
+      ],
+      "missing": {
+        "item": 0,
+        "value": 0,
+        "unit": 0
+      },
+      "pooled_numeric_description": {
+        "value": {
+          "numeric_n": 7,
+          "mean": 1820.4285714285713,
+          "min": 2.0,
+          "max": 12000.0
+        }
+      }
+    }
+  ]
+}

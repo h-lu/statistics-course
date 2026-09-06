@@ -1,0 +1,41 @@
+{
+  "counts": [
+    {
+      "center": "A",
+      "business_code": "basic",
+      "n": 252,
+      "completed": 238
+    },
+    {
+      "center": "A",
+      "business_code": "case",
+      "n": 948,
+      "completed": 697
+    },
+    {
+      "center": "B",
+      "business_code": "basic",
+      "n": 935,
+      "completed": 834
+    },
+    {
+      "center": "B",
+      "business_code": "case",
+      "n": 265,
+      "completed": 163
+    },
+    {
+      "center": "C",
+      "business_code": "basic",
+      "n": 591,
+      "completed": 529
+    },
+    {
+      "center": "C",
+      "business_code": "case",
+      "n": 609,
+      "completed": 414
+    }
+  ],
+  "note": "这是分层计数示例，尚未确定共同业务构成、检查比较结果的稳定性或提出发布建议。"
+}

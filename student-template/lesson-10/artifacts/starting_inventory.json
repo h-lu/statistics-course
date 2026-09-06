@@ -1,0 +1,101 @@
+{
+  "purpose": "数据读取与描述性统计概览；尚未完成本课的分组分析、方案设计、推断或方案比较",
+  "tables": [
+    {
+      "file": "data/inference/demand_history.csv",
+      "rows": 168,
+      "columns": [
+        "day",
+        "weekday",
+        "event",
+        "rain",
+        "requests",
+        "split"
+      ],
+      "missing": {
+        "day": 0,
+        "weekday": 0,
+        "event": 0,
+        "rain": 0,
+        "requests": 0,
+        "split": 0
+      },
+      "pooled_numeric_description": {
+        "day": {
+          "numeric_n": 168,
+          "mean": 84.5,
+          "min": 1.0,
+          "max": 168.0
+        },
+        "weekday": {
+          "numeric_n": 168,
+          "mean": 3.0,
+          "min": 0.0,
+          "max": 6.0
+        },
+        "event": {
+          "numeric_n": 168,
+          "mean": 0.09523809523809523,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "rain": {
+          "numeric_n": 168,
+          "mean": 0.21428571428571427,
+          "min": 0.0,
+          "max": 1.0
+        },
+        "requests": {
+          "numeric_n": 168,
+          "mean": 159.3095238095238,
+          "min": 77.0,
+          "max": 337.0
+        }
+      }
+    },
+    {
+      "file": "data/inference/capacity_options.csv",
+      "rows": 4,
+      "columns": [
+        "plan",
+        "capacity",
+        "daily_fixed_cost",
+        "unused_unit_cost",
+        "unserved_unit_loss"
+      ],
+      "missing": {
+        "plan": 0,
+        "capacity": 0,
+        "daily_fixed_cost": 0,
+        "unused_unit_cost": 0,
+        "unserved_unit_loss": 0
+      },
+      "pooled_numeric_description": {
+        "capacity": {
+          "numeric_n": 4,
+          "mean": 185.0,
+          "min": 140.0,
+          "max": 230.0
+        },
+        "daily_fixed_cost": {
+          "numeric_n": 4,
+          "mean": 555.0,
+          "min": 420.0,
+          "max": 690.0
+        },
+        "unused_unit_cost": {
+          "numeric_n": 4,
+          "mean": 0.4,
+          "min": 0.4,
+          "max": 0.4
+        },
+        "unserved_unit_loss": {
+          "numeric_n": 4,
+          "mean": 24.0,
+          "min": 24.0,
+          "max": 24.0
+        }
+      }
+    }
+  ]
+}

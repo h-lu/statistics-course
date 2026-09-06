@@ -1,0 +1,42 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/policy/weekly_demand.csv",
+  "rows": 156,
+  "groups": {
+    "0": {
+      "n": 144,
+      "demand": {
+        "observed_n": 144,
+        "missing_n": 0,
+        "mean": 215.11111111111111,
+        "min": 135.0,
+        "max": 277.0
+      },
+      "available_capacity": {
+        "observed_n": 144,
+        "missing_n": 0,
+        "mean": 232.5,
+        "min": 230.0,
+        "max": 245.0
+      }
+    },
+    "1": {
+      "n": 12,
+      "demand": {
+        "observed_n": 12,
+        "missing_n": 0,
+        "mean": 232.91666666666666,
+        "min": 190.0,
+        "max": 280.0
+      },
+      "available_capacity": {
+        "observed_n": 12,
+        "missing_n": 0,
+        "mean": 232.5,
+        "min": 230.0,
+        "max": 245.0
+      }
+    }
+  }
+}

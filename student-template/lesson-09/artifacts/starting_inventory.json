@@ -1,0 +1,127 @@
+{
+  "purpose": "数据读取与描述性统计概览；尚未完成本课的分组分析、方案设计、推断或方案比较",
+  "tables": [
+    {
+      "file": "data/inference/screening_groups.csv",
+      "rows": 3,
+      "columns": [
+        "group",
+        "daily_volume",
+        "base_rate",
+        "base_rate_low",
+        "base_rate_high",
+        "review_minutes",
+        "missed_case_loss",
+        "unnecessary_review_loss"
+      ],
+      "missing": {
+        "group": 0,
+        "daily_volume": 0,
+        "base_rate": 0,
+        "base_rate_low": 0,
+        "base_rate_high": 0,
+        "review_minutes": 0,
+        "missed_case_loss": 0,
+        "unnecessary_review_loss": 0
+      },
+      "pooled_numeric_description": {
+        "daily_volume": {
+          "numeric_n": 3,
+          "mean": 666.6666666666666,
+          "min": 200.0,
+          "max": 1200.0
+        },
+        "base_rate": {
+          "numeric_n": 3,
+          "mean": 0.06333333333333334,
+          "min": 0.01,
+          "max": 0.14
+        },
+        "base_rate_low": {
+          "numeric_n": 3,
+          "mean": 0.035,
+          "min": 0.005,
+          "max": 0.08
+        },
+        "base_rate_high": {
+          "numeric_n": 3,
+          "mean": 0.10333333333333333,
+          "min": 0.02,
+          "max": 0.22
+        },
+        "review_minutes": {
+          "numeric_n": 3,
+          "mean": 12.0,
+          "min": 12.0,
+          "max": 12.0
+        },
+        "missed_case_loss": {
+          "numeric_n": 3,
+          "mean": 86.66666666666667,
+          "min": 60.0,
+          "max": 120.0
+        },
+        "unnecessary_review_loss": {
+          "numeric_n": 3,
+          "mean": 2.0,
+          "min": 2.0,
+          "max": 2.0
+        }
+      }
+    },
+    {
+      "file": "data/inference/screening_validation.csv",
+      "rows": 6,
+      "columns": [
+        "group",
+        "test",
+        "condition_positive_n",
+        "true_positive_n",
+        "condition_negative_n",
+        "true_negative_n",
+        "test_cost"
+      ],
+      "missing": {
+        "group": 0,
+        "test": 0,
+        "condition_positive_n": 0,
+        "true_positive_n": 0,
+        "condition_negative_n": 0,
+        "true_negative_n": 0,
+        "test_cost": 0
+      },
+      "pooled_numeric_description": {
+        "condition_positive_n": {
+          "numeric_n": 6,
+          "mean": 200.0,
+          "min": 200.0,
+          "max": 200.0
+        },
+        "true_positive_n": {
+          "numeric_n": 6,
+          "mean": 176.0,
+          "min": 172.0,
+          "max": 180.0
+        },
+        "condition_negative_n": {
+          "numeric_n": 6,
+          "mean": 1000.0,
+          "min": 1000.0,
+          "max": 1000.0
+        },
+        "true_negative_n": {
+          "numeric_n": 6,
+          "mean": 962.5,
+          "min": 940.0,
+          "max": 985.0
+        },
+        "test_cost": {
+          "numeric_n": 6,
+          "mean": 2.5,
+          "min": 1.0,
+          "max": 4.0
+        }
+      }
+    }
+  ]
+}

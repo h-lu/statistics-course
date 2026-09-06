@@ -1,0 +1,89 @@
+{
+  "purpose": "数据读取与合并描述统计示例；未完成分组、设计、推断或政策比较",
+  "tables": [
+    {
+      "file": "data/experiments/paired_study.csv",
+      "rows": 120,
+      "columns": [
+        "person_id",
+        "sequence",
+        "period",
+        "method",
+        "minutes"
+      ],
+      "missing": {
+        "person_id": 0,
+        "sequence": 0,
+        "period": 0,
+        "method": 0,
+        "minutes": 0
+      },
+      "pooled_numeric_description": {
+        "period": {
+          "numeric_n": 120,
+          "mean": 1.5,
+          "min": 1.0,
+          "max": 2.0
+        },
+        "minutes": {
+          "numeric_n": 120,
+          "mean": 45.494825,
+          "min": 7.327,
+          "max": 74.257
+        }
+      }
+    },
+    {
+      "file": "data/experiments/independent_comparison.csv",
+      "rows": 100,
+      "columns": [
+        "person_id",
+        "arm",
+        "minutes"
+      ],
+      "missing": {
+        "person_id": 0,
+        "arm": 0,
+        "minutes": 0
+      },
+      "pooled_numeric_description": {
+        "minutes": {
+          "numeric_n": 100,
+          "mean": 47.38933,
+          "min": 17.576,
+          "max": 81.06
+        }
+      }
+    },
+    {
+      "file": "data/experiments/repeated_measurements.csv",
+      "rows": 288,
+      "columns": [
+        "person_id",
+        "arm",
+        "week",
+        "minutes"
+      ],
+      "missing": {
+        "person_id": 0,
+        "arm": 0,
+        "week": 0,
+        "minutes": 0
+      },
+      "pooled_numeric_description": {
+        "week": {
+          "numeric_n": 288,
+          "mean": 3.5,
+          "min": 1.0,
+          "max": 6.0
+        },
+        "minutes": {
+          "numeric_n": 288,
+          "mean": 55.46244444444444,
+          "min": 38.709,
+          "max": 75.129
+        }
+      }
+    }
+  ]
+}

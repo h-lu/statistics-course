@@ -1,0 +1,27 @@
+{
+  "purpose": "数据读取与合并描述统计示例；未完成分组、设计、推断或政策比较",
+  "tables": [
+    {
+      "file": "data/inference/estimation_populations.csv",
+      "rows": 18000,
+      "columns": [
+        "unit_id",
+        "scenario",
+        "cost"
+      ],
+      "missing": {
+        "unit_id": 0,
+        "scenario": 0,
+        "cost": 0
+      },
+      "pooled_numeric_description": {
+        "cost": {
+          "numeric_n": 18000,
+          "mean": 38.62738980555556,
+          "min": 1.2318,
+          "max": 682.6286
+        }
+      }
+    }
+  ]
+}

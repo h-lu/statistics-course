@@ -1,0 +1,59 @@
+{
+  "purpose": "数据读取示例；请按分析要求扩展分析，不代表已完成项目",
+  "synthetic_data": true,
+  "source": "data/prediction/requests.csv",
+  "rows": 3360,
+  "groups": {
+    "east": {
+      "n": 1124,
+      "backlog": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 15.613229537366548,
+        "min": 0.71,
+        "max": 33.23
+      },
+      "resolution_minutes": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 52.91531138790035,
+        "min": 27.7,
+        "max": 113.3
+      }
+    },
+    "north": {
+      "n": 1112,
+      "backlog": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 15.884442446043165,
+        "min": 0.57,
+        "max": 31.4
+      },
+      "resolution_minutes": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 53.58755395683453,
+        "min": 23.89,
+        "max": 106.6
+      }
+    },
+    "west": {
+      "n": 1124,
+      "backlog": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 18.742197508896798,
+        "min": 3.89,
+        "max": 35.93
+      },
+      "resolution_minutes": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 58.158923487544484,
+        "min": 28.91,
+        "max": 107.77
+      }
+    }
+  }
+}

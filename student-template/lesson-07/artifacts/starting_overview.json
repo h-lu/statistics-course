@@ -1,0 +1,14 @@
+{
+  "target_tickets": 3600,
+  "matched_surveys": 3600,
+  "invited": 3199,
+  "responded": 2099,
+  "observed_score_counts": {
+    "4": 565,
+    "5": 1291,
+    "1": 18,
+    "3": 183,
+    "2": 42
+  },
+  "note": "只描述调查覆盖；无回答者未知，不能直接将回答者比例推广到全部工单。"
+}

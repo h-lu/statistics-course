@@ -1,0 +1,62 @@
+{
+  "inventory": [
+    {
+      "file": "tickets.csv",
+      "rows": 3600,
+      "proposed_key": [
+        "ticket_id"
+      ],
+      "unique_keys": 3600
+    },
+    {
+      "file": "tickets_raw.csv",
+      "rows": 1265,
+      "proposed_key": [
+        "ticket_id"
+      ],
+      "unique_keys": 1200
+    },
+    {
+      "file": "satisfaction.csv",
+      "rows": 4800,
+      "proposed_key": [
+        "ticket_id"
+      ],
+      "unique_keys": 4800
+    },
+    {
+      "file": "visits.csv",
+      "rows": 8921,
+      "proposed_key": [
+        "contact_id"
+      ],
+      "unique_keys": 8921
+    },
+    {
+      "file": "windows.csv",
+      "rows": 6,
+      "proposed_key": [
+        "window_id"
+      ],
+      "unique_keys": 6
+    },
+    {
+      "file": "business_types.csv",
+      "rows": 2,
+      "proposed_key": [
+        "business_code"
+      ],
+      "unique_keys": 2
+    },
+    {
+      "file": "staffing.csv",
+      "rows": 240,
+      "proposed_key": [
+        "date",
+        "window_id"
+      ],
+      "unique_keys": 240
+    }
+  ],
+  "note": "这是连接前清单，raw中的ticket_id重复需按版本处理；尚未完成连接或发布核对。"
+}

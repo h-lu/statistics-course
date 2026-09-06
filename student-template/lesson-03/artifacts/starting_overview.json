@@ -1,0 +1,14 @@
+{
+  "raw_rows": 1265,
+  "unique_ticket_ids": 1200,
+  "wait_units": {
+    "second": 45,
+    "minute": 1220
+  },
+  "revision_counts": {
+    "1": 1239,
+    "2": 26
+  },
+  "missing_wait_code_rows": 19,
+  "note": "原行级概览，不是去重后工单质量报告，也未处理修订或单位。"
+}

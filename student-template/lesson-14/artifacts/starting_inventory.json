@@ -1,0 +1,111 @@
+{
+  "purpose": "数据读取与合并描述统计示例；未完成分组、设计、推断或政策比较",
+  "tables": [
+    {
+      "file": "data/inference/population_frame.csv",
+      "rows": 3600,
+      "columns": [
+        "person_id",
+        "campus",
+        "stage",
+        "stratum",
+        "baseline_score",
+        "responded"
+      ],
+      "missing": {
+        "person_id": 0,
+        "campus": 0,
+        "stage": 0,
+        "stratum": 0,
+        "baseline_score": 0,
+        "responded": 0
+      },
+      "pooled_numeric_description": {
+        "baseline_score": {
+          "numeric_n": 3600,
+          "mean": 56.386522222222226,
+          "min": 17.42,
+          "max": 95.0
+        },
+        "responded": {
+          "numeric_n": 3600,
+          "mean": 0.37416666666666665,
+          "min": 0.0,
+          "max": 1.0
+        }
+      }
+    },
+    {
+      "file": "data/inference/voluntary_survey.csv",
+      "rows": 1347,
+      "columns": [
+        "person_id",
+        "satisfaction",
+        "weekly_use"
+      ],
+      "missing": {
+        "person_id": 0,
+        "satisfaction": 0,
+        "weekly_use": 0
+      },
+      "pooled_numeric_description": {
+        "satisfaction": {
+          "numeric_n": 1347,
+          "mean": 58.102086117297695,
+          "min": 8.11,
+          "max": 100.0
+        },
+        "weekly_use": {
+          "numeric_n": 1347,
+          "mean": 3.9251670378619155,
+          "min": 0.0,
+          "max": 9.3
+        }
+      }
+    },
+    {
+      "file": "data/inference/sampling_costs.csv",
+      "rows": 6,
+      "columns": [
+        "stratum",
+        "population_n",
+        "contact_cost",
+        "expected_response_rate",
+        "min_completed"
+      ],
+      "missing": {
+        "stratum": 0,
+        "population_n": 0,
+        "contact_cost": 0,
+        "expected_response_rate": 0,
+        "min_completed": 0
+      },
+      "pooled_numeric_description": {
+        "population_n": {
+          "numeric_n": 6,
+          "mean": 600.0,
+          "min": 450.0,
+          "max": 800.0
+        },
+        "contact_cost": {
+          "numeric_n": 6,
+          "mean": 4.833333333333333,
+          "min": 3.0,
+          "max": 7.0
+        },
+        "expected_response_rate": {
+          "numeric_n": 6,
+          "mean": 0.395,
+          "min": 0.2,
+          "max": 0.62
+        },
+        "min_completed": {
+          "numeric_n": 6,
+          "mean": 15.0,
+          "min": 15.0,
+          "max": 15.0
+        }
+      }
+    }
+  ]
+}

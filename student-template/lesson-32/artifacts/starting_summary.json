@@ -1,0 +1,38 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/policy/decision_options.csv",
+  "rows": 6,
+  "groups": {
+    "pilot": {
+      "n": 2,
+      "loss": {
+        "observed_n": 2,
+        "missing_n": 0,
+        "mean": 45.0,
+        "min": 25.0,
+        "max": 65.0
+      }
+    },
+    "rollout": {
+      "n": 2,
+      "loss": {
+        "observed_n": 2,
+        "missing_n": 0,
+        "mean": 52.5,
+        "min": 15.0,
+        "max": 90.0
+      }
+    },
+    "wait": {
+      "n": 2,
+      "loss": {
+        "observed_n": 2,
+        "missing_n": 0,
+        "mean": 80.0,
+        "min": 0.0,
+        "max": 160.0
+      }
+    }
+  }
+}

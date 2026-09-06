@@ -1,0 +1,59 @@
+{
+  "purpose": "数据读取与合并描述统计示例；未完成分组、设计、推断或政策比较",
+  "tables": [
+    {
+      "file": "data/experiments/experiment_roster.csv",
+      "rows": 480,
+      "columns": [
+        "person_id",
+        "team",
+        "block",
+        "baseline_minutes",
+        "workload"
+      ],
+      "missing": {
+        "person_id": 0,
+        "team": 0,
+        "block": 0,
+        "baseline_minutes": 0,
+        "workload": 0
+      },
+      "pooled_numeric_description": {
+        "baseline_minutes": {
+          "numeric_n": 480,
+          "mean": 56.909052083333336,
+          "min": 32.577,
+          "max": 83.779
+        },
+        "workload": {
+          "numeric_n": 480,
+          "mean": 1.0467291666666667,
+          "min": 0.602,
+          "max": 1.5
+        }
+      }
+    },
+    {
+      "file": "data/experiments/experiment_costs.csv",
+      "rows": 7,
+      "columns": [
+        "item",
+        "value",
+        "unit"
+      ],
+      "missing": {
+        "item": 0,
+        "value": 0,
+        "unit": 0
+      },
+      "pooled_numeric_description": {
+        "value": {
+          "numeric_n": 7,
+          "mean": 1820.4285714285713,
+          "min": 2.0,
+          "max": 12000.0
+        }
+      }
+    }
+  ]
+}

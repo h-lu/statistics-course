@@ -1,0 +1,59 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/prediction/requests.csv",
+  "rows": 3360,
+  "groups": {
+    "east": {
+      "n": 1124,
+      "escalated": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.14145907473309607,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "prior_failures": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.6806049822064056,
+        "min": 0.0,
+        "max": 10.0
+      }
+    },
+    "north": {
+      "n": 1112,
+      "escalated": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 0.1366906474820144,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "prior_failures": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 0.6717625899280576,
+        "min": 0.0,
+        "max": 7.0
+      }
+    },
+    "west": {
+      "n": 1124,
+      "escalated": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.2571174377224199,
+        "min": 0.0,
+        "max": 1.0
+      },
+      "prior_failures": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.599644128113879,
+        "min": 0.0,
+        "max": 5.0
+      }
+    }
+  }
+}

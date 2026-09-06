@@ -1,0 +1,59 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/policy/district_panel.csv",
+  "rows": 864,
+  "groups": {
+    "far_control": {
+      "n": 288,
+      "outcome": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 53.35152430555556,
+        "min": 40.65,
+        "max": 65.92
+      },
+      "population": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 1585.0,
+        "min": 1480.0,
+        "max": 1690.0
+      }
+    },
+    "near_control": {
+      "n": 288,
+      "outcome": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 51.176125,
+        "min": 36.633,
+        "max": 62.927
+      },
+      "population": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 1345.0,
+        "min": 1240.0,
+        "max": 1450.0
+      }
+    },
+    "treated": {
+      "n": 288,
+      "outcome": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 49.44739236111111,
+        "min": 34.988,
+        "max": 62.091
+      },
+      "population": {
+        "observed_n": 288,
+        "missing_n": 0,
+        "mean": 1105.0,
+        "min": 1000.0,
+        "max": 1210.0
+      }
+    }
+  }
+}

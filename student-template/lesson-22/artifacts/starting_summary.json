@@ -1,0 +1,42 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/prediction/requests.csv",
+  "rows": 3360,
+  "groups": {
+    "complex": {
+      "n": 1183,
+      "workload": {
+        "observed_n": 1183,
+        "missing_n": 0,
+        "mean": 12.103330515638207,
+        "min": 1.16,
+        "max": 19.01
+      },
+      "resolution_minutes": {
+        "observed_n": 1183,
+        "missing_n": 0,
+        "mean": 60.26212172442941,
+        "min": 35.92,
+        "max": 113.3
+      }
+    },
+    "standard": {
+      "n": 2177,
+      "workload": {
+        "observed_n": 2177,
+        "missing_n": 0,
+        "mean": 12.238089113458889,
+        "min": 4.57,
+        "max": 20.07
+      },
+      "resolution_minutes": {
+        "observed_n": 2177,
+        "missing_n": 0,
+        "mean": 51.973683968764355,
+        "min": 23.89,
+        "max": 107.77
+      }
+    }
+  }
+}

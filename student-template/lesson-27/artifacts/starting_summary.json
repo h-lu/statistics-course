@@ -1,0 +1,56 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/policy/support_observational.csv",
+  "rows": 1400,
+  "groups": {
+    "0": {
+      "n": 532,
+      "severity": {
+        "observed_n": 532,
+        "missing_n": 0,
+        "mean": 2.680676691729323,
+        "min": 0.0,
+        "max": 9.81
+      },
+      "baseline_burden": {
+        "observed_n": 532,
+        "missing_n": 0,
+        "mean": 48.33152255639097,
+        "min": 20.96,
+        "max": 79.23
+      },
+      "followup_burden": {
+        "observed_n": 532,
+        "missing_n": 0,
+        "mean": 54.05477443609023,
+        "min": 16.18,
+        "max": 104.39
+      }
+    },
+    "1": {
+      "n": 868,
+      "severity": {
+        "observed_n": 868,
+        "missing_n": 0,
+        "mean": 6.251682027649769,
+        "min": 0.05,
+        "max": 9.99
+      },
+      "baseline_burden": {
+        "observed_n": 868,
+        "missing_n": 0,
+        "mean": 58.55277649769585,
+        "min": 24.81,
+        "max": 90.03
+      },
+      "followup_burden": {
+        "observed_n": 868,
+        "missing_n": 0,
+        "mean": 66.8338133640553,
+        "min": 15.21,
+        "max": 114.07
+      }
+    }
+  }
+}

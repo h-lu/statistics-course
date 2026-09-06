@@ -1,0 +1,220 @@
+{
+  "batch": "development",
+  "device_days": 3780,
+  "days": 42,
+  "score_min": 0.0,
+  "score_max": 97.0,
+  "daily_rows_and_capacity": [
+    {
+      "date": "2026-05-04",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-05",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-06",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-07",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-08",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-09",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-10",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-11",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-12",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-13",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-14",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-15",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-16",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-17",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-18",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-19",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-20",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-21",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-22",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-23",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-24",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-25",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-26",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-27",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-28",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-29",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-05-30",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-05-31",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-06-01",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-02",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-03",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-04",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-05",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-06",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-06-07",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-06-08",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-09",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-10",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-11",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-12",
+      "records": 90,
+      "max_reviews": 20
+    },
+    {
+      "date": "2026-06-13",
+      "records": 90,
+      "max_reviews": 15
+    },
+    {
+      "date": "2026-06-14",
+      "records": 90,
+      "max_reviews": 15
+    }
+  ],
+  "note": "只检查开发数据与容量，尚未定义名单、估计风险或评价策略。"
+}

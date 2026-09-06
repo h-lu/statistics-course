@@ -1,0 +1,80 @@
+{
+  "purpose": "数据结构与描述统计示例；请按本课任务继续完成分析",
+  "synthetic_data": true,
+  "source": "data/prediction/requests.csv",
+  "rows": 3360,
+  "groups": {
+    "east": {
+      "n": 1124,
+      "workload": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 11.92099644128114,
+        "min": 1.16,
+        "max": 19.94
+      },
+      "sensor_quality": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.6492553380782918,
+        "min": 0.3,
+        "max": 1.0
+      },
+      "resolution_minutes": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 52.91531138790035,
+        "min": 27.7,
+        "max": 113.3
+      }
+    },
+    "north": {
+      "n": 1112,
+      "workload": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 11.95203237410072,
+        "min": 4.63,
+        "max": 19.01
+      },
+      "sensor_quality": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 0.6477625899280576,
+        "min": 0.3,
+        "max": 1.0
+      },
+      "resolution_minutes": {
+        "observed_n": 1112,
+        "missing_n": 0,
+        "mean": 53.58755395683453,
+        "min": 23.89,
+        "max": 106.6
+      }
+    },
+    "west": {
+      "n": 1124,
+      "workload": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 12.69635231316726,
+        "min": 4.57,
+        "max": 20.07
+      },
+      "sensor_quality": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 0.6440453736654804,
+        "min": 0.301,
+        "max": 0.999
+      },
+      "resolution_minutes": {
+        "observed_n": 1124,
+        "missing_n": 0,
+        "mean": 58.158923487544484,
+        "min": 28.91,
+        "max": 107.77
+      }
+    }
+  }
+}
