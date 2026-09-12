@@ -118,13 +118,11 @@ def get_user(database_path: str, user_id: int) -> sqlite3.Row | None:
         ).fetchone()
 
 
-def current_session(database_path: str) -> sqlite3.Row:
+def current_session(database_path: str) -> sqlite3.Row | None:
     with connect(database_path) as connection:
         row = connection.execute(
             "SELECT * FROM course_sessions ORDER BY id DESC LIMIT 1"
         ).fetchone()
-    if row is None:
-        raise RuntimeError("course session is missing")
     return row
 
 
@@ -183,12 +181,6 @@ def delete_session(database_path: str, session_id: int, force: bool = False) -> 
         if used and not force:
             return "已有学生记录的场次不能删除"
         connection.execute("DELETE FROM course_sessions WHERE id = ?", (session_id,))
-        total = connection.execute("SELECT COUNT(*) FROM course_sessions").fetchone()[0]
-        if total == 0:
-            connection.execute(
-                "INSERT INTO course_sessions (lesson_id, title, phase, created_at) VALUES (?, ?, 'closed', ?)",
-                (session["lesson_id"], session["title"], iso_now()),
-            )
     return None
 
 
@@ -311,7 +303,18 @@ def dashboard_summary(
 ) -> dict:
     with connect(database_path) as connection:
         students = connection.execute(
-            "SELECT COUNT(*) AS n FROM users WHERE role = 'student'"
+            """
+            SELECT COUNT(*) AS n FROM (
+                SELECT DISTINCT r.user_id AS user_id
+                FROM responses r JOIN users u ON u.id = r.user_id
+                WHERE r.session_id = ? AND u.role = 'student'
+                UNION
+                SELECT DISTINCT lc.user_id AS user_id
+                FROM learning_completions lc JOIN users u ON u.id = lc.user_id
+                WHERE lc.session_id = ? AND u.role = 'student'
+            )
+            """,
+            (session_id, session_id),
         ).fetchone()["n"]
         completed = {}
         for phase in ("a", "b"):

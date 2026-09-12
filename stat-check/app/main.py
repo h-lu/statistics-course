@@ -45,6 +45,17 @@ def format_timestamp(value: object) -> str:
         return str(value)
 
 
+def empty_session() -> dict[str, object]:
+    return {
+        "id": 0,
+        "lesson_id": "—",
+        "title": "尚未创建场次",
+        "phase": "closed",
+        "phase_ends_at": None,
+        "created_at": None,
+    }
+
+
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     db.initialize(
@@ -142,7 +153,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     @router.get("/healthz")
     def healthz() -> dict[str, str]:
         session = db.current_session(settings.database_path)
-        bank_for_session(session)
+        if session is not None:
+            bank_for_session(session)
         return {"status": "ok"}
 
     @router.get("/", response_class=HTMLResponse)
@@ -231,6 +243,14 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     def student_current(request: Request):
         user = require_user(request)
         session = db.current_session(settings.database_path)
+        if session is None:
+            return render(
+                request,
+                "waiting.html",
+                session=empty_session(),
+                title="尚未创建自查场次",
+                message="请等待教师创建本节课的自查场次。",
+            )
         bank = bank_for_session(session)
         phase = str(session["phase"])
         if phase in {"a", "learn", "b"} and phase_expired(session):
@@ -316,6 +336,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     def student_state(request: Request) -> dict[str, str | int | None]:
         require_user(request)
         session = db.current_session(settings.database_path)
+        if session is None:
+            return {"session_id": None, "phase": "closed", "phase_ends_at": None}
         bank_for_session(session)
         return {
             "session_id": int(session["id"]),
@@ -336,6 +358,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         verify_csrf(request, csrf_token)
         user = require_user(request)
         session = db.current_session(settings.database_path)
+        if session is None:
+            raise HTTPException(status_code=409, detail="当前没有开放的自查场次")
         if session_id != int(session["id"]):
             raise HTTPException(status_code=409, detail="当前场次已经变化")
         bank = bank_for_session(session)
@@ -373,6 +397,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         verify_csrf(request, csrf_token)
         user = require_user(request)
         session = db.current_session(settings.database_path)
+        if session is None:
+            raise HTTPException(status_code=409, detail="当前没有开放的自查场次")
         if session_id != int(session["id"]):
             raise HTTPException(status_code=409, detail="当前场次已经变化")
         bank_for_session(session)
@@ -389,6 +415,20 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     def teacher_dashboard(request: Request, session_id: int | None = None):
         require_teacher(request)
         current = db.current_session(settings.database_path)
+        if current is None:
+            return render(
+                request,
+                "teacher.html",
+                session=empty_session(),
+                no_session=True,
+                summary={"students": 0, "completed": {"a": 0, "learn": 0, "b": 0}, "aggregates": []},
+                concepts=[],
+                phases=("closed", "a", "learn", "b", "result"),
+                question_banks=CURRENT_BANKS,
+                session_history=[],
+                viewing_history=False,
+                current_session_id=None,
+            )
         session = current if session_id is None else db.get_session(settings.database_path, session_id)
         if session is None:
             raise HTTPException(status_code=404, detail="场次不存在")
@@ -421,6 +461,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             session_history=db.session_history(settings.database_path),
             viewing_history=session_id is not None and int(session["id"]) != int(current["id"]),
             current_session_id=int(current["id"]),
+            no_session=False,
         )
 
     @router.post("/teacher/session")
@@ -462,6 +503,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         verify_csrf(request, csrf_token)
         require_teacher(request)
         session = db.current_session(settings.database_path)
+        if session is None:
+            raise HTTPException(status_code=409, detail="当前没有场次")
         if session_id != int(session["id"]):
             raise HTTPException(status_code=409, detail="只能关闭并删除当前场次")
         if session["phase"] != "closed":
@@ -483,6 +526,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         if phase not in PHASE_LABELS:
             raise HTTPException(status_code=400, detail="未知阶段")
         session = db.current_session(settings.database_path)
+        if session is None:
+            raise HTTPException(status_code=409, detail="请先创建自查场次")
         if session_id != int(session["id"]):
             raise HTTPException(status_code=409, detail="当前场次已经变化")
         bank = bank_for_session(session)
@@ -504,6 +549,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         require_teacher(request)
         if session_id is None:
             session = db.current_session(settings.database_path)
+            if session is None:
+                raise HTTPException(status_code=404, detail="当前没有场次")
         else:
             session = db.get_session(settings.database_path, session_id)
             if session is None:
