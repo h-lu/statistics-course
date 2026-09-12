@@ -695,7 +695,7 @@ input:focus-visible + span,
 
 .session-row {
   display: grid;
-  grid-template-columns: 60px 1fr 100px 48px 48px 70px;
+  grid-template-columns: 52px minmax(180px, 1fr) 100px 168px 48px 48px 92px;
   gap: 12px;
   align-items: center;
   padding: 11px 14px;
@@ -703,6 +703,12 @@ input:focus-visible + span,
   border-bottom: 0;
   background: var(--white);
   font-size: 13px;
+}
+
+.session-row time {
+  color: var(--muted);
+  font: 12px/1.4 var(--mono);
+  white-space: nowrap;
 }
 
 .session-row:last-child {

@@ -34,6 +34,15 @@ CONFIDENCE_LABELS = {
 }
 
 
+def format_timestamp(value: object) -> str:
+    if not value:
+        return "—"
+    try:
+        return datetime.fromisoformat(str(value)).strftime("%Y-%m-%d %H:%M UTC")
+    except ValueError:
+        return str(value)
+
+
 def create_app(settings: Settings | None = None) -> FastAPI:
     settings = settings or Settings.from_env()
     db.initialize(
@@ -113,6 +122,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             "csrf_token": ensure_csrf(request),
             "user": current_user(request),
             "phase_labels": PHASE_LABELS,
+            "format_timestamp": format_timestamp,
             **context,
         }
         return templates.TemplateResponse(
@@ -434,6 +444,24 @@ def create_app(settings: Settings | None = None) -> FastAPI:
     ):
         verify_csrf(request, csrf_token)
         require_teacher(request)
+        error = db.delete_session(settings.database_path, session_id)
+        if error:
+            raise HTTPException(status_code=409, detail=error)
+        return RedirectResponse(f"{settings.base_path}/teacher", status_code=303)
+
+    @router.post("/teacher/session/close-delete")
+    def teacher_close_delete_session(
+        request: Request,
+        csrf_token: str = Form(...),
+        session_id: int = Form(...),
+    ):
+        verify_csrf(request, csrf_token)
+        require_teacher(request)
+        session = db.current_session(settings.database_path)
+        if session_id != int(session["id"]):
+            raise HTTPException(status_code=409, detail="只能关闭并删除当前场次")
+        if session["phase"] != "closed":
+            db.set_phase(settings.database_path, session_id, "closed", None)
         error = db.delete_session(settings.database_path, session_id)
         if error:
             raise HTTPException(status_code=409, detail=error)
