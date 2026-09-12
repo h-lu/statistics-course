@@ -205,7 +205,13 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 },
                 headers={"Accept": "application/json"},
             )
-            token_response.raise_for_status()
+            if token_response.is_error:
+                # Authorization codes are single-use. A browser retry or a
+                # stale callback should return to the login page instead of
+                # exposing an Internal Server Error.
+                return RedirectResponse(
+                    f"{settings.base_path}/?oauth_error=retry", status_code=303
+                )
             access_token = token_response.json().get("access_token")
             if not access_token:
                 raise HTTPException(status_code=502, detail="Gitea 未返回访问令牌")
