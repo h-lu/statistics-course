@@ -75,11 +75,23 @@
               <input type="hidden" name="session_id" value="{{ saved_session.id }}">
               <button type="submit" class="danger-button">删除</button>
             </form>
+            <form method="post" action="{{ base_path }}/teacher/session/delete" class="inline-form" onsubmit="return confirm('将永久删除该场次及全部学生答题记录，确定继续吗？');">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+              <input type="hidden" name="session_id" value="{{ saved_session.id }}">
+              <input type="hidden" name="force" value="true">
+              <button type="submit" class="danger-button force-danger">删除（含记录）</button>
+            </form>
           {% elif saved_session.id == session.id and not viewing_history %}
             <form method="post" action="{{ base_path }}/teacher/session/close-delete" class="inline-form" onsubmit="return confirm('关闭并删除当前场次？已有学生记录时删除会被拒绝。');">
               <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
               <input type="hidden" name="session_id" value="{{ saved_session.id }}">
               <button type="submit" class="danger-button">关闭并删除</button>
+            </form>
+            <form method="post" action="{{ base_path }}/teacher/session/close-delete" class="inline-form" onsubmit="return confirm('将关闭并永久删除当前场次及全部学生答题记录，确定继续吗？');">
+              <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
+              <input type="hidden" name="session_id" value="{{ saved_session.id }}">
+              <input type="hidden" name="force" value="true">
+              <button type="submit" class="danger-button force-danger">关闭并删除（含记录）</button>
             </form>
           {% endif %}
         </div>

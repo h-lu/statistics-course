@@ -163,8 +163,8 @@ def create_session(database_path: str, lesson_id: str, title: str) -> sqlite3.Ro
         ).fetchone()
 
 
-def delete_session(database_path: str, session_id: int) -> str | None:
-    """Delete an unused closed session; return a user-facing error otherwise."""
+def delete_session(database_path: str, session_id: int, force: bool = False) -> str | None:
+    """Delete a closed session, optionally including its student records."""
     with connect(database_path) as connection:
         session = connection.execute(
             "SELECT id, lesson_id, title, phase FROM course_sessions WHERE id = ?", (session_id,)
@@ -180,7 +180,7 @@ def delete_session(database_path: str, session_id: int) -> str | None:
             """,
             (session_id, session_id),
         ).fetchone()[0]
-        if used:
+        if used and not force:
             return "已有学生记录的场次不能删除"
         connection.execute("DELETE FROM course_sessions WHERE id = ?", (session_id,))
         total = connection.execute("SELECT COUNT(*) FROM course_sessions").fetchone()[0]

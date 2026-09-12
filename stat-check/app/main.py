@@ -443,10 +443,11 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         request: Request,
         csrf_token: str = Form(...),
         session_id: int = Form(...),
+        force: bool = Form(False),
     ):
         verify_csrf(request, csrf_token)
         require_teacher(request)
-        error = db.delete_session(settings.database_path, session_id)
+        error = db.delete_session(settings.database_path, session_id, force=force)
         if error:
             raise HTTPException(status_code=409, detail=error)
         return RedirectResponse(f"{settings.base_path}/teacher", status_code=303)
@@ -456,6 +457,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         request: Request,
         csrf_token: str = Form(...),
         session_id: int = Form(...),
+        force: bool = Form(False),
     ):
         verify_csrf(request, csrf_token)
         require_teacher(request)
@@ -464,7 +466,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             raise HTTPException(status_code=409, detail="只能关闭并删除当前场次")
         if session["phase"] != "closed":
             db.set_phase(settings.database_path, session_id, "closed", None)
-        error = db.delete_session(settings.database_path, session_id)
+        error = db.delete_session(settings.database_path, session_id, force=force)
         if error:
             raise HTTPException(status_code=409, detail=error)
         return RedirectResponse(f"{settings.base_path}/teacher", status_code=303)

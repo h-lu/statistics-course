@@ -163,6 +163,19 @@ def test_teacher_can_delete_unused_closed_session_but_not_used_session(tmp_path)
     export = teacher.get("/stat-check/teacher/export.csv")
     assert export.status_code == 200
     assert "student01" in export.text
+    set_phase(teacher, "closed")
+    force_page = teacher.get("/stat-check/teacher")
+    force_deleted = teacher.post(
+        "/stat-check/teacher/session/delete",
+        data={
+            "csrf_token": csrf_from(force_page),
+            "session_id": session_id_from(force_page),
+            "force": "true",
+        },
+        follow_redirects=True,
+    )
+    assert force_deleted.status_code == 200
+    assert "已有学生记录的场次不能删除" not in force_deleted.text
 
 
 def test_teacher_can_delete_only_unused_session_and_gets_empty_replacement(tmp_path) -> None:
