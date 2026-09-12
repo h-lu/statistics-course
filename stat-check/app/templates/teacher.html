@@ -2,15 +2,22 @@
 {% block title %}教师控制 · 统计学知识自查{% endblock %}
 {% block phase_bar %}{% include "_phase_bar.html" %}{% endblock %}
 {% block content %}
-  <section class="teacher-panel" data-auto-reload="5000">
+  <section class="teacher-panel" data-auto-reload="15000">
     <div class="teacher-heading">
       <div>
         <span class="eyebrow">教师控制</span>
         <h1>当前阶段：{{ phase_labels[session.phase] }}</h1>
+        <p class="teacher-context">{{ session.title }} · 场次 #{{ session.id }}{% if viewing_history %} · 历史场次只读{% endif %}</p>
       </div>
-      <a class="secondary-button" href="{{ base_path }}/teacher/export.csv">导出 CSV</a>
+      <div class="teacher-actions">
+        <a class="secondary-button" href="{{ base_path }}/teacher">刷新数据</a>
+        <a class="secondary-button" href="{{ base_path }}/teacher/export.csv?session_id={{ session.id }}">导出 CSV</a>
+      </div>
     </div>
-    <form method="post" action="{{ base_path }}/teacher/session" class="session-controls">
+    {% if not viewing_history %}
+    <section class="teacher-section">
+      <h2>创建新场次</h2>
+      <form method="post" action="{{ base_path }}/teacher/session" class="session-controls" onsubmit="return confirm('创建新场次后，学生将跟随新场次。确定继续吗？');">
       <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
       <label for="lesson-id">选择课次</label>
       <select id="lesson-id" name="lesson_id" required>
@@ -19,15 +26,22 @@
         {% endfor %}
       </select>
       <button class="secondary-button" type="submit">新建本课自查（暂不开放）</button>
-    </form>
-    <p class="teacher-note">新场次创建后暂不开放答题；旧场次及答题记录继续保留。</p>
-    <form method="post" action="{{ base_path }}/teacher/phase" class="phase-controls">
+      </form>
+      <p class="teacher-note">新场次创建后暂不开放答题；旧场次及答题记录继续保留。</p>
+    </section>
+    <section class="teacher-section">
+      <h2>当前阶段控制</h2>
+      <form method="post" action="{{ base_path }}/teacher/phase" class="phase-controls">
       <input type="hidden" name="csrf_token" value="{{ csrf_token }}">
       <input type="hidden" name="session_id" value="{{ session.id }}">
       {% for phase in phases %}
         <button name="phase" value="{{ phase }}" class="{% if session.phase == phase %}current{% endif %}" type="submit">{{ phase_labels[phase] }}</button>
       {% endfor %}
-    </form>
+      </form>
+    </section>
+    {% endif %}
+    <section class="teacher-section">
+      <h2>统计概览</h2>
     <div class="metric-grid">
       <article><span>已登录学生</span><strong>{{ summary.students }}</strong></article>
       <article><span>A 版完成</span><strong>{{ summary.completed.a }}</strong></article>
@@ -44,6 +58,7 @@
         </div>
       {% endfor %}
     </div>
+    </section>
     <section class="session-history">
       <h2>最近场次</h2>
       {% for saved_session in session_history %}
@@ -51,6 +66,7 @@
           <span>#{{ saved_session.id }}</span>
           <strong>{{ saved_session.title }}</strong>
           <span>{{ phase_labels[saved_session.phase] }}</span>
+          <a href="{{ base_path }}/teacher?session_id={{ saved_session.id }}">查看</a>
           <a href="{{ base_path }}/teacher/export.csv?session_id={{ saved_session.id }}">导出</a>
           {% if saved_session.phase == 'closed' %}
             <form method="post" action="{{ base_path }}/teacher/session/delete" class="inline-form">

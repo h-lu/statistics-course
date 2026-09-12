@@ -226,6 +226,27 @@ input:focus-visible + span,
   letter-spacing: -0.03em;
 }
 
+.teacher-context {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font: 13px/1.5 var(--mono);
+}
+
+.teacher-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.teacher-section {
+  margin-top: 24px;
+}
+
+.teacher-section > h2 {
+  margin: 0 0 10px;
+  font-size: 18px;
+}
+
 .login-panel p,
 .state-panel p,
 .section-heading p {
@@ -674,7 +695,7 @@ input:focus-visible + span,
 
 .session-row {
   display: grid;
-  grid-template-columns: 60px 1fr 100px 60px;
+  grid-template-columns: 60px 1fr 100px 48px 48px 70px;
   gap: 12px;
   align-items: center;
   padding: 11px 14px;

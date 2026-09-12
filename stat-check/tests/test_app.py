@@ -445,7 +445,7 @@ def test_refresh_markers_are_present(tmp_path) -> None:
     assert '/stat-check/state' in closed_page.text
 
     teacher_page = teacher.get("/stat-check/teacher")
-    assert 'data-auto-reload="5000"' in teacher_page.text
+    assert 'data-auto-reload="15000"' in teacher_page.text
     assert "新建本课自查（暂不开放）" in teacher_page.text
     assert 'value="v2-l01-r1"' in teacher_page.text
     assert 'value="v2-l01"' not in teacher_page.text

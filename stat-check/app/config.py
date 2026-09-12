@@ -48,4 +48,5 @@ class Settings:
             ).rstrip("/"),
             teacher_logins=teachers,
             secure_cookie=_as_bool(os.getenv("SECURE_COOKIE"), True),
+            testing=_as_bool(os.getenv("TESTING"), False),
         )

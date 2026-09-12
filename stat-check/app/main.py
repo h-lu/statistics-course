@@ -374,9 +374,12 @@ def create_app(settings: Settings | None = None) -> FastAPI:
         return RedirectResponse(f"{settings.base_path}/current", status_code=303)
 
     @router.get("/teacher", response_class=HTMLResponse, name="teacher_dashboard")
-    def teacher_dashboard(request: Request):
+    def teacher_dashboard(request: Request, session_id: int | None = None):
         require_teacher(request)
-        session = db.current_session(settings.database_path)
+        current = db.current_session(settings.database_path)
+        session = current if session_id is None else db.get_session(settings.database_path, session_id)
+        if session is None:
+            raise HTTPException(status_code=404, detail="场次不存在")
         bank = bank_for_session(session)
         summary = db.dashboard_summary(
             settings.database_path, int(session["id"]), len(bank.items)
@@ -404,6 +407,8 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             phases=("closed", "a", "learn", "b", "result"),
             question_banks=CURRENT_BANKS,
             session_history=db.session_history(settings.database_path),
+            viewing_history=session_id is not None and int(session["id"]) != int(current["id"]),
+            current_session_id=int(current["id"]),
         )
 
     @router.post("/teacher/session")
