@@ -167,15 +167,12 @@ def delete_session(database_path: str, session_id: int) -> str | None:
     """Delete an unused closed session; return a user-facing error otherwise."""
     with connect(database_path) as connection:
         session = connection.execute(
-            "SELECT id, phase FROM course_sessions WHERE id = ?", (session_id,)
+            "SELECT id, lesson_id, title, phase FROM course_sessions WHERE id = ?", (session_id,)
         ).fetchone()
         if session is None:
             return "场次不存在"
         if session["phase"] != "closed":
             return "只有尚未开始的场次可以删除"
-        total = connection.execute("SELECT COUNT(*) FROM course_sessions").fetchone()[0]
-        if total <= 1:
-            return "至少保留一个场次"
         used = connection.execute(
             """
             SELECT EXISTS(SELECT 1 FROM responses WHERE session_id = ?)
@@ -186,6 +183,12 @@ def delete_session(database_path: str, session_id: int) -> str | None:
         if used:
             return "已有学生记录的场次不能删除"
         connection.execute("DELETE FROM course_sessions WHERE id = ?", (session_id,))
+        total = connection.execute("SELECT COUNT(*) FROM course_sessions").fetchone()[0]
+        if total == 0:
+            connection.execute(
+                "INSERT INTO course_sessions (lesson_id, title, phase, created_at) VALUES (?, ?, 'closed', ?)",
+                (session["lesson_id"], session["title"], iso_now()),
+            )
     return None
 
 

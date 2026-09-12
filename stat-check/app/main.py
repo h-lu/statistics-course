@@ -7,6 +7,7 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 from urllib.parse import urlencode
+from zoneinfo import ZoneInfo
 
 import httpx
 from fastapi import APIRouter, FastAPI, Form, HTTPException, Request
@@ -38,7 +39,8 @@ def format_timestamp(value: object) -> str:
     if not value:
         return "—"
     try:
-        return datetime.fromisoformat(str(value)).strftime("%Y-%m-%d %H:%M UTC")
+        shanghai = datetime.fromisoformat(str(value)).astimezone(ZoneInfo("Asia/Shanghai"))
+        return shanghai.strftime("%Y-%m-%d %H:%M 上海时间")
     except ValueError:
         return str(value)
 

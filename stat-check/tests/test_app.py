@@ -165,6 +165,22 @@ def test_teacher_can_delete_unused_closed_session_but_not_used_session(tmp_path)
     assert "student01" in export.text
 
 
+def test_teacher_can_delete_only_unused_session_and_gets_empty_replacement(tmp_path) -> None:
+    database_path = tmp_path / "delete-only-session.sqlite3"
+    teacher = make_client(database_path, "teacher", "teacher")
+    page = teacher.get("/stat-check/teacher")
+    session_id = session_id_from(page)
+    deleted = teacher.post(
+        "/stat-check/teacher/session/delete",
+        data={"csrf_token": csrf_from(page), "session_id": session_id},
+        follow_redirects=True,
+    )
+    assert deleted.status_code == 200
+    replacement_id = session_id_from(deleted)
+    assert replacement_id != session_id
+    assert f"#{session_id}" not in deleted.text
+
+
 def test_answer_is_locked_after_first_submit(tmp_path) -> None:
     database_path = tmp_path / "locked.sqlite3"
     teacher = make_client(database_path, "teacher", "teacher")
