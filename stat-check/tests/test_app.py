@@ -194,7 +194,7 @@ def test_teacher_can_delete_only_unused_session_and_gets_empty_replacement(tmp_p
     assert f"#{session_id}" not in deleted.text
 
 
-def test_answer_is_locked_after_first_submit(tmp_path) -> None:
+def test_repeated_answer_submit_is_idempotent_and_first_answer_stays_locked(tmp_path) -> None:
     database_path = tmp_path / "locked.sqlite3"
     teacher = make_client(database_path, "teacher", "teacher")
     student = make_client(database_path, "student", "student02")
@@ -216,7 +216,11 @@ def test_answer_is_locked_after_first_submit(tmp_path) -> None:
     duplicate = student.post(
         "/stat-check/answer", data=payload, follow_redirects=False
     )
-    assert duplicate.status_code == 409
+    assert duplicate.status_code == 303
+    assert duplicate.headers["location"] == "/stat-check/current"
+    saved = db.responses_for_user(database_path, session_id_from(page), 2)
+    assert len(saved) == 1
+    assert saved[0]["option_id"] == payload["option_id"]
 
 
 def test_student_cannot_open_teacher_dashboard(tmp_path) -> None:

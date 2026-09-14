@@ -390,8 +390,19 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                 confidence=confidence,
                 correct=option_id == str(question["answer"]),
             )
-        except sqlite3.IntegrityError as error:
-            raise HTTPException(status_code=409, detail="本题已经提交并锁定") from error
+        except sqlite3.IntegrityError:
+            # Browsers and impatient users can submit the same form twice before
+            # the first redirect is rendered.  The first write remains locked;
+            # treat later copies as a successful retry instead of showing an
+            # alarming raw 409 page.
+            if db.response_for(
+                settings.database_path,
+                int(session["id"]),
+                int(user["id"]),
+                concept_id,
+                phase,
+            ) is None:
+                raise
         return RedirectResponse(f"{settings.base_path}/current", status_code=303)
 
     @router.post("/learn/complete")

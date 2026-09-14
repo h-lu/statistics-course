@@ -40,6 +40,15 @@
     });
   });
 
+  document.querySelectorAll(".answer-form").forEach((form) => {
+    form.addEventListener("submit", () => {
+      const button = form.querySelector("button[type='submit']");
+      if (!button) return;
+      button.disabled = true;
+      button.textContent = "正在提交…";
+    });
+  });
+
   const stateWatch = document.querySelector("[data-state-watch]");
   if (stateWatch) {
     const checkState = async () => {
