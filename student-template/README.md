@@ -17,19 +17,47 @@ python scripts/course.py run 01
 
 ## 同步新发布的课程
 
-课程按周一、周三逐课发布。教师发布新课后，在仓库根目录运行：
+课程按上海时间周一、周三逐课发布。教师发布新课后，你需要把新课同步到自己的私有仓库。同步只会新增尚未存在的课次，不会覆盖你已经完成或正在修改的课次。
+
+### 第一次同步前的设置
+
+在自己的仓库根目录执行一次：
+
+```bash
+git remote add course-release \
+  ssh://git@hblu.top:2222/statistics/course-student-release-2026.git
+```
+
+如果提示`course-release already exists`，说明已经设置过，不需要重复添加。使用SSH地址前，请先按Gitea页面的提示配置自己的SSH密钥。
+
+### 每次发布新课后的操作
+
+先确认当前作业已经保存；如果有未提交的修改，先提交或暂时保存。然后运行：
 
 ```bash
 python scripts/course.py sync
 ```
 
-命令会自动连接课程发布仓库，只补齐本仓库中还没有的课次，不覆盖已有作业。首次同步会增加一个名为`course-release`的只读远程地址；以后每次发布新课重复运行同一条命令即可。检查暂存内容后提交并推送：
+如果电脑使用`python3`，运行：
+
+```bash
+python3 scripts/course.py sync
+```
+
+命令会获取发布仓库的最新内容，并把例如`lesson-02`这样的新课目录暂存到你的仓库。随后检查新增内容：
 
 ```bash
 git diff --cached
+```
+
+确认无误后提交并推送：
+
+```bash
 git commit -m "同步课程发布"
 git push
 ```
+
+以后每次教师发布新课，都重复“运行`sync`、检查、提交、推送”这三个步骤即可。若提示某个课次已经存在，工具会跳过它，不会覆盖你的文件。
 
 ## 本学期项目
 
