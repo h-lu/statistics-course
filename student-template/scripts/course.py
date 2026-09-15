@@ -15,6 +15,9 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 STATUSES = {"not_started", "in_progress", "complete"}
 TAG = re.compile(r"^v2-l(\d{2})-(?:final|revision-[1-9]\d*)$")
+LESSON_DIR = re.compile(r"^lesson-(\d{2})$")
+RELEASE_REMOTE = "course-release"
+RELEASE_URL = "ssh://git@hblu.top:2222/statistics/course-student-release-2026.git"
 
 
 def lesson_name(value: str | int) -> str:
@@ -132,14 +135,60 @@ def ci(root: Path, ref: str = "") -> None:
     print("检查结束。尚未开始的项目未计为完成；统计质量由成果评价。")
 
 
+def git(root: Path, *args: str, capture: bool = False) -> str:
+    result = subprocess.run(
+        ["git", *args],
+        cwd=root,
+        check=True,
+        text=True,
+        capture_output=capture,
+    )
+    return result.stdout if capture else ""
+
+
+def sync(root: Path) -> None:
+    """Fetch published lessons and stage only lessons absent from this repo."""
+    try:
+        current_url = git(root, "remote", "get-url", RELEASE_REMOTE, capture=True).strip()
+    except subprocess.CalledProcessError:
+        git(root, "remote", "add", RELEASE_REMOTE, os.getenv("COURSE_RELEASE_URL", RELEASE_URL))
+        current_url = os.getenv("COURSE_RELEASE_URL", RELEASE_URL)
+    if not current_url:
+        raise ValueError("课程发布仓库地址为空")
+    git(root, "fetch", RELEASE_REMOTE, "main")
+    names = git(root, "ls-tree", "--name-only", "-d", f"{RELEASE_REMOTE}/main", capture=True)
+    published = sorted(
+        name.strip()
+        for name in names.splitlines()
+        if LESSON_DIR.fullmatch(name.strip())
+    )
+    if not published:
+        print("发布仓库中还没有可同步的课次。")
+        return
+    missing = [lesson for lesson in published if not (root / lesson).exists()]
+    already_present = [lesson for lesson in published if (root / lesson).exists()]
+    if already_present:
+        print("已存在，跳过：" + ", ".join(already_present))
+    if not missing:
+        print("没有新的课次需要同步。")
+        return
+    for lesson in missing:
+        git(root, "restore", "--source", f"{RELEASE_REMOTE}/main", "--", lesson)
+        git(root, "add", "--", lesson)
+        print(f"已同步并暂存 {lesson}。")
+    print("请检查 git diff --cached，然后提交并推送：git commit -m '同步课程发布' && git push")
+
+
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("action", choices=["start", "run", "check", "ci"])
+    parser.add_argument("action", choices=["start", "run", "check", "sync", "ci"])
     parser.add_argument("lesson", nargs="?")
     args = parser.parse_args()
     try:
         if args.action == "ci":
             ci(ROOT, os.getenv("GITHUB_REF", ""))
+        elif args.action == "sync":
+            sync(ROOT)
         else:
             if args.lesson is None:
                 parser.error("请填写课次，如：python scripts/course.py run 03")

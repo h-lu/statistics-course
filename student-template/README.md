@@ -15,6 +15,22 @@ python scripts/course.py run 01
 
 若你的电脑使用`python3`，把命令里的`python`换成`python3`。基础工具只需要Python 3.10或以上；分析依赖按需安装，见[环境与排障](docs/TROUBLESHOOTING.md)。
 
+## 同步新发布的课程
+
+课程按周一、周三逐课发布。教师发布新课后，在仓库根目录运行：
+
+```bash
+python scripts/course.py sync
+```
+
+命令会自动连接课程发布仓库，只补齐本仓库中还没有的课次，不覆盖已有作业。首次同步会增加一个名为`course-release`的只读远程地址；以后每次发布新课重复运行同一条命令即可。检查暂存内容后提交并推送：
+
+```bash
+git diff --cached
+git commit -m "同步课程发布"
+git push
+```
+
 ## 本学期项目
 
 | 周 | 课次与分析任务 |
