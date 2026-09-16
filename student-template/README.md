@@ -30,6 +30,18 @@ git remote add course-release \
 
 如果提示`course-release already exists`，说明已经设置过，不需要重复添加。使用SSH地址前，请先按Gitea页面的提示配置自己的SSH密钥。
 
+如果你的私有仓库是在同步工具发布前创建的，还需要先升级一次工具：
+
+```bash
+git fetch course-release main
+git restore --source=course-release/main -- scripts/course.py
+git add scripts/course.py
+git commit -m "更新课程同步工具"
+git push
+```
+
+以后不需要再次执行这组升级命令。
+
 ### 每次发布新课后的操作
 
 先确认当前作业已经保存；如果有未提交的修改，先提交或暂时保存。然后运行：
