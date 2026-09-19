@@ -16,7 +16,7 @@
 python instructor-guide/lesson-08/reference.py --student-root student-template
 ```
 
-在 `instructor-guide` 中运行 `python lesson-08/reference.py --student-root ../student-template`；独立部署改显式路径。标准库程序只输出JSON，不改数据。当前命令不依赖第1—4课PR是否合并。自查沿用 `v2-l08-r1`，保留历史记录。
+在 `instructor-guide` 中运行 `python lesson-08/reference.py --student-root ../student-template`；独立部署改显式路径。标准库程序只输出JSON，不改数据。自查沿用 `v2-l08-r1`，保留历史记录。
 
 ## 90分钟组织
 
@@ -76,7 +76,7 @@ python instructor-guide/lesson-08/reference.py --student-root student-template
 
 ## 模块代表作与评价
 
-学生从L03—08中选一件代表作，在本课报告末写明课次和计划修订的统计理由；不要求当天重做六课。修订截止下一次课开始前，保留原 `v2-lNN-final`，修订用 `v2-lNN-revision-1`，依[GRADING](../GRADING.md)执行。按时完成分看原快照，质量评价修订版本；最后模块的7天规则不套用于模块一。
+学生从L03—08中选一件代表作，在本课报告末写明课次和计划修订的统计理由；不要求当天重做六课。修订可以选择不做；选择修订时，截止下一次课开始前，保留原 `v2-lNN-final`，修订用 `v2-lNN-revision-1`，依[GRADING](../GRADING.md)执行。按时完成分看原快照，有修订时质量评价修订版，没有修订则评价原版；最后模块的7天规则不套用于模块一。
 
 最低完成要求为两期整合、工单/接触/窗口日三种层次、至少一项已执行的数据检查、指标和未匹配影响、发布范围，以及代表作选择。高质量在于针对下一期数据变化设计异常处理，量化未匹配对各指标不同的影响，并说明什么时候停止发布；不是必须建平台或追求零未匹配。
 
@@ -96,3 +96,5 @@ python instructor-guide/lesson-08/reference.py --student-root student-template
 ## 核验记录
 
 保留原2026-09-05编写核验的性质。2026-09-19补充连接反例、日期与排班覆盖限制、代表作说明，实算见[审核记录](../lesson-05/REVIEW_05_08.md)。没有实班90分钟用时数据时不声称试教完成。
+
+2026-09-19合并前复核：已服务等待仅纳入服务状态明确为未放弃的记录；未知状态不纳入该均值，空分母输出null。使用真实第3课清洗函数的4项集成测试通过，原教学数据的第8课JSON保持不变。测试：`python -m unittest discover -s instructor-guide/lesson-08 -p test_reference_integration.py -v`。

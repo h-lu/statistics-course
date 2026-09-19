@@ -28,10 +28,10 @@ def main():
         by_ticket[r["ticket_id"]].append(r)
     staff = {(r["date"], r["window_id"]): float(r["staff_count"]) * float(r["open_hours"]) - float(r["absence_hours"]) for r in staffing}
     survey = {r["ticket_id"]: r for r in surveys}
-    valid_wait = [r for r in tickets if r["wait"] is not None and not r["abandon"]]
-    true_mean = sum(r["wait"] for r in valid_wait) / len(valid_wait)
+    valid_wait = [r for r in tickets if r["wait"] is not None and r["abandon"] == 0]
+    true_mean = sum(r["wait"] for r in valid_wait) / len(valid_wait) if valid_wait else None
     duplicated = [r["wait"] for r in valid_wait for _ in by_ticket[r["ticket_id"]]]
-    joined_mean = sum(duplicated) / len(duplicated)
+    joined_mean = sum(duplicated) / len(duplicated) if duplicated else None
     windows_days = defaultdict(lambda: {"tickets": 0, "contacts": 0, "staff_minutes": 0, "completion_known": 0, "completed": 0, "responses": 0, "satisfied": 0})
     unknown_window = 0
     naive_staff_hours = 0
