@@ -1,5 +1,6 @@
 """数据读取与描述性统计示例。请根据本课问题修改或扩展分析。"""
 from pathlib import Path
+from datetime import date
 import csv
 import json
 import math
@@ -11,8 +12,22 @@ def read(relative):
     with (ROOT / "data" / relative).open(encoding="utf-8", newline="") as f:
         return list(csv.DictReader(f))
 
+
+def checked_date(value):
+    # 日期统一写成2026-05-04，避免把同一天的不同写法当成不同日期。
+    try:
+        parsed = date.fromisoformat(value)
+    except (TypeError, ValueError) as error:
+        raise ValueError(f"日期无效：{value!r}，请按YYYY-MM-DD格式核对。") from error
+    if parsed.isoformat() != value:
+        raise ValueError(f"日期须采用YYYY-MM-DD格式：{value!r}。")
+    return value
+
+
 rows = read("alerts/development.csv")
 capacity_rows = read("alerts/daily_capacity.csv")
+for row in rows + capacity_rows:
+    checked_date(row["date"])
 capacities = {r["date"]: int(r["max_reviews"]) for r in capacity_rows}
 if len(capacities) != len(capacity_rows) or any(not day.strip() for day in capacities):
     raise ValueError("容量表的日期为空或重复，请先核对。")

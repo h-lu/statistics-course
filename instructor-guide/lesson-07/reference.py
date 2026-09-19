@@ -13,8 +13,11 @@ def attach_surveys(rows, surveys):
     records = []
     for row in rows:
         source = survey.get(row["ticket_id"])
-        raw_invited = str((source or {}).get("invited") or "").strip()
-        raw_score = str((source or {}).get("score") or "").strip()
+        # A numeric 0 is a recorded value, not missing. The parser also serves L08.
+        invited_value = (source or {}).get("invited")
+        score_value = (source or {}).get("score")
+        raw_invited = "" if invited_value is None else str(invited_value).strip()
+        raw_score = "" if score_value is None else str(score_value).strip()
         if raw_invited not in ("", "0", "1"):
             raise ValueError(f"Invalid invitation status: {row['ticket_id']}")
         if raw_score not in ("", "1", "2", "3", "4", "5"):

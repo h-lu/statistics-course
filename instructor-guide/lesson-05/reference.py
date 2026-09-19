@@ -1,20 +1,36 @@
 """Time-separated, capacity-feasible replay of alternative review policies."""
 from pathlib import Path
 from collections import defaultdict
+from datetime import date
 import importlib.util
 import math
 spec = importlib.util.spec_from_file_location("shared_reference", Path(__file__).resolve().parents[1] / "lesson-01" / "reference.py")
 u = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(u)
 
+
+def checked_date(value):
+    """Reject date aliases before grouping quotas or comparing time periods."""
+    try:
+        parsed = date.fromisoformat(value)
+    except (TypeError, ValueError) as error:
+        raise ValueError(f"Invalid date: {value!r}; use YYYY-MM-DD") from error
+    if parsed.isoformat() != value:
+        raise ValueError(f"Use YYYY-MM-DD for date: {value!r}")
+    return value
+
+
 def load(root, batch, devices):
-    return [{**r, **devices[r["device_id"]], "score": float(r["risk_score"]), "label": int(r["failure_within_24h"])} for r in u.read(root, "alerts/" + batch + ".csv")]
+    rows = [{**r, **devices[r["device_id"]], "score": float(r["risk_score"]), "label": int(r["failure_within_24h"])} for r in u.read(root, "alerts/" + batch + ".csv")]
+    validate_rows(rows)
+    return rows
+
 
 def validate_rows(rows):
     u.keyed(rows, "record_id")
     device_days = set()
     for row in rows:
-        key = (row["date"], row["device_id"])
+        key = (checked_date(row["date"]), row["device_id"])
         if any(not str(value).strip() for value in key) or key in device_days:
             raise ValueError("Empty or duplicate device/date")
         device_days.add(key)
@@ -56,12 +72,13 @@ def replay(rows, capacities, probability, policy, capacity_multiplier=1, effecti
         raise ValueError("capacity_multiplier must be in [0, 1]")
     if not math.isfinite(effectiveness) or not 0 <= effectiveness <= 1:
         raise ValueError("effectiveness must be in [0, 1]")
+    for day, capacity in capacities.items():
+        checked_date(day)
+        if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity < 0:
+            raise ValueError(f"Capacity must be a nonnegative integer: {day}")
     for day in {r["date"] for r in rows}:
         if day not in capacities:
             raise ValueError(f"Missing capacity for date: {day}")
-        capacity = capacities[day]
-        if isinstance(capacity, bool) or not isinstance(capacity, int) or capacity < 0:
-            raise ValueError(f"Capacity must be a nonnegative integer: {day}")
     days = defaultdict(list)
     for r in rows:
         days[r["date"]].append(r)
@@ -113,7 +130,7 @@ def main():
     devices = {}
     for d in u.keyed(u.read(root, "alerts/devices.csv"), "device_id").values():
         devices[d["device_id"]] = {**d, "miss_loss": float(d["miss_loss"]), "inspection_cost": float(d["inspection_cost"])}
-    capacities = {r["date"]: int(r["max_reviews"]) for r in u.keyed(u.read(root, "alerts/daily_capacity.csv"), "date").values()}
+    capacities = {checked_date(r["date"]): int(r["max_reviews"]) for r in u.keyed(u.read(root, "alerts/daily_capacity.csv"), "date").values()}
     dev, future = load(root, "development", devices), load(root, "evaluation", devices)
     if not future:
         raise ValueError("Evaluation batch is empty; no later-period performance can be reported")
