@@ -8,7 +8,7 @@ import statistics
 from collections import Counter, defaultdict
 
 
-def student_root(argv=None):
+def student_root(argv=None, dataset="service"):
     """Find the monorepo data first; keep the two historical layouts usable."""
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--student-root", type=Path)
@@ -21,12 +21,12 @@ def student_root(argv=None):
     ])
     for candidate in candidates:
         root = candidate.resolve()
-        if (root / "data" / "service").is_dir():
+        if (root / "data" / dataset).is_dir():
             return root
     # L03 may use only the raw export: do not require tickets.csv for all lessons.
     raise FileNotFoundError(
-        "Service data directory not found. Pass --student-root pointing at the "
-        "student repository containing data/service. Checked: "
+        f"Data directory data/{dataset} not found. Pass --student-root pointing at the "
+        f"student repository containing data/{dataset}. Checked: "
         + ", ".join(str(path) for path in candidates)
     )
 

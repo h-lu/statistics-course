@@ -35,13 +35,13 @@ ALERT = alert_reference()
 
 def device(index, score, label):
     return {"record_id": f"day-D{index:03d}", "device_id": f"D{index:03d}",
-            "date": "day", "score": score, "label": label,
+            "date": "2026-05-04", "score": score, "label": label,
             "device_class": f"group-{index}", "miss_loss": 100,
             "inspection_cost": 3}
 
 
 def replay(rows, capacity, effectiveness=.85):
-    return ALERT.replay(rows, {"day": capacity}, lambda r: 0, "score", effectiveness=effectiveness)
+    return ALERT.replay(rows, {"2026-05-04": capacity}, lambda r: 0, "score", effectiveness=effectiveness)
 
 
 class WorkedExamples(unittest.TestCase):

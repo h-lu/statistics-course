@@ -1,0 +1,43 @@
+name: Lesson 01-08 code tests
+
+on:
+  pull_request:
+    paths:
+      - 'student-template/lesson-0[1-8]/**'
+      - 'student-template/data/service/**'
+      - 'student-template/data/alerts/**'
+      - 'instructor-guide/lesson-0[1-8]/**'
+      - 'instructor-guide/tests/**'
+      - '.github/workflows/lesson-code-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'student-template/lesson-0[1-8]/**'
+      - 'student-template/data/service/**'
+      - 'student-template/data/alerts/**'
+      - 'instructor-guide/lesson-0[1-8]/**'
+      - 'instructor-guide/tests/**'
+      - '.github/workflows/lesson-code-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  lesson-code:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Create test environment
+        run: |
+          python3 -m venv .lesson-test-venv
+          .lesson-test-venv/bin/python -m pip install pytest==8.4.1 pyyaml==6.0.2
+      - name: Run existing lesson tests and code regressions
+        run: |
+          .lesson-test-venv/bin/python -m pytest --import-mode=importlib \
+            instructor-guide/lesson-0[1-8] student-template/lesson-0[1-8] \
+            instructor-guide/tests/test_code_01_08.py -q
+      - name: Verify tracked teaching data are unchanged
+        run: git diff --exit-code -- student-template/data

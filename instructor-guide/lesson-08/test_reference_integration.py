@@ -31,9 +31,9 @@ class ReferenceIntegrationTests(unittest.TestCase):
                  "completed_same_day": "1", "abandoned": state, "date": "2026-04-13"}
                 for i, (wait, state) in enumerate(waits_and_states)
             ])
-            write("visits.csv", [{"contact_id": f"C{i}", "ticket_id": f"T{i}", "staff_minutes": "2"}
+            write("visits.csv", [{"contact_id": f"C{i}", "ticket_id": f"T{i}", "staff_minutes": "2", "contact_date": "2026-04-13"}
                                  for i in range(len(waits_and_states))])
-            write("satisfaction.csv", [{"ticket_id": f"T{i}", "score": "4"}
+            write("satisfaction.csv", [{"ticket_id": f"T{i}", "score": "4", "invited": "1"}
                                        for i in range(len(waits_and_states))])
             write("staffing.csv", [{"date": "2026-04-13", "window_id": "A1",
                                    "staff_count": "1", "open_hours": "8", "absence_hours": "0"}])
