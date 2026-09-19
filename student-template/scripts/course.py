@@ -117,21 +117,27 @@ def reproduce(root: Path, lesson: str) -> None:
 
 
 def ci(root: Path, ref: str = "") -> None:
-    objects = {lesson_name(i): manifest(root, lesson_name(i)) for i in range(1, 33)}
-    selected = None
+    # A final/revision tag concerns one lesson, even in a partial release.
     if ref.startswith("refs/tags/v2-"):
         match = TAG.fullmatch(ref.removeprefix("refs/tags/"))
         if not match:
             raise ValueError("V2标签应为v2-lNN-final或v2-lNN-revision-N")
         selected = lesson_name(match.group(1))
         check(root, selected)
-    for lesson, obj in objects.items():
-        if selected and lesson != selected:
-            continue
-        if obj["status"] == "complete":
-            reproduce(root, lesson)
-        elif obj["status"] == "in_progress":
-            run(root, lesson)
+        reproduce(root, selected)
+    else:
+        lessons = sorted(
+            path.name for path in root.iterdir()
+            if path.is_dir() and LESSON_DIR.fullmatch(path.name)
+            and 1 <= int(path.name[-2:]) <= 32
+        )
+        # A published directory with a missing/bad manifest must still fail.
+        objects = {lesson: manifest(root, lesson) for lesson in lessons}
+        for lesson, obj in objects.items():
+            if obj["status"] == "complete":
+                reproduce(root, lesson)
+            elif obj["status"] == "in_progress":
+                run(root, lesson)
     print("检查结束。尚未开始的项目未计为完成；统计质量由成果评价。")
 
 
@@ -146,8 +152,31 @@ def git(root: Path, *args: str, capture: bool = False) -> str:
     return result.stdout if capture else ""
 
 
+def sync_reading_guide(root: Path, source_ref: str) -> bool:
+    """Add the new shared guide only when absent; never replace local material."""
+    relative = "docs/READING_GUIDE.md"
+    entry = git(root, "ls-tree", source_ref, "--", relative, capture=True).strip()
+    if not entry:
+        return False  # Older releases do not contain this guide.
+    metadata, name = entry.split("\t", 1)
+    mode, kind, _ = metadata.split()
+    if name != relative or kind != "blob" or mode not in {"100644", "100755"}:
+        raise ValueError("发布的阅读指南必须是普通文件")
+    target = root / relative
+    if target.exists() or target.is_symlink():
+        return False
+    target = inside(root, relative)  # Reject a docs symlink outside the repository.
+    content = git(root, "show", f"{source_ref}:{relative}", capture=True)
+    target.parent.mkdir(parents=True, exist_ok=True)
+    with target.open("x", encoding="utf-8", newline="") as handle:
+        handle.write(content)
+    git(root, "add", "--", relative)
+    print(f"已补齐并暂存 {relative}；已存在的说明文件不会覆盖。")
+    return True
+
+
 def sync(root: Path) -> None:
-    """Fetch published lessons and stage only lessons absent from this repo."""
+    """Add missing lessons and the reading guide without replacing student work."""
     try:
         current_url = git(root, "remote", "get-url", RELEASE_REMOTE, capture=True).strip()
     except subprocess.CalledProcessError:
@@ -156,20 +185,21 @@ def sync(root: Path) -> None:
     if not current_url:
         raise ValueError("课程发布仓库地址为空")
     git(root, "fetch", RELEASE_REMOTE, "main")
+    guide_added = sync_reading_guide(root, f"{RELEASE_REMOTE}/main")
     names = git(root, "ls-tree", "--name-only", "-d", f"{RELEASE_REMOTE}/main", capture=True)
     published = sorted(
         name.strip()
         for name in names.splitlines()
-        if LESSON_DIR.fullmatch(name.strip())
+        if LESSON_DIR.fullmatch(name.strip()) and 1 <= int(name.strip()[-2:]) <= 32
     )
-    if not published:
+    if not published and not guide_added:
         print("发布仓库中还没有可同步的课次。")
         return
-    missing = [lesson for lesson in published if not (root / lesson).exists()]
-    already_present = [lesson for lesson in published if (root / lesson).exists()]
+    missing = [lesson for lesson in published if not ((root / lesson).exists() or (root / lesson).is_symlink())]
+    already_present = [lesson for lesson in published if (root / lesson).exists() or (root / lesson).is_symlink()]
     if already_present:
         print("已存在，跳过：" + ", ".join(already_present))
-    if not missing:
+    if not missing and not guide_added:
         print("没有新的课次需要同步。")
         return
     for lesson in missing:
