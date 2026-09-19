@@ -1,6 +1,8 @@
 {
   "target_tickets": 3600,
   "matched_surveys": 3600,
+  "unmatched_tickets": 0,
+  "unknown_invitation": 0,
   "invited": 3199,
   "responded": 2099,
   "observed_score_counts": {
