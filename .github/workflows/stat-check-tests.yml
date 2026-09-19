@@ -1,0 +1,46 @@
+name: Stat Check tests
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'stat-check/**'
+      - 'instructor-guide/knowledge-check/**'
+      - 'instructor-guide/scripts/validate_course.py'
+      - 'instructor-guide/scripts/test_question_revision_selection.py'
+      - '.github/workflows/stat-check-tests.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'stat-check/**'
+      - 'instructor-guide/knowledge-check/**'
+      - 'instructor-guide/scripts/validate_course.py'
+      - 'instructor-guide/scripts/test_question_revision_selection.py'
+      - '.github/workflows/stat-check-tests.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: stat-check-tests-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Create isolated test environment
+        run: |
+          python3 -m venv .test-venv
+          .test-venv/bin/python -m pip install -r stat-check/requirements-dev.txt
+      - name: Run all Stat Check tests against installed question banks
+        working-directory: stat-check
+        run: ../.test-venv/bin/python -m pytest -q
+      - name: Check teacher-side revision selection
+        env:
+          PYTHONPATH: stat-check
+        run: .test-venv/bin/python -m pytest instructor-guide/scripts/test_question_revision_selection.py -q
