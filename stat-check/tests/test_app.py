@@ -233,10 +233,10 @@ def test_question_bank_directory_and_answer_positions() -> None:
         f"lesson-{number:02d}.yml" for number in range(1, 7)
     ] + [f"lesson-v2-{number:02d}.yml" for number in range(1, 33)] + [
         f"lesson-v2r1-{number:02d}.yml" for number in range(1, 33)
-    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)]
-    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 78
+    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)] + ["lesson-v2r3-03.yml"]
+    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 79
     assert [bank.lesson_id for bank in CURRENT_BANKS] == [
-        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 33)
+        f"v2-l{n:02d}-r{3 if n == 3 else 2 if n <= 8 else 1}" for n in range(1, 33)
     ]
     assert BANK.lesson_id == "v2-l01-r2"
     for bank in QUESTION_BANKS:
