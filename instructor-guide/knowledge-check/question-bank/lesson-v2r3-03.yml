@@ -1,0 +1,197 @@
+lesson_id: v2-l03-r3
+title: 第03课 · 业务数据质量与适用性评估
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: record-version
+  title: 重复记录、修订与分析单位
+  tutor_context: 用另一组订单说明完全重复行、被替代的旧版本行和不同订单数；再解释按顾客去重为什么会改变分析单位。不要只给选项字母。
+  pair:
+    a:
+      prompt: 一张工单有两行完全相同的第1版和一行第2版。约定版本数越大越新，每行都是该版本的完整记录。按工单分析时，怎样处理？
+      options:
+      - id: A
+        text: 三行等待取平均，作为该工单的最新等待
+        misconception: average-revisions
+      - id: B
+        text: 采用第2版，另外记录1行完全重复和1行被替代的旧版本
+        misconception: null
+      - id: C
+        text: 按文件顺序保留最末一行，无需检查版本号
+        misconception: file-order-as-version
+      - id: D
+        text: 保留第1版和第2版，按两张工单计算
+        misconception: versions-as-units
+      answer: B
+      explanation: 三行对应一张工单。先去掉1行完全重复，再用第2版替代剩下的第1版，得到3行＝1张工单＋1行完全重复＋1行旧版本。平均版本或把版本当工单会改变分析含义；文件顺序不能证明新旧。
+    b:
+      prompt: 同一顾客有O1、O2两张不同的真实订单。每张订单都被完全相同地导出了两次，没有修订版本。要描述订单履约比例，应怎样整理？
+      options:
+      - id: A
+        text: 按顾客保留一行，分母为1
+        misconception: customer-as-order-unit
+      - id: B
+        text: 保留原来的四行，认为分母越大越准确
+        misconception: repeated-export-as-observations
+      - id: C
+        text: 每个出现重复编号的订单都删除，分母为0
+        misconception: remove-all-duplicated-units
+      - id: D
+        text: 按订单编号各保留一份，分母为2
+        misconception: null
+      answer: D
+      explanation: 分析单位是订单。O1、O2是真实不同订单，应各保留一次；删的是多导出的副本，不是两张订单。按顾客合并会改变问题，保留四行会重复计算，删除所有重复编号则丢掉真实订单。
+- concept_id: missing-units
+  title: 缺失编码、真实零与单位
+  tutor_context: 用另设的数据字典说明先识别未测量编码、再换算真实测量值；要求举例区分真实零和缺失，计算后说明分母。
+  pair:
+    a:
+      prompt: 等待字段999表示未测量，0表示已测得零等待。有三条记录：120秒、999秒、0分钟。只描述有测量记录的平均等待，结果是多少？
+      options:
+      - id: A
+        text: 1分钟，使用120秒和0分钟两条记录
+        misconception: null
+      - id: B
+        text: 0.67分钟，把999改为0后使用三条记录
+        misconception: missing-as-zero
+      - id: C
+        text: 6.22分钟，把999秒也换算成分钟后使用三条记录
+        misconception: convert-missing-code
+      - id: D
+        text: 2分钟，只使用120秒，去掉0分钟
+        misconception: drop-observed-zero
+      answer: A
+      explanation: 120秒是2分钟；999先识别为未测量，不参加换算和有效分母。0分钟是真实测量，应保留。平均为(2＋0)÷2＝1分钟，只描述两条有测量记录。
+    b:
+      prompt: 三次库存记录为0、空白、12件。字典规定0表示已盘点且无库存，空白表示未盘点。只描述已盘点记录的平均库存，应怎样报告？
+      options:
+      - id: A
+        text: 12件；把0和空白都当成没有记录
+        misconception: observed-zero-as-missing
+      - id: B
+        text: 4件；空白按0计入三次盘点
+        misconception: unmeasured-in-denominator
+      - id: C
+        text: 6件；分母为2，未盘点那次的库存仍未知
+        misconception: null
+      - id: D
+        text: 6件；结果可直接代表三次记录的真实平均库存
+        misconception: observed-subset-as-all
+      answer: C
+      explanation: 已盘点的是0件和12件，平均(0＋12)÷2＝6件。空白不是0，真实零也不是空白。这个结果只描述两次已盘点记录，不能补出未盘点那次的未知库存。
+- concept_id: outlier
+  title: 离群值与无效取值
+  tutor_context: 对比很长但可能真实的等待与违反测量定义的负数。解释保留原始记录、标记问题、暂不纳入某项计算三者并不矛盾。
+  pair:
+    a:
+      prompt: 一张工单等待90分钟，明显长于多数记录，暂未找到录入错误证据。下列哪种处理有充分依据？
+      options:
+      - id: A
+        text: 用中位数替换90分钟，并称为已经核实的等待
+        misconception: replacement-as-verified-value
+      - id: B
+        text: 只报告删去90分钟后的均值，因为这样更稳定
+        misconception: selective-removal
+      - id: C
+        text: 将90分钟除以60，因为数值大就说明单位是秒
+        misconception: guess-unit-from-magnitude
+      - id: D
+        text: 保留90分钟，核对来源并查看它对结果的影响
+        misconception: null
+      answer: D
+      explanation: 很大的值可能是真实经历。没有证据时，不能猜测单位或替换后宣称已核实。可以保留原分析并说明这个值的影响；只报删除后的结果会隐去记录选择。
+    b:
+      prompt: 传感器记录的是非负长度，出现−12厘米，且没有把负数用作特殊编码的约定。怎样处理较合适？
+      options:
+      - id: A
+        text: 按正常长度参与平均，只注明它是离群值
+        misconception: invalid-as-valid-outlier
+      - id: B
+        text: 保留原值并标记无效，核实前不作为正常长度参与计算
+        misconception: null
+      - id: C
+        text: 改成12厘米，认为负号一定是录入错误
+        misconception: absolute-value-as-correction
+      - id: D
+        text: 改成0厘米，以满足非负长度要求
+        misconception: invalid-as-zero
+      answer: B
+      explanation: 负长度违反本题的测量定义，与很大但可能真实的值不同。先保留原始记录和问题标记，暂不纳入长度计算；取绝对值或填0都需要来源证据，不能自行猜定。
+- concept_id: purpose-denominator
+  title: 用途、有效记录与分母
+  tutor_context: 为同一小表分别选办结比例和已服务等待所需的字段；明确等待测量有效不证明已经获得服务，字段缺失不等于整张工单无用。
+  pair:
+    a:
+      prompt: 有100张不同工单，10张缺等待，2张缺办结状态，两类缺失是否重叠未知。只计算办结状态已知工单中的办结比例，分母是多少？
+      options:
+      - id: A
+        text: 100张，把未知办结当未办结
+        misconception: unknown-outcome-as-failure
+      - id: B
+        text: 90张，所有指标统一去掉缺等待的工单
+        misconception: irrelevant-field-exclusion
+      - id: C
+        text: 98张，只排除办结状态未知的2张
+        misconception: null
+      - id: D
+        text: 88张，把10张和2张分别减去
+        misconception: assume-disjoint-missing
+      answer: C
+      explanation: 这项计算只需要办结状态，因此分母为100−2＝98。等待缺失是否重叠不影响答案。结果描述状态已知的98张，仍有2张的结果未知；不能把它们当作未办结。
+    b:
+      prompt: 工单的等待定义为开始排队到开始服务或放弃离开的时间。一张工单测得12分钟，但是否放弃未知。仅凭这些信息，能否纳入“已服务工单的平均等待”？
+      options:
+      - id: A
+        text: 不能确认已服务；12分钟可按上述等待定义保留，但不纳入已服务均值
+        misconception: null
+      - id: B
+        text: 可以；有测量值就说明已开始服务
+        misconception: measurement-as-service-evidence
+      - id: C
+        text: 可以；状态空白默认表示没有放弃
+        misconception: unknown-as-not-abandoned
+      - id: D
+        text: 不能；应把12分钟改为0，再参与等待计算
+        misconception: unknown-status-erases-measurement
+      answer: A
+      explanation: 12分钟是有效等待测量，但没有说明最终是否获得服务。不能把未知放弃状态当未放弃，也不能改写已经测得的12分钟。这张工单仍可能用于不要求已服务状态的时间描述。
+- concept_id: selection-cleaning
+  title: 记录选择、插补与结果解释
+  tutor_context: 用一个删除后比例上升的例子说明目标范围改变，再解释插补估计不等于查实原值；要求说清假设和适用范围，不把更高的比例当作更正确。
+  pair:
+    a:
+      prompt: 100张工单的办结状态都已知，其中80张办结。另为多指标报告，保留等待和窗口信息也有效的60张，其中54张办结。应怎样解释两种比例？
+      options:
+      - id: A
+        text: 统一使用90%，因为字段完整的记录一定更有代表性
+        misconception: complete-as-representative
+      - id: B
+        text: 两种分母相同，80%与90%的差异只能来自计算错误
+        misconception: ignore-changed-denominator
+      - id: C
+        text: 80%描述全部100张，90%描述所选60张；记录范围改变
+        misconception: null
+      - id: D
+        text: 90%证明清洗让服务效果提高了10个百分点
+        misconception: selection-as-service-improvement
+      answer: C
+      explanation: 80÷100＝80%，54÷60＝90%。要求更多字段有效改变了纳入集合，并未改变实际办结情况。可以为不同用途保留不同结果，但不能用所选60张的90%无条件替代全部工单的80%。
+    b:
+      prompt: 为保留缺失等待的工单，分析者用同业务组有测量记录的平均等待进行插补。报告中怎样说明合适？
+      options:
+      - id: A
+        text: 这是带假设的估计；保留插补标记，并比较不插补的结果
+        misconception: null
+      - id: B
+        text: 同业务组的均值就是每张缺失工单的真实等待
+        misconception: group-mean-as-individual-truth
+      - id: C
+        text: 程序重复运行结果相同，便已证明插补假设成立
+        misconception: reproducibility-as-validity
+      - id: D
+        text: 空白消失后可以将全部等待标为直接测量
+        misconception: filled-as-observed
+      answer: A
+      explanation: 插补产生估计值，不是从来源查实每张工单的等待。重复运行只说明过程可复现。应说明组内已测量记录能否代表缺失记录的假设，保留标记，并比较分母、指标和建议如何变化。
