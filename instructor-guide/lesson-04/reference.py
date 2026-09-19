@@ -21,6 +21,16 @@ def metric_tiers(profiles, metric):
 
 
 def build_result(rows, thresholds):
+    # The CLI reads validated first-period data. Check the public helper too:
+    # callers must not silently lose an unknown center or count status 2 twice.
+    for row in rows:
+        if row.get("center") not in ("A", "B", "C"):
+            raise ValueError("Unknown center; verify the reporting scope")
+        if row.get("abandon") not in (0, 1):
+            raise ValueError("Abandonment status must be known and equal to 0 or 1")
+        wait = row.get("wait")
+        if isinstance(wait, bool) or not isinstance(wait, (int, float)) or not math.isfinite(wait) or wait < 0:
+            raise ValueError("Waiting time must be finite and nonnegative")
     if any(not math.isfinite(value) or value < 0 for value in thresholds.values()):
         raise ValueError("Business thresholds must be finite and nonnegative")
     unknown = {r["business_code"] for r in rows} - thresholds.keys()
