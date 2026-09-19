@@ -82,8 +82,8 @@ items:
       answer: C
       explanation: 稳健指标可以对个别极端变化不敏感，但总和确实增加40分钟。是否关注这一变化取决于目标；不能用中部不变否认总量变化，更不能为可比性改写真实值。
 - concept_id: composite
-  title: 综合指标的单位与计数
-  tutor_context: 用不同单位的指标和两个重叠事件举例，解释尺度转换、权重以及同一记录只计一次。
+  title: 综合指标的尺度与权重
+  tutor_context: 用两个不同单位的指标解释尺度转换和权重，再检查更换时间单位后怎样保持原来的评价办法。
   pair:
     a:
       prompt: 要将平均等待分钟与满意比例合成一个总分，哪项处理不可省略？
@@ -103,7 +103,28 @@ items:
       answer: A
       explanation: 相同小数位或都写成数字，不表示单位可直接相加。合成总分需要说明目标取舍；分钟换秒反而会改变未经处理的数值权重。也可以分别报告指标，不强行合成。
     b:
-      prompt: 10张工单中，3张放弃、4张等待超过业务参考时间，其中2张两项都符合。以全部工单为分母，“放弃或超时”的比例是多少？
+      prompt: 某评价办法规定总分＝平均等待分钟数÷10＋不满意比例，比例用0到1表示。现在只把时间改用秒记录，哪条公式与原办法等价？
+      options:
+      - id: A
+        text: 总分＝平均等待秒数÷60＋不满意比例
+        misconception: convert-unit-but-drop-original-scale
+      - id: B
+        text: 总分＝平均等待秒数÷600＋不满意比例
+        misconception: null
+      - id: C
+        text: 总分＝平均等待秒数÷10＋不满意比例
+        misconception: retain-scale-after-unit-change
+      - id: D
+        text: 总分＝平均等待秒数÷600＋100×不满意比例
+        misconception: change-proportion-scale-without-weight
+      answer: B
+      explanation: 原来用于缩放的10分钟等于600秒，所以分钟数÷10与秒数÷600相等。不满意比例仍用0到1表示。只改时间单位不应改变原有取舍；其他公式会改变一项的相对权重。本题比较公式是否等价，不把这套权重规定为通用标准。
+- concept_id: goal-metric
+  title: 评价事件、分母与阈值
+  tutor_context: 用放弃或超时的指标解释怎样定义评价事件、避免重复计数，再区分单张时间阈值与整组比例门槛。
+  pair:
+    a:
+      prompt: 管理者关注“放弃或等待超过15分钟”的工单。10张工单中3张放弃、4张超过15分钟，其中2张两项都符合。以全部工单为分母，该比例是多少？
       options:
       - id: A
         text: 5÷7，约71.43%
@@ -118,28 +139,7 @@ items:
         text: 7÷10＝70%
         misconception: double-count-overlap
       answer: B
-      explanation: 符合至少一项的有3＋4−2＝5张，同一工单不能计两次，分母仍为全部10张。2张是同时符合两项，不是“或”；改用未放弃的7张又更换了对象。
-- concept_id: goal-metric
-  title: 指标与评价目标
-  tutor_context: 用总等待、单张超时阈值和一组超时比例说明不同目标对应不同计算，并练习是否包含等号。
-  pair:
-    a:
-      prompt: 甲窗口100张工单，平均等待5分钟；乙50张，平均8分钟。全部记录均有效。若关心总等待分钟，哪项正确？
-      options:
-      - id: A
-        text: 乙均值较大，所以乙总等待为800分钟
-        misconception: wrong-group-size
-      - id: B
-        text: 甲为500分钟，乙为400分钟，甲的总量较大
-        misconception: null
-      - id: C
-        text: 甲均值较小，所以总等待也较小
-        misconception: mean-as-total
-      - id: D
-        text: 甲乙合计平均为6.5分钟，因此总量相同
-        misconception: unweighted-average-as-total
-      answer: B
-      explanation: 总量等于记录数乘均值：100×5＝500，50×8＝400。均值较小并不保证总量较小；两组数量不同时也不能用均值的简单平均代替整体计算。
+      explanation: 符合至少一项的有3＋4−2＝5张，同一工单不能计两次，分母仍为全部10张。2张是同时符合两项，不是“或”；改用未放弃的7张又更换了对象。应先说清评价的是哪类经历，再计算比例。
     b:
       prompt: 规则规定：等待“超过15分钟”算超时，超时比例“大于10%”才需调查。10张工单中2张恰为15分钟，1张为16分钟，其余不足15分钟。怎样判断？
       options:

@@ -3,8 +3,10 @@
 These tests use installed banks and temporary SQLite databases, not live accounts.
 Text contracts guard reviewed examples; they do not prove equal A/B difficulty.
 """
+import csv
 from fractions import Fraction
 from html import unescape
+import io
 import re
 from pathlib import Path
 
@@ -28,10 +30,10 @@ def test_composite_pair_checks_equivalent_scales_in_both_forms():
 
 
 def test_loss_pair_compares_total_loss_not_a_different_validation_concept():
-    assert 20 + 200 == 220
-    assert 20 + 2 * 60 == 140
+    assert 40 + 200 == 240
+    assert 40 + 2 * 60 == 160
     text = selected_text(5, "loss-action", "b")
-    assert "140" in text and "220" in text
+    assert "160" in text and "240" in text
 
 
 def test_table_operation_pair_distinguishes_appending_from_enrichment():
@@ -83,6 +85,7 @@ def test_each_r2_bank_http_a_learning_b_feedback_and_export(tmp_path, number):
                 assert concept == item["concept_id"]
                 question = bank.question(concept, phase)
                 assert question["prompt"] in unescape(page.text)
+                assert "参考答案：" not in page.text
                 # Exercise both branches of actual HTTP grading, not pre-labelled rows.
                 choice = question["answer"] if index else next(c for c in "ABCD" if c != question["answer"])
                 submitted[(concept, phase)] = choice
@@ -105,9 +108,15 @@ def test_each_r2_bank_http_a_learning_b_feedback_and_export(tmp_path, number):
         assert feedback.status_code == 200
         assert feedback.text.count("A：正确") == 4
         assert feedback.text.count("B：正确") == 4
+        assert feedback.text.count("A：需复习") == 1
+        assert feedback.text.count("B：需复习") == 1
         for item in bank.items:
             for phase in ("a", "b"):
-                assert item["pair"][phase]["explanation"] in unescape(feedback.text)
+                question = item["pair"][phase]
+                assert question["prompt"] in unescape(feedback.text)
+                assert question["explanation"] in unescape(feedback.text)
+                for option in question["options"]:
+                    assert option["text"] in unescape(feedback.text)
         with db.connect(str(path)) as connection:
             user_id = connection.execute("SELECT id FROM users WHERE login = 'review-student'").fetchone()[0]
         rows = db.responses_for_user(str(path), session["id"], user_id)
@@ -117,7 +126,10 @@ def test_each_r2_bank_http_a_learning_b_feedback_and_export(tmp_path, number):
             assert row["option_id"] == submitted[key]
             assert bool(row["correct"]) == (row["option_id"] == bank.question(*key)["answer"])
         export = teacher.get(f"/stat-check/teacher/export.csv?session_id={session['id']}")
-        assert export.status_code == 200 and "review-student" in export.text
+        assert export.status_code == 200
+        csv_rows = list(csv.DictReader(io.StringIO(export.text.lstrip("\ufeff"))))
+        csv_row = next(r for r in csv_rows if r["gitea_login"] == "review-student")
+        assert tuple(csv_row[k] for k in ("a_count", "a_correct", "b_count", "b_correct", "learned")) == ("5", "4", "5", "4", "1")
         row = next(r for r in db.export_rows(str(path), session["id"]) if r["login"] == "review-student")
         assert (row["a_count"], row["a_correct"], row["b_count"], row["b_correct"], row["learned"]) == (5, 4, 5, 4, 1)
 
@@ -141,6 +153,11 @@ def test_old_r1_answer_key_survives_http_restart_and_r2_session(tmp_path):
         old_rows = [dict(r) for r in db.export_rows(str(path), old_session["id"])]
         student_row = next(r for r in old_rows if r["login"] == "history-student")
         assert (student_row["a_count"], student_row["a_correct"]) == (1, 0)
+        set_phase(teacher, "result")
+        feedback = student.get("/stat-check/current")
+        for phase in ("a", "b"):
+            assert old.question("unit", phase)["explanation"] in unescape(feedback.text)
+        assert new.question("unit", "a")["explanation"] not in unescape(feedback.text)
         # Starting a new app must not silently replace the current session's bank.
         with make_client(path, "teacher", "teacher") as restarted:
             assert db.current_session(str(path))["lesson_id"] == old.lesson_id
@@ -157,4 +174,26 @@ def test_old_r1_answer_key_survives_http_restart_and_r2_session(tmp_path):
         assert (new_row["a_count"], new_row["a_correct"]) == (1, 1)
         assert [dict(r) for r in db.export_rows(str(path), old_session["id"])] == old_rows
         old_csv = teacher.get(f"/stat-check/teacher/export.csv?session_id={old_session['id']}")
-        assert old_csv.status_code == 200 and "history-student" in old_csv.text
+        assert old_csv.status_code == 200
+        rows = list(csv.DictReader(io.StringIO(old_csv.text.lstrip("\ufeff"))))
+        row = next(r for r in rows if r["gitea_login"] == "history-student")
+        assert (row["a_count"], row["a_correct"]) == ("1", "0")
+
+
+@pytest.mark.parametrize("lesson_id", ["v2-l01-r1", "v2-l08-r2"])
+def test_feedback_preserves_unanswered_status_and_shows_both_explanations(tmp_path, lesson_id):
+    path = tmp_path / "unanswered.sqlite3"
+    bank = BANKS[lesson_id]
+    with make_client(path, "teacher", "teacher") as teacher, make_client(path, "student", "unanswered-student") as student:
+        create_session(teacher, bank.lesson_id)
+        set_phase(teacher, "result")
+        page = student.get("/stat-check/current")
+        assert page.status_code == 200
+        assert page.text.count("A：未完成") == 5
+        assert page.text.count("B：未完成") == 5
+        assert "A：需复习" not in page.text and "B：需复习" not in page.text
+        for item in bank.items:
+            for phase in ("a", "b"):
+                assert item["pair"][phase]["explanation"] in unescape(page.text)
+        with db.connect(str(path)) as connection:
+            assert connection.execute("SELECT COUNT(*) FROM responses").fetchone()[0] == 0

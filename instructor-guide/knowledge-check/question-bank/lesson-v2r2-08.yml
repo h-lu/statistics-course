@@ -45,7 +45,7 @@ items:
       explanation: 空列表确实没有重复编号，因此重复检查可通过。它不检查是否漏读、是否缺少应有记录，也不验证指标。应根据来源记录数、读取状态等另外核对完整性。
 - concept_id: cardinality
   title: 按行追加与连接关系
-  tutor_context: 用两个时期的不同订单说明按行追加，再用同订单的明细与标签说明一对多、多对多连接造成的行数变化。
+  tutor_context: 用不同月份的订单说明按行追加，再用订单与多次配送说明如何先汇总、后按编号连接，为已有订单补充信息。
   pair:
     a:
       prompt: 一期有200张工单，二期整理后有50张，两期编号不重合、每张一行。字段和单位已统一，要整合两期工单，应怎样做？
@@ -65,22 +65,22 @@ items:
       answer: D
       explanation: 两期是不同工单，应按行追加。内连接会找不到共同编号，左连接以一期为主则不保留新增二期工单；平均两份统计量也不等于整合原始记录。
     b:
-      prompt: 同一订单有3条商品明细和4条标签记录。两表直接按订单编号连接，每条明细会匹配全部4条标签，该订单得到多少行？
+      prompt: 订单表有甲、乙两张订单；配送表记录甲的2次、乙的3次真实配送。要为每张订单补上配送总次数，并保持每张订单一行，应怎样处理？
       options:
       - id: A
-        text: 3行
-        misconception: keep-only-left-count
+        text: 把配送记录按行追加到订单表，得到7张订单
+        misconception: append-related-events-as-new-units
       - id: B
-        text: 7行
-        misconception: append-instead-of-join
+        text: 直接按订单编号连接，保留展开后的5行作为订单表
+        misconception: retain-expanded-event-grain
       - id: C
-        text: 12行
+        text: 先按订单编号汇总配送次数，再与订单表按编号连接
         misconception: null
       - id: D
-        text: 4行
-        misconception: assume-no-row-expansion
+        text: 配送表每个订单只留第一次配送，再按编号连接
+        misconception: drop-real-events-before-join
       answer: C
-      explanation: 每条明细对应4条标签，共3×4＝12个匹配组合。7是按行相加的想法，3或4忽略了一侧的多条匹配；这12行不表示12张订单。
+      explanation: 这里不是加入另一批订单，而是为已有订单补充信息。先汇总得到甲2次、乙3次，再按编号连接，仍有2张订单。直接展开会得到5行；按行追加会混合订单与配送；只留首次配送会丢掉真实次数。
 - concept_id: duplication
   title: 连接造成的重复计算
   tutor_context: 用连接后重复的工单数值说明隐含加权，再比较按业务编号与按相同金额去重的区别。
@@ -158,8 +158,8 @@ items:
       answer: B
       explanation: 目标包括完整两天，计划工时8＋8＝16，不因没有业务而消失。从排班日期出发可保留无工单日；没有工单不等于原计划量为零。
 - concept_id: reconciliation
-  title: 工时、日期与汇总核对
-  tutor_context: 用人数乘小时解释人时和合计缺勤，再用跨日接触区分登记日期与工作实际发生日期。
+  title: 工时与汇总层次
+  tutor_context: 用人数乘小时解释人时和合计缺勤，再核对连接多张工单后为什么每个窗口每天的排班量只能累计一次。
   pair:
     a:
       prompt: 某窗口当天2名工作人员各计划4小时，合计缺勤1人时，当天有20张工单。计划有效工时应是多少？
@@ -179,19 +179,19 @@ items:
       answer: A
       explanation: 两人各4小时共8人时，合计缺勤已是1人时，只减一次得7。工单数不能再乘排班量；把合计缺勤当每人缺勤，或忽略人数，都会改变单位含义。
     b:
-      prompt: 工单在9月1日登记，相关接触实际发生在9月2日。要分别报告每日登记工单量和每日接触工作量，应怎样归集？
+      prompt: 同一窗口两天的计划有效工时分别为7、5人时，工单数为20、10张。排班与工单连接后，每行重复出现当天工时。两天的计划有效工时合计应怎样计算？
       options:
       - id: A
-        text: 两项都按9月1日，因工单编号相同
-        misconception: registration-date-for-work
+        text: 按连接行累加，7×20＋5×10＝190人时
+        misconception: sum-repeated-staffing
       - id: B
-        text: 两项都按9月2日，因工作已在该日完成
-        misconception: work-date-for-registration
+        text: 对两天工时取平均，(7＋5)÷2＝6人时
+        misconception: average-instead-of-total
       - id: C
-        text: 工单按9月1日，接触工作量按9月2日
+        text: 按窗口编号与日期各计一次，7＋5＝12人时
         misconception: null
       - id: D
-        text: 把接触工作量同时计入两天，以免遗漏
-        misconception: duplicate-cross-day-work
+        text: 按窗口编号只保留第一天，得到7人时
+        misconception: dedup-window-without-date
       answer: C
-      explanation: 两项指标描述不同事件：登记量按登记日期，接触工作量按实际接触日期。编号能关联它们，但不能把两个日期当成同一含义，也不能为避免遗漏重复计入两天。
+      explanation: 工时属于窗口日，不属于每张工单。两天各计一次，合计12人时；190重复累计，6是日均而非总量，7漏掉第二天。应按窗口编号与日期核对，不用工单数放大排班量。

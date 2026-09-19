@@ -10,14 +10,14 @@ items:
   tutor_context: 用调查登记说明未受邀、受邀无回答、未匹配记录的区别，再计算邀请率与受邀者回答率。
   pair:
     a:
-      prompt: 目标200张工单中120张受邀，60张回答。受邀者回答率是多少？
+      prompt: 目标200张工单中120张受邀，其中60张回答。受邀者回答率是多少？
       options:
       - id: A
         text: 60÷120＝50%
         misconception: null
       - id: B
-        text: (120−60)÷200＝30%
-        misconception: nonresponse-over-target
+        text: 60÷(200−120)＝75%
+        misconception: uninvited-denominator
       - id: C
         text: 60÷200＝30%
         misconception: all-target-denominator
@@ -25,9 +25,9 @@ items:
         text: 120÷200＝60%
         misconception: invitation-rate
       answer: A
-      explanation: 受邀者回答率的分母是收到邀请的120张，分子为60张回答。30%也可能表示全部目标中有评价的比例；60%则是邀请率，不能混称。
+      explanation: 受邀者回答率的分母是收到邀请的120张，分子为其中60张回答。30%是全部目标中有评价的比例，60%是邀请率；75%误用了未受邀的80张作分母。这些分母不能互换。
     b:
-      prompt: 三张工单评分都为空：甲已匹配调查登记且invited=0；乙已匹配且invited=1；丙没有匹配到调查登记。应怎样分类？
+      prompt: 邀请字段invited中0表示未受邀、1表示受邀。三张工单评分都为空：甲已匹配调查登记且invited=0；乙已匹配且invited=1；丙没有匹配到调查登记。应怎样分类？
       options:
       - id: A
         text: 三张都属于受邀无回答

@@ -179,8 +179,8 @@ CALCULATIONS = [
     (3, "purpose-denominator", "a", lambda: 100-2, 98, "98张"),
     (3, "selection-cleaning", "a", lambda: (F(80,100),F(54,60)), (F(4,5),F(9,10)), "80%描述全部工单，90%描述所选60张"),
     (4, "iqr-robustness", "a", lambda: 5-5, 0, "两个四分位数相等"),
-    (4, "composite", "b", lambda: F(3+4-2,10), F(1,2), "5÷10＝50%"),
-    (4, "goal-metric", "a", lambda: (100*5,50*8), (500,400), "甲为500分钟，乙为400分钟"),
+    (4, "composite", "b", lambda: F(12*60,600), F(12,10), "秒数÷600"),
+    (4, "goal-metric", "a", lambda: F(3+4-2,10), F(1,2), "5÷10＝50%"),
     (4, "goal-metric", "b", lambda: (F(sum(v>15 for v in [15,15,16]+[5]*7),10)>F(1,10)), False, "10%，没有触发"),
     (5, "ecdf", "b", lambda: F(sum(v<=20 for v in [10,20,20,50]),4), F(3,4), "3÷4＝75%"),
     (5, "capacity-ties", "a", lambda: 10-8, 2, "最多再选2台"),
@@ -190,6 +190,7 @@ CALCULATIONS = [
     (5, "fnr", "a", lambda: F(10-7,10), F(3,10), "3÷10＝30%"),
     (5, "fnr", "b", lambda: F(2,3+2), F(2,5), "2÷5＝40%"),
     (5, "loss-action", "a", lambda: 100+100*(1-F(85,100))+2*2, F(119), "119个成本单位"),
+    (5, "loss-action", "b", lambda: (200+40,2*60+40), (240,160), "160，低于甲的240"),
     (6, "marginal", "a", lambda: F(8+50,10+100), F(29,55), "58÷110"),
     (6, "marginal", "b", lambda: F(80+60,100+300), F(7,20), "＝35%"),
     (6, "standardization", "b", lambda: F(4,10)*F(9,10)+F(6,10)*F(7,10), F(39,50), "78%"),
@@ -200,11 +201,11 @@ CALCULATIONS = [
     (7, "bounds", "a", lambda: (F(30,100),F(30+60,100)), (F(3,10),F(9,10)), "30%至90%"),
     (7, "bounds", "b", lambda: (200*F(7,10)-60)/100, F(4,5), "80%"),
     (8, "cardinality", "a", lambda: 200+50, 250, "追加为250张"),
-    (8, "cardinality", "b", lambda: 3*4, 12, "12行"),
     (8, "duplication", "a", lambda: (F(4+4+16,3), F(4+16,2)), (F(8),F(10)), "工单权重改变"),
     (8, "duplication", "b", lambda: 100+100, 200, "得到200元"),
     (8, "unmatched", "b", lambda: 8+8, 16, "16人时"),
     (8, "reconciliation", "a", lambda: 2*4-1, 7, "＝7人时"),
+    (8, "reconciliation", "b", lambda: 7+5, 12, "12人时"),
 ]
 
 

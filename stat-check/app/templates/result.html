@@ -13,14 +13,28 @@
     <div class="section-heading">
       <span class="eyebrow">本课学习反馈</span>
       <h1>核对答案，复习仍有疑问的概念。</h1>
-      <p>A、B 两次练习帮助你检查概念理解，结果只作学习反馈。没有作答的题目显示为“未完成”。</p>
+      <p>A、B 两次练习帮助你检查概念理解，结果只作学习反馈。没有作答的题目显示为“未完成”。展开各版题目可以查看原题、自己的选择和解析。</p>
     </div>
     <div class="result-list">
       {% for result in results %}
         <article class="result-row">
           <div>
             <h2>{{ result.title }}</h2>
-            <p>{{ result.explanation }}</p>
+            {% for phase in ("a", "b") %}
+              {% set question = result.questions[phase] %}
+              {% set response = result[phase] %}
+              <details{% if response and not response.correct %} open{% endif %}>
+                <summary>{{ phase|upper }} 版题目与解析</summary>
+                <p>{{ question.prompt }}</p>
+                <ol type="A">
+                  {% for option in question.options %}
+                    <li>{{ option.text }}</li>
+                  {% endfor %}
+                </ol>
+                <p>你的选择：{% if response %}{{ response.option_id }}{% else %}未作答{% endif %}；参考答案：{{ question.answer }}</p>
+                <p>{{ question.explanation }}</p>
+              </details>
+            {% endfor %}
           </div>
           <div class="result-badges">
             <span class="{% if result.a and result.a.correct %}correct{% elif result.a %}incorrect{% endif %}">A：{% if not result.a %}未完成{% elif result.a.correct %}正确{% else %}需复习{% endif %}</span>
