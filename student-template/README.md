@@ -39,7 +39,7 @@ git remote add course-release \
 
 如果提示 `course-release already exists`，说明已经设置过，不要重复添加。
 
-如果你的私有仓库是在同步工具发布前创建的，先升级一次工具：
+如果教师通知了工具更新，先保存并提交本地修改，再按下面步骤更新。若你曾自行修改 `scripts/course.py`，先向教师说明，不要直接覆盖：
 
 ```bash
 git fetch course-release main
@@ -55,7 +55,7 @@ git push
 python scripts/course.py sync
 ```
 
-工具只会新增本地没有的 `lesson-XX` 目录；已经存在的课次会跳过，不会覆盖你的代码、报告或结果。同步后检查暂存内容，再提交：
+工具会新增本地没有的 `lesson-XX` 目录；已经存在的课次会跳过，不会覆盖你的代码、报告或结果。当前版本还会补齐本地缺少的 `docs/READING_GUIDE.md`，前提是发布仓库已经提供该指南。已有指南和其他共用文件不会自动覆盖；`sync` 也不会更新工具自身。同步后检查暂存内容，再提交：
 
 ```bash
 git diff --cached
