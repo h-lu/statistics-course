@@ -24,6 +24,14 @@ def parse_wait(raw_value, unit):
     return (value / 60 if unit == "second" else value), None
 
 
+def parse_binary(raw_value, name):
+    """Keep missing and invalid source states distinguishable; neither is zero."""
+    text = "" if raw_value is None else str(raw_value).strip()
+    if text in ("0", "1"):
+        return int(text), None
+    return None, ("missing_" if not text else "invalid_") + name
+
+
 def clean(root):
     raw = u.read(root, "service/tickets_raw.csv")
     windows = u.keyed(u.read(root, "service/windows.csv"), "window_id")
@@ -64,12 +72,9 @@ def clean(root):
             flags.append("unknown_window")
         if r["business_code"] not in business:
             flags.append("unknown_business")
-        completed = int(r["completed_same_day"]) if r.get("completed_same_day") in ("0", "1") else None
-        if completed is None:
-            flags.append("missing_completion")
-        abandon = int(r["abandoned"]) if r.get("abandoned") in ("0", "1") else None
-        if abandon is None:
-            flags.append("missing_abandonment")
+        completed, completion_flag = parse_binary(r.get("completed_same_day"), "completion")
+        abandon, abandonment_flag = parse_binary(r.get("abandoned"), "abandonment")
+        flags.extend(flag for flag in (completion_flag, abandonment_flag) if flag is not None)
         counts.update(flags)
         result.append({**r, "wait": wait, "center": center, "completed": completed,
                        "abandon": abandon, "quality_flags": flags})
@@ -82,6 +87,10 @@ def clean(root):
 def build_result(rows, audit):
     valid_wait = [r for r in rows if r["wait"] is not None and r["abandon"] == 0]
     valid_completion = [r for r in rows if r["completed"] is not None]
+    # Same three information requirements as the student's alternative example.
+    shared_three = [r for r in rows if r["wait"] is not None
+                    and r["completed"] is not None and r["center"] is not None]
+    # Preserve the original broader reference comparison; list its extra criteria.
     complete_case = [r for r in rows if not r["quality_flags"]]
     successes = sum(r["completed"] for r in valid_completion)
     cc_successes = sum(r["completed"] for r in complete_case)
@@ -93,6 +102,16 @@ def build_result(rows, audit):
         "served_valid_wait": u.describe([r["wait"] for r in valid_wait]),
         "completion_specific_denominator": len(valid_completion), "completion_successes": successes,
         "completion_specific_rate": u.rate(successes, len(valid_completion)),
+        "completion_required_fields": ["completed_same_day"],
+        "shared_three_information": {
+            "required_fields": ["wait_minutes", "wait_unit", "completed_same_day", "window_id"],
+            "rule": "Valid waiting measurement and unit, known completion and resolved window; no business or abandonment requirement.",
+            "n": len(shared_three),
+            "completed": sum(r["completed"] for r in shared_three),
+            "completion_rate": u.rate(sum(r["completed"] for r in shared_three), len(shared_three)),
+        },
+        "complete_case_required_fields": ["wait_minutes", "wait_unit", "completed_same_day", "window_id", "business_code", "abandoned"],
+        "complete_case_rule": "Valid wait/unit, resolved window and business, known completion and abandonment; no requirement on unrelated columns.",
         "complete_case_denominator": len(complete_case), "complete_case_successes": cc_successes,
         "complete_case_completion_rate": u.rate(cc_successes, len(complete_case)),
         "complete_case_served_wait": u.describe([r["wait"] for r in complete_case if r["abandon"] == 0]),
