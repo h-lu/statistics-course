@@ -20,7 +20,7 @@
 
 | 表 | 字段 | 含义 |
 |---|---|---|
-| tickets / tickets_raw | ticket_id；person_id | 工单主键；来访者编号。一个人可能有多张工单 |
+| tickets / tickets_raw | ticket_id；person_id | 工单编号；来访者编号。一个人可能有多张工单。整理后的工单表中，ticket_id可作主键；原始导出允许同一工单出现重复行或修订版本，须先处理 |
 | 同上 | date；arrival_period | 登记日期；上午或下午 |
 | 同上 | window_id；business_code | 窗口与业务代码，用字典连接；不从字符顺序推测高低 |
 | 同上 | appointment | 是否预约，1是、0否 |
@@ -32,7 +32,7 @@
 | 同上 | export_revision | 同工单的导出修订版本，数值较大者为更新记录；同版本完全相同的行是重复导出 |
 | satisfaction | survey_id；ticket_id | 调查登记主键；关联工单 |
 | 同上 | invited | 是否发出调查邀请，1是、0否 |
-| 同上 | score | 对本次办理体验的1—5级评价，1非常不满意，5非常满意；空白表示没有回答，不是中立或0分 |
+| 同上 | score | 对本次办理体验的1—5级评价，1非常不满意，5非常满意；空白表示没有取得评价，不是中立或0分；须结合invited区分未受邀与受邀后无回答 |
 | 同上 | response_days | 回答距邀请的天数；未回答为空 |
 | visits | contact_id；ticket_id；contact_sequence | 接触主键；所属工单；工单内第几次接触 |
 | 同上 | contact_type；contact_date；staff_minutes | 接触类型、日期、该次接触耗用的工作人员分钟数 |
@@ -41,6 +41,8 @@
 | 同上 | reference_wait_minutes | 情境中的参考等待线：常规15分钟、复杂30分钟；不是统计学规定的唯一合理阈值 |
 | staffing | date；window_id | 联合主键 |
 | 同上 | staff_count；open_hours；absence_hours | 排班人数、每人开放小时、该窗口当天合计缺勤工时；计划有效工时为人数×开放小时−缺勤工时 |
+
+评分空白时，先查看 `invited`：0表示未受邀；1表示受邀后无回答。整条调查登记未匹配、邀请字段缺失或字段取值互相矛盾时，应单列待核实，不能只凭评分空白猜测类别。
 
 ## 第二期导出说明
 
