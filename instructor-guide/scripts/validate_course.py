@@ -34,6 +34,21 @@ def local_links(path: Path, root: Path) -> list[str]:
     return errors
 
 
+def current_bank_spec(directory: Path, number: int) -> tuple[Path, str]:
+    """Select this lesson's latest installed revision, retaining other versions."""
+    pattern = re.compile(rf"^lesson-v2(?:r([1-9]\d*))?-{number:02d}\.yml$")
+    candidates = []
+    for path in directory.glob(f"lesson-v2*-{number:02d}.yml"):
+        match = pattern.fullmatch(path.name)
+        if match and path.is_file():
+            candidates.append((int(match.group(1) or 0), path))
+    if not candidates:
+        return directory / f"lesson-v2r1-{number:02d}.yml", f"v2-l{number:02d}-r1"
+    revision, path = max(candidates)
+    suffix = f"-r{revision}" if revision else ""
+    return path, f"v2-l{number:02d}{suffix}"
+
+
 def validate(student: Path, execute: bool = False) -> dict:
     errors = []
     stats = {"lessons": 0, "questions": 0, "starting_points_run": 0, "data_files": 0}
@@ -54,13 +69,13 @@ def validate(student: Path, execute: bool = False) -> dict:
                 assert meta["artifacts"] == []
             except (ValueError, KeyError, AssertionError):
                 errors.append(f"{lesson}: invalid initial manifest")
-        bank_path = banks / f"lesson-v2r1-{n:02d}.yml"
+        bank_path, expected_id = current_bank_spec(banks, n)
         if not bank_path.exists():
             errors.append(f"missing {bank_path.name}")
         else:
             try:
                 bank = yaml.safe_load(bank_path.read_text(encoding="utf-8"))
-                assert bank["lesson_id"] == f"v2-l{n:02d}-r1" and len(bank["items"]) == 5
+                assert bank["lesson_id"] == expected_id and len(bank["items"]) == 5
                 student_heading = (student / lesson / "README.md").read_text(encoding="utf-8").splitlines()[0]
                 assert bank["title"].split(" · ", 1)[1] == student_heading.split(" · ", 1)[1], "lesson title mismatch"
                 ids = [item["concept_id"] for item in bank["items"]]

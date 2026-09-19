@@ -1,0 +1,197 @@
+lesson_id: v2-l03-r2
+title: 第03课 · 业务数据质量与适用性评估
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: record-version
+  title: 重复、修订与工单编号
+  tutor_context: 用同一订单的重复导出和更新版本说明行数与对象数的区别，再区分同一顾客的多张真实订单。
+  pair:
+    a:
+      prompt: 同一工单有两行完全相同的第1版、一行第2版。数据约定版本数越大越新。工单级分析应怎样处理？
+      options:
+      - id: A
+        text: 将三行等待取平均，作为该工单最新值
+        misconception: average-versions
+      - id: B
+        text: 保留文件最末一行，不检查版本
+        misconception: file-order-as-version
+      - id: C
+        text: 按版本号保留两张工单，分别参与计算
+        misconception: versions-as-units
+      - id: D
+        text: 保留第2版，并分别记录重复导出和旧版本处理
+        misconception: null
+      answer: D
+      explanation: 这三行只描述一张工单。先识别完全重复的行，再按约定选第2版。文件顺序不保证版本新旧，版本间平均改变了定义，把两版当两张则重复计数。
+    b:
+      prompt: 同一顾客本周下了3张不同编号的真实订单。要描述订单履约比例，哪种处理合适？
+      options:
+      - id: A
+        text: 把该顾客所有订单合成一条，只记最后一次状态
+        misconception: last-status-for-all-orders
+      - id: B
+        text: 保留3张订单，分别记录是否履约
+        misconception: null
+      - id: C
+        text: 按顾客只保留首次订单
+        misconception: person-dedup-for-order-target
+      - id: D
+        text: 将顾客重复出现的订单都标成重复导出
+        misconception: repeat-person-as-duplicate
+      answer: B
+      explanation: 分析单位是订单，同一顾客的不同真实订单都应保留。按顾客去重或用最后一次状态代表全部，会改变分母和研究对象，不是清理重复导出。
+- concept_id: missing-units
+  title: 缺失编码、零值与单位
+  tutor_context: 用另设的测量字典解释先识别缺失编码、再统一单位，并比较真实零与未测量。
+  pair:
+    a:
+      prompt: 等待字段999按约定表示未测量。一条记录原值999、单位为秒，应怎样处理？
+      options:
+      - id: A
+        text: 先标记等待缺失，不把999当时间换算
+        misconception: null
+      - id: B
+        text: 删除整张工单，不再用于任何指标
+        misconception: missing-field-deletes-unit
+      - id: C
+        text: 除以60，记为有效等待16.65分钟
+        misconception: convert-sentinel
+      - id: D
+        text: 改为0分钟，保留在有效等待分母
+        misconception: missing-as-zero
+      answer: A
+      explanation: 999在这里是状态编码，不是测量值。先识别缺失，再处理其他真实时间。该工单的其他有效字段仍可能有用；是否参与某项指标，应依据该项所需字段。
+    b:
+      prompt: 库存记录为0、空白、12件；字典规定0为已盘点且无库存，空白为未盘点。只描述已盘点记录的平均库存是多少？
+      options:
+      - id: A
+        text: 12件，去掉0和空白
+        misconception: drop-valid-zero
+      - id: B
+        text: 6件，并据此称3条记录全部已经盘点
+        misconception: observed-subset-as-complete
+      - id: C
+        text: 6件，采用2条已盘点记录
+        misconception: null
+      - id: D
+        text: 4件，把空白按0计入3条记录
+        misconception: unknown-as-zero
+      answer: C
+      explanation: 已盘点的是0和12，均值(0＋12)÷2＝6件。空白不能当成0；真实零不能因拉低均值而删除。这个6只描述两条已盘点记录，不证明第三条也已盘点。
+- concept_id: outlier
+  title: 离群值与无效取值
+  tutor_context: 用长等待和不可能的测量值作对照，说明离群不等于错误，核实也不等于自行猜改。
+  pair:
+    a:
+      prompt: 一张工单等待90分钟，明显长于多数记录，但没有录入错误证据。哪种做法更合适？
+      options:
+      - id: A
+        text: 用中位数替换后作为查实的等待
+        misconception: imputation-as-correction
+      - id: B
+        text: 只因高于箱线图界限就删除
+        misconception: outlier-rule-as-error-proof
+      - id: C
+        text: 保留并查看其影响，必要时单列说明
+        misconception: null
+      - id: D
+        text: 只报告删去它后的结果，以避免极端值影响
+        misconception: selective-removal
+      answer: C
+      explanation: 长等待可能是真实且重要的经历。可以描述它并比较其影响，不能只凭极端程度判错。替换值不是已核实结果，删除后的分析也须交代理由和范围。
+    b:
+      prompt: 传感器记录的是非负长度，某值为−12厘米，且没有负数特殊编码约定。应怎样处理？
+      options:
+      - id: A
+        text: 取绝对值12厘米并称为已核实修正
+        misconception: absolute-value-as-fact
+      - id: B
+        text: 直接作为正常离群长度保留
+        misconception: invalid-as-outlier
+      - id: C
+        text: 标记违反取值范围并核实，不作为正常长度
+        misconception: null
+      - id: D
+        text: 改为0厘米，因为长度不能为负
+        misconception: invalid-as-zero
+      answer: C
+      explanation: 负长度违反本题的测量定义，与“虽大但可能真实”的离群值不同。没有来源依据时，取绝对值或改0都是猜测；应保留原值及问题记录，核实后再决定。
+- concept_id: purpose-denominator
+  title: 指标用途与有效记录
+  tutor_context: 用一张缺少不同字段的小表，分别确定办结比例、等待均值和窗口比较需要的记录。
+  pair:
+    a:
+      prompt: 100张工单中，10张缺等待，2张缺办结状态。只描述办结状态已知的工单，计算其中办结比例，分母是多少？
+      options:
+      - id: A
+        text: 98张
+        misconception: null
+      - id: B
+        text: 100张
+        misconception: unknown-status-in-denominator
+      - id: C
+        text: 88张
+        misconception: assume-disjoint-missing
+      - id: D
+        text: 90张
+        misconception: unrelated-field-denominator
+      answer: A
+      explanation: 本题只要求办结状态已知，因此分母100−2＝98。等待缺失不影响这项描述。88还额外假定两类缺失互不重叠。结果应称状态已知工单中的比例，不能隐去两张未知结果。
+    b:
+      prompt: 一张工单等待测量有效，但“是否放弃”为空。仅凭这些信息，哪种使用方式合理？
+      options:
+      - id: A
+        text: 等待有数值就证明已获得服务
+        misconception: measured-wait-as-served
+      - id: B
+        text: 可描述登记等待，但不能认定它属于已服务工单
+        misconception: null
+      - id: C
+        text: 放弃状态为空就按未放弃，纳入已服务均值
+        misconception: unknown-as-not-abandoned
+      - id: D
+        text: 因放弃状态未知，将等待改为0
+        misconception: unknown-state-as-zero-wait
+      answer: B
+      explanation: 有效等待记录仍可按其定义用于登记等待描述；服务是否获得却不确定。空状态不等于未放弃，有等待也不证明已服务，更不能因此改写已测得的时间。
+- concept_id: selection-cleaning
+  title: 完整案例、插补与适用范围
+  tutor_context: 解释完整案例相对于所需字段；用未知值插补举例，区分观察事实与带假设的估计。
+  pair:
+    a:
+      prompt: 100张工单办结状态全已知，其中80张办结。若只保留等待和窗口也完整的60张，其中54张办结，得到90%。怎样解释？
+      options:
+      - id: A
+        text: 90%说明清洗使实际办结工单增加
+        misconception: cleaning-as-outcome-change
+      - id: B
+        text: 90%说明另外40张也有90%办结
+        misconception: complete-case-generalization
+      - id: C
+        text: 90%比80%更高，所以应取代全部工单结果
+        misconception: prefer-cleaner-higher-rate
+      - id: D
+        text: 80%描述全部工单，90%描述所选60张，记录范围不同
+        misconception: null
+      answer: D
+      explanation: 80÷100＝80%，54÷60＝90%。删除不改变原先已经记录的办结结果，只改变纳入的工单。完整与否取决于所需字段，不能因为多要求字段完整就无条件替代总体描述。
+    b:
+      prompt: 把缺失等待用同业务组的平均等待插补后，报告中应怎样说明？
+      options:
+      - id: A
+        text: 这是依据组内信息作的估计，应说明假设并比较不插补的结果
+        misconception: null
+      - id: B
+        text: 空白已消失，因此全部等待都成为直接测量
+        misconception: filled-as-observed
+      - id: C
+        text: 只要重复运行数值一致，就无需解释插补假设
+        misconception: reproducibility-as-validity
+      - id: D
+        text: 填入组均值就恢复了每张工单原本的真实等待
+        misconception: mean-imputation-as-truth
+      answer: A
+      explanation: 插补利用已知信息和假设产生估计值，不能恢复已查实的个体事实。可复现只表示相同过程能重跑，还要检查插补如何影响分母、结果与适用范围。

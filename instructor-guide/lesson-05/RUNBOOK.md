@@ -18,7 +18,7 @@ python instructor-guide/lesson-05/reference.py --student-root student-template
 
 已进入 `instructor-guide` 时运行 `python lesson-05/reference.py --student-root ../student-template`。独立部署时显式替换学生仓库路径；不要依赖旧工作区目录名。程序只读数据、向标准输出写JSON，使用标准库。准备一个可运行环境和[数据说明](../../student-template/data/alerts/README.md)，不在课末排查生产服务。
 
-自查沿用 `v2-l05-r1`，不改已发布题目或历史记录。下次场次开始前保留反馈。
+新建自查使用 `v2-l05-r2`，不改已发布题目或历史记录。下次场次开始前保留反馈。
 
 ## 90分钟组织与可观察进度
 
@@ -88,7 +88,7 @@ ECDF对应阈值覆盖；分位数对应容量及并列；FPR与FNR分别对应�
 5. **合格与高质量怎样区分？** 前者完成上述论证，后者用敏感性和群体结果实质修订建议，不以数字恰好等于参考为准。
 6. **推进了什么？** 从评价指标走向资源约束下的行动，复用第4课目标取舍，衔接第6课分组比较。
 
-现行题目参见[第5课r1题库](../knowledge-check/question-bank/lesson-v2r1-05.yml)，此次只核对知识对应，不修改题目或题库ID。
+现行题目参见[第5课r2题库](../knowledge-check/question-bank/lesson-v2r2-05.yml)。旧场次保留原ID和题目；本次对应关系与核验见[r2审核记录](../knowledge-check/R2_REVIEW_01_08.md)。
 
 ## 核验记录
 

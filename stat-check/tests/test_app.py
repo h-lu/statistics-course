@@ -123,7 +123,7 @@ def test_complete_classroom_flow(tmp_path) -> None:
 def test_teacher_can_delete_unused_closed_session_but_not_used_session(tmp_path) -> None:
     database_path = tmp_path / "delete-session.sqlite3"
     teacher = make_client(database_path, "teacher", "teacher")
-    create_session(teacher, "v2-l02-r1")
+    create_session(teacher, CURRENT_BANKS[1].lesson_id)
     page = teacher.get("/stat-check/teacher")
     session_id = session_id_from(page)
     deleted = teacher.post(
@@ -134,7 +134,7 @@ def test_teacher_can_delete_unused_closed_session_but_not_used_session(tmp_path)
     assert deleted.status_code == 200
     assert f"#{session_id}" not in deleted.text
 
-    create_session(teacher, "v2-l01-r1")
+    create_session(teacher, BANK.lesson_id)
     student = make_client(database_path, "student", "student01")
     set_phase(teacher, "a")
     answer_all(student, "a")
@@ -233,10 +233,12 @@ def test_question_bank_directory_and_answer_positions() -> None:
         f"lesson-{number:02d}.yml" for number in range(1, 7)
     ] + [f"lesson-v2-{number:02d}.yml" for number in range(1, 33)] + [
         f"lesson-v2r1-{number:02d}.yml" for number in range(1, 33)
+    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)]
+    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 78
+    assert [bank.lesson_id for bank in CURRENT_BANKS] == [
+        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 33)
     ]
-    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 70
-    assert [bank.lesson_id for bank in CURRENT_BANKS] == [f"v2-l{n:02d}-r1" for n in range(1, 33)]
-    assert BANK.lesson_id == "v2-l01-r1"
+    assert BANK.lesson_id == "v2-l01-r2"
     for bank in QUESTION_BANKS:
         assert len(bank.items) == 5
         answers = Counter(
@@ -480,7 +482,9 @@ def test_refresh_markers_are_present(tmp_path) -> None:
     teacher_page = teacher.get("/stat-check/teacher")
     assert 'data-auto-reload="15000"' in teacher_page.text
     assert "新建本课自查（暂不开放）" in teacher_page.text
-    assert 'value="v2-l01-r1"' in teacher_page.text
+    assert 'value="v2-l01-r2"' in teacher_page.text
+    assert 'value="v2-l01-r1"' not in teacher_page.text
+    assert 'value="v2-l09-r1"' in teacher_page.text
     assert 'value="v2-l01"' not in teacher_page.text
     assert 'value="bootcamp-01"' not in teacher_page.text
 

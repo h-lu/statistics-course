@@ -16,7 +16,7 @@
 python instructor-guide/lesson-08/reference.py --student-root student-template
 ```
 
-在 `instructor-guide` 中运行 `python lesson-08/reference.py --student-root ../student-template`；独立部署改显式路径。标准库程序只输出JSON，不改数据。自查沿用 `v2-l08-r1`，保留历史记录。
+在 `instructor-guide` 中运行 `python lesson-08/reference.py --student-root ../student-template`；独立部署改显式路径。标准库程序只输出JSON，不改数据。新建自查使用 `v2-l08-r2`，保留历史记录。
 
 ## 90分钟组织
 
@@ -82,7 +82,7 @@ python instructor-guide/lesson-08/reference.py --student-root student-template
 
 ## 知识、自查与发布前六问
 
-现行五组自查分别为主键与联合键（`keys`）、连接基数（`cardinality`）、重复计算与隐式权重（`duplication`）、连接范围与未匹配（`unmatched`）、记录层次一致与核对（`reconciliation`）。它们分别进入键表、预期行数、指标计算、未匹配说明和总量核对。程序通过不代表推断正确。
+现行五组自查分别为主键与联合键（`keys`）、按行追加与连接基数（`cardinality`）、重复计算与隐式权重（`duplication`）、连接范围与未匹配（`unmatched`）、记录层次一致与核对（`reconciliation`）。它们分别进入键表、预期行数、指标计算、未匹配说明和总量核对。程序通过不代表推断正确。
 
 1. **使用者与用途：** 运营管理者据报告观察容量、流程和体验，并知道哪些范围不能发布。
 2. **开放选择：** 管理目标、指标、汇总层次及未匹配处置，由表的测量含义支持。
@@ -91,7 +91,7 @@ python instructor-guide/lesson-08/reference.py --student-root student-template
 5. **质量差别：** 合格完成数据整合与必要检查，高质量对新增异常和时间变化有明确处理依据。
 6. **推进与复用：** 复用L03清洗与L07分母，形成多表可复现分析流程；代表作修订聚焦一项真实统计改进。
 
-现行题目参见[第8课r1题库](../knowledge-check/question-bank/lesson-v2r1-08.yml)，此次只核对知识对应，不修改题目或题库ID。
+现行题目参见[第8课r2题库](../knowledge-check/question-bank/lesson-v2r2-08.yml)。旧场次保留原ID和题目；本次对应关系与核验见[r2审核记录](../knowledge-check/R2_REVIEW_01_08.md)。
 
 ## 核验记录
 

@@ -16,7 +16,7 @@
 python instructor-guide/lesson-07/reference.py --student-root student-template
 ```
 
-已在 `instructor-guide` 时，运行 `python lesson-07/reference.py --student-root ../student-template`。独立部署显式改路径。程序仅用标准库，输出JSON，不写学生文件。自查沿用 `v2-l07-r1`，保持历史题目和反馈。
+已在 `instructor-guide` 时，运行 `python lesson-07/reference.py --student-root ../student-template`。独立部署显式改路径。程序仅用标准库，输出JSON，不写学生文件。新建自查使用 `v2-l07-r2`，保持历史题目和反馈。
 
 ## 90分钟组织
 
@@ -68,7 +68,7 @@ python instructor-guide/lesson-07/reference.py --student-root student-template
 
 ## 知识、自查与评价
 
-五组概念为目标与回答率分母、完整案例、缺失机制、插补与调整假设、敏感性及界限；分别进入三类记录表、回答者描述、假设说明、调整结果、发布与补采建议。现行自查不增加题量或版本；下一课可用“内连接丢掉无评价工单”复习这些知识。
+五组概念为目标与回答率分母、完整案例、缺失机制、插补与调整假设、敏感性及界限；分别进入三类记录表、回答者描述、假设说明、调整结果、发布与补采建议。本次自查升级为r2但不增加题量；下一课可用“内连接丢掉无评价工单”复习这些知识。
 
 最低完成要求：各比例描述对象清楚；至少两种实质不同假设有可重算结果；检查可见经历与评价取得的关系；解释何时建议会变或提出同等价值问题；补采具体到人群、不确定性和条件。高质量体现在把两种过程、稀疏组和成本纳入优先级，并据此修改表述，而不是必须采用多重插补或把范围缩窄。
 
@@ -81,7 +81,7 @@ python instructor-guide/lesson-07/reference.py --student-root student-template
 5. **质量如何区分？** 合格有完整假设比较和建议，高质量解释决定敏感的来源并设计有针对性的补采。
 6. **推进与复用？** 复用目标、分母及敏感性，新增评价缺失下的结论范围，衔接抽样及多表连接。
 
-现行题目参见[第7课r1题库](../knowledge-check/question-bank/lesson-v2r1-07.yml)，此次只核对知识对应，不修改题目或题库ID。
+现行题目参见[第7课r2题库](../knowledge-check/question-bank/lesson-v2r2-07.yml)。旧场次保留原ID和题目；本次对应关系与核验见[r2审核记录](../knowledge-check/R2_REVIEW_01_08.md)。
 
 ## 核验记录
 

@@ -1,0 +1,197 @@
+lesson_id: v2-l06-r2
+title: 第06课 · 业务构成不同的机构应如何比较
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: marginal
+  title: 合并比例与构成权重
+  tutor_context: 用人数不同的两组演示合计分子和分母，并区分每组等权与每条记录等权。
+  pair:
+    a:
+      prompt: 同一机构两类业务的办结数/工单数为8/10和50/100。全部工单的实际办结比例是多少？
+      options:
+      - id: A
+        text: 58÷100＝58%
+        misconception: drop-small-group-denominator
+      - id: B
+        text: 58÷110，约52.73%
+        misconception: null
+      - id: C
+        text: 50÷110，约45.45%
+        misconception: drop-small-group-numerator
+      - id: D
+        text: (80%＋50%)÷2＝65%
+        misconception: equal-group-not-record-weight
+      answer: B
+      explanation: 应合计办结数8＋50＝58和工单数10＋100＝110。65%是两类比例等权平均，没有按不同工单数加权；只合计分子或只合计分母都改变了范围。
+    b:
+      prompt: 甲中心100张工单中80张复杂业务；乙中心300张中60张复杂业务。选择这400张工单的共同构成，复杂业务权重是多少？
+      options:
+      - id: A
+        text: 80÷100＝80%
+        misconception: use-one-center
+      - id: B
+        text: (80＋60)÷400＝35%
+        misconception: null
+      - id: C
+        text: (80%＋20%)÷2＝50%
+        misconception: centers-equally-weighted
+      - id: D
+        text: 60÷300＝20%
+        misconception: use-other-center
+      answer: B
+      explanation: 目标是全部400张工单，其中复杂业务140张，所以权重35%。50%让两个中心等权，并非每张工单等权；80%和20%只表示各中心自身的构成。
+- concept_id: strata
+  title: 分层比例与缺少数据的层
+  tutor_context: 用某机构没有承接一类业务的例子解释零分母，再讨论分层比较能解决和不能解决什么。
+  pair:
+    a:
+      prompt: 某中心在本期没有复杂业务工单，但目标构成给复杂业务40%的权重。怎样处理该层办结比例？
+      options:
+      - id: A
+        text: 记为0%，因为没有办结工单
+        misconception: zero-events-zero-rate
+      - id: B
+        text: 该层比例不能直接计算，需调整共同范围或说明额外估计假设
+        misconception: null
+      - id: C
+        text: 记为100%，因为没有未办结工单
+        misconception: zero-failures-perfect-rate
+      - id: D
+        text: 删去该中心的复杂层、其他中心不删，仍称共同构成
+        misconception: different-support-weights
+      answer: B
+      explanation: 没有工单就没有该层比例的分母，0%与100%都没有观察依据。若限制共同范围，须说明目标已改变，且所有中心的构成必须一致；估计缺少的层则要明确额外假设。
+    b:
+      prompt: 把两中心工单分为常规和复杂业务，再分别比较等待。哪项理解合适？
+      options:
+      - id: A
+        text: 分层后所有差异都可以归因于工作人员
+        misconception: stratification-as-causality
+      - id: B
+        text: 只要分了层，就不用再报告各层工单数
+        misconception: stratification-hides-denominators
+      - id: C
+        text: 类别名称相同就表示每张工单难度相同
+        misconception: same-label-same-difficulty
+      - id: D
+        text: 减少了这两类业务混合的影响，但同类内部仍可能不同
+        misconception: null
+      answer: D
+      explanation: 分层让比较在已记录的业务类别内进行，却不能保证内部难度、人员配置等完全一致。仍需报告层内数量和结果，并限制因果解释。
+- concept_id: standardization
+  title: 共同权重与直接标准化
+  tutor_context: 用一个目标业务构成说明直接标准化，要求各机构使用同一组非负且和为1的权重。
+  pair:
+    a:
+      prompt: 甲按自身80%复杂业务加权，乙按自身20%复杂业务加权。两组权重都合计为1，是否已作共同构成下的直接标准化？
+      options:
+      - id: A
+        text: 已完成，只需让两中心最后显示同样小数位
+        misconception: display-as-common-standard
+      - id: B
+        text: 已完成，因为各自权重都合计为1
+        misconception: normalized-but-not-common
+      - id: C
+        text: 没有，两中心仍采用不同的业务构成
+        misconception: null
+      - id: D
+        text: 已完成，因为两中心使用同一条计算公式
+        misconception: same-formula-different-target
+      answer: C
+      explanation: 权重各自和为1只是必要条件之一。共同构成比较还要求所有中心采用同一组权重。相同公式或显示精度不会让80%与20%成为相同构成。
+    b:
+      prompt: 目标业务中常规占40%、复杂占60%。某中心两层办结比例分别90%、70%。该目标构成下的标准化比例是多少？
+      options:
+      - id: A
+        text: 78%
+        misconception: null
+      - id: B
+        text: 80%
+        misconception: equal-layer-weight
+      - id: C
+        text: 82%
+        misconception: swap-layer-weight
+      - id: D
+        text: 70%
+        misconception: use-dominant-layer-only
+      answer: A
+      explanation: 按对应权重计算0.4×90%＋0.6×70%＝78%。80%给两层各一半，82%把权重交换，70%只保留复杂业务；它们都不是本题指定的共同构成。
+- concept_id: simpson
+  title: 辛普森悖论与权重敏感性
+  tutor_context: 先解释合并方向为何可能与各层相反，再用两层差值不相等的例子区分方向稳定与大小稳定。
+  pair:
+    a:
+      prompt: 甲在常规、复杂两类业务的办结比例都高于乙，但合并比例较低。应先核对什么来解释这种现象？
+      options:
+      - id: A
+        text: 只核对合并百分比的小数位
+        misconception: rounding-only
+      - id: B
+        text: 删除复杂业务后只发布常规业务结果
+        misconception: drop-inconvenient-stratum
+      - id: C
+        text: 只比较两个中心登记总数是否相同
+        misconception: total-size-only
+      - id: D
+        text: 两中心各类业务的工单数、办结数和构成
+        misconception: null
+      answer: D
+      explanation: 不同业务构成可以使合并方向与各层相反，这就是辛普森悖论的一种情形。要检查分层分子、分母和构成。总数相同仍可能构成不同，删去一层则改变了问题。
+    b:
+      prompt: 两个业务层中甲分别比乙高20和5个百分点。共同权重从各占50%，变为第一层25%、第二层75%。怎样描述加权差异？
+      options:
+      - id: A
+        text: 一直是12.5个百分点，因为两层都同向
+        misconception: same-sign-same-magnitude
+      - id: B
+        text: 从25变为25个百分点，因为直接相加层内差
+        misconception: unweighted-sum-of-differences
+      - id: C
+        text: 从12.5变为8.75个百分点，方向不变但差距缩小
+        misconception: null
+      - id: D
+        text: 从12.5变为−8.75个百分点，因为第二层权重较大
+        misconception: weight-change-forces-reversal
+      answer: C
+      explanation: 原差异0.5×20＋0.5×5＝12.5；新差异0.25×20＋0.75×5＝8.75。两层差异都为正，非负共同权重不使方向反转，但两层差值不相等，所以大小可以改变。
+- concept_id: causal-boundary
+  title: 实际比例、标准化与因果解释
+  tutor_context: 用机构调整构成后的结果举例，区分原始实际计数、共同构成比较与人员调动效果。
+  pair:
+    a:
+      prompt: 直接标准化后甲中心办结比例高于乙。仅凭这一步，能否认定把甲的员工调到乙就会提高乙的办结比例？
+      options:
+      - id: A
+        text: 能；同一组权重相当于随机分配工作人员
+        misconception: weights-as-randomization
+      - id: B
+        text: 不能；因此标准化结果也没有任何描述用途
+        misconception: no-causality-no-description
+      - id: C
+        text: 不能；共同构成比较没有单独识别调动员工的效果
+        misconception: null
+      - id: D
+        text: 能；标准化差值就是调动后的增加幅度
+        misconception: adjusted-difference-as-intervention
+      answer: C
+      explanation: 标准化对已记录的业务构成作了调整，但没有分离人员、制度和未记录难度等因素。它有描述比较的用途，却不能直接给出调人的因果效果。
+    b:
+      prompt: 某中心本期100张工单实际办结75张，共同构成下标准化比例为82%。怎样发布不混淆两者？
+      options:
+      - id: A
+        text: 实际办结75/100；另报82%并说明共同权重
+        misconception: null
+      - id: B
+        text: 把实际办结数更正为82张
+        misconception: standardized-rate-as-count
+      - id: C
+        text: 只写本期82%的工单已实际办结
+        misconception: adjusted-as-observed
+      - id: D
+        text: 将75%与82%平均，作为唯一实际办结比例
+        misconception: average-targets
+      answer: A
+      explanation: 实际比例由原始75张办结、100张工单确定，仍为75%。82%是给定共同构成下的比较值，不改写真实计数；两者平均也不对应新的实际计数。

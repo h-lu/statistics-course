@@ -324,7 +324,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
                         "title": item["title"],
                         "a": response_map.get((concept_id, "a")),
                         "b": response_map.get((concept_id, "b")),
-                        "explanation": item["pair"]["b"]["explanation"],
+                        "questions": item["pair"],
                     }
                 )
             return render(
