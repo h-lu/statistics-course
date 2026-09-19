@@ -1,0 +1,197 @@
+lesson_id: v2-l02-r2
+title: 第02课 · 分析结论对统计口径有多敏感
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: quantile
+  title: 分位数与计算约定
+  tutor_context: 用新的4个数演示线性插值，位置从1开始；再解释不同分位数算法可能得到不同结果。
+  pair:
+    a:
+      prompt: 排序值为0、10、20、30。按位置1＋(n−1)×p计算并线性插值，位置从1开始。第75百分位数是多少？
+      options:
+      - id: A
+        text: '22.5'
+        misconception: null
+      - id: B
+        text: '20'
+        misconception: nearest-rank-not-specified
+      - id: C
+        text: '25'
+        misconception: midpoint-not-interpolation
+      - id: D
+        text: '30'
+        misconception: round-position-up
+      answer: A
+      explanation: n＝4、p＝0.75，位置为3.25。从第3个数20向第4个数30走四分之一，得到22.5。直接取第3或第4个数、取两数中点，都不是本题给定的插值。
+    b:
+      prompt: 同一小样本在两个软件中得到不同的第90百分位数。尚不清楚默认设置，第一步应检查什么？
+      options:
+      - id: A
+        text: 以更接近最大值的结果为准，再统一报告
+        misconception: largest-quantile-preference
+      - id: B
+        text: 先把两个结果平均，作为统一的第90百分位数
+        misconception: average-incompatible-estimates
+      - id: C
+        text: 只统一显示的小数位，不再检查计算方法
+        misconception: rounding-hides-method
+      - id: D
+        text: 核对纳入记录、缺失处理和分位数算法
+        misconception: null
+      answer: D
+      explanation: 不同纳入规则或合法的分位数算法都可能造成差异。先确认是否在算同一批记录、采用同一约定；靠最大值、平均两个输出或统一显示精度不能确定差异来源。
+- concept_id: dispersion
+  title: 离散程度与单位
+  tutor_context: 用平移和单位换算举例，区分均值的变化与标准差、四分位距的变化。
+  pair:
+    a:
+      prompt: 同一组等待记录每个值都增加5分钟，采用相同算法。均值和标准差怎样变化？
+      options:
+      - id: A
+        text: 均值增加5分钟，标准差不变
+        misconception: null
+      - id: B
+        text: 均值和标准差都增加5分钟
+        misconception: translation-changes-spread
+      - id: C
+        text: 均值增加5分钟，标准差乘5
+        misconception: translation-as-scaling
+      - id: D
+        text: 均值不变，标准差增加5分钟
+        misconception: swap-location-spread
+      answer: A
+      explanation: 每条记录与新均值的差距没有改变，因此标准差不变。整体增加5是平移，不是将数值乘5；均值则随每条记录一起增加5。
+    b:
+      prompt: 将所有等待从分钟换成秒。原标准差为2分钟，四分位距为3分钟，换算后分别是多少？
+      options:
+      - id: A
+        text: 7200秒和10800秒
+        misconception: square-scale-for-spread
+      - id: B
+        text: 2秒和3秒
+        misconception: rename-unit-only
+      - id: C
+        text: 120秒和3秒
+        misconception: scale-only-standard-deviation
+      - id: D
+        text: 120秒和180秒
+        misconception: null
+      answer: D
+      explanation: 1分钟＝60秒，两种离散程度都与原变量同单位，所以分别乘60。只改单位名称会改变实际大小；乘60的平方也不适用于标准差或四分位距。
+- concept_id: definition
+  title: 统计口径与研究问题
+  tutor_context: 用平均数、中位数及纳入范围的例子，练习分辨换算法与换研究问题。
+  pair:
+    a:
+      prompt: 报告甲计算已服务工单的平均等待；报告乙把放弃前等待也纳入。两个均值不同，应先怎样理解？
+      options:
+      - id: A
+        text: 两个结果中较小的才代表真实服务速度
+        misconception: prefer-favorable-estimate
+      - id: B
+        text: 只要单位同为分钟，两个均值就回答同一问题
+        misconception: same-unit-same-target
+      - id: C
+        text: 纳入对象和等待终点不同，需要分别解释
+        misconception: null
+      - id: D
+        text: 记录更多的乙可以直接替代甲的已服务等待
+        misconception: more-records-same-target
+      answer: C
+      explanation: 单位相同不保证研究对象和经历相同。甲描述获得服务前的等待，乙还包含放弃离开的经历。先说明范围，才能判断差异对原结论有什么意义。
+    b:
+      prompt: 两组收入的均值相同，但甲组中位数更低。原报告只说“两组均值相同”。应怎样修订？
+      options:
+      - id: A
+        text: 将均值与中位数平均后代替两种结果
+        misconception: average-different-targets
+      - id: B
+        text: 用中位数较低证明原均值结论算错
+        misconception: different-statistic-as-refutation
+      - id: C
+        text: 保留均值结论，补充中位数差异及其含义
+        misconception: null
+      - id: D
+        text: 把原结论扩大为两组每户收入都相同
+        misconception: equal-mean-equal-individuals
+      answer: C
+      explanation: 均值和中位数描述不同特征，两个结论可以同时成立。需要补充收入分布的信息，而不是把中位数当作对均值的重复估计，或用两者平均抹去差异。
+- concept_id: sensitivity
+  title: 有依据的敏感性分析
+  tutor_context: 解释怎样根据研究问题选择替代口径，并说明没有排名反转也可能有价值。
+  pair:
+    a:
+      prompt: 两个中心复杂业务占比不同，初步比较发现平均等待有差异。要检查业务构成这项解释，哪种比较最有针对性？
+      options:
+      - id: A
+        text: 在同一批数据上重复运行原程序
+        misconception: repeatability-not-sensitivity
+      - id: B
+        text: 只增加均值的小数位，再比较差异
+        misconception: precision-as-new-evidence
+      - id: C
+        text: 只删除初步结果中等待最长的一天
+        misconception: outcome-driven-exclusion
+      - id: D
+        text: 分别比较两中心同类业务的等待
+        misconception: null
+      answer: D
+      explanation: 构成解释对应的是不同业务的混合，应在同类业务内核对。重复运行主要检查可复现性；显示精度和按结果删日期不能直接检验构成解释。分层后仍要说明其他局限。
+    b:
+      prompt: 基准与两种有理由的替代口径下，甲减乙的等待均值差为4、2、1分钟。哪项总结合适？
+      options:
+      - id: A
+        text: 只保留4分钟，因为它最突出原结论
+        misconception: select-largest-effect
+      - id: B
+        text: 没有方向反转，说明敏感性分析没有结果
+        misconception: must-reverse
+      - id: C
+        text: 这三种口径下方向一致，但差距大小有变化
+        misconception: null
+      - id: D
+        text: 方向一致，说明任何口径下都一定如此
+        misconception: finite-checks-universal-proof
+      answer: C
+      explanation: 已经检查的三种口径均为正，方向一致；4到1分钟的变化仍可能影响建议。不能推广为对所有口径的证明，也不应只挑一个结果或强行寻找反转。
+- concept_id: exploration
+  title: 探索与后续评价
+  tutor_context: 用先发现再核实的例子，区分同一批数据中的探索与未参与选择的新数据评价。
+  pair:
+    a:
+      prompt: 在同一批记录中比较20种分组，选出差异最大的一组，再重算该组。怎样说明证据性质？
+      options:
+      - id: A
+        text: 只要不改原始记录，选组就不会影响结论
+        misconception: selection-ignored
+      - id: B
+        text: 这是同批数据上的探索，应说明选择过程
+        misconception: null
+      - id: C
+        text: 第二次计算已构成独立验证
+        misconception: rerun-as-validation
+      - id: D
+        text: 比较组数越多，选中的差异越能代表未来
+        misconception: search-as-generalization
+      answer: B
+      explanation: 重算仍使用帮助选择这组的数据，没有提供独立的新观察。可以报告发现和选择依据，但不能把再次计算称作独立确认；保持原始数据不变也不能消除选择影响。
+    b:
+      prompt: 分析方案用前期资料确定后不再调整，再用于未参与选方案的后期资料。哪句话准确？
+      options:
+      - id: A
+        text: 后期结果较差时应先改方案，再仍称其独立评价
+        misconception: reuse-holdout-for-selection
+      - id: B
+        text: 后期结果提供新时期的表现证据，仍需说明适用范围
+        misconception: null
+      - id: C
+        text: 后期结果保证以后每期都得到相同数值
+        misconception: future-guarantee
+      - id: D
+        text: 后期结果证明前期所有分析选择都合理
+        misconception: validation-justifies-all-choices
+      answer: B
+      explanation: 新时期评价能检查方案在未参与选择的数据上的表现，不保证未来相同，也不倒推所有前期选择正确。若据后期结果调整，应说明这是进一步探索，而非未参与选择的评价。

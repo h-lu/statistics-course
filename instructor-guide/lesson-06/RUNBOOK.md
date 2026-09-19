@@ -16,7 +16,7 @@
 python instructor-guide/lesson-06/reference.py --student-root student-template
 ```
 
-在 `instructor-guide` 中则运行 `python lesson-06/reference.py --student-root ../student-template`。独立学生仓库用显式路径；标准库即可，只输出JSON、不改原始数据。自查沿用 `v2-l06-r1`，保留反馈至下一场次。
+在 `instructor-guide` 中则运行 `python lesson-06/reference.py --student-root ../student-template`。独立学生仓库用显式路径；标准库即可，只输出JSON、不改原始数据。新建自查使用 `v2-l06-r2`，保留反馈至下一场次。
 
 ## 90分钟组织与可观察进度
 
@@ -82,7 +82,7 @@ w在0到1之间，代表共同目标业务中复杂业务比例；两式之差�
 5. **质量差别：** 完成比较是合格要求；高质量用结构性依据解释稳定范围并避免过度解读。
 6. **递进与复用：** 复用描述和敏感性工具，新增共同构成可比性，为第7课目标总体与覆盖问题准备。
 
-现行题目参见[第6课r1题库](../knowledge-check/question-bank/lesson-v2r1-06.yml)，此次只核对知识对应，不修改题目或题库ID。
+现行题目参见[第6课r2题库](../knowledge-check/question-bank/lesson-v2r2-06.yml)。旧场次保留原ID和题目；本次对应关系与核验见[r2审核记录](../knowledge-check/R2_REVIEW_01_08.md)。
 
 ## 核验记录
 

@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from pathlib import Path
+import re
 
 import yaml
 
@@ -71,16 +72,31 @@ def load_question_banks(directory: Path) -> tuple[QuestionBank, ...]:
     return banks
 
 
+V2_LESSON_ID = re.compile(r"^v2-l(\d{2})(?:-r([1-9]\d*))?$")
+
+
+def select_current_banks(banks: tuple[QuestionBank, ...]) -> tuple[QuestionBank, ...]:
+    """Choose the highest numeric revision per V2 lesson, not one global suffix.
+
+    Old banks stay in BANKS: existing sessions must retain their exact lesson_id.
+    A partial revision (e.g. L01-08 r2, L09-32 r1) still lists every lesson once.
+    """
+    latest: dict[int, tuple[int, QuestionBank]] = {}
+    for bank in banks:
+        match = V2_LESSON_ID.fullmatch(bank.lesson_id)
+        if match is None:
+            continue
+        number, revision = int(match.group(1)), int(match.group(2) or 0)
+        if not 1 <= number <= 32:
+            continue
+        if number not in latest or revision > latest[number][0]:
+            latest[number] = (revision, bank)
+    return tuple(latest[number][1] for number in sorted(latest)) or banks
+
+
 QUESTION_BANKS = load_question_banks(Path(__file__).parent / "question_bank")
 BANKS = {bank.lesson_id: bank for bank in QUESTION_BANKS}
-CURRENT_BANKS = (
-    tuple(
-        bank for bank in QUESTION_BANKS
-        if bank.lesson_id.startswith("v2-l") and bank.lesson_id.endswith("-r1")
-    )
-    or tuple(bank for bank in QUESTION_BANKS if bank.lesson_id.startswith("v2-l"))
-    or QUESTION_BANKS
-)
+CURRENT_BANKS = select_current_banks(QUESTION_BANKS)
 DEFAULT_BANK = CURRENT_BANKS[0]
 
 

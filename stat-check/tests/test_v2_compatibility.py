@@ -26,7 +26,7 @@ def test_legacy_bank_bytes_are_unchanged():
 
 def test_current_catalog_is_v2_and_legacy_lookup_survives():
     assert len(CURRENT_BANKS) == 32
-    assert DEFAULT_BANK.lesson_id == "v2-l01-r1"
+    assert DEFAULT_BANK.lesson_id == "v2-l01-r2"
     assert BANKS["bootcamp-01"].lesson_id == "bootcamp-01"
     assert BANKS["s04-grouped-comparison"].lesson_id == "s04-grouped-comparison"
     assert BANKS["v2-l01"].lesson_id == "v2-l01"
@@ -51,7 +51,7 @@ def test_language_revision_preserves_question_structure_and_answer_keys():
                 assert old.question(concept, phase)["answer"] == revised.question(concept, phase)["answer"]
 
 
-@pytest.mark.parametrize("old_id", ["bootcamp-01", "v2-l01"])
+@pytest.mark.parametrize("old_id", ["bootcamp-01", "v2-l01", "v2-l01-r1", "v2-l08-r1"])
 def test_initialization_preserves_existing_legacy_responses(tmp_path, old_id):
     path = str(tmp_path / "legacy.sqlite3")
     old = BANKS[old_id]
@@ -69,3 +69,13 @@ def test_initialization_preserves_existing_legacy_responses(tmp_path, old_id):
     assert new["id"] != session["id"]
     assert db.get_session(path, session["id"])["lesson_id"] == old.lesson_id
     assert len(db.responses_for_user(path, session["id"], user["id"])) == 1
+
+
+def test_published_first_eight_r1_bank_bytes_are_unchanged():
+    directory = Path(__file__).parents[1] / "app/question_bank"
+    expected = json.loads(Path(__file__).with_name("published_r1_01_08_git_hashes.json").read_text())
+    assert len(expected) == 8
+    for name, digest in expected.items():
+        content = (directory / name).read_bytes()
+        git_blob = f"blob {len(content)}\0".encode() + content
+        assert hashlib.sha1(git_blob).hexdigest() == digest

@@ -1,0 +1,197 @@
+lesson_id: v2-l01-r2
+title: 第01课 · 服务数据的探索性分析
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: unit
+  title: 观测单位与分析单位
+  tutor_context: 用订单与顾客举新例子，解释每张订单的平均金额与每位顾客的累计金额怎样计算，再让我判断分母。
+  pair:
+    a:
+      prompt: 本期有3张工单：甲等待2分钟和6分钟，乙等待10分钟。要计算这两位来访者每人的累计等待均值，应采用哪种计算？
+      options:
+      - id: A
+        text: (2＋6＋10)÷3＝6分钟
+        misconception: ticket-instead-of-person
+      - id: B
+        text: (2＋6＋10)÷2＝9分钟
+        misconception: null
+      - id: C
+        text: (2＋10)÷2＝6分钟
+        misconception: discard-real-repeat-visits
+      - id: D
+        text: 先算甲平均4分钟，再与乙平均，得7分钟
+        misconception: person-mean-instead-of-total
+      answer: B
+      explanation: 累计等待要保留每人本期全部工单。甲累计8分钟，乙累计10分钟，两人平均9分钟。除以3得到每张工单均值；只留首张会漏掉真实经历；先算每人的工单均值则换了研究问题。
+    b:
+      prompt: 借阅表每行是一笔借阅记录，同一读者可出现多次。现要比较每位读者本月借阅的总册数。哪种处理符合目标？
+      options:
+      - id: A
+        text: 按读者汇总各次借阅册数，再以读者为单位比较
+        misconception: null
+      - id: B
+        text: 每位读者只留第一次借阅，再比较册数
+        misconception: dedup-real-events
+      - id: C
+        text: 把全部借阅册数除以借阅次数，称为人均总册数
+        misconception: event-denominator
+      - id: D
+        text: 直接比较原表每行册数，称为每位读者总册数
+        misconception: event-as-person
+      answer: A
+      explanation: 原表观测单位是一次借阅，目标分析单位是读者。每人总册数需要汇总其全部借阅。每次借阅的均值、首次借阅册数都不能替代每人累计册数。
+- concept_id: variable-type
+  title: 变量类型与编码含义
+  tutor_context: 用交通方式编码和满意度等级区分分类变量、有序分类变量与数值变量；解释数字外观为什么不能决定变量类型。
+  pair:
+    a:
+      prompt: 问卷用1—5表示从非常不满意到非常满意。只根据这项编码，哪种解释有依据？
+      options:
+      - id: A
+        text: 等级有高低，但相邻等级的满意程度差距未必相等
+        misconception: null
+      - id: B
+        text: 4分表示满意程度是2分的两倍
+        misconception: ordinal-as-ratio
+      - id: C
+        text: 从1分到2分与从4分到5分的改善程度相同
+        misconception: ordinal-equal-spacing
+      - id: D
+        text: 计算出平均分后，就证明等级间距相等
+        misconception: mean-proves-measurement
+      answer: A
+      explanation: 编码规定了次序，没有规定实际感受的等间距或倍数关系。可以按等级统计比例；使用平均评分时需说明解释，算出均值本身不会证明测量尺度等间距。
+    b:
+      prompt: 三家仓库分别用101、102、103作编号。要描述各仓库接收的订单构成，哪种做法合适？
+      options:
+      - id: A
+        text: 用103减101，解释两仓库容量差
+        misconception: code-distance
+      - id: B
+        text: 按编号从大到小，解释仓库接单能力高低
+        misconception: code-order
+      - id: C
+        text: 计算平均仓库编号，作为典型仓库规模
+        misconception: category-mean
+      - id: D
+        text: 按仓库编号分组，统计订单数和比例
+        misconception: null
+      answer: D
+      explanation: 编号是分类标签，按编号分组有意义；编号的均值、差值和大小不能说明规模或能力。订单数是另外统计的数量，不是编号自带的属性。
+- concept_id: location
+  title: 均值、中位数与记录范围
+  tutor_context: 用含一次长等待的小数据解释均值和中位数，再区分全部登记与已服务记录的分母。
+  pair:
+    a:
+      prompt: 五次配送用时为2、4、6、8、30分钟。只把最后一次改为80分钟，哪些统计量会怎样变化？
+      options:
+      - id: A
+        text: 均值与中位数都增加10分钟
+        misconception: all-location-measures-shift
+      - id: B
+        text: 均值从10变为20分钟，中位数仍为6分钟
+        misconception: null
+      - id: C
+        text: 均值增加50分钟，中位数仍为6分钟
+        misconception: sum-change-as-mean-change
+      - id: D
+        text: 均值仍为10分钟，中位数增加50分钟
+        misconception: swap-mean-median
+      answer: B
+      explanation: 总和增加50分钟，5次记录的均值增加50÷5＝10分钟。排序中间的第3个数仍为6。均值描述总量平均，中位数不一定随最大值改变。
+    b:
+      prompt: 5张工单等待为2、4、6、8、30分钟；最后一张等待30分钟后放弃，前4张获得服务。哪句话准确描述已服务工单？
+      options:
+      - id: A
+        text: 4张已服务工单平均等待4分钟，另有1张放弃
+        misconception: served-sum-all-denominator
+      - id: B
+        text: 5张工单都在平均10分钟后获得服务
+        misconception: abandoned-as-served
+      - id: C
+        text: 4张已服务工单平均等待5分钟，另有1张放弃
+        misconception: null
+      - id: D
+        text: 4张已服务工单平均等待12.5分钟，另有1张放弃
+        misconception: all-sum-served-denominator
+      answer: C
+      explanation: 已服务等待合计20分钟，分母是4，均值5分钟。全部50分钟中含放弃前等待；它既不能算入已服务等待总和，也不能被解释为获得服务所需的时间。
+- concept_id: population
+  title: 记录范围与目标总体
+  tutor_context: 用登记系统未覆盖某些人的例子，解释完整记录、目标总体与随机样本的区别。
+  pair:
+    a:
+      prompt: 资料包含某月所有已取号工单，但没有未取号离开者的记录。仅用这些资料，报告应把描述范围写成什么？
+      options:
+      - id: A
+        text: 该月所有来访者，包括未取号离开者
+        misconception: uncovered-population
+      - id: B
+        text: 该月所有居民，因为取号者来自居民
+        misconception: source-population
+      - id: C
+        text: 该月已取号的工单
+        misconception: null
+      - id: D
+        text: 全年全部工单，因为系统记录完整
+        misconception: time-extrapolation
+      answer: C
+      explanation: 完整指已取号工单在这个月的记录完整，不表示覆盖所有来访者、全年或所有居民。报告可描述实际记录范围；扩大结论范围需要另有依据。
+    b:
+      prompt: 平台有1万名用户，其中2千人自愿回答体验问卷。哪项说明能保留已有信息，又不过度推广？
+      options:
+      - id: A
+        text: 将百分比乘以1万，就得到全体用户实际人数
+        misconception: scale-up-as-observed-count
+      - id: B
+        text: 可以描述这2千名回答者；全体用户的情况还需考虑未回答者
+        misconception: null
+      - id: C
+        text: 2千人已很多，可以直接作为全体用户的随机样本
+        misconception: large-volunteer-random
+      - id: D
+        text: 有未回答者，就连回答者的体验比例也不能计算
+        misconception: missing-invalidates-description
+      answer: B
+      explanation: 已有答案可以描述回答者。回答人数多不改变自愿参加的方式，也不能直接恢复未回答者的体验；扩大人数只能是带依据的估计，不能称为已观察事实。
+- concept_id: description-cause
+  title: 描述差异与因果解释
+  tutor_context: 换一个自愿选择服务方式的例子，区分观察差异、可能解释与尚待验证的改进措施。
+  pair:
+    a:
+      prompt: 来访者自行选择是否预约。记录显示预约工单平均等待较短。仅凭这些记录，哪项结论最合适？
+      options:
+      - id: A
+        text: 两组记录数足够多，就不必考虑选择差异
+        misconception: sample-size-removes-confounding
+      - id: B
+        text: 应把差异归因于预约者更守时
+        misconception: unmeasured-cause-as-fact
+      - id: C
+        text: 差值就是每个人改为预约后能减少的等待
+        misconception: association-as-individual-effect
+      - id: D
+        text: 预约状态与等待有差异，还需核查业务类型等因素
+        misconception: null
+      answer: D
+      explanation: 预约者可能在业务、时间等方面不同。记录支持描述关联，却没有单独比较同样条件下预约与不预约的效果；可能原因应作为核查线索，而不是已经证实的解释。
+    b:
+      prompt: 商店在客流较大时增派收银员。资料显示，增派人员的日期排队更久。怎样解释更稳妥？
+      options:
+      - id: A
+        text: 客流可能同时影响增员和排队，不能仅据此认定增员使排队变长
+        misconception: null
+      - id: B
+        text: 用两类日期的均值差，直接估计撤掉增员后的改善
+        misconception: reverse-causal-policy
+      - id: C
+        text: 把记录改按周汇总，就可以把差异归因于增员
+        misconception: aggregation-as-identification
+      - id: D
+        text: 只按是否增员分组，就已经消除了客流差异
+        misconception: grouping-as-control
+      answer: A
+      explanation: 增员可能是应对繁忙的行动，繁忙本身也会延长排队。分组或改汇总单位不会自动排除这种解释。应保留描述，并核查需求和安排，不能直接建议据此撤员。

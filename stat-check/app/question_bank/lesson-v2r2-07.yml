@@ -1,0 +1,197 @@
+lesson_id: v2-l07-r2
+title: 第07课 · 满意度调查的覆盖与无回答问题
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: response-denominator
+  title: 邀请、无回答与比例分母
+  tutor_context: 用调查登记说明未受邀、受邀无回答、未匹配记录的区别，再计算邀请率与受邀者回答率。
+  pair:
+    a:
+      prompt: 目标200张工单中120张受邀，60张回答。受邀者回答率是多少？
+      options:
+      - id: A
+        text: 60÷120＝50%
+        misconception: null
+      - id: B
+        text: (120−60)÷200＝30%
+        misconception: nonresponse-over-target
+      - id: C
+        text: 60÷200＝30%
+        misconception: all-target-denominator
+      - id: D
+        text: 120÷200＝60%
+        misconception: invitation-rate
+      answer: A
+      explanation: 受邀者回答率的分母是收到邀请的120张，分子为60张回答。30%也可能表示全部目标中有评价的比例；60%则是邀请率，不能混称。
+    b:
+      prompt: 三张工单评分都为空：甲已匹配调查登记且invited=0；乙已匹配且invited=1；丙没有匹配到调查登记。应怎样分类？
+      options:
+      - id: A
+        text: 三张都属于受邀无回答
+        misconception: blank-score-as-nonresponse
+      - id: B
+        text: 甲未受邀，乙受邀无回答，丙邀请情况待核实
+        misconception: null
+      - id: C
+        text: 甲和丙都未受邀，乙受邀无回答
+        misconception: unmatched-as-uninvited
+      - id: D
+        text: 甲未受邀，乙不满意，丙受邀无回答
+        misconception: unknown-rating-as-negative
+      answer: B
+      explanation: 先确认调查登记，再看邀请字段。invited=0为未受邀；=1且无评分为受邀无回答。丙缺整条登记，不能猜是否受邀；评分空白也不是不满意。
+- concept_id: complete-cases
+  title: 回答者描述与全体推断
+  tutor_context: 用回答覆盖不同的两组说明，相同回答者满意比例不足以确定全体满意比例相同。
+  pair:
+    a:
+      prompt: 目标120张工单中60张有评价，其中48张满意。没有其他评分信息，哪项属于直接由已有评价得到的描述？
+      options:
+      - id: A
+        text: 有60张没评价，因此48/60也不能计算
+        misconception: missing-invalidates-known-ratio
+      - id: B
+        text: 全部120张的满意比例为80%
+        misconception: respondents-as-population
+      - id: C
+        text: 有评价的60张中，满意比例为80%
+        misconception: null
+      - id: D
+        text: 全部120张实际只有40%满意
+        misconception: lower-bound-as-point-truth
+      answer: C
+      explanation: 48÷60＝80%直接描述回答者。48÷120＝40%是已知满意占目标的比例，在这个信息条件下可作全体满意比例下界，但不能称实际全体比例已确定；未知部分仍可能满意。
+    b:
+      prompt: 两组回答者的满意比例都是80%，但一组只取得20%工单的评价，另一组取得90%。能否确定两组全体满意比例相同？
+      options:
+      - id: A
+        text: 能；分别用80%乘各组工单数就确定了全体满意人数
+        misconception: scaling-as-observation
+      - id: B
+        text: 不能；两组未知部分的比例和满意情况仍可能不同
+        misconception: null
+      - id: C
+        text: 能；回答者满意比例相同就足够
+        misconception: same-observed-rate-same-population
+      - id: D
+        text: 不能；回答覆盖低的组全体一定更不满意
+        misconception: missingness-proves-direction
+      answer: B
+      explanation: 相同的回答者结果不能确定未知部分的结果。覆盖低也不自动表示更不满意；将80%推广给全部工单，需要代表性等额外依据，而非简单乘法就能证明。
+- concept_id: missing-mechanism
+  title: 缺失机制与分析假设
+  tutor_context: 解释随机缺失中的“给定已观察信息”，用不同情境比较完全随机缺失、随机缺失与非随机缺失；不把诊断当证明。
+  pair:
+    a:
+      prompt: 即使在同业务、相近等待的工单中，越不满意者仍越不愿回答。相对于这些已观察信息，这对应哪种可能情况？
+      options:
+      - id: A
+        text: 随机缺失：记录了业务和等待就足以保证
+        misconception: covariates-guarantee-mar
+      - id: B
+        text: 完全随机缺失：有人回答、有人不答就是随机
+        misconception: randomness-as-mcar
+      - id: C
+        text: 非随机缺失：是否回答仍与未取得的评分有关
+        misconception: null
+      - id: D
+        text: 没有缺失问题：未回答已经表达了不满意
+        misconception: nonresponse-as-known-rating
+      answer: C
+      explanation: 控制已观察信息后，回答仍依赖未取得的满意结果，符合非随机缺失的含义。记录了业务和等待信息不保证随机缺失成立，未回答也不等于观察到了不满意评分。
+    b:
+      prompt: 已有特征比较不能确定真实缺失机制，下一步怎样做更合理？
+      options:
+      - id: A
+        text: 声明不同的缺失评价假设，计算结果并保留这些使用条件
+        misconception: null
+      - id: B
+        text: 只报告回答者比例，却将标题写成全体满意比例
+        misconception: scope-change-without-assumption
+      - id: C
+        text: 把未知机制直接命名为随机缺失，不再比较假设
+        misconception: assume-mar-without-analysis
+      - id: D
+        text: 必须先证明缺失完全随机，才能开展任何分析
+        misconception: mechanism-proof-as-entry
+      answer: A
+      explanation: 本课不要求先识别真实机制才能分析。可以给出未知结果的范围或不同假设下的估计，并说明何时建议改变。无法验证的假设仍是使用条件，不能用改名称或标题跳过。
+- concept_id: imputation
+  title: 分组调整与插补假设
+  tutor_context: 用两组目标人数和回答人数不同的例子演示目标权重；再解释没有任何回答的组为何不能直接算组内满意比例。
+  pair:
+    a:
+      prompt: 目标100张工单：甲类40张，其中10张回答、8张满意；乙类60张，其中30张回答、18张满意。假设各类回答者能代表该类全部工单，调整后全体满意比例是多少？
+      options:
+      - id: A
+        text: (8＋18)÷(10＋30)＝65%
+        misconception: respondent-weight-instead-of-target
+      - id: B
+        text: 40%×80%＋60%×60%＝68%
+        misconception: null
+      - id: C
+        text: (8＋18)÷100＝26%
+        misconception: missing-as-unsatisfied
+      - id: D
+        text: (80%＋60%)÷2＝70%
+        misconception: equal-groups-instead-of-target
+      answer: B
+      explanation: 甲类回答者满意80%，乙类60%；应按目标构成40%和60%加权得68%。65%仍是回答者比例，70%让两类等权，26%只算已知满意。68%依赖题设代表性假设，不是新观察事实。
+    b:
+      prompt: 某类目标工单没有任何评价。软件用其他类别预测出该类满意比例，怎样说明这项结果？
+      options:
+      - id: A
+        text: 该类没有满意回答，直接记满意比例为0%
+        misconception: zero-responses-as-zero-rate
+      - id: B
+        text: 软件返回数值，说明跨组外推条件已验证
+        misconception: output-proves-assumption
+      - id: C
+        text: 预测值已填入，因此该类已有真实调查结果
+        misconception: prediction-as-observed
+      - id: D
+        text: 这是依赖跨组预测假设的估计，该类没有直接评价支持
+        misconception: null
+      answer: D
+      explanation: 没有回答就没有本组直接计算满意比例的分母。用其他组预测并非不能做，但它增加了跨组外推假设；需要说明支持不足和结论对假设的敏感性。
+- concept_id: bounds
+  title: 未知评价的上下界与建议条件
+  tutor_context: 用满意/不满意二元定义算未知评价的上下界，再根据一个明确的业务门槛求未知满意比例需要达到多少。
+  pair:
+    a:
+      prompt: 目标100张工单中40张回答，其中30张满意。保持目标范围和已有答案不变，不再限制其余60张的满意情况，全体满意比例的上下界是多少？
+      options:
+      - id: A
+        text: 30%至90%
+        misconception: null
+      - id: B
+        text: 固定为75%
+        misconception: representativeness-without-assumption
+      - id: C
+        text: 75%至100%
+        misconception: respondent-rate-as-lower-bound
+      - id: D
+        text: 30%至40%
+        misconception: responded-count-as-upper-bound
+      answer: A
+      explanation: 最少30张满意，最多30＋60＝90张满意，所以范围30%—90%。75%是回答者满意比例。这个范围来自未知评价的可能取值，不是置信区间，也不是保证未来时期的范围。
+    b:
+      prompt: 目标200张工单中100张回答、60张满意。若某发布建议要求全体至少70%满意，其余100张中至少要有多少比例满意？
+      options:
+      - id: A
+        text: 60%，沿用回答者满意比例即可
+        misconception: respondent-rate-imputed-without-check
+      - id: B
+        text: 40%，用已知60加上40达到100即可
+        misconception: wrong-target-total
+      - id: C
+        text: 70%，因为业务要求就是70%
+        misconception: target-threshold-as-missing-rate
+      - id: D
+        text: 80%，这是使建议成立所需的未知评价条件
+        misconception: null
+      answer: D
+      explanation: 至少需200×70%＝140张满意，已知60张，所以未知100张至少80张满意，比例80%。这是条件计算，不证明未知者实际达到80%；门槛也是题设业务要求，而非统计标准。
