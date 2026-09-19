@@ -117,6 +117,7 @@ python scripts/course.py run 01
 ## 需要查阅的说明
 
 - [操作与提交步骤](docs/WORKFLOW.md)
+- [每课支持路线](docs/LESSON_SUPPORT.md)（每课目录中的 `SUPPORT.md` 提供入门、标准和提高路径）
 - [成果与评分](docs/ASSESSMENT.md)
 - [AI 使用建议](docs/AI_USAGE.md)
 - [知识自查说明](docs/KNOWLEDGE_CHECK.md)
