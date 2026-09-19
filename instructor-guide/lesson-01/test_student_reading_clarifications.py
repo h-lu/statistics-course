@@ -191,5 +191,33 @@ class WordingConsistencyTests(unittest.TestCase):
         self.assertIn("正确率和信心只用于反馈", guide)
 
 
+class TeacherStudentAlignmentTests(unittest.TestCase):
+    def assert_revision_guidance(self, teacher_file):
+        guide = (ROOT / "instructor-guide/lesson-08" / teacher_file).read_text(encoding="utf-8")
+        section_name = "模块代表作与评价" if teacher_file == "RUNBOOK.md" else "评价与模块修订"
+        section = guide.split(f"## {section_name}\n", 1)[1].split("\n## ", 1)[0]
+        # 同时检查选择与修订，不让一句“修订可选”掩盖前面的无条件要求。
+        self.assertIn("选择理由", section)
+        self.assertIn("若计划修订，再写明", section)
+        self.assertIn("不修订时说明保留原版即可", section)
+        self.assertIn("没有修订则评价原版", section)
+        self.assertIn("下一次课开始前", section)
+        self.assertIn("v2-lNN-revision-1", section)
+        self.assertIn("原快照", section)
+        self.assertNotIn("课次和计划修订的统计理由", section)
+        self.assertNotIn("课次与统计修订理由", section)
+        for name in ("README.md", "report.md"):
+            self.assertIn("若计划修订", text(8, name))
+
+    def test_runbook_keeps_revision_optional_throughout(self):
+        self.assert_revision_guidance("RUNBOOK.md")
+        guide = (ROOT / "instructor-guide/lesson-08/RUNBOOK.md").read_text(encoding="utf-8")
+        self.assertIn("写发布决定、选模块代表作并说明选择理由", guide)
+        self.assertNotIn("选模块代表作和修订理由", guide)
+
+    def test_reference_keeps_revision_optional_throughout(self):
+        self.assert_revision_guidance("REFERENCE.md")
+
+
 if __name__ == "__main__":
     unittest.main()
