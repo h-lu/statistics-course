@@ -74,13 +74,13 @@ items:
         text: 4件；空白按0计入三次盘点
         misconception: unmeasured-in-denominator
       - id: C
-        text: 6件；分母为2，第三次盘点情况仍未知
+        text: 6件；分母为2，未盘点那次的库存仍未知
         misconception: null
       - id: D
         text: 6件；结果可直接代表三次记录的真实平均库存
         misconception: observed-subset-as-all
       answer: C
-      explanation: 已盘点的是0件和12件，平均(0＋12)÷2＝6件。空白不是0，真实零也不是空白。这个结果只描述两次已盘点记录，不能补出第三次的未知库存。
+      explanation: 已盘点的是0件和12件，平均(0＋12)÷2＝6件。空白不是0，真实零也不是空白。这个结果只描述两次已盘点记录，不能补出未盘点那次的未知库存。
 - concept_id: outlier
   title: 离群值与无效取值
   tutor_context: 对比很长但可能真实的等待与违反测量定义的负数。解释保留原始记录、标记问题、暂不纳入某项计算三者并不矛盾。
