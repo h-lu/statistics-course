@@ -4,7 +4,7 @@
 
 ## 1. 中心、离散和长尾
 
-**集中趋势**描述数据大致位置，常用均值和中位数。**离散程度**描述数据相差多大；**四分位距**是中间一半数据的跨度。等待分布的**右尾**是少数特别长的等待。第90百分位数描述排序较高位置，不是最大值。
+**集中趋势**描述数据大致位置，常用均值和中位数。**离散程度**描述数据相差多大；**四分位距**是中间一半数据的跨度。等待分布的**右尾**是少数特别长的等待。第90百分位数描述排序较高位置，不是最大值。本课示例和参考程序采用位置 `(n−1)×p` 的线性插值计算分位数；不同软件的默认算法可能不同，报告中要写明采用的算法。
 
 两组数据：X=4、5、5、6、40，Y=8、9、10、11、12。X均值12、中位数5，Y均值10、中位数10。只看中间位置偏向X，只看均值或超过15分钟比例偏向Y；不是计算矛盾，而是评价目标不同。
 
@@ -42,5 +42,51 @@
 ## 小练习
 
 三张工单等待2、4、10分钟。若规则是“超过5分钟调查”，只有1张触发；若规则是“不少于5分钟调查”，有2张触发。两种规则都能运行，但必须在看结果前说明选择理由。
+
+下面的小程序只核对上面的手算，不读取项目数据。先预测 `x` 和 `y` 的结果，再运行它；`profile` 使用本课约定的线性插值位置 `(n−1)×p`。
+
+```python
+# learning-example
+import json
+import math
+import statistics
+
+
+def quantile(values, p):
+    ordered = sorted(values)
+    if not ordered:
+        return None
+    position = (len(ordered) - 1) * p
+    lower = math.floor(position)
+    upper = math.ceil(position)
+    return ordered[lower] + (position - lower) * (ordered[upper] - ordered[lower])
+
+
+def profile(values):
+    values = [float(value) for value in values]
+    if any(not math.isfinite(value) for value in values):
+        raise ValueError("等待时间必须是有限数")
+    if not values:
+        return {"mean": None, "median": None, "iqr": None, "over15": None}
+    return {
+        "mean": statistics.mean(values),
+        "median": statistics.median(values),
+        "iqr": quantile(values, .75) - quantile(values, .25),
+        "over15": sum(value > 15 for value in values) / len(values),
+    }
+
+
+x = [4, 5, 5, 6, 40]
+y = [8, 9, 10, 11, 12]
+result = {
+    "x": profile(x),
+    "y": profile(y),
+    "x_mean_after_exclusion": statistics.mean([4, 5, 5, 6]),
+    "x_over15_after_exclusion": 0,
+}
+print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+```
+
+运行后检查：X 的均值为12、中位数为5、四分位距为1、超过15分钟的比例为20%；Y的均值为10、中位数为10、四分位距为2。删除40后得到的均值5只说明删除后的数据，不是服务改善的证据。
 
 回到项目时，保留原始的放弃数量、业务构成和记录数。一个评价办法即使排名不变，也可能改变调查数量或发布条件；评价的目的不是制造名次，而是支持可执行的决定。

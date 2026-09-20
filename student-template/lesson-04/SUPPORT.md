@@ -25,9 +25,11 @@
 ### 2. 运行起点
 
 ```bash
-python scripts/course.py start 04
-python scripts/course.py run 04
+python3 scripts/course.py start 04
+python3 scripts/course.py run 04
 ```
+
+如果你的系统使用 `python` 作为 Python 3 命令，把上面两行中的 `python3` 换成 `python`。
 
 查看 `artifacts/starting_overview.json`，指出哪个字段描述位置、哪个描述极端值、每个单位是什么。回到数据说明核对放弃状态和业务参考时间。
 
@@ -43,7 +45,7 @@ python scripts/course.py run 04
 
 先写主办法：指标、分母、方向、阈值、缺失处理、触发的行动。再实际比较一种替代办法：改变阈值、中心统计量、业务分层或权重。保留放弃数量和业务构成，不为了排名删除复杂业务。
 
-运行 `python scripts/course.py check 04`，报告列出两套结果、变化原因和建议。如果排名不变，也说明为什么；如果改变，说明是指标、分母、构成还是阈值造成的。
+把 `submission.json` 的 `status` 改为 `complete`，在 `artifacts` 列出实际生成的结果文件，再运行 `python3 scripts/course.py check 04`。如果你的系统使用 `python` 作为 Python 3 命令，将命令中的 `python3` 换成 `python`。报告列出两套结果、变化原因和建议。如果排名不变，也说明为什么；如果改变，说明是指标、分母、构成还是阈值造成的。
 
 ## 标准与提高
 

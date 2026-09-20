@@ -28,15 +28,19 @@
 ## 运行和提交
 
 ```bash
-python scripts/course.py start 04
-python scripts/course.py run 04
+python3 scripts/course.py start 04
+python3 scripts/course.py run 04
 ```
 
-打开 `lesson-04/artifacts/starting_overview.json`，它只给出中心、已服务数、均值、中位数和最大值，未替你完成评价办法。保存结果到 `artifacts/`，填写报告和 `submission.json`，再运行：
+如果你的系统使用 `python` 作为 Python 3 命令，把上面两行中的 `python3` 换成 `python`。
+
+打开 `lesson-04/artifacts/starting_overview.json`，它只给出中心、已服务数、均值、中位数和最大值，未替你完成评价办法。保存支持结论的结果文件到 `lesson-04/artifacts/`，填写报告和 `submission.json`，并把 `submission.json` 中的 `status` 改为 `complete`，再运行：
 
 ```bash
-python scripts/course.py run 04
-python scripts/course.py check 04
+python3 scripts/course.py run 04
+python3 scripts/course.py check 04
 ```
+
+`check` 会检查报告和 `artifacts` 中列出的结果文件是否存在；它不会替你判断统计结论。若系统使用 `python` 作为 Python 3 命令，将命令中的 `python3` 换成 `python`。
 
 按工作流提交并创建 `v2-l04-final` 标签，最后完成第4课知识自查。
