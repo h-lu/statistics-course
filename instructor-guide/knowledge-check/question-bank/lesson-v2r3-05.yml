@@ -1,0 +1,197 @@
+lesson_id: v2-l05-r3
+title: 第05课 · 有限复核名额下的告警策略
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: ecdf
+  title: 经验累积分布函数
+  tutor_context: 用配送时间解释不超过某值的累计比例；说明它不同于等于某值的比例，也不是某设备故障概率。
+  pair:
+    a:
+      prompt: 一批设备风险分数的经验累积分布函数在60处为0.8。它表示什么？
+      options:
+      - id: A
+        text: 这批记录中80%的分数不超过60
+        misconception: null
+      - id: B
+        text: 分数为60的设备有80%会故障
+        misconception: cdf-as-risk
+      - id: C
+        text: 这批记录中80%的分数恰好等于60
+        misconception: cdf-as-point-frequency
+      - id: D
+        text: 每天都必须选80%的设备复核
+        misconception: overall-cdf-as-daily-quota
+      answer: A
+      explanation: 经验累积分布函数统计的是不超过给定值的记录比例，包含等于60的记录。它不直接给出故障概率，也不规定每天的复核人数或各天分布相同。
+    b:
+      prompt: 四次配送用时为10、20、20、50分钟。经验累积分布函数在20分钟处是多少？
+      options:
+      - id: A
+        text: 3÷4＝75%
+        misconception: null
+      - id: B
+        text: 4÷4＝100%
+        misconception: median-as-all-values
+      - id: C
+        text: 1÷4＝25%
+        misconception: exclude-ties
+      - id: D
+        text: 2÷4＝50%
+        misconception: count-equal-only
+      answer: A
+      explanation: 不超过20分钟的有10、20、20三次，比例75%。只数恰好20得到50%，只数小于20得到25%；并列值应一同计入累计比例。
+- concept_id: capacity-ties
+  title: 固定规则、并列与每日名额
+  tutor_context: 用两天的分数和名额举例，解释固定选择方法为何允许名单变化，以及同分规则必须在看结果前确定。
+  pair:
+    a:
+      prompt: 一天最多复核10台。高于阈值的有8台，恰好等于阈值的有6台。哪种办法既遵守名额又不使用未来结果？
+      options:
+      - id: A
+        text: 并列6台全部选入，再用明天少选4台抵消
+        misconception: borrow-future-capacity
+      - id: B
+        text: 把并列者都算半次复核，选择全部14台
+        misconception: fractional-count-for-full-actions
+      - id: C
+        text: 按事先规定的编号顺序，从并列6台中最多再选2台
+        misconception: null
+      - id: D
+        text: 看完当天故障结果后，从并列者选2台
+        misconception: future-label-tiebreak
+      answer: C
+      explanation: 剩余名额为10−8＝2，同分选择必须在行动前可执行。每台实际复核都占名额，不能用未来空额或半次计数抵消，也不能根据事后故障决定名单。
+    b:
+      prompt: 本题规则是按分数降序取满当天名额，同分按编号。甲日D1—D3分数为90、80、70，名额2；乙日为60、95、85，名额1。哪组名单符合原规则？
+      options:
+      - id: A
+        text: 甲日D1、D2；乙日D2、D3
+        misconception: ignore-day-capacity
+      - id: B
+        text: 甲日D1、D2；乙日D2
+        misconception: null
+      - id: C
+        text: 甲日只选D1；乙日选D2、D3以补足两天总数
+        misconception: transfer-quota-across-days
+      - id: D
+        text: 甲日D1、D2；乙日只选D1以沿用原名单
+        misconception: fixed-list-not-rule
+      answer: B
+      explanation: 固定的是排序、同分和使用当天名额的方法。甲日取前两台，乙日只取分数最高的D2。名单随分数和名额变化不等于改规则，跨日总数合适也不能替代逐日合规。
+- concept_id: fpr
+  title: 假阳性率的分母
+  tutor_context: 用新的四格计数比较假阳性率与复核名单中无故障的比例，再考虑没有实际非故障记录时的分母。
+  pair:
+    a:
+      prompt: 120条记录中30条实际故障。规则选40条复核，其中18条故障。“阳性”指选中复核。假阳性率应怎样计算？
+      options:
+      - id: A
+        text: 40÷120
+        misconception: review-rate
+      - id: B
+        text: 22÷90
+        misconception: null
+      - id: C
+        text: 22÷40
+        misconception: selected-denominator
+      - id: D
+        text: 12÷30
+        misconception: false-negative-rate
+      answer: B
+      explanation: 选中的无故障记录为40−18＝22，即假阳性。实际无故障的共120−30＝90，假阳性率为22÷90。22÷40是名单中无故障比例，12÷30是假阴性率，40÷120是复核比例。
+    b:
+      prompt: 某批10条记录全部实际故障，规则选中8条复核；本题“阳性”指被选中复核。假阳性率应怎样报告？
+      options:
+      - id: A
+        text: 0%，因为没有选中无故障记录
+        misconception: zero-over-zero-as-zero
+      - id: B
+        text: 20%，因为漏了2条实际故障
+        misconception: false-negative-as-false-positive
+      - id: C
+        text: 80%，因为选中了8条记录
+        misconception: review-rate-as-fpr
+      - id: D
+        text: 不能计算，因为实际无故障记录为0条
+        misconception: null
+      answer: D
+      explanation: 假阳性率的分母是实际无故障记录数，本题为0；没有假阳性不等于已经测得0%的假阳性率。20%是假阴性率，80%是本批复核比例。
+- concept_id: fnr
+  title: 假阴性率与历史故障标记
+  tutor_context: 用漏报数和实际故障总数解释假阴性率，说明改变损失避免比例不会改写已有历史故障标记。
+  pair:
+    a:
+      prompt: 50条设备记录中10条实际故障，复核名单包含其中7条。假阴性率是多少？
+      options:
+      - id: A
+        text: 3÷7，约42.86%
+        misconception: detected-fault-denominator
+      - id: B
+        text: 7÷10＝70%
+        misconception: true-positive-rate
+      - id: C
+        text: 3÷50＝6%
+        misconception: all-records-denominator
+      - id: D
+        text: 3÷10＝30%
+        misconception: null
+      answer: D
+      explanation: 实际故障中未选中的是10−7＝3条，分母为10。除以全部50条是另一种比例；7÷10统计找出的故障，3÷7则使用了错误分母。
+    b:
+      prompt: 固定名单对应3条已选中故障、2条未选中故障。历史标记不改，假设复核避免85%的故障损失。假阴性率是多少？
+      options:
+      - id: A
+        text: (2×0.15)÷5＝6%
+        misconception: effect-applied-to-misses
+      - id: B
+        text: 2÷(2＋3×0.15)，约81.63%
+        misconception: loss-fraction-rewrites-labels
+      - id: C
+        text: 3÷5＝60%，已选中故障就是漏报
+        misconception: swap-detected-missed
+      - id: D
+        text: 2÷5＝40%，效果假设只进入损失计算
+        misconception: null
+      answer: D
+      explanation: 实际故障标记共5条，漏报2条，仍为40%。85%指被复核故障的损失减少比例，不是删除85%的故障记录，也不减少未复核故障的损失。
+- concept_id: loss-action
+  title: 总损失与方案比较
+  tutor_context: 用复核成本、漏报损失和剩余损失核算总后果，再比较漏报数量与总损失可能给出不同选择的两套方案。
+  pair:
+    a:
+      prompt: 4台设备中2台实际故障，复核2台且其中1台故障。每次复核成本2，每次故障损失100；复核避免85%故障损失。总损失是多少？
+      options:
+      - id: A
+        text: 115个成本单位
+        misconception: omit-review-cost
+      - id: B
+        text: 104个成本单位
+        misconception: omit-residual-loss
+      - id: C
+        text: 119个成本单位
+        misconception: null
+      - id: D
+        text: 189个成本单位
+        misconception: avoided-as-residual-fraction
+      answer: C
+      explanation: 未复核故障损失100，已复核故障剩余损失100×15%＝15，两次复核成本2×2＝4，合计119。85%是避免比例，不是剩余比例；无故障设备被复核也要支付成本。
+    b:
+      prompt: 同一批记录中，甲方案漏掉1次故障，损失200；乙漏掉2次，每次损失60。两方案各自的复核成本与已复核故障剩余损失合计均为40。所有数值使用同一成本单位。怎样比较总损失？
+      options:
+      - id: A
+        text: 乙为160，低于甲的240，虽漏报更多但总损失较小
+        misconception: null
+      - id: B
+        text: 甲漏报更少，所以甲的总损失较小
+        misconception: count-instead-of-loss
+      - id: C
+        text: 甲为200，乙为120，这就是各自的总损失
+        misconception: omit-review-and-residual-costs
+      - id: D
+        text: 两方案总损失都是40，因为只需计算复核名单中的后果
+        misconception: omit-missed-fault-losses
+      answer: A
+      explanation: 甲的总损失为200＋40＝240，乙为2×60＋40＝160。漏报次数没有反映每次故障的不同代价，不能代替总损失。这里的40已含复核成本和剩余损失，不需再次乘效果比例；结果只是在给定成本与效果假设下的比较，不是实际干预效果的证明。
