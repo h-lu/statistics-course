@@ -27,6 +27,8 @@
 
 ## 运行和提交
 
+以下命令都在学生仓库根目录运行，也就是能看到 `lesson-04/`、`data/` 和 `scripts/` 的目录。
+
 ```bash
 python3 scripts/course.py start 04
 python3 scripts/course.py run 04
