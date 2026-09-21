@@ -13,20 +13,44 @@ python --version
 git status
 ```
 
-所有命令都从仓库根目录运行，也就是能看到 `scripts`、`data` 和已开放课次目录的位置。
+所有命令都从仓库根目录运行，也就是能看到 `scripts`、`data` 和已开放课次目录的位置。Python 需要 3.10 或以上；如果电脑使用 `python3`，把本文命令中的 `python` 换成 `python3`。
 
 ## 2. 同步新发布的课程
 
-先保存当前作业，再运行：
+第一次同步前，在自己的仓库根目录添加课程发布仓库；如果提示 `course-release already exists`，说明已经设置过，不要重复添加：
+
+```bash
+git remote add course-release \
+  ssh://git@hblu.top:2222/statistics/course-student-release-2026.git
+```
+
+如果教师通知了工具更新，或旧仓库缺少 `tests/`、`.gitea/workflows/check.yml`，先更新 `scripts/course.py`。更新前保存并提交当前修改；若你曾自行修改这个脚本，先向教师说明，不要直接覆盖：
+
+```bash
+git fetch course-release main
+git restore --source=course-release/main -- scripts/course.py
+git add scripts/course.py
+git commit -m "更新课程同步工具"
+git push
+```
+
+然后运行同步；以后每次发布新课时，先保存当前作业，再运行同一条命令：
 
 ```bash
 python scripts/course.py sync
+```
+
+`sync` 会补齐发布仓库已经提供、本地尚缺少的内容：已发布的 `lesson-XX` 课次目录、`data/` 数据文件、`tests/` 检查程序、`.gitea/workflows/check.yml` 自动检查配置和 `docs/READING_GUIDE.md` 阅读指南。即使没有新课，也能补齐这些缺少的共用文件。
+
+已有课次目录会跳过，已有代码、报告、数据、结果和共用文件不会被覆盖。`sync` 不会更新 `scripts/course.py` 自身；旧工具需要先按上面的命令升级，才能补齐检查程序和自动检查配置。
+
+新增文件会自动暂存。检查内容后提交并推送；如果没有新增文件，就跳过提交和推送：
+
+```bash
 git diff --cached
 git commit -m "同步课程发布"
 git push
 ```
-
-`sync` 只新增没有的 `lesson-XX` 目录和本地缺少的已发布 `data/` 文件，不覆盖已经存在的代码、报告、数据或结果。若没有新课，也可能补齐发布仓库提供的共享说明文件。
 
 ## 3. 完成一课
 

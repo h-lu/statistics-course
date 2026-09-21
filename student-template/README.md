@@ -39,7 +39,7 @@ git remote add course-release \
 
 如果提示 `course-release already exists`，说明已经设置过，不要重复添加。
 
-如果教师通知了工具更新，先保存并提交本地修改，再按下面步骤更新。若你曾自行修改 `scripts/course.py`，先向教师说明，不要直接覆盖：
+如果教师通知了工具更新，或你的旧仓库缺少 `tests/`、`.gitea/workflows/check.yml`，先更新同步工具，再运行下面的 `sync` 命令。更新前保存并提交本地修改；若你曾自行修改 `scripts/course.py`，先向教师说明，不要直接覆盖：
 
 ```bash
 git fetch course-release main
@@ -55,7 +55,16 @@ git push
 python scripts/course.py sync
 ```
 
-工具会新增本地没有的 `lesson-XX` 目录，并补齐新课所需、本地尚缺少的 `data/` 文件；已经存在的课次、数据和学生作品都会跳过，不会覆盖。当前版本还会补齐本地缺少的 `docs/READING_GUIDE.md`，前提是发布仓库已经提供该指南。已有指南和其他共用文件不会自动覆盖；`sync` 也不会更新工具自身。同步后检查暂存内容，再提交：
+工具会从发布仓库补齐本地缺少的内容：
+
+- 已发布但本地还没有的 `lesson-XX` 课次目录；
+- `data/` 中缺少的数据文件；
+- `tests/` 中缺少的检查程序，以及 `.gitea/workflows/check.yml` 自动检查配置；
+- `docs/READING_GUIDE.md` 阅读指南。
+
+已有课次目录会跳过；已有数据、检查程序、配置、指南和学生作品不会被覆盖。发布仓库尚未提供的内容也不会新增。`sync` 不会更新 `scripts/course.py` 自身，因此旧仓库需要先按上面的命令升级工具。
+
+同步新增的文件会自动暂存。检查暂存内容，再提交；如果没有新增文件，就跳过提交和推送：
 
 ```bash
 git diff --cached

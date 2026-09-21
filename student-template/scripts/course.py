@@ -178,8 +178,8 @@ def sync_reading_guide(root: Path, source_ref: str) -> bool:
 def sync_missing_tree(root: Path, source_ref: str, prefix: str, label: str) -> list[str]:
     """只补齐发布仓库中已有、学生仓库中缺少的普通文件。
 
-    数据与课次分开存放；新课可能首次用到新数据集。这里不替换
-    已存在文件，因此既能随课补齐数据，也不会覆盖学生改动。
+    数据与检查工具同课次分开存放，可能随发布新增。这里不替换
+    已存在文件，因此既能补齐发布文件，也不会覆盖学生改动。
     """
     listing = git(root, "ls-tree", "-r", source_ref, "--", prefix, capture=True)
     added: list[str] = []
@@ -204,7 +204,7 @@ def sync_missing_tree(root: Path, source_ref: str, prefix: str, label: str) -> l
 
 
 def sync(root: Path) -> None:
-    """Add missing lessons, released data and the reading guide without replacing student work."""
+    """Add missing lessons and released support files without replacing student work."""
     try:
         current_url = git(root, "remote", "get-url", RELEASE_REMOTE, capture=True).strip()
     except subprocess.CalledProcessError:
@@ -216,20 +216,23 @@ def sync(root: Path) -> None:
     source_ref = f"{RELEASE_REMOTE}/main"
     guide_added = sync_reading_guide(root, source_ref)
     data_added = sync_missing_tree(root, source_ref, "data", "课程数据")
+    tests_added = sync_missing_tree(root, source_ref, "tests", "检查测试")
+    workflows_added = sync_missing_tree(root, source_ref, ".gitea/workflows", "自动检查配置")
+    support_added = bool(guide_added or data_added or tests_added or workflows_added)
     names = git(root, "ls-tree", "--name-only", "-d", source_ref, capture=True)
     published = sorted(
         name.strip()
         for name in names.splitlines()
         if LESSON_DIR.fullmatch(name.strip()) and 1 <= int(name.strip()[-2:]) <= 32
     )
-    if not published and not guide_added and not data_added:
+    if not published and not support_added:
         print("发布仓库中还没有可同步的课次。")
         return
     missing = [lesson for lesson in published if not ((root / lesson).exists() or (root / lesson).is_symlink())]
     already_present = [lesson for lesson in published if (root / lesson).exists() or (root / lesson).is_symlink()]
     if already_present:
         print("已存在，跳过：" + ", ".join(already_present))
-    if not missing and not guide_added and not data_added:
+    if not missing and not support_added:
         print("没有新的课次需要同步。")
         return
     for lesson in missing:

@@ -105,6 +105,10 @@ class ReadingGuideSyncTests(unittest.TestCase):
         (self.source / "docs/WORKFLOW.md").write_text("不要自动覆盖旧说明\n", encoding="utf-8")
         (self.source / "data/service").mkdir(parents=True)
         (self.source / "data/service/tickets.csv").write_text("ticket_id\nT1\n", encoding="utf-8")
+        (self.source / "tests").mkdir()
+        (self.source / "tests/test_course.py").write_text("# 发布的检查测试\n", encoding="utf-8")
+        (self.source / ".gitea/workflows").mkdir(parents=True)
+        (self.source / ".gitea/workflows/check.yml").write_text("name: course-check\n", encoding="utf-8")
         self.publish()
         git(self.target, "remote", "add", "course-release", str(self.source))
 
@@ -118,6 +122,10 @@ class ReadingGuideSyncTests(unittest.TestCase):
         paths = git(self.target, "diff", "--cached", "--name-only").splitlines()
         self.assertIn("docs/READING_GUIDE.md", paths)
         self.assertIn("data/service/tickets.csv", paths)
+        self.assertEqual((self.target / "tests/test_course.py").read_text(), "# 发布的检查测试\n")
+        self.assertEqual((self.target / ".gitea/workflows/check.yml").read_text(), "name: course-check\n")
+        self.assertIn("tests/test_course.py", paths)
+        self.assertIn(".gitea/workflows/check.yml", paths)
         self.assertIn("lesson-01/report.md", paths)
         self.assertFalse((self.target / "docs/WORKFLOW.md").exists())
 
@@ -128,10 +136,43 @@ class ReadingGuideSyncTests(unittest.TestCase):
         (self.target / "docs/READING_GUIDE.md").write_text("学生批注", encoding="utf-8")
         (self.target / "data/service").mkdir(parents=True)
         (self.target / "data/service/tickets.csv").write_text("学生已有文件\n", encoding="utf-8")
+        (self.target / "tests").mkdir()
+        (self.target / "tests/test_course.py").write_text("# 学生已有测试\n", encoding="utf-8")
+        (self.target / ".gitea/workflows").mkdir(parents=True)
+        (self.target / ".gitea/workflows/check.yml").write_text("name: student-check\n", encoding="utf-8")
         course.sync(self.target)
         self.assertEqual((self.target / "lesson-01/report.md").read_text(), "学生作品")
         self.assertEqual((self.target / "docs/READING_GUIDE.md").read_text(), "学生批注")
         self.assertEqual((self.target / "data/service/tickets.csv").read_text(), "学生已有文件\n")
+        self.assertEqual((self.target / "tests/test_course.py").read_text(), "# 学生已有测试\n")
+        self.assertEqual((self.target / ".gitea/workflows/check.yml").read_text(), "name: student-check\n")
+        self.assertEqual(git(self.target, "diff", "--cached", "--name-only"), "")
+
+    def test_checks_published_later_are_added_without_new_lesson(self):
+        course.sync(self.target)
+        git(self.target, "commit", "-m", "first sync")
+        additions = {
+            "tests/test_incremental_release.py": "# 新发布的同步测试\n",
+            ".gitea/workflows/additional.yml": "name: additional-check\n",
+        }
+        for relative, content in additions.items():
+            (self.source / relative).write_text(content, encoding="utf-8")
+        self.publish()
+        course.sync(self.target)
+        self.assertEqual(set(git(self.target, "diff", "--cached", "--name-only").splitlines()), set(additions))
+        for relative, content in additions.items():
+            self.assertEqual((self.target / relative).read_text(), content)
+
+    def test_repeat_sync_leaves_committed_files_and_index_unchanged(self):
+        course.sync(self.target)
+        git(self.target, "commit", "-m", "first sync")
+        before = {
+            path: (self.target / path).read_bytes()
+            for path in git(self.target, "ls-files").splitlines()
+        }
+        course.sync(self.target)
+        self.assertEqual(git(self.target, "status", "--porcelain"), "")
+        self.assertEqual(before, {path: (self.target / path).read_bytes() for path in before})
 
     def test_new_dataset_published_later_is_added(self):
         course.sync(self.target)
