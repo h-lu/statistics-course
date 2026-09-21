@@ -103,6 +103,8 @@ class ReadingGuideSyncTests(unittest.TestCase):
         (self.source / "docs").mkdir()
         (self.source / "docs/READING_GUIDE.md").write_text("新阅读指南\n", encoding="utf-8")
         (self.source / "docs/WORKFLOW.md").write_text("不要自动覆盖旧说明\n", encoding="utf-8")
+        (self.source / "data/service").mkdir(parents=True)
+        (self.source / "data/service/tickets.csv").write_text("ticket_id\nT1\n", encoding="utf-8")
         self.publish()
         git(self.target, "remote", "add", "course-release", str(self.source))
 
@@ -115,6 +117,7 @@ class ReadingGuideSyncTests(unittest.TestCase):
         self.assertEqual((self.target / "docs/READING_GUIDE.md").read_text(), "新阅读指南\n")
         paths = git(self.target, "diff", "--cached", "--name-only").splitlines()
         self.assertIn("docs/READING_GUIDE.md", paths)
+        self.assertIn("data/service/tickets.csv", paths)
         self.assertIn("lesson-01/report.md", paths)
         self.assertFalse((self.target / "docs/WORKFLOW.md").exists())
 
@@ -123,9 +126,22 @@ class ReadingGuideSyncTests(unittest.TestCase):
         (self.target / "lesson-01/report.md").write_text("学生作品", encoding="utf-8")
         (self.target / "docs").mkdir()
         (self.target / "docs/READING_GUIDE.md").write_text("学生批注", encoding="utf-8")
+        (self.target / "data/service").mkdir(parents=True)
+        (self.target / "data/service/tickets.csv").write_text("学生已有文件\n", encoding="utf-8")
         course.sync(self.target)
         self.assertEqual((self.target / "lesson-01/report.md").read_text(), "学生作品")
         self.assertEqual((self.target / "docs/READING_GUIDE.md").read_text(), "学生批注")
+        self.assertEqual((self.target / "data/service/tickets.csv").read_text(), "学生已有文件\n")
+
+    def test_new_dataset_published_later_is_added(self):
+        course.sync(self.target)
+        git(self.target, "commit", "-m", "first sync")
+        (self.source / "data/alerts").mkdir()
+        (self.source / "data/alerts/events.csv").write_text("event_id\nA1\n", encoding="utf-8")
+        self.publish()
+        course.sync(self.target)
+        self.assertEqual((self.target / "data/alerts/events.csv").read_text(), "event_id\nA1\n")
+        self.assertIn("data/alerts/events.csv", git(self.target, "diff", "--cached", "--name-only").splitlines())
 
     def test_missing_guide_is_added_without_new_lesson(self):
         make_lesson(self.target)
