@@ -4,7 +4,9 @@
 
 ## 自动发布时间
 
-服务器使用 `publish-statistics-lesson.timer`，从2026-09-14开始，在上海时间每周一、周三00:00检查并发布当天课次。完整日程见发布仓库的 `RELEASE_SCHEDULE.md`。
+服务器使用 [`publish-statistics-lesson.timer`](scripts/publish-statistics-lesson.timer) 调用[发布程序](scripts/publish-statistics-lesson.sh)，从2026-09-14开始，在上海时间每周一、周三00:00发布当天课次。定时器每天00:00唤醒一次，程序自行跳过非上课日。完整日程见发布仓库的 `RELEASE_SCHEDULE.md`。
+
+生产机上的程序路径为 `/usr/local/sbin/publish-statistics-lesson`，单元文件放在 `/etc/systemd/system/`。`/root/.config/statistics-release/env` 只在服务器保存 `GITEA_USER` 和 `GITEA_TOKEN`，不提交到仓库。
 
 发布程序必须遵守两条边界：
 

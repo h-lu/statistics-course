@@ -1,0 +1,6 @@
+[Unit]
+Description=Publish next statistics lesson on scheduled class days
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/publish-statistics-lesson

@@ -1,0 +1,12 @@
+[Unit]
+Description=Check statistics lesson release daily at Shanghai 00:00
+
+[Timer]
+# 16:00 UTC is 00:00 the next day in Asia/Shanghai. The publisher itself
+# permits only Shanghai Monday and Wednesday course dates.
+OnCalendar=*-*-* 16:00:00 UTC
+Persistent=true
+Unit=publish-statistics-lesson.service
+
+[Install]
+WantedBy=timers.target
