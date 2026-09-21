@@ -18,6 +18,7 @@ while day <= today:
 print(number if number <= 32 else 0)
 PY
 )
+[ -n "$lesson" ] || exit 0
 [ "$lesson" -gt 0 ] || exit 0
 two=$(printf '%02d' "$lesson")
 dataset=""
