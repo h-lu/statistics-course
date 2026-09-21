@@ -65,13 +65,41 @@
 
 31.5分钟只描述两张有有效等待的工单，不是三张工单的完整平均值。A1的“已确认2张”也不等于A1全部只有2张，因为R2的窗口未知。
 
+下面的小程序只复算这三张工单，并且只检查每个指标声明需要的字段。给记录增加一个与本次分析无关的空白备注，不应改变结果。
+
+```python
+# learning-example
+rows = [
+    {"ticket_id": "R1", "wait": 3, "completed": 1, "window": "A1"},
+    {"ticket_id": "R2", "wait": None, "completed": 1, "window": None},
+    {"ticket_id": "R3", "wait": 60, "completed": 0, "window": "A1"},
+]
+
+waits = [row["wait"] for row in rows if row["wait"] is not None]
+completion_rows = [row for row in rows if row["completed"] is not None]
+complete_case_rows = [
+    row for row in rows
+    if all(row[field] is not None for field in ("wait", "completed", "window"))
+]
+
+result = {
+    "target_n": len(rows),
+    "wait_n": len(waits),
+    "wait_mean": sum(waits) / len(waits),
+    "completion_rate": sum(row["completed"] for row in completion_rows) / len(completion_rows),
+    "complete_case_rate": sum(row["completed"] for row in complete_case_rows) / len(complete_case_rows),
+    "known_window_n": sum(row["window"] is not None for row in rows),
+}
+print(result)
+```
+
 ## 4. 为什么同一批数据会有不同分母
 
-**完整案例分析**指本次指标所需字段都有效的记录，不是所有字段都必须有值。
+**完整案例分析**指**本次分析所需字段**都有效的记录，不是所有字段都必须有值。分析问题不同，所需字段也可能不同，因此“完整”必须跟具体用途一起说明。
 
 只计算办结比例时，三张工单的办结状态都已知，结果是2/3。若另一个报告要求等待、办结和窗口三项都有效，那么R2会被排除，办结比例变为1/2=50%。
 
-50%和66.7%的差别来自纳入记录不同，并不表示真实办结情况被清洗程序改变。统一记录集合便于多个指标并列，但可能丢掉单个指标本来可以使用的信息。报告应说明这个取舍。
+50%和66.7%的差别来自纳入记录不同，并不表示真实办结情况被清洗程序改变。这里的**另一组字段要求**改变了记录范围。可以分别按每项指标所需字段选择完整记录，也可以统一使用等待、办结和窗口都完整的记录；前者保留更多可用信息，后者便于多个指标在同一批工单上比较，但会排除本来能参加单项计算的记录。报告应说明采用哪种方案及其取舍。
 
 **插补**是利用已有资料和假设，为缺失值补入估计值。插补值不是查实的原值。本课不要求插补；如果选择插补，必须保留原值和插补标记，并比较插补与不插补的结果。
 

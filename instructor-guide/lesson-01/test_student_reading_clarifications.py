@@ -130,7 +130,9 @@ class WordingConsistencyTests(unittest.TestCase):
     def test_l02_reasons_precede_results_without_banning_exploration(self):
         self.assertIn("它为什么与问题有关", text(2))
         self.assertIn("计算后发现的新问题", text(2))
-        self.assertIn("两到三种", text(2, "README.md"))
+        # 标准任务保留原学生README的最低要求：基准方案之外选择一到两种
+        # 替代口径；更多方案属于提高分析，不能由测试暗中抬高最低要求。
+        self.assertIn("一到两种", text(2, "README.md"))
         self.assertIn("使用者的问题", text(2, "report.md"))
 
     def test_l03_completeness_summary_matches_definition(self):

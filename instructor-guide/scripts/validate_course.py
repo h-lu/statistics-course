@@ -16,6 +16,27 @@ import yaml
 TEACHER = Path(__file__).resolve().parents[1]
 
 
+def lesson_topic(title: str) -> str:
+    """取出课次标题中的主题文字。
+
+    学生资料的早期课次使用“第1课：……”，后续课次使用
+    “第09课 · ……”。课次号的补零和分隔符是排版差异，不应让
+    课程结构检查崩溃；真正需要核对的是后面的主题。
+    """
+    match = re.match(r"^#?\s*第\s*0*\d+\s*课\s*(?:·|[:：])\s*(.+?)\s*$", title)
+    if not match:
+        raise ValueError(f"unrecognized lesson title: {title!r}")
+    return match.group(1)
+
+
+# 教师地图和自查保留规范项目名；学生第4课在真实课堂
+# 冷读后使用更直接的问句式标题。两者指向同一课，不应为
+# 追求字面一致而改动已发布题库的标题或历史ID。
+LESSON_TOPIC_ALIASES = {
+    4: {"设计服务质量评价办法", "怎样评价服务质量"},
+}
+
+
 def local_links(path: Path, root: Path) -> list[str]:
     text = re.sub(r"```.*?```", "", path.read_text(encoding="utf-8"), flags=re.S)
     errors = []
@@ -55,7 +76,7 @@ def validate(student: Path, execute: bool = False) -> dict:
     banks = TEACHER / "knowledge-check/question-bank"
     for n in range(1, 33):
         lesson = f"lesson-{n:02d}"
-        for root, files in [(student, ["README.md", "LEARN.md", "analysis.py", "report.md", "submission.json"]), (TEACHER, ["RUNBOOK.md", "REFERENCE.md", "reference.py"])]:
+        for root, files in [(student, ["README.md", "SUPPORT.md", "LEARN.md", "analysis.py", "report.md", "submission.json"]), (TEACHER, ["RUNBOOK.md", "REFERENCE.md", "reference.py"])]:
             for file in files:
                 path = root / lesson / file
                 if not path.is_file() or path.stat().st_size == 0:
@@ -77,7 +98,10 @@ def validate(student: Path, execute: bool = False) -> dict:
                 bank = yaml.safe_load(bank_path.read_text(encoding="utf-8"))
                 assert bank["lesson_id"] == expected_id and len(bank["items"]) == 5
                 student_heading = (student / lesson / "README.md").read_text(encoding="utf-8").splitlines()[0]
-                assert bank["title"].split(" · ", 1)[1] == student_heading.split(" · ", 1)[1], "lesson title mismatch"
+                bank_topic = lesson_topic(bank["title"])
+                student_topic = lesson_topic(student_heading)
+                accepted_topics = LESSON_TOPIC_ALIASES.get(n, {bank_topic})
+                assert bank_topic in accepted_topics and student_topic in accepted_topics, "lesson title mismatch"
                 ids = [item["concept_id"] for item in bank["items"]]
                 assert len(set(ids)) == 5
                 answers = []
@@ -105,10 +129,13 @@ def validate(student: Path, execute: bool = False) -> dict:
         stats["lessons"] += 1
 
     for root in [student, TEACHER]:
+        # 教师手册位于单仓库的子目录，合法地链接到同一仓库的
+        # student-template/ 和 .github/。独立的学生模板仍以自身为边界。
+        link_root = TEACHER.parent if root == TEACHER else root
         for path in root.rglob("*.md"):
             if any(p in {"archive", ".git", ".venv", "legacy"} for p in path.relative_to(root).parts):
                 continue
-            errors.extend(local_links(path, root))
+            errors.extend(local_links(path, link_root))
         for path in root.rglob("*.py"):
             if any(p in {"archive", ".git", ".venv", "__pycache__"} for p in path.relative_to(root).parts):
                 continue

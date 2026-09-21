@@ -6,6 +6,7 @@
 
 - [课程设计标准](COURSE_DESIGN_STANDARD.md)：主任务难度、开放选择、知识连接与六项设计检查。
 - [16周32课总表](COURSE_MAP.md)：唯一现行学期映射。
+- [32课设计复核与分层调整](CURRICULUM_REVIEW_2026-09-21.md)：记录真实课堂反馈、本轮调整、机器模拟检查和尚待实班验证的边界。
 - [术语与基础知识规范](TERMINOLOGY_AND_FOUNDATIONS.md)：规范术语、通俗解释与知识层次。
 - [本次术语与文字修订](LANGUAGE_REVIEW.md)：全32课检查范围、统计含义核对与验证结果。
 - [评分规则](GRADING.md)：平时50分、代表作修订和补交口径。
