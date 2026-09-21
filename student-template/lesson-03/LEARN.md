@@ -69,6 +69,9 @@
 
 ```python
 # learning-example
+import json
+
+
 rows = [
     {"ticket_id": "R1", "wait": 3, "completed": 1, "window": "A1"},
     {"ticket_id": "R2", "wait": None, "completed": 1, "window": None},
@@ -90,7 +93,7 @@ result = {
     "complete_case_rate": sum(row["completed"] for row in complete_case_rows) / len(complete_case_rows),
     "known_window_n": sum(row["window"] is not None for row in rows),
 }
-print(result)
+print(json.dumps(result, ensure_ascii=False, sort_keys=True))
 ```
 
 ## 4. 为什么同一批数据会有不同分母

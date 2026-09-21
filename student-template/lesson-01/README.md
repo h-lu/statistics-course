@@ -71,4 +71,4 @@ python scripts/course.py run 01
 python scripts/course.py check 01
 ```
 
-`check` 只检查文件和路径，不判断统计结论。按[操作与提交步骤](../docs/WORKFLOW.md)提交并创建 `v2-l01-final` 标签。最后完成教师指定的第1课知识自查。
+本地 `check` 只检查完成状态、文件路径和文件是否存在且非空，不会重新运行分析，也不会判断统计结论是否正确。推送后的自动重现检查会在临时副本中重新运行程序。按[操作与提交步骤](../docs/WORKFLOW.md)提交并创建 `v2-l01-final` 标签。最后完成教师指定的第1课知识自查。

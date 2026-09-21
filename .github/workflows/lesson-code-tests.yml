@@ -6,6 +6,8 @@ on:
       - 'student-template/lesson-0[1-8]/**'
       - 'student-template/data/service/**'
       - 'student-template/data/alerts/**'
+      - 'student-template/scripts/**'
+      - 'student-template/tests/**'
       - 'instructor-guide/lesson-0[1-8]/**'
       - 'instructor-guide/tests/**'
       - '.github/workflows/lesson-code-tests.yml'
@@ -15,6 +17,8 @@ on:
       - 'student-template/lesson-0[1-8]/**'
       - 'student-template/data/service/**'
       - 'student-template/data/alerts/**'
+      - 'student-template/scripts/**'
+      - 'student-template/tests/**'
       - 'instructor-guide/lesson-0[1-8]/**'
       - 'instructor-guide/tests/**'
       - '.github/workflows/lesson-code-tests.yml'
@@ -38,6 +42,6 @@ jobs:
         run: |
           .lesson-test-venv/bin/python -m pytest --import-mode=importlib \
             instructor-guide/lesson-0[1-8] student-template/lesson-0[1-8] \
-            instructor-guide/tests/test_code_01_08.py -q
+            instructor-guide/tests/test_code_01_08.py student-template/tests -q
       - name: Verify tracked teaching data are unchanged
         run: git diff --exit-code -- student-template/data

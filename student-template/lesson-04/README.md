@@ -106,4 +106,4 @@ python scripts/course.py run 04
 python scripts/course.py check 04
 ```
 
-`check` 只检查报告和所列结果文件是否存在，不会判断统计结论是否正确。检查通过后，按[课程工作流](../docs/WORKFLOW.md)提交并创建 `v2-l04-final` 标签，最后完成第4课知识自查。
+本地 `check` 只检查完成状态、文件路径和文件是否存在且非空，不会重新运行分析，也不会判断统计结论是否正确。推送后的自动重现检查会在临时副本中重新运行程序。检查通过后，按[课程工作流](../docs/WORKFLOW.md)提交并创建 `v2-l04-final` 标签，最后完成第4课知识自查。

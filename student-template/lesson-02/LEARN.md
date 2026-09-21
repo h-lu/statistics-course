@@ -16,9 +16,40 @@
 
 删除X的40后均值变成5，不能说服务改善，因为那张长等待仍发生过。排除规则必须在看结果前有理由。
 
-再看两组另设数据：A=2、3、4、31，B=8、9、10、13。A与B的中位数分别为3.5和9.5分钟。若差值统一写成“A减B”，结果是 `3.5−9.5=−6` 分钟，负号表示A的中位数低6分钟，不能在表中随意改成正6。
+再看两组另设数据：X=2、3、4、31，Y=8、9、10、13。X与Y的中位数分别为3.5和9.5分钟。若差值统一写成“X减Y”，结果是 `3.5−9.5=−6` 分钟，负号表示X的中位数低6分钟，不能在表中随意改成正6。
 
-本例的第90百分位数采用位置 `(n−1)×0.9` 的线性插值。两组都有4条记录，所以使用**同一个插值位置**2.7；A在4与31之间插值得到22.9分钟，B在10与13之间插值得到12.1分钟。比较分位数时要固定算法，不能让两组使用不同位置。
+本例的第90百分位数采用位置 `(n−1)×0.9` 的线性插值。两组都有4条记录，所以使用**同一个插值位置**2.7；X在4与31之间插值得到22.9分钟，Y在10与13之间插值得到12.1分钟。比较分位数时要固定算法，不能让两组使用不同位置。
+
+下面的程序只复算 X与Y的均值、中位数和第90百分位数之差。差值全部按“X减Y”计算，运行前先根据方向预计正负号。
+
+```python
+# learning-example
+import json
+import statistics
+
+
+def linear_percentile(values, probability):
+    ordered = sorted(values)
+    position = (len(ordered) - 1) * probability
+    lower = int(position)
+    upper = min(lower + 1, len(ordered) - 1)
+    weight = position - lower
+    return ordered[lower] * (1 - weight) + ordered[upper] * weight
+
+
+x = [2, 3, 4, 31]
+y = [8, 9, 10, 13]
+p90_x = linear_percentile(x, 0.9)
+p90_y = linear_percentile(y, 0.9)
+result = {
+    "mean_difference": statistics.mean(x) - statistics.mean(y),
+    "median_difference": statistics.median(x) - statistics.median(y),
+    "p90_x": p90_x,
+    "p90_y": p90_y,
+    "p90_difference": p90_x - p90_y,
+}
+print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+```
 
 ## 3. 什么是敏感性分析
 

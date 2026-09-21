@@ -22,6 +22,36 @@
 
 若直方图区间依次规定为 `[0,10)`、`[10,20)`、`[20,30)`、`[30,40)`、`[40,50)`，五个区间的工单数是 **4、0、0、0、1**。左方括号表示包含左端点，右圆括号表示不包含右端点，所以40分钟只进入最后一个区间。各区间互不重叠，计数之和仍是5；若区间边界含义不清，同一条记录可能被重复计数或漏掉。
 
+下面的程序只复算本页五张工单的学习例子，不读取正式项目数据，也不替代项目分析。运行前先预计全部工单与已服务工单的均值为什么不同。
+
+```python
+# learning-example
+import json
+import statistics
+
+
+rows = [
+    {"ticket": "E1", "person": "P1", "wait": 3, "abandoned": 0},
+    {"ticket": "E2", "person": "P1", "wait": 4, "abandoned": 0},
+    {"ticket": "E3", "person": "P2", "wait": 5, "abandoned": 0},
+    {"ticket": "E4", "person": "P3", "wait": 8, "abandoned": 0},
+    {"ticket": "E5", "person": "P4", "wait": 40, "abandoned": 1},
+]
+served_waits = [row["wait"] for row in rows if row["abandoned"] == 0]
+all_waits = [row["wait"] for row in rows]
+result = {
+    "tickets": len(rows),
+    "people": len({row["person"] for row in rows}),
+    "all_mean": statistics.mean(all_waits),
+    "all_median": statistics.median(all_waits),
+    "served_n": len(served_waits),
+    "served_mean": statistics.mean(served_waits),
+    "served_median": statistics.median(served_waits),
+    "abandon_rate": sum(row["abandoned"] for row in rows) / len(rows),
+}
+print(json.dumps(result, ensure_ascii=False, sort_keys=True))
+```
+
 ## 4. 总体、样本、关联和因果
 
 **总体**是研究对象全体，**目标总体**是希望结论适用的全体；**样本**是从总体选取的一部分。课程数据是某段时期的登记工单，能描述这段记录，不能自动代表未取号者或其他月份。两个变量有联系称为**关联**；说改变一个因素会造成结果变化，才涉及因果关系。
