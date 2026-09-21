@@ -47,11 +47,21 @@ def build_overview(rows, window_rows):
             raise ValueError("已服务等待须为有限的非负数，请核对原始记录。")
         # null表示没有可用结果，不能将空组评为等待0分钟的最佳中心。
         summary.append({"center": center, "served_n": len(waits),
-                        "mean": statistics.mean(waits) if waits else None,
-                        "median": statistics.median(waits) if waits else None,
-                        "maximum": max(waits) if waits else None})
-    return {"statistics": summary, "scope": "第一期已服务工单；未形成评价规则",
-            "note": "请自行说明评价目标、长等待的判断规则及另一套办法，不能直接把该表当排名。"}
+                        "mean": round(statistics.mean(waits), 2) if waits else None,
+                        "median": round(statistics.median(waits), 2) if waits else None,
+                        "maximum": round(max(waits), 2) if waits else None})
+    return {
+        "statistics": summary,
+        "field_explanations": {
+            "center": "中心编号",
+            "served_n": "等待时间有效的已服务工单数",
+            "mean": "已服务工单等待时间的算术平均数，单位为分钟",
+            "median": "已服务工单等待时间的中位数，单位为分钟",
+            "maximum": "已服务工单中的最长等待，单位为分钟",
+        },
+        "scope": "第一期已服务工单；这里只是起始概览，还不是完整评价",
+        "note": "还需计算长等待、放弃和业务构成，并比较另一套合理规则。不要直接把本表当成中心排名。",
+    }
 
 
 def main():
