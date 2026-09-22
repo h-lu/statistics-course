@@ -66,7 +66,7 @@ def start(root: Path, lesson: str) -> None:
     (root / lesson / "submission.json").write_text(
         json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    print(f"已开始{lesson}。请阅读本课README和LEARN。")
+    print(f"已开始{lesson}。先读README了解任务，按SUPPORT跟做；遇到概念时读LEARN，再回到README完成标准任务。")
 
 
 def run(root: Path, lesson: str) -> None:

@@ -85,8 +85,8 @@ python scripts/course.py run 01
 
 1. 阅读 `lesson-01/README.md`，明确问题、需要提交的内容，以及基础练习、标准任务和提高拓展的边界；
 2. 打开 `lesson-01/SUPPORT.md`，按入门跟做获得第一份可核对的结果；这一步还不代表已完成本课；
-3. 阅读 `lesson-01/LEARN.md`，理解本课会用到的统计概念；
-4. 运行并检查示例程序，再根据自己的问题修改 `analysis.py`，完成 README 中的标准任务；
+3. 遇到不熟悉的概念时阅读 `lesson-01/LEARN.md`，核对术语与小例子；
+4. 回到 `lesson-01/README.md` 核对标准任务，运行并检查示例程序，再根据自己的问题修改 `analysis.py`；
 5. 在 `report.md` 写清楚数据范围、变量、分母、统计方法、结果和局限性；
 6. 将支持结论的表、图或数据保存到 `artifacts/`；提前完成标准任务时，再从提高与拓展中选一项；
 7. 在 `submission.json` 中填写报告路径、结果文件和运行命令，并把 `status` 改为 `complete`；
@@ -134,4 +134,4 @@ python scripts/course.py run 01
 - [数据总说明](data/README.md)
 - [课程逐课发布日程](https://hblu.top/gitea/statistics/course-student-release-2026/src/branch/main/RELEASE_SCHEDULE.md)
 
-每课最后约15分钟进入[知识自查](https://hblu.top/stat-check/)，确认教师已经开放对应场次后再作答。
+完成本课项目后进入[知识自查](https://hblu.top/stat-check/)，确认教师已经开放对应场次后再作答。
