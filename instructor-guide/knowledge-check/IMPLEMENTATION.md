@@ -10,7 +10,7 @@
 
 ## 内容发布
 
-教师权威题库在`question-bank/lesson-v2r1-NN.yml`，服务运行副本在`stat-check/app/question_bank/`。发布前检查两份字节一致、5概念/10题、ID唯一和正确选项有效。V1原版在`question-bank/legacy/`，V2初版为`question-bank/lesson-v2-NN.yml`；这些已发布文件及服务中的对应副本保持原字节内容。
+教师权威题库在`question-bank/lesson-v2rX-NN.yml`，其中`X`为逐课修订号；服务运行副本在`stat-check/app/question_bank/`。当前版本见[题库约定](question-bank/SCHEMA.md)。发布前检查两份字节一致、5概念/10题、ID唯一和正确选项有效。V1原版在`question-bank/legacy/`，V2初版为`question-bank/lesson-v2-NN.yml`；这些已发布文件及服务中的对应副本保持原字节内容。
 
 部署前确认当前场次不是A/学习/B，做SQLite在线备份，更新代码和题库后重建容器。保留`.env`、数据库目录与OAuth配置，不删除或重建答题数据。服务器路径与备份位置记录在本次发布记录，不在课程规范里写私密配置。
 

@@ -120,6 +120,33 @@ def test_complete_classroom_flow(tmp_path) -> None:
     assert "学习阶段已完成" in learned.text
 
 
+def test_fifth_lesson_r4_student_flow(tmp_path) -> None:
+    database_path = tmp_path / "lesson05-r4.sqlite3"
+    teacher = make_client(database_path, "teacher", "teacher")
+    student = make_client(database_path, "student", "student05")
+    bank = BANKS["v2-l05-r4"]
+    create_session(teacher, bank.lesson_id)
+
+    set_phase(teacher, "a")
+    answer_all(student, "a", bank)
+    set_phase(teacher, "learn")
+    page = student.get("/stat-check/current")
+    learned = student.post(
+        "/stat-check/learn/complete",
+        data={"csrf_token": csrf_from(page), "session_id": session_id_from(page)},
+        follow_redirects=True,
+    )
+    assert "学习阶段已完成" in learned.text
+
+    set_phase(teacher, "b")
+    answer_all(student, "b", bank)
+    set_phase(teacher, "result")
+    result = student.get("/stat-check/current")
+    assert result.status_code == 200
+    assert "规则判定阳性" in result.text
+    assert "情境总损失" in result.text
+
+
 def test_teacher_can_delete_unused_closed_session_but_not_used_session(tmp_path) -> None:
     database_path = tmp_path / "delete-session.sqlite3"
     teacher = make_client(database_path, "teacher", "teacher")
@@ -233,10 +260,10 @@ def test_question_bank_directory_and_answer_positions() -> None:
         f"lesson-{number:02d}.yml" for number in range(1, 7)
     ] + [f"lesson-v2-{number:02d}.yml" for number in range(1, 33)] + [
         f"lesson-v2r1-{number:02d}.yml" for number in range(1, 33)
-    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)] + [f"lesson-v2r3-{number:02d}.yml" for number in range(1, 9)]
-    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 86
+    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)] + [f"lesson-v2r3-{number:02d}.yml" for number in range(1, 9)] + ["lesson-v2r4-05.yml"]
+    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 87
     assert [bank.lesson_id for bank in CURRENT_BANKS] == [
-        f"v2-l{n:02d}-r{3 if n <= 8 else 1}" for n in range(1, 33)
+        f"v2-l{n:02d}-r{4 if n == 5 else 3 if n <= 8 else 1}" for n in range(1, 33)
     ]
     assert BANK.lesson_id == "v2-l01-r3"
     for bank in QUESTION_BANKS:
