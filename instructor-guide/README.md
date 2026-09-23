@@ -17,7 +17,7 @@
 
 每课目录`lesson-01`至`lesson-32`含`RUNBOOK.md`和`REFERENCE.md`，提供课堂安排、可接受分析路线、参考计算与六项设计检查。参考路线不是唯一正确答案。
 
-学生使用[学生项目仓库](https://hblu.top/gitea/statistics/course-student-template)，不克隆本仓库。每课最后约15分钟使用[知识自查教师页](https://hblu.top/stat-check/teacher)，选择当节课的新版本题库（ID为`v2-lNN-r1`），新建自查场次。
+学生从[逐课发布仓库](https://hblu.top/gitea/statistics/course-student-release-2026)创建私有仓库，不克隆本教师仓库。每课最后约15分钟使用[知识自查教师页](https://hblu.top/stat-check/teacher)，选择当节课的当前题库并新建自查场次；第5课当前题库为`v2-l05-r4`，其余课次版本见[题库约定](knowledge-check/question-bank/SCHEMA.md)。
 
 ## 课末完成快照
 

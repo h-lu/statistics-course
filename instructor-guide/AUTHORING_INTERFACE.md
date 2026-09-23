@@ -8,6 +8,6 @@
 - `analysis.py`示例代码用标准库读取本课数据，生成一份描述性CSV或JSON至本课`artifacts/`，不得含TODO阻断，也不得用固定推荐冒充成果。允许pandas/numpy/scipy/statsmodels/sklearn等第三方分析；课程工具不强制安装全部包。
 - 共享数据在学生`data/<world>/`，生成脚本在`scripts/generate_<world>.py`；必须固定种子。数据CSV由脚本生成，README列单位、字段与局限。每组数据的作者负责本范围需要的全部字段，课次材料必须引用真实存在的文件。不将答案写入学生原始数据。
 - 教师每课`lesson-NN/RUNBOOK.md`（90分钟可调节时间、关键知识、巡视/反馈、六问审核）与`REFERENCE.md`（可复现参考计算命令或代码、可接受路线、评价所依据的数值、关系及适用条件）。参考不是唯一答案。
-- 题库在教师`knowledge-check/question-bank/lesson-v2r1-NN.yml`，`lesson_id: v2-lNN-r1`，title以`第NN课 · `开始；结构见`knowledge-check/question-bank/SCHEMA.md`。每课5概念，每概念a/b两题，每题4选项、一个答案和解释。概念ID在单课唯一；AI概念提示不泄露原题答案。a/b不能只调换同一道题答案位置。错项可信，正确字母分散。
+- 题库在教师`knowledge-check/question-bank/lesson-v2rX-NN.yml`，`X`为逐课修订号；实际当前版本与ID见[题库约定](knowledge-check/question-bank/SCHEMA.md)，title以`第NN课 · `开始。每课5概念，每概念a/b两题，每题4选项、一个答案和解释。概念ID在单课唯一；AI概念提示不泄露原题答案。a/b不能只调换同一道题答案位置。错项可信，正确字母分散。
 - 学生README每课底部链接`https://hblu.top/stat-check/`，提示确认页面为当日课次；教师选择场次，学生页自动跟随。评分与通用操作链接`../docs/WORKFLOW.md`和`../docs/KNOWLEDGE_CHECK.md`，不要逐课重复后台说明。
 - 总表、使用说明、评分、统一工具、CI、历史迁移与部署由主编维护；各课作者不改这些共用文件，不自行推送或部署。
