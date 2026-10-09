@@ -7,10 +7,10 @@
 从仓库根运行：
 
 ```bash
-python instructor-guide/lesson-05/reference.py --student-root student-template
+python3 instructor-guide/lesson-05/reference.py --student-root student-template
 ```
 
-从教师目录运行 `python lesson-05/reference.py --student-root ../student-template`。独立部署使用学生仓库实际路径，标准库即可。输出包括 `development`、`selected_by_development_loss`、`evaluation` 和 `evaluation_scenarios_not_new_validation`；开发与后期不能混在同一张无时期说明的绩效表中。
+从教师目录运行 `python3 lesson-05/reference.py --student-root ../student-template`。独立部署使用学生仓库实际路径，标准库即可。输出包括 `development`、`selected_by_development_loss`、`evaluation` 和 `evaluation_scenarios_not_new_validation`；开发与后期不能混在同一张无时期说明的绩效表中。
 
 ## 固定教学数据的核对结果
 
@@ -50,3 +50,7 @@ python instructor-guide/lesson-05/reference.py --student-root student-template
 合格成果须有可执行规则、备选比较、逐日容量、后期评估、条件变化及明确监测条件；高质量用这些结果实质解释资源取舍、群体后果和使用限制。遗漏后期评价或敏感性是主要任务未完成，不应仅作为少得加分处理；仍按现有评分维度反馈，不新增封顶分值。
 
 可用反馈：“请分开开发回代与后期结果，并解释一般设备无复核时如何处理风险。认可暂缓或限范围试运行，但需要可观察的条件，而不是只写‘数据有限’。”完整课堂例子见[RUNBOOK](RUNBOOK.md)，核算与验证范围见[审核记录](REVIEW_05_08.md)。
+
+## 2026-10-09开放任务与多方案参考
+
+学生材料只提供可选通用读表、给定名单核算与容量检查，不提供一键两规则/排名/情景。两个重要决定与合理备选由学生自主设计。完整过程、数量/损失目标、类别保障、不复核和效果范围见[EXERCISE_SOLUTIONS](EXERCISE_SOLUTIONS.md)，新增 `exercise_reference.py` 可复算。原历史概率路线与API保留，不作为唯一方法；采用一般设备保障而承担更高总损失可有依据。课堂采用10/65/15，教师不在学生自主阶段长讲填时。

@@ -1,58 +1,24 @@
-# 学生课次的逐步发布
+# 学生课次发布边界
 
-教师仓库和 `course-student-template` 保留完整32课。学生从公开模板 `course-student-release-2026` 创建自己的私有仓库；该模板只含已开放课次和这些课已需要的共享数据。
+本地重设计当前实际制作第1–8课。第9–32课仅保留32课大纲与README占位，原完整材料和专用数据已归档。`ACTIVE_LESSONS=1..8` 是当前运行、同步、CI、手动发布和自动发布的共同边界；扩大范围前需先制作新课包、完成命令/数据/数字与链接核验，再同步修改所有边界。
 
-## 自动发布时间
+本次没有修改线上定时器、发布仓库、真实学生仓库或服务。旧发布日程属于线上历史配置，不因本地重设计推断它已经更新。原发布时间与后续旧数据映射可从[归档](../archive/redesign-2026-10-09/README.md)恢复。
 
-服务器使用 [`publish-statistics-lesson.timer`](scripts/publish-statistics-lesson.timer) 调用[发布程序](scripts/publish-statistics-lesson.sh)，从2026-09-14开始，在上海时间每周一、周三00:00发布当天课次。定时器每天00:00唤醒一次，程序自行跳过非上课日。完整日程见发布仓库的 `RELEASE_SCHEDULE.md`。
+## 当前共享数据
 
-生产机上的程序路径为 `/usr/local/sbin/publish-statistics-lesson`，单元文件放在 `/etc/systemd/system/`。`/root/.config/statistics-release/env` 只在服务器保存 `GITEA_USER` 和 `GITEA_TOKEN`，不提交到仓库。
-
-发布程序必须遵守两条边界：
-
-1. 只新增当天的 `lesson-NN/`，若目标目录已存在则停止，不覆盖已发布课次；
-2. 只在该数据集首次被课程使用时新增相应 `data/` 目录，不提前发布后续数据。
-
-## 数据随课发布映射
-
-| 首次发布课次 | 同时新增的数据目录 | 主要使用课次 |
+| 首次使用课次 | 数据目录 | 使用课次 |
 |---|---|---|
-| 01 | `data/service/` | 01—04、06—08 |
+| 01 | `data/service/` | 01–04、06–08 |
 | 05 | `data/alerts/` | 05 |
-| 09 | `data/inference/` | 09—14 |
-| 15 | `data/experiments/` | 15—20 |
-| 21 | `data/prediction/` | 21—26 |
-| 27 | `data/policy/` | 27—32 |
 
-公开发布仓库在全部六组数据都开放后再新增完整的 `data/README.md`，避免早期首页链接尚未发布的目录。新增数据时，必须先确认当日课的 `analysis.py` 和 `SUPPORT.md` 中所有路径都能解析。
+`data/inference`、`experiments`、`prediction`、`policy` 和其生成器已经退出活跃模板。保留第1–8课共用的数据与工具；新课的选题和数据制作另按课程地图进行。
 
-## 学生怎样取得新课
+## 维护程序
 
-学生在自己的私有仓库根目录运行：
+- [`publish_student_lesson.py`](scripts/publish_student_lesson.py)：只允许第1–8课，复制到明确的本地目标；已有课目录或个人材料不覆盖。复制后查看diff，再按已授权范围处理提交发布。
+- [`publish-statistics-lesson.sh`](scripts/publish-statistics-lesson.sh)：仍保留原日期逻辑作历史兼容，但超过第8课在读取发布凭据和网络操作前退出；大纲占位不得自动发布。
+- 学生 `scripts/course.py sync`：只补缺少的已发布第1–8课、service/alerts共享数据和基础检查工具；不会拉入远端仍存在的第9–32课旧材料，也不覆盖已有文件。
 
-```bash
-python scripts/course.py sync
-git diff --cached
-git commit -m "同步课程发布"
-git push
-```
+## 发布核验
 
-`sync` 新增缺少的已发布课次和共享数据文件，但跳过本地已存在的文件。它不替换学生的代码、报告、数据或结果。旧私有仓库在第5课前需先按首页说明更新 `scripts/course.py`，才能自动补齐后续数据。
-
-第32课的课前计划放在 `lesson-31/LESSON_32_PLAN.md`，并随第31课发布。不得为提前发布计划而单独创建 `lesson-32/`，因为同步工具会保护已存在的课次目录。
-
-## 发布后核对
-
-每次自动或手动发布后检查：
-
-1. 公开发布仓库只多出当天课次和当天首次需要的数据目录；
-2. 用一个临时私有仓库副本运行 `sync`，确认新课与数据一同暂存，旧课和旧数据不变；
-3. 从仓库根目录运行当课 `start`、`run` 和链接检查；
-4. 确认公开发布仓库仍是模板仓库，且未加入教师参考答案、题库或后续课次。
-
-## 仓库权限
-
-- `course-instructor`：教师私有仓库，保存教学指导、参考分析与题库。
-- `course-student-template`：教师维护的完整学生模板，不作为正式上课入口。
-- `course-student-release-2026`：公开、可用作模板的逐课发布仓库。
-- 学生私有仓库：保存个人作业；发布程序不直接写入这些仓库。
+发布前在临时本地副本验证：课包文件与数据路径完整，README → SUPPORT → LEARN路径一致，运行与自检可用，未来占位被拒绝，旧学生文件不覆盖。公开学生模板不得含教师过程答案、题库或内部审核材料。课程编辑与本地核验不代表已经获准部署，也不替代真实学生试教。

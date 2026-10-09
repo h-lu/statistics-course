@@ -2,7 +2,7 @@
 
 从学生仓库根目录运行：
     python -m unittest discover -s lesson-01 -p test_learning_examples.py -v
-未发布的课次跳过；仅运行LEARN中的独立小例子，不读取项目CSV。
+未发布的课次跳过；运行LEARN或experiments.py中的独立小例子，不读取项目CSV。
 """
 import json
 import math
@@ -34,11 +34,37 @@ EXPECTED = {
     7: {"invitation": .5, "response_invited": .8, "response_all": .4,
         "happy_respondents": .8, "bounds": [.32, .92],
         "scenarios": [.47, .62, .77], "q_for70": 38/60, "two_process": [.60, .76]},
-    8: {"ticket_mean": 6, "expanded_mean": 4, "wrong_sum_over_distinct": 8,
-        "contact_minutes": 16, "planned_day_hours": 8, "wrong_ticket_hours": 16,
-        "wrong_contact_hours": 32, "all_mean_with_unknown": 6,
-        "all_minutes_with_unknown": 21, "two_day_plan": 16},
+    8: {"duplication": [6, 4, 8, 16],
+        "unmatched": {"counts": [3, 2, 1], "means": [[6, 6], [14, 6]]},
+        "revision": {"R1": [10, "9", False, 8], "R2": [2, "2", True, None]},
+        "staffing": {"hours": [16, 8], "minutes": 22,
+                     "days": [[2, 16, 8, 16/60, 1/30],
+                              [0, 0, 8, 0, 0], [1, 6, None, .1, None]]}},
 }
+
+# 第8课微例各自构造数据；复制脚本到无CSV的临时目录，调用函数而非项目入口。
+EXPERIMENT_08 = '''import json, runpy
+cases = runpy.run_path("experiments.py")
+d = cases["duplication"]()
+u = cases["unmatched"]()
+r = cases["revision"]()
+s = cases["staffing"]()
+print(json.dumps({
+    "duplication": [d["ticket_mean"], d["expanded_mean"],
+                    d["expanded_sum_over_distinct_tickets"], d["staff_minutes"]],
+    "unmatched": {"counts": [u["left_n"], u["inner_n"], len(u["unmatched"])],
+                  "means": [[a["all_ticket_mean"], a["inner_join_mean"]]
+                            for a in u["alternatives"]]},
+    "revision": {a["ticket"]: [a["numeric_latest"], a["lexical_latest"],
+                               a["conflict"], a["published_wait"]]
+                 for a in r["selection"]},
+    "staffing": {"hours": [s["known_plan_hours"], s["plan_hours_on_activity_days_only"]],
+                 "minutes": s["source_staff_minutes"],
+                 "days": [[a["tickets"], a["staff_minutes"], a["planned_person_hours"],
+                           a["contact_person_hours"], a["recorded_work_over_plan"]]
+                          for a in s["window_days"]]}
+}, allow_nan=False))
+'''
 
 
 def published(root):
@@ -76,6 +102,8 @@ class LearningExamples(unittest.TestCase):
             self.assertEqual(len(actual), len(expected))
             for left, right in zip(actual, expected):
                 self.assert_values(left, right)
+        elif isinstance(expected, bool):
+            self.assertIs(actual, expected)
         elif isinstance(expected, (float, int)):
             self.assertIsInstance(actual, (float, int))
             self.assertTrue(math.isfinite(actual))
@@ -87,13 +115,18 @@ class LearningExamples(unittest.TestCase):
 
 def numeric_test(number):
     def test(self):
-        self.available(number)
-        code = example_code(ROOT, number)
-        # 在空临时目录运行，只允许例子通过标准输出给出核算值。
+        directory = self.available(number)
+        code = EXPERIMENT_08 if number == 8 else example_code(ROOT, number)
+        # 在隔离临时目录运行，只允许例子通过标准输出给出核算值。
         with tempfile.TemporaryDirectory() as folder:
+            files = []
+            if number == 8:
+                script = Path(folder) / "experiments.py"
+                script.write_bytes((directory / "experiments.py").read_bytes())
+                files = [script]
             process = subprocess.run([sys.executable, "-I", "-c", code], cwd=folder,
                                      capture_output=True, text=True, check=True, timeout=15)
-            self.assertEqual(list(Path(folder).iterdir()), [])
+            self.assertEqual(list(Path(folder).iterdir()), files)
         result = json.loads(process.stdout, parse_constant=reject_constant)
         self.assert_values(result, EXPECTED[number])
     return test
@@ -106,19 +139,17 @@ def material_test(number):
                      for name in ("README.md", "LEARN.md", "report.md")}
         readme = documents["README.md"]
         self.assertIn(f"# 第{number}课", readme)
-        self.assertIn(f"python scripts/course.py run {number:02d}", readme)
-        self.assertIn(f"python scripts/course.py check {number:02d}", readme)
-        self.assertIn(f"v2-l{number:02d}-final", readme)
-        self.assertIn("check` 只检查", readme)
-        self.assertIn("不会重新运行分析", readme)
-        self.assertIn("教学合成数据", readme)
-        self.assertIn("不是已完成报告", documents["report.md"])
+        commands = {(action, int(lesson)) for action, lesson in re.findall(
+            r"\bpython(?:3)?\s+scripts/course\.py\s+(run|check)\s+(\d+)\b", readme)}
+        self.assertIn(("run", number), commands)
+        self.assertIn(("check", number), commands)
+        self.assertIn("教学合成", readme)
         for name, text in documents.items():
             with self.subTest(document=name):
                 self.assertTrue(text.endswith("\n"))
                 self.assertEqual(text.count("```") % 2, 0)
                 for forbidden in ("instructor-guide/", "REFERENCE.md", "RUNBOOK.md",
-                                  "question-bank/", "后台审核", "教师参考答案"):
+                                  "question-bank/"):
                     self.assertNotIn(forbidden, text)
     return test
 

@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l05-r5",
+  "title": "第05课 · 有限复核名额下的告警策略",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "conditional-error-denominators",
+      "title": "错误率的条件分母",
+      "tutor_context": "用一个新的复核情境说明假阳性率、假阴性率与名单中故障比例的不同分母，再解释零分母为何未定义。",
+      "pair": {
+        "a": {
+          "prompt": "60条设备日记录的结果均已知，其中12条故障。规则选中15条复核，包含9条故障。选中为规则阳性，故障为实际阳性。假阳性率与假阴性率分别是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "6/15与3/45",
+              "misconception": "action-denominator-for-error-rates"
+            },
+            {
+              "id": "B",
+              "text": "6/48与3/12",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "6/60与3/60",
+              "misconception": "all-records-for-both-errors"
+            },
+            {
+              "id": "D",
+              "text": "9/12与6/48",
+              "misconception": "detection-rate-as-miss-rate"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：6/15是入选者中未故障比例；3/45是未入选者中故障比例，都不是所问条件分母。 B：假阳性为15−9=6，实际未故障为60−12=48；假阴性为12−9=3，实际故障为12。 C：以全部60条为分母得到两类错误占全记录的比例，不能替代各自条件错误率。 D：9/12是检出的故障比例，即真阳性率；第二个量是假阳性率，次序和概念都不符合题问。"
+        },
+        "b": {
+          "prompt": "一批18条设备日记录全部未故障，规则选中4条复核。选中为规则阳性，故障为实际阳性。哪项报告正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "假阴性率0%，假阳性率4/18",
+              "misconception": "zero-over-zero-as-zero"
+            },
+            {
+              "id": "B",
+              "text": "假阴性率14/18，假阳性率4/18",
+              "misconception": "not-selected-as-missed-faults"
+            },
+            {
+              "id": "C",
+              "text": "两种错误率都不能计算",
+              "misconception": "one-empty-group-invalidates-all-rates"
+            },
+            {
+              "id": "D",
+              "text": "假阴性率不能计算，假阳性率4/18",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：实际故障为0条，假阴性率的0/0未定义，不能记为0%；第二项分母虽正确，整项仍不正确。 B：14条未入选者全未故障，不是漏掉的故障；漏报的分母也不是全部记录。 C：实际未故障有18条，假阳性率可以计算；只有假阴性率缺少分母。 D：故障总数为0，所以假阴性率未定义；未故障18条中4条被选中，假阳性率为4/18。"
+        }
+      }
+    },
+    {
+      "concept_id": "daily-capacity",
+      "title": "逐日容量与允许少用名额",
+      "tutor_context": "用两个不同容量的日期解释每日上限；再区分上限与必须用满的任务量。",
+      "pair": {
+        "a": {
+          "prompt": "周一最多复核3台，周二最多1台。某方案两天分别选2台和2台，解释说两天总数4台等于总名额4台，因此合规。应怎样判断？",
+          "options": [
+            {
+              "id": "A",
+              "text": "合规，两天总数没有超过总名额",
+              "misconception": "pooled-capacity-replaces-daily-limit"
+            },
+            {
+              "id": "B",
+              "text": "不合规，原因只是周一必须用满3台",
+              "misconception": "capacity-as-minimum"
+            },
+            {
+              "id": "C",
+              "text": "不合规，周二超额；周一空余名额不能转给周二",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "合规，把周一空余1台记到周二即可",
+              "misconception": "carry-unused-capacity-forward"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：逐日约束不能只用两天总量代替；周二已超过1台。 B：题目给的是最多3台，不是必须复核3台；周一选2台本身合规。 C：周二选2台超过当天1台；总量相等和周一少用都不能取消逐日上限。 D：题设没有允许跨日借用，事后记账不能让实际周二行动符合当天上限。"
+        },
+        "b": {
+          "prompt": "当天容量上限为6台。给定效果和成本假设下，4台的复核期望净收益为正，另2台为负；没有其他必须复核要求。若目标是减少期望总损失，怎样理解上限？",
+          "options": [
+            {
+              "id": "A",
+              "text": "可只选择4台，不必为了用满名额再加入负收益设备",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "必须选6台，否则规则不合格",
+              "misconception": "quota-must-be-filled"
+            },
+            {
+              "id": "C",
+              "text": "应一台也不选，因为少复核必然损失更小",
+              "misconception": "review-cost-only-objective"
+            },
+            {
+              "id": "D",
+              "text": "把剩余2个名额加到明天，所以明天可超上限2台",
+              "misconception": "unused-quota-as-future-permission"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：容量是行动上限；在题设损失目标下加入负净收益设备会增加期望损失。 B：最多6台不等于至少6台；用满名额不能凌驾于题设损失目标。 C：4台正净收益已经考虑成本与避免损失，不选会放弃题设中可减少的损失。 D：未使用名额不改变明天的上限，题目没有跨日转移规则。"
+        }
+      }
+    },
+    {
+      "concept_id": "scenario-total-loss",
+      "title": "情境损失与效果假设",
+      "tutor_context": "另举成本、损失和复核避免比例的例子，说明所有入选者都付成本，避免比例不改写历史故障标签。",
+      "pair": {
+        "a": {
+          "prompt": "3台设备中1台事后故障，规则复核2台且包括该故障。每次复核成本3，故障损失180；假设复核可避免75%的损失。未故障且未复核者损失为0。情境总损失为多少成本单位？",
+          "options": [
+            {
+              "id": "A",
+              "text": "141",
+              "misconception": "avoided-fraction-used-as-residual"
+            },
+            {
+              "id": "B",
+              "text": "51",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "45",
+              "misconception": "omit-all-review-costs"
+            },
+            {
+              "id": "D",
+              "text": "6",
+              "misconception": "assume-perfect-prevention"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：180×75%+6=141把避免比例当成剩余比例；剩余应为25%。 B：两次成本共6，故障剩余损失180×25%=45，总损失51。 C：45只计剩余故障损失，遗漏故障与未故障两次复核都要付的成本6。 D：6只计复核成本，75%避免不是100%避免，还留下45的故障损失。"
+        },
+        "b": {
+          "prompt": "同一批记录中，甲漏掉1次损失96的故障，复核成本与已复核故障剩余损失合计24；乙漏掉2次故障，每次损失16，其余上述成本合计48。所有数值均为同一成本单位。怎样比较？",
+          "options": [
+            {
+              "id": "A",
+              "text": "甲更好，因为只漏1次，乙漏2次",
+              "misconception": "miss-count-replaces-loss"
+            },
+            {
+              "id": "B",
+              "text": "甲96、乙32就是各自总损失",
+              "misconception": "omit-cost-and-residual-component"
+            },
+            {
+              "id": "C",
+              "text": "乙总损失80，低于甲的120",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "两方案都只报告24与48，因为未复核不产生成本",
+              "misconception": "unselected-losses-ignored"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：错误次数忽略每次后果；甲总损失96+24=120，大于乙32+48=80。 B：96和32仅是未复核故障损失，遗漏已给出的24和48。 C：甲96+24=120，乙2×16+48=80；少漏一次不保证总损失小。 D：未复核虽不付复核成本，仍承担漏掉故障的损失，不能忽略96与32。"
+        }
+      }
+    },
+    {
+      "concept_id": "time-evaluation",
+      "title": "制定期、留出评价与重复设备",
+      "tutor_context": "用时间顺序的新情境解释规则固定、评价后修订和新数据验证；同一对象后期记录可用但相关性与推广范围仍需说明。",
+      "pair": {
+        "a": {
+          "prompt": "学生用前5周制定规则，固定后在第6–7周评价。看完评价结果又调整阈值，并把修订规则在第6–7周的成绩称为“未参与选择的验证”。哪项解释正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "原固定规则可报告留出评价；修订规则的这段成绩属于参与选择后的结果，需要新数据评价",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "第6–7周仍是日历上的后期，所以修订规则也已独立验证",
+              "misconception": "later-calendar-period-as-independent-test"
+            },
+            {
+              "id": "C",
+              "text": "只要再次运行修订程序，原评价就变成新验证",
+              "misconception": "rerun-as-new-data"
+            },
+            {
+              "id": "D",
+              "text": "一旦修订，就连原固定规则的留出评价也不能报告",
+              "misconception": "revision-erases-valid-old-evaluation"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：第6–7周未参与原规则选择，但参与了修订选择，两者的证据地位不同。 B：时间较晚不足以保证未参与选择；修订已经用过其结果。 C：重复运行不产生新的独立信息，也不撤销结果对规则选择的影响。 D：应保留并注明原评价；修订不会自动抹去原固定规则的评价意义。"
+        },
+        "b": {
+          "prompt": "较晚评价期仍包含制定期的同一批设备，但日期不同；生成名单时不使用随后故障结果。怎样理解这一评价？",
+          "options": [
+            {
+              "id": "A",
+              "text": "同设备出现两次，任何后期评价都属于未来结果泄漏",
+              "misconception": "same-object-always-leakage"
+            },
+            {
+              "id": "B",
+              "text": "日期不同即可把所有设备日视为彼此独立",
+              "misconception": "distinct-dates-imply-independence"
+            },
+            {
+              "id": "C",
+              "text": "必须每天选同一组设备，否则规则没有固定",
+              "misconception": "fixed-rule-as-fixed-roster"
+            },
+            {
+              "id": "D",
+              "text": "可评价固定方法在较晚时期的表现，同时说明同设备相关和未来推广条件",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：是否泄漏取决于使用的信息和行动时点，不由设备编号重复单独决定。 B：同设备跨日可能相关，日期不同不能证明独立。 C：固定的是可执行方法，不是名单；分数与容量变化可以让名单变化。 D：这种时间评价有用途，但相关结构、时期变化和推广范围需明确，不能当作独立新设备人群验证。"
+        }
+      }
+    },
+    {
+      "concept_id": "threshold-and-ties",
+      "title": "累计分布、阈值与并列",
+      "tutor_context": "用新的风险分数解释累计比例包含等号，以及按阈值入选时如何处理并列和上限；分数不直接等于故障概率。",
+      "pair": {
+        "a": {
+          "prompt": "某日分数依次为M=75、N=68、P=68、Q=68、R=40。规则先要求分数至少68，再按分数降序、同分按编号字母顺序选择，最多2台。应选谁？",
+          "options": [
+            {
+              "id": "A",
+              "text": "M、N、P、Q",
+              "misconception": "all-above-threshold-overrides-capacity"
+            },
+            {
+              "id": "B",
+              "text": "M、N",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "N、P",
+              "misconception": "ties-before-higher-scores"
+            },
+            {
+              "id": "D",
+              "text": "M、R",
+              "misconception": "fill-with-ineligible-record"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：四台都达到阈值，但实际复核最多2台，不能全部入选。 B：M先入选；68分三台并列，按编号N排最前，占剩余1个名额。 C：同分规则只用于同分者，不能让68分排在75分之前。 D：R不满足至少68的阈值，而且还有满足阈值的并列设备可选。"
+        },
+        "b": {
+          "prompt": "六条分数为12、18、18、30、42、42。在42处的经验累积分布函数为100%。若另一条行动规则要求分数至少42、最多选1条，哪项解释正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "累计比例为100%，所以六条都应入选",
+              "misconception": "cdf-as-action-fraction"
+            },
+            {
+              "id": "B",
+              "text": "达到规则的有0条，因为没有分数严格大于42",
+              "misconception": "strict-threshold-for-inclusive-rule"
+            },
+            {
+              "id": "C",
+              "text": "累计比例统计不超过42；行动阈值符合者有2条，还须按事前并列规则最多选1条",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "两条42分的故障概率都是100%",
+              "misconception": "cdf-as-failure-probability"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：累计比例统计不超过42的记录，不是至少42的行动名单。 B：题设至少42包含等于42，两条42均符合阈值。 C：累计条件≤42与行动条件≥42不同；两条同分达到阈值，上限仍为1。 D：分数分布的累计比例不提供该分数的故障概率。"
+        }
+      }
+    }
+  ]
+}

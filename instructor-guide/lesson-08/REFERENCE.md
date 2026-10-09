@@ -7,10 +7,10 @@
 从仓库根运行：
 
 ```bash
-python instructor-guide/lesson-08/reference.py --student-root student-template
+python3 instructor-guide/lesson-08/reference.py --student-root student-template
 ```
 
-从教师目录运行 `python lesson-08/reference.py --student-root ../student-template`。独立部署显式替换路径。复用第1课的读取、第3课的清洗和第7课的调查解析函数，只用标准库，输出JSON、不改原始CSV。若上游处理规则修订，应重新核对本课结果，不复制另一套无说明的规则。
+从教师目录运行 `python3 lesson-08/reference.py --student-root ../student-template`。独立部署显式替换路径。复用第1课的读取、第3课的清洗和第7课的调查解析函数，只用标准库，输出JSON、不改原始CSV。若上游处理规则修订，应重新核对本课结果，不复制另一套无说明的规则。
 
 ## 数量、单位与错误对照
 
@@ -57,3 +57,6 @@ python instructor-guide/lesson-08/reference.py --student-root student-template
 模块一代表作从L03—08中选择，报告末记录课次与选择理由。若计划修订，再写明要修改的统计问题及依据；不修订时说明保留原版即可。不必选本课，也不要求当天重做六课。选择修订时，在下一次课开始前提交，原final标签保留，新标签用 `v2-lNN-revision-1`。有修订时质量分评价修订版，没有修订则评价原版，完成分依据原快照，不改现有规则。
 
 可用反馈：“请分别核算全体、已匹配与未分配的工单数和工作量，并说明2460人时对应哪个计划期。当前图表中的每小时指标最多是已声明口径的描述，不能称个人真实生产率。”完整课堂反例见[RUNBOOK](RUNBOOK.md)，本地验证范围见[审核记录](../lesson-05/REVIEW_05_08.md)。
+
+
+2026-10-09重设计补充：本页保留共享参考API与原基准，新增开放任务、可选通用工具与三层概念资源、竞争方案、反例和教师过程见 [EXERCISE_SOLUTIONS](EXERCISE_SOLUTIONS.md) 与 [process_results.json](process_results.json)。课堂统一10分钟教师开场、65分钟学生操作、15分钟选择题。新课堂题草稿与本地原题分别保存，不替换已发布场次。

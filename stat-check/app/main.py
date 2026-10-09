@@ -18,7 +18,7 @@ from starlette.middleware.sessions import SessionMiddleware
 
 from . import db
 from .config import Settings
-from .questions import CURRENT_BANKS, DEFAULT_BANK, bank_for_lesson
+from .questions import ACTIVE_LESSONS, CURRENT_BANKS, DEFAULT_BANK, V2_LESSON_ID, bank_for_lesson
 
 
 PHASE_LABELS = {
@@ -493,6 +493,9 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             bank = bank_for_lesson(lesson_id)
         except LookupError as error:
             raise HTTPException(status_code=400, detail="所选课次不存在") from error
+        match = V2_LESSON_ID.fullmatch(bank.lesson_id)
+        if match and int(match.group(1)) not in ACTIVE_LESSONS:
+            raise HTTPException(status_code=400, detail="本课只有大纲占位，当前仅开放第1–8课；历史场次仍保留原题")
         db.create_session(settings.database_path, bank.lesson_id, bank.title)
         return RedirectResponse(f"{settings.base_path}/teacher", status_code=303)
 

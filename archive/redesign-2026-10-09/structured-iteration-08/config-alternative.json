@@ -1,0 +1,6 @@
+{
+  "revision_conflict": "stop",
+  "window_join": "inner",
+  "metric_scope": "per_metric",
+  "staffing_coverage": "union"
+}

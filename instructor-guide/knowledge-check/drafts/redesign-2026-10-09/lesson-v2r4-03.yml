@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l03-r4",
+  "title": "第03课 · 业务数据质量与适用性评估",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "record-version",
+      "title": "重复记录、修订与分析单位",
+      "tutor_context": "请用订单或借阅记录说明同一人的不同业务、完全重复和不同修订版本，并说明最新版本冲突为何需要留痕。",
+      "pair": {
+        "a": {
+          "prompt": "一位顾客有E、F两笔不同订单。E在导出表中有修订号4与13两行，F只有修订号1；约定修订号按数值越大越新，无冲突。报告按订单分析，应怎样整理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "按顾客去重只留一笔订单。",
+              "misconception": "collapse-distinct-orders-by-person"
+            },
+            {
+              "id": "B",
+              "text": "保留三行，因为原始导出行数就是订单数。",
+              "misconception": "treat-revisions-as-independent-orders"
+            },
+            {
+              "id": "C",
+              "text": "保留两笔订单，但E采用修订号4，因为字符串4排在13后面。",
+              "misconception": "lexicographic-order-for-numeric-revision"
+            },
+            {
+              "id": "D",
+              "text": "保留E、F两笔订单，E采用修订号13。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：分析单位是订单，两笔真实订单都保留；E采用数值较大的13。A删去了真实的另一笔订单。B重复计算了E的版本。C将字符串排序用于数值版本比较。"
+        },
+        "b": {
+          "prompt": "同一份申请的最高修订号7出现两行，一行金额为30元、另一行为45元，其余标识一致；没有额外来源可判断哪行正确。要报告该申请金额，最合适的处理是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "选择文件最后一行，文件顺序就是事实顺序。",
+              "misconception": "file-order-resolves-latest-version-conflict"
+            },
+            {
+              "id": "B",
+              "text": "保留并标记冲突，暂不自动给出唯一金额；说明需要核实的来源或处置规则。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "直接取37.5元，平均两行就恢复真实金额。",
+              "misconception": "average-conflicting-values-as-verified-truth"
+            },
+            {
+              "id": "D",
+              "text": "把该申请拆成两笔，从而同时使用两个金额。",
+              "misconception": "split-conflicting-version-into-new-units"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：两行在同一最新修订下冲突，现有信息不足以选定唯一真值，应留痕并核实或声明规则。A的文件位置不是判别依据。C平均值并非查实金额。D人为创造两个分析单位，改变申请数量。"
+        }
+      }
+    },
+    {
+      "concept_id": "missing-units",
+      "title": "缺失编码、真实零与单位",
+      "tutor_context": "请另设不同单位与文字缺失标记的例子，先识别缺失再换算，并说明真实零与未取得信息的区别。",
+      "pair": {
+        "a": {
+          "prompt": "两件包裹的处理时长分别为90秒和4分钟，第三件记为NA，数据字典规定NA表示未测量。若只描述时长有效的包裹，哪项计算正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "将90和4直接平均，得到47分钟，分母2。",
+              "misconception": "average-mixed-units-without-conversion"
+            },
+            {
+              "id": "B",
+              "text": "NA补为0后平均，得到约1.83分钟，分母3。",
+              "misconception": "impute-unmeasured-time-as-zero-without-assumption"
+            },
+            {
+              "id": "C",
+              "text": "先把90秒换为1.5分钟，再计算2.75分钟，分母2；另报一件未测量。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "把90秒整条删除，因为它不以分钟记录。",
+              "misconception": "discard-convertible-valid-unit"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：单位统一后有效时长为1.5和4分钟，(1.5+4)/2=2.75，NA不是观测值。A混用了秒与分钟。B无依据把未测量当零，既改分子也改分母。D丢失了能够合法换算的信息。"
+        },
+        "b": {
+          "prompt": "捐赠登记的一项“金额”中，0元表示确认未捐赠，空白表示尚未询问。分析者想描述所有已询问者的平均金额。哪项规则最有依据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "保留确认的0元，空白不当作0元；按已询问且金额有效者计算，并报告未询问数量。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "删除所有0元和空白，以得到捐赠能力的真实均值。",
+              "misconception": "drop-real-zero-as-missing"
+            },
+            {
+              "id": "C",
+              "text": "空白补0元，因未询问等于没有捐赠。",
+              "misconception": "equate-unobserved-with-observed-zero"
+            },
+            {
+              "id": "D",
+              "text": "把空白写成最大的金额，避免低估。",
+              "misconception": "arbitrary-extreme-imputation"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：真实零是有效观测，未询问不是已观测零；指定目标是已询问者。B排除真实零，改变所描述的人群。C把没有取得的信息当作确定值。D用任意极值补入未取得的信息，缺少支持。"
+        }
+      }
+    },
+    {
+      "concept_id": "overlapping-quality-issues",
+      "title": "重叠问题与不同单位计数",
+      "tutor_context": "请用有交集的数据质量问题说明问题出现次数和受影响单位数为何不同，并设计一个新增问题但人数不变的反例。",
+      "pair": {
+        "a": {
+          "prompt": "25笔不同索赔中，6笔缺费用、7笔顾客归属未知，其中4笔同时有这两个问题。至少有一个问题的不同索赔有多少笔？",
+          "options": [
+            {
+              "id": "A",
+              "text": "13笔，两个问题数直接相加。",
+              "misconception": "double-count-overlapping-issues"
+            },
+            {
+              "id": "B",
+              "text": "9笔，即6+7−4。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "4笔，只计算同时有两个问题者。",
+              "misconception": "confuse-union-with-intersection"
+            },
+            {
+              "id": "D",
+              "text": "21笔，即25−4。",
+              "misconception": "subtract-intersection-instead-of-complement-of-union"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：有交集的4笔只计一次，所以6+7−4=9笔。A把交集计了两次。C回答的是同时有问题的数量而非至少一个问题。D从全部数量中扣除交集，所得不是所问的并集。"
+        },
+        "b": {
+          "prompt": "质检表每行是一件唯一产品。一件产品原已有“重量缺失”和“批次未知”两项标记，复核又在同一件产品上发现“尺寸代码无效”。其他产品标记不变。哪项关于汇总的变化正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "受影响产品数增加3，因为这件产品有三个问题。",
+              "misconception": "count-issue-flags-as-products"
+            },
+            {
+              "id": "B",
+              "text": "受影响产品数增加1，因为每出现一个新标记就多一件产品。",
+              "misconception": "new-flag-creates-new-analysis-unit"
+            },
+            {
+              "id": "C",
+              "text": "受影响产品数减少1，因为三种问题应相互抵消。",
+              "misconception": "cancel-coexisting-quality-issues"
+            },
+            {
+              "id": "D",
+              "text": "问题出现次数增加1，至少有一个问题的产品数不变。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：新增的是同一已受影响产品的一个问题，标记次数增加但唯一产品并集不变。A把问题种类当产品数。B把新标记当新对象。C没有统计或业务依据让共存问题互相抵消。"
+        }
+      }
+    },
+    {
+      "concept_id": "purpose-denominator",
+      "title": "用途、有效记录与分母",
+      "tutor_context": "请说明不同用途各需哪些字段，并用另设的二元状态未知例子区分已知者比例与全体逻辑范围。",
+      "pair": {
+        "a": {
+          "prompt": "某协会共有16位不同会员：8位确认已缴费、3位确认未缴费、5位状态未知；每人最终只能已缴或未缴。目标是全体会员缴费比例。哪项报告得到现有信息支持？",
+          "options": [
+            {
+              "id": "A",
+              "text": "全体比例可能在50%至81.25%之间；8/11只描述状态已知者。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "全体已测得的比例就是8/11，未知者不影响全体目标。",
+              "misconception": "known-case-rate-as-measured-population-rate"
+            },
+            {
+              "id": "C",
+              "text": "全体确定为50%，所有未知者按未缴费计。",
+              "misconception": "treat-unknown-binary-status-as-negative-truth"
+            },
+            {
+              "id": "D",
+              "text": "全体确定为81.25%，未知者都应算已缴费。",
+              "misconception": "treat-unknown-binary-status-as-positive-truth"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：下界8/16=50%，上界(8+5)/16=81.25%，都以全体16人为分母；8/11约72.73%以已知状态者为分母。这是未知状态的逻辑范围，不是置信区间。B混淆目标范围。C和D分别把一种极端可能当已知事实。"
+        },
+        "b": {
+          "prompt": "仓库订单表的“是否发货”字段全部有效。尚未发货者的“发货日期”为空，字典说明该字段此时不适用。计算这批订单的已发货比例，最合适的记录选择是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只保留发货日期不空的订单，因此比例为100%。",
+              "misconception": "condition-on-outcome-related-inapplicable-field"
+            },
+            {
+              "id": "B",
+              "text": "删除所有含任意空白列的订单，不必考虑用途。",
+              "misconception": "use-all-column-complete-case-for-every-purpose"
+            },
+            {
+              "id": "C",
+              "text": "使用所有是否发货有效的订单；不把尚未发货的日期空白当作本指标不可用。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "空日期补今天，再把这些订单标为已发货。",
+              "misconception": "invent-event-from-inapplicable-date"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：这一比例需要发货状态，全部订单状态都有效；未发货的日期不适用，不能因此排除未发货者。A按结果选择记录会把比例抬到100%。B把无关空白当统一排除理由。D编造发货事实，改变原记录。"
+        }
+      }
+    },
+    {
+      "concept_id": "outlier",
+      "title": "离群值、无效取值与适用范围",
+      "tutor_context": "请比较一个可能真实的长时长与一个违反测量定义的值，并说明处理、追溯与限范围报告的理由。",
+      "pair": {
+        "a": {
+          "prompt": "设备维修时长大多在5至9分钟，一条为72分钟。字段定义是非负分钟，来源记录完整，尚无证据说明72录错。哪项处理最合理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "直接删除72，因为少数大值必然是错误。",
+              "misconception": "equate-unusual-with-recording-error"
+            },
+            {
+              "id": "B",
+              "text": "先核对来源与过程，保留原值；可比较含与不含该条的结果并解释范围。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "改成最大常见值9，因为这样分布更整齐。",
+              "misconception": "winsorize-without-substantive-justification"
+            },
+            {
+              "id": "D",
+              "text": "只要删后均值更低，就证明维修效率提高。",
+              "misconception": "data-exclusion-proves-real-process-improvement"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：72可能是有效的离群值，来源核对和有说明的敏感性分析比静默修改更合适。A把不常见当错误。C凭整齐程度改变测量值。D把记录选择造成的数值变化当作过程改善。"
+        },
+        "b": {
+          "prompt": "出行距离字段规定记录“从出发到到达实际行驶的非负公里数”。一条为−7公里，另一条为86公里且其他记录较短。为何两条不能仅按“都离群”同样处理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "86大于−7，所以只有86违反定义。",
+              "misconception": "large-positive-value-is-inherently-invalid"
+            },
+            {
+              "id": "B",
+              "text": "−7和86都应改为平均值，因为异常只能这样修复。",
+              "misconception": "automatic-mean-replacement-for-all-unusual-values"
+            },
+            {
+              "id": "C",
+              "text": "负数在数学中合法，所以−7必然是有效距离。",
+              "misconception": "mathematical-number-implies-valid-measurement"
+            },
+            {
+              "id": "D",
+              "text": "−7违反非负距离定义，应标记核实；86可能是合法长距离，需查来源而非自动删除。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：无效取值由测量定义判断，离群由与其他记录的差异判断，两者不同。A把正值的大小当无效依据。B用统一替换抹掉原因差异并编造数值。C忽略该字段的业务定义。"
+        }
+      }
+    }
+  ]
+}

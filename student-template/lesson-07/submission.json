@@ -4,7 +4,7 @@
   "report": "lesson-07/report.md",
   "artifacts": [],
   "run": [
-    "python",
+    "python3",
     "lesson-07/analysis.py"
   ]
 }

@@ -1,0 +1,110 @@
+{
+  "map_fidelity": "32 original titles/core/outcomes identical",
+  "timing": "all 32 = 10 teacher / 65 independent / 15 MCQ",
+  "drafts": [
+    {
+      "lesson": 5,
+      "id": "v2-l05-r5",
+      "filename": "lesson-v2r5-05.yml",
+      "questions": 10,
+      "bytes": 15523,
+      "sha256": "489f6dc815755a5f7ca3f5a374864a16d3064391c3ea404468630a227e02b630",
+      "answer_distribution": {
+        "A": 2,
+        "B": 3,
+        "C": 3,
+        "D": 2
+      }
+    },
+    {
+      "lesson": 6,
+      "id": "v2-l06-r4",
+      "filename": "lesson-v2r4-06.yml",
+      "questions": 10,
+      "bytes": 14920,
+      "sha256": "d021e73d22ef73ab614c61d0b8f817325c6a9c45b2d9d2ae0223bce97dc1ed0e",
+      "answer_distribution": {
+        "A": 3,
+        "B": 1,
+        "C": 3,
+        "D": 3
+      }
+    },
+    {
+      "lesson": 7,
+      "id": "v2-l07-r4",
+      "filename": "lesson-v2r4-07.yml",
+      "questions": 10,
+      "bytes": 14988,
+      "sha256": "4f6cefe3753264dedd1f076ace6db727f4c87ac527b586baf36388766d497eab",
+      "answer_distribution": {
+        "A": 3,
+        "B": 2,
+        "C": 3,
+        "D": 2
+      }
+    },
+    {
+      "lesson": 8,
+      "id": "v2-l08-r4",
+      "filename": "lesson-v2r4-08.yml",
+      "questions": 10,
+      "bytes": 15786,
+      "sha256": "c2c45852af5338e57b497d807dee4b79132eb179904a0bc206b51f8499d4d8c6",
+      "answer_distribution": {
+        "A": 2,
+        "B": 2,
+        "C": 3,
+        "D": 3
+      }
+    }
+  ],
+  "questions_total": 40,
+  "old_bank_files_unchanged": 36,
+  "numeric_contracts": "passed",
+  "runtime": "QuestionBank parser passed; drafts absent from BANKS and CURRENT_BANKS",
+  "draft_ids_not_registered": [
+    "v2-l05-r5",
+    "v2-l06-r4",
+    "v2-l07-r4",
+    "v2-l08-r4"
+  ],
+  "old_bank_sha256_before_and_after": {
+    "instructor-guide/knowledge-check/question-bank/lesson-v2-05.yml": "54f5454ef2d2b3e95f4dc80867c03604912eb1c6408a143dfb5e3693c1f45081",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2-06.yml": "a48149256661439554ade472df8bdc1574093b561c957acb4d5b605b1f14b57a",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2-07.yml": "0c6931f6e59f4fb4c110a8f7952c56406dce4798f7a9c6381d5f6462090bab9e",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2-08.yml": "63d6ee0199ad72ce58bd9135db8bfd09cae902bf12adf1fb9677b092c5ca4257",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r1-05.yml": "7d70ba74e160d83b27b97fcfcc9f4aa085de23506d63865ba3344a4839e35470",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r1-06.yml": "60d069faef4e08c7e6c1fc60926acbcb6d868e098b3f3c86a909280ed001be42",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r1-07.yml": "35618429abbcaa85383faad5172f1bb1e318b84c4908b56075070d0f4864cdf9",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r1-08.yml": "2839235dfef89925250223422654e6afa4b5c3972d71bf7de30587d8cf414d6a",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r2-05.yml": "626afefb447e807b430bf0eb2dc4981bbd827d3798995a1b6f005567bf65a41b",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r2-06.yml": "f00172aa1eaa6eb9af80f289d086cb793c3e293408c7d16200bf813bf66355c6",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r2-07.yml": "9ec0a8b7711f723fe9df19b8dda801bc6658f207ce35659b413e90a5442d5fd0",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r2-08.yml": "cb857e01ddb52630e0b47dbf35829e2ab888f2565ba2c2f91f70ab530743ca4a",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-05.yml": "b38a447a5a6ce188eabc8b4f530d7962c7c2a7bd46b57744dd44a1f9ddbd31c6",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-06.yml": "0b6bf837ca51a104b51435a98be033677c3ab3421dccd77ded0024f63f9a1af0",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-07.yml": "cc853f1be125e53cfb2ef022ddb8989328ac5d73107c43129812ace7923d79ec",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-08.yml": "7b3641eb7e617ea0e4850005de35deeafbebfdcdf4db1cbd995dfbb096d28f51",
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r4-05.yml": "d1c134ae2841b232bd5c440d4a8fed35d75ca9a65e87cce2526bee54c1ae9406",
+    "stat-check/app/question_bank/lesson-05.yml": "d9c1f97ba64c6db0b760fd27ad6f20c5300e055639b891c1d3bcb4592ac8d0be",
+    "stat-check/app/question_bank/lesson-06.yml": "d2145b320ef7f8d076e8b894e6e28f496875143423b68dea633fe395fc54b616",
+    "stat-check/app/question_bank/lesson-v2-05.yml": "54f5454ef2d2b3e95f4dc80867c03604912eb1c6408a143dfb5e3693c1f45081",
+    "stat-check/app/question_bank/lesson-v2-06.yml": "a48149256661439554ade472df8bdc1574093b561c957acb4d5b605b1f14b57a",
+    "stat-check/app/question_bank/lesson-v2-07.yml": "0c6931f6e59f4fb4c110a8f7952c56406dce4798f7a9c6381d5f6462090bab9e",
+    "stat-check/app/question_bank/lesson-v2-08.yml": "63d6ee0199ad72ce58bd9135db8bfd09cae902bf12adf1fb9677b092c5ca4257",
+    "stat-check/app/question_bank/lesson-v2r1-05.yml": "7d70ba74e160d83b27b97fcfcc9f4aa085de23506d63865ba3344a4839e35470",
+    "stat-check/app/question_bank/lesson-v2r1-06.yml": "60d069faef4e08c7e6c1fc60926acbcb6d868e098b3f3c86a909280ed001be42",
+    "stat-check/app/question_bank/lesson-v2r1-07.yml": "35618429abbcaa85383faad5172f1bb1e318b84c4908b56075070d0f4864cdf9",
+    "stat-check/app/question_bank/lesson-v2r1-08.yml": "2839235dfef89925250223422654e6afa4b5c3972d71bf7de30587d8cf414d6a",
+    "stat-check/app/question_bank/lesson-v2r2-05.yml": "626afefb447e807b430bf0eb2dc4981bbd827d3798995a1b6f005567bf65a41b",
+    "stat-check/app/question_bank/lesson-v2r2-06.yml": "f00172aa1eaa6eb9af80f289d086cb793c3e293408c7d16200bf813bf66355c6",
+    "stat-check/app/question_bank/lesson-v2r2-07.yml": "9ec0a8b7711f723fe9df19b8dda801bc6658f207ce35659b413e90a5442d5fd0",
+    "stat-check/app/question_bank/lesson-v2r2-08.yml": "cb857e01ddb52630e0b47dbf35829e2ab888f2565ba2c2f91f70ab530743ca4a",
+    "stat-check/app/question_bank/lesson-v2r3-05.yml": "b38a447a5a6ce188eabc8b4f530d7962c7c2a7bd46b57744dd44a1f9ddbd31c6",
+    "stat-check/app/question_bank/lesson-v2r3-06.yml": "0b6bf837ca51a104b51435a98be033677c3ab3421dccd77ded0024f63f9a1af0",
+    "stat-check/app/question_bank/lesson-v2r3-07.yml": "cc853f1be125e53cfb2ef022ddb8989328ac5d73107c43129812ace7923d79ec",
+    "stat-check/app/question_bank/lesson-v2r3-08.yml": "7b3641eb7e617ea0e4850005de35deeafbebfdcdf4db1cbd995dfbb096d28f51",
+    "stat-check/app/question_bank/lesson-v2r4-05.yml": "d1c134ae2841b232bd5c440d4a8fed35d75ca9a65e87cce2526bee54c1ae9406"
+  }
+}

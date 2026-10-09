@@ -3,8 +3,17 @@
   "matched_surveys": 3600,
   "unmatched_tickets": 0,
   "unknown_invitation": 0,
+  "states": {
+    "responded": 2099,
+    "invited_nonresponse": 1100,
+    "uninvited": 401
+  },
   "invited": 3199,
   "responded": 2099,
+  "invited_responded": 2099,
+  "satisfied_at_least": 4,
+  "satisfied": 1856,
+  "missing_score": 1501,
   "observed_score_counts": {
     "4": 565,
     "5": 1291,
@@ -12,5 +21,59 @@
     "3": 183,
     "2": 42
   },
-  "note": "只描述调查覆盖；无回答者未知，不能直接将回答者比例推广到全部工单。"
+  "invitation_rate": 0.8886111111111111,
+  "invitation_rate_bounds": [
+    0.8886111111111111,
+    0.8886111111111111
+  ],
+  "response_among_known_invited": 0.6561425445451704,
+  "response_among_all": 0.5830555555555555,
+  "respondent_satisfied_rate": 0.8842305859933302,
+  "bounds_for_unknown_scores": [
+    0.5155555555555555,
+    0.9325
+  ],
+  "known_features_by_state": [
+    {
+      "state": "uninvited",
+      "n": 401,
+      "case_n": 220,
+      "abandoned_n": 44,
+      "mean_wait_minutes": 15.253167082294265,
+      "median_wait_minutes": 10.3
+    },
+    {
+      "state": "invited_nonresponse",
+      "n": 1100,
+      "case_n": 650,
+      "abandoned_n": 22,
+      "mean_wait_minutes": 16.074754545454546,
+      "median_wait_minutes": 11.004999999999999
+    },
+    {
+      "state": "responded",
+      "n": 2099,
+      "case_n": 952,
+      "abandoned_n": 24,
+      "mean_wait_minutes": 11.455359695092902,
+      "median_wait_minutes": 8.57
+    },
+    {
+      "state": "unmatched",
+      "n": 0,
+      "case_n": 0,
+      "abandoned_n": 0,
+      "mean_wait_minutes": null,
+      "median_wait_minutes": null
+    },
+    {
+      "state": "unknown_invitation",
+      "n": 0,
+      "case_n": 0,
+      "abandoned_n": 0,
+      "mean_wait_minutes": null,
+      "median_wait_minutes": null
+    }
+  ],
+  "note": "只核对调查起点与有效已知评分。满意定义、情景、调整、发布和补采由学生自行组织。"
 }

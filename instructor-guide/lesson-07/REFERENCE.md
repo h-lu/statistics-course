@@ -7,10 +7,10 @@
 从仓库根运行：
 
 ```bash
-python instructor-guide/lesson-07/reference.py --student-root student-template
+python3 instructor-guide/lesson-07/reference.py --student-root student-template
 ```
 
-从教师目录运行 `python lesson-07/reference.py --student-root ../student-template`，独立部署改显式路径。标准库程序只输出JSON。`no_assumption_bounds` 是未知评价的界限，`scenarios` 是假设情景，`stratum_adjusted_under_within_cell_MAR` 是带组内代表性假设的估计；三者含义不同。
+从教师目录运行 `python3 lesson-07/reference.py --student-root ../student-template`，独立部署改显式路径。标准库程序只输出JSON。`no_assumption_bounds` 是未知评价的界限，`scenarios` 是假设情景，`stratum_adjusted_under_within_cell_MAR` 是带组内代表性假设的估计；三者含义不同。
 
 ## 固定第一期数据与各自分母
 
@@ -55,3 +55,7 @@ python instructor-guide/lesson-07/reference.py --student-root student-template
 认可界限与情景、分组调整、带假设插补等路线。合格要求是四类比例、至少两种实质不同假设及结果、经历与评价取得的比较、发布及有针对性的补采。高质量能解释建议敏感来源和零/少回答群体，并为补采写出更新或停止条件；不要求所有人采用同一种算法。
 
 教师反馈可从“88.42%满意”改为：“本期取得评价的2099张中88.42%满意；全部3600张的满意比例还取决于1501张未知评价。在所声明的情景下，发布建议如何变化？”所有数字为教学合成结果，不能作为现实机构评价。讲解与核算见[RUNBOOK](RUNBOOK.md)及[审核记录](../lesson-05/REVIEW_05_08.md)。
+
+## 2026-10-09开放假设与补采取舍
+
+学生程序只核调查起点，提供可选通用界限与给定权重计算，不自动生成情景、调整或发布结论。至少两个重要决定由学生自主设计。宽界限、带假设情景、组内调整或其它有依据路线都可接受，比较成本与再度无回答后不同补采次序也可成立。完整过程和替代解释见[EXERCISE_SOLUTIONS](EXERCISE_SOLUTIONS.md)，新增 `exercise_reference.py` 可复算；原 `attach_surveys` 签名与字段保留供第8课复用。课堂采用10/65/15。

@@ -7,10 +7,10 @@
 从仓库根运行：
 
 ```bash
-python instructor-guide/lesson-06/reference.py --student-root student-template
+python3 instructor-guide/lesson-06/reference.py --student-root student-template
 ```
 
-从教师目录运行 `python lesson-06/reference.py --student-root ../student-template`。独立部署换显式路径，标准库即可。`centers` 保存分层计数与原始比例，`pooled_case_weight` 为共同构成，`standardized` 为权重比较，`simpson_A_B` 只记录当前数据的方向核对。
+从教师目录运行 `python3 lesson-06/reference.py --student-root ../student-template`。独立部署换显式路径，标准库即可。`centers` 保存分层计数与原始比例，`pooled_case_weight` 为共同构成，`standardized` 为权重比较，`simpson_A_B` 只记录当前数据的方向核对。
 
 ## 固定数据核对表
 
@@ -51,3 +51,7 @@ python instructor-guide/lesson-06/reference.py --student-root student-template
 最低完成要求是完整合并/分层/共同构成结果、至少两个有含义的共同构成、稳定性分析和发布建议；这不是仅供高分作品完成的扩展。认可并列实际与标准化结果、分层面板、带条件顺序或不发布排名，但拒绝排名不能代替计算证据。
 
 高质量通过结构解释稳定或变化，说明支持范围和剩余不可比性，并减少读者误解；无需刻意增加方法。建议反馈：“把实际办结率与共同构成比较分栏，说明权重的目标人群。顺序不变不是分析失败，请给出它为什么不变。”讲解与验证见[RUNBOOK](RUNBOOK.md)及[审核记录](../lesson-05/REVIEW_05_08.md)。
+
+## 2026-10-09开放比较与多种发布方式
+
+学生程序只给可核对分层计数与通用给定权重计算，不自动选构成、排名或给完整稳定性方案。至少两个重要决定和备选由学生设计。当前业务说明、共同构成比较、分层面板、有条件顺序均可接受；完整推导、达标条件与缺层范围见[EXERCISE_SOLUTIONS](EXERCISE_SOLUTIONS.md)，新增 `exercise_reference.py` 可复算。原API保留，端点结构不是强制全班路线，使用其它有依据方法亦可。课堂采用10/65/15。

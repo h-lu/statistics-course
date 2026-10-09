@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l01-r4",
+  "title": "第01课 · 服务数据的探索性分析",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "unit",
+      "title": "观测单位与分析单位",
+      "tutor_context": "请用家庭调查与就诊记录两个新例子说明行数、对象数和分析单位的区别，再提出一道需要选择单位的题。",
+      "pair": {
+        "a": {
+          "prompt": "某门诊的记录每行是一场就诊。甲有3场、乙有2场、丙有1场，记录没有缺失或重复。以下哪句话准确说明这张表能直接给出的数量？",
+          "options": [
+            {
+              "id": "A",
+              "text": "表中有6场就诊；独立患者人数要按患者编号去重，是3人。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "表中有6位不同患者，因为一行总是一人。",
+              "misconception": "equate-row-count-with-person-count"
+            },
+            {
+              "id": "C",
+              "text": "表中只有3场就诊，因为同一人的多场就诊应无条件合并。",
+              "misconception": "deduplicate-legitimate-visits-by-person"
+            },
+            {
+              "id": "D",
+              "text": "表中就诊和患者都只有1个分析单位，因为它们来自同一门诊。",
+              "misconception": "confuse-institution-with-record-unit"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：表的一行描述一次就诊，3+2+1=6场，患者编号有3个。B把就诊行数误当独立人数。C会删去同一患者真实发生的不同就诊。D把数据来源机构误当这里的就诊或患者分析单位；单位应由问题决定。"
+        },
+        "b": {
+          "prompt": "一项调查每行是一户家庭，分别记录家庭人数和整户水费。研究者直接对每户水费取算术平均数，随后写“每位居民平均缴纳这么多水费”。应怎样评价？",
+          "options": [
+            {
+              "id": "A",
+              "text": "正确，平均数自动把家庭换算成居民。",
+              "misconception": "mean-automatically-changes-unit"
+            },
+            {
+              "id": "B",
+              "text": "只要每户都回答，整户平均和人均平均必然相同。",
+              "misconception": "complete-coverage-implies-equal-unit"
+            },
+            {
+              "id": "C",
+              "text": "给家庭编号按大小排序后再平均，就能得到人均水费。",
+              "misconception": "sort-identifiers-to-repair-denominator"
+            },
+            {
+              "id": "D",
+              "text": "直接平均描述每户水费；若要描述每位居民，需按明确的分配规则确定个人分子和分母。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：按户平均的分母是家庭数；按人描述必须说明水费怎样分配给居民，并使用相应居民分母。A认为算法会自动转换单位。B忽略家庭人数不同。C排序编号不改变分析单位，也不解决分子、分母不匹配。"
+        }
+      }
+    },
+    {
+      "concept_id": "variable-type",
+      "title": "变量类型与编码含义",
+      "tutor_context": "请另设有数字类别代码和有次序等级的例子，说明可报告的分布与不能自行假定的数值距离。",
+      "pair": {
+        "a": {
+          "prompt": "公交线路被编码为1、2、3，编码只表示线路名称，没有大小顺序。要描述各线路收到的投诉，哪种摘要最合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "把线路编码平均，解释为典型线路。",
+              "misconception": "average-nominal-category-codes"
+            },
+            {
+              "id": "B",
+              "text": "报告各线路投诉的数量或比例，并说明所用的投诉记录范围。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "因为代码是数字，只报告代码的标准差。",
+              "misconception": "numeric-storage-implies-quantitative-variable"
+            },
+            {
+              "id": "D",
+              "text": "代码3的线路应解释为代码1线路的三倍。",
+              "misconception": "interpret-arbitrary-code-as-ratio"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：线路是分类变量，计数或在明确分母下的比例能描述类别分布。A的代码均值没有线路含义。C把数字存储形式误当数值测量。D把任意编号当作有倍数意义的量。"
+        },
+        "b": {
+          "prompt": "另设满意度等级“不满意、一般、满意”，编码依次为1、2、3。资料只给出等级次序，没有规定相邻等级差距相同。哪种解释最有依据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "编码3的满意程度是编码1的三倍。",
+              "misconception": "treat-ordinal-score-as-ratio-scale"
+            },
+            {
+              "id": "B",
+              "text": "从1到2的改善必然等于从2到3的改善。",
+              "misconception": "assume-equal-distance-without-definition"
+            },
+            {
+              "id": "C",
+              "text": "既然不是分钟，就不能计算各等级人数。",
+              "misconception": "reject-valid-category-counts"
+            },
+            {
+              "id": "D",
+              "text": "可报告有次序的等级分布；若使用编码均值，须说明额外的尺度假设。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：等级次序已知，类别人数和比例可直接描述；把代码当等距数值需要额外约定。A无依据解释倍数。B自行假定等距。C错误地否定分类变量的计数描述。"
+        }
+      }
+    },
+    {
+      "concept_id": "location",
+      "title": "均值、中位数与记录范围",
+      "tutor_context": "请用一个未出现过的短数列说明极端值对均值与中位数的影响，再用一个明确的纳入条件说明比例分母。",
+      "pair": {
+        "a": {
+          "prompt": "四次维修时长为6、8、10、16分钟。核实发现最后一次实际为36分钟，其他值不变。哪项关于修正前后的描述正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "均值和中位数都增加20分钟。",
+              "misconception": "apply-single-record-change-to-every-summary"
+            },
+            {
+              "id": "B",
+              "text": "中位数从9分钟增加到14分钟。",
+              "misconception": "confuse-mean-change-with-median"
+            },
+            {
+              "id": "C",
+              "text": "均值从10变为15分钟，中位数仍是9分钟。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "均值不变，因为只有一条记录改变。",
+              "misconception": "assume-mean-robust-to-single-large-change"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：原总时长40分钟、均值10；修正后总时长60、均值15。两次中间值都为8与10，中位数为9。A没有按4次维修分摊总变化，并误改中位数。B把新均值附近的数字当中位数。D忽略均值使用全部数值。"
+        },
+        "b": {
+          "prompt": "某次登记有15张不同申请，4张中途退出、11张获得服务。11张已服务申请的等待均有效，其中5张严格超过18分钟。问题是“已服务申请中，严格超过18分钟的比例”。正确的分子和分母是哪一项？",
+          "options": [
+            {
+              "id": "A",
+              "text": "5除以11。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "5除以15。",
+              "misconception": "use-all-registrations-for-served-only-target"
+            },
+            {
+              "id": "C",
+              "text": "9除以15，把退出和长等待直接合为分子。",
+              "misconception": "change-event-to-abandoned-or-long-wait"
+            },
+            {
+              "id": "D",
+              "text": "4除以11。",
+              "misconception": "use-abandonment-count-as-long-wait-numerator"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：事件是已服务申请的等待严格超过18分钟，5张满足；指定范围是11张已服务申请。B改成全部登记申请的分母。C改了所问事件，且题目没有要求把退出纳入。D把退出数当成长等待数，分子对象不属于所述已服务范围。"
+        }
+      }
+    },
+    {
+      "concept_id": "population",
+      "title": "记录范围与目标总体",
+      "tutor_context": "请换一个只有特定渠道或特定时段资料的情境，分别说明已有记录覆盖谁、希望推广到谁以及还缺什么。",
+      "pair": {
+        "a": {
+          "prompt": "图书馆保存了某周全部工作日的入馆刷卡记录，没有周末记录，也没有想入馆却未刷卡者的信息。以下哪个结论范围最合理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "刷卡记录完整，所以可以描述全年所有潜在读者的体验。",
+              "misconception": "record-completeness-implies-population-coverage"
+            },
+            {
+              "id": "B",
+              "text": "去掉日期列就能使工作日资料代表周末。",
+              "misconception": "remove-variable-to-remove-coverage-bias"
+            },
+            {
+              "id": "C",
+              "text": "只要记录数很多，遗漏时段和未入馆者不会影响结论。",
+              "misconception": "large-record-count-removes-coverage-limit"
+            },
+            {
+              "id": "D",
+              "text": "可描述该周工作日刷卡入馆记录；推广到周末或未入馆者需补充依据。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：记录完整性只相对于已覆盖的时段和刷卡过程成立。A把记录范围扩展为全年潜在读者。B删除字段不能取得遗漏资料。C混淆资料数量和覆盖范围；大量同范围记录仍可能遗漏其他人群。"
+        },
+        "b": {
+          "prompt": "一家诊所统计手机端预约。报表完整收录本月所有成功的手机预约，但没有电话预约和尝试后未成功的记录。管理者想评价“所有尝试预约者是否容易预约”。最关键的限制是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "没有给预约编号算平均数。",
+              "misconception": "demand-meaningless-identifier-summary"
+            },
+            {
+              "id": "B",
+              "text": "成功的手机预约只覆盖目标人群的一部分，未成功者和其他渠道没有被观察。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "完整登记与随机抽样含义相同，因此没有限制。",
+              "misconception": "equate-complete-register-with-random-sample"
+            },
+            {
+              "id": "D",
+              "text": "只须把人数换成百分数就能覆盖所有尝试者。",
+              "misconception": "percentage-format-repairs-coverage"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：评价容易预约需要考虑尝试者，而现有资料以成功且使用手机为条件。A的编号平均没有统计用途。C把某个登记范围内的全记录误当对目标总体的随机样本。D只改变数字表达，不补足分母所需人群。"
+        }
+      }
+    },
+    {
+      "concept_id": "description-cause",
+      "title": "描述差异与因果解释",
+      "tutor_context": "请用两种可能同时影响结果的因素说明观察差异与原因解释的区别，并提出可以核查的后续问题。",
+      "pair": {
+        "a": {
+          "prompt": "两个合成服务站的登记记录显示，甲站平均等待较短，但两站办理的业务难度构成不同。现有资料没有随机分配顾客或控制其他差异。哪句话最稳妥？",
+          "options": [
+            {
+              "id": "A",
+              "text": "较短均值证明甲站工作人员能力更强。",
+              "misconception": "infer-staff-cause-from-unadjusted-description"
+            },
+            {
+              "id": "B",
+              "text": "甲站在这些登记记录中平均等待较短；需进一步核查业务构成等因素，才能讨论原因。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "存在业务差异，所以等待均值无法计算。",
+              "misconception": "confuse-causal-limit-with-descriptive-impossibility"
+            },
+            {
+              "id": "D",
+              "text": "只要程序运行两次结果相同，就证明人员差异是原因。",
+              "misconception": "reproducibility-proves-causality"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：描述差异成立于这些记录，但业务构成等可能影响结果。A超出资料的因果支持。C混淆能描述数值与能解释原因。D的重复运行检查计算复现性，不能消除原因解释中的混杂。"
+        },
+        "b": {
+          "prompt": "配送部门使用新软件后，本月平均配送时间比上月低。两个月订单区域、天气和订单量也有变化，未设对照组。哪个结论由现有资料直接支持？",
+          "options": [
+            {
+              "id": "A",
+              "text": "软件使每笔订单都变快。",
+              "misconception": "infer-universal-individual-treatment-effect"
+            },
+            {
+              "id": "B",
+              "text": "因为没有对照组，本月和上月的均值不能报告。",
+              "misconception": "reject-all-description-without-control"
+            },
+            {
+              "id": "C",
+              "text": "记录中本月均值较低，但变化是否由软件造成还需研究其他因素。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "月份先后足以排除天气和订单区域的影响。",
+              "misconception": "temporal-order-removes-alternative-causes"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：前后均值可描述，软件的效果尚不能与同时变化的条件分开。A同时越过因果和逐笔效果两个限制。B错误否定描述比较。D将时间先后当作排除其他原因的充分证据。"
+        }
+      }
+    }
+  ]
+}

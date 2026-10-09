@@ -1,0 +1,763 @@
+{
+  "removed_from_active": [
+    "instructor-guide/lesson-09/REFERENCE.md",
+    "instructor-guide/lesson-09/RUNBOOK.md",
+    "instructor-guide/lesson-09/reference.py",
+    "instructor-guide/lesson-09/reference_result.json",
+    "instructor-guide/lesson-09/reference_tools.py",
+    "instructor-guide/lesson-10/REFERENCE.md",
+    "instructor-guide/lesson-10/RUNBOOK.md",
+    "instructor-guide/lesson-10/reference.py",
+    "instructor-guide/lesson-10/reference_result.json",
+    "instructor-guide/lesson-11/REFERENCE.md",
+    "instructor-guide/lesson-11/RUNBOOK.md",
+    "instructor-guide/lesson-11/reference.py",
+    "instructor-guide/lesson-11/reference_result.json",
+    "instructor-guide/lesson-12/REFERENCE.md",
+    "instructor-guide/lesson-12/RUNBOOK.md",
+    "instructor-guide/lesson-12/reference.py",
+    "instructor-guide/lesson-12/reference_result.json",
+    "instructor-guide/lesson-13/REFERENCE.md",
+    "instructor-guide/lesson-13/RUNBOOK.md",
+    "instructor-guide/lesson-13/reference.py",
+    "instructor-guide/lesson-13/reference_result.json",
+    "instructor-guide/lesson-14/REFERENCE.md",
+    "instructor-guide/lesson-14/RUNBOOK.md",
+    "instructor-guide/lesson-14/reference.py",
+    "instructor-guide/lesson-14/reference_result.json",
+    "instructor-guide/lesson-14/reference_selected.csv",
+    "instructor-guide/lesson-15/REFERENCE.md",
+    "instructor-guide/lesson-15/RUNBOOK.md",
+    "instructor-guide/lesson-15/reference.py",
+    "instructor-guide/lesson-15/reference_result.json",
+    "instructor-guide/lesson-16/REFERENCE.md",
+    "instructor-guide/lesson-16/RUNBOOK.md",
+    "instructor-guide/lesson-16/reference.py",
+    "instructor-guide/lesson-16/reference_result.json",
+    "instructor-guide/lesson-17/REFERENCE.md",
+    "instructor-guide/lesson-17/RUNBOOK.md",
+    "instructor-guide/lesson-17/reference.py",
+    "instructor-guide/lesson-17/reference_result.json",
+    "instructor-guide/lesson-18/REFERENCE.md",
+    "instructor-guide/lesson-18/RUNBOOK.md",
+    "instructor-guide/lesson-18/reference.py",
+    "instructor-guide/lesson-18/reference_result.json",
+    "instructor-guide/lesson-19/REFERENCE.md",
+    "instructor-guide/lesson-19/RUNBOOK.md",
+    "instructor-guide/lesson-19/reference.py",
+    "instructor-guide/lesson-19/reference_result.json",
+    "instructor-guide/lesson-20/REFERENCE.md",
+    "instructor-guide/lesson-20/RUNBOOK.md",
+    "instructor-guide/lesson-20/reference.py",
+    "instructor-guide/lesson-20/reference_result.json",
+    "instructor-guide/lesson-21/REFERENCE.md",
+    "instructor-guide/lesson-21/RUNBOOK.md",
+    "instructor-guide/lesson-21/reference.py",
+    "instructor-guide/lesson-21/reference_common.py",
+    "instructor-guide/lesson-21/reference_results.json",
+    "instructor-guide/lesson-22/REFERENCE.md",
+    "instructor-guide/lesson-22/RUNBOOK.md",
+    "instructor-guide/lesson-22/reference.py",
+    "instructor-guide/lesson-22/reference_results.json",
+    "instructor-guide/lesson-23/REFERENCE.md",
+    "instructor-guide/lesson-23/RUNBOOK.md",
+    "instructor-guide/lesson-23/reference.py",
+    "instructor-guide/lesson-23/reference_results.json",
+    "instructor-guide/lesson-24/REFERENCE.md",
+    "instructor-guide/lesson-24/RUNBOOK.md",
+    "instructor-guide/lesson-24/reference.py",
+    "instructor-guide/lesson-24/reference_results.json",
+    "instructor-guide/lesson-25/REFERENCE.md",
+    "instructor-guide/lesson-25/RUNBOOK.md",
+    "instructor-guide/lesson-25/reference.py",
+    "instructor-guide/lesson-25/reference_results.json",
+    "instructor-guide/lesson-26/REFERENCE.md",
+    "instructor-guide/lesson-26/RUNBOOK.md",
+    "instructor-guide/lesson-26/reference.py",
+    "instructor-guide/lesson-26/reference_results.json",
+    "instructor-guide/lesson-27/REFERENCE.md",
+    "instructor-guide/lesson-27/RUNBOOK.md",
+    "instructor-guide/lesson-27/reference.py",
+    "instructor-guide/lesson-27/reference_results.json",
+    "instructor-guide/lesson-28/REFERENCE.md",
+    "instructor-guide/lesson-28/RUNBOOK.md",
+    "instructor-guide/lesson-28/reference.py",
+    "instructor-guide/lesson-28/reference_results.json",
+    "instructor-guide/lesson-29/REFERENCE.md",
+    "instructor-guide/lesson-29/RUNBOOK.md",
+    "instructor-guide/lesson-29/reference.py",
+    "instructor-guide/lesson-29/reference_results.json",
+    "instructor-guide/lesson-30/REFERENCE.md",
+    "instructor-guide/lesson-30/RUNBOOK.md",
+    "instructor-guide/lesson-30/reference.py",
+    "instructor-guide/lesson-30/reference_results.json",
+    "instructor-guide/lesson-31/REFERENCE.md",
+    "instructor-guide/lesson-31/RUNBOOK.md",
+    "instructor-guide/lesson-31/reference.py",
+    "instructor-guide/lesson-31/reference_results.json",
+    "instructor-guide/lesson-32/REFERENCE.md",
+    "instructor-guide/lesson-32/RUNBOOK.md",
+    "instructor-guide/lesson-32/reference.py",
+    "instructor-guide/lesson-32/reference_results.json",
+    "student-template/data/experiments/README.md",
+    "student-template/data/experiments/daily_experiment.csv",
+    "student-template/data/experiments/experiment_costs.csv",
+    "student-template/data/experiments/experiment_metrics.csv",
+    "student-template/data/experiments/experiment_outcomes.csv",
+    "student-template/data/experiments/experiment_roster.csv",
+    "student-template/data/experiments/independent_comparison.csv",
+    "student-template/data/experiments/metric_plan.csv",
+    "student-template/data/experiments/paired_study.csv",
+    "student-template/data/experiments/repeated_measurements.csv",
+    "student-template/data/inference/README.md",
+    "student-template/data/inference/capacity_options.csv",
+    "student-template/data/inference/decision_sample.csv",
+    "student-template/data/inference/demand_history.csv",
+    "student-template/data/inference/estimation_populations.csv",
+    "student-template/data/inference/population_frame.csv",
+    "student-template/data/inference/sampling_costs.csv",
+    "student-template/data/inference/screening_groups.csv",
+    "student-template/data/inference/screening_validation.csv",
+    "student-template/data/inference/voluntary_survey.csv",
+    "student-template/data/policy/README.md",
+    "student-template/data/policy/decision_options.csv",
+    "student-template/data/policy/district_panel.csv",
+    "student-template/data/policy/pilot_test.csv",
+    "student-template/data/policy/support_observational.csv",
+    "student-template/data/policy/weekly_demand.csv",
+    "student-template/data/prediction/README.md",
+    "student-template/data/prediction/feature_availability.csv",
+    "student-template/data/prediction/requests.csv",
+    "student-template/lesson-09/LEARN.md",
+    "student-template/lesson-09/README.md",
+    "student-template/lesson-09/SUPPORT.md",
+    "student-template/lesson-09/analysis.py",
+    "student-template/lesson-09/artifacts/starting_inventory.json",
+    "student-template/lesson-09/report.md",
+    "student-template/lesson-09/submission.json",
+    "student-template/lesson-10/LEARN.md",
+    "student-template/lesson-10/README.md",
+    "student-template/lesson-10/SUPPORT.md",
+    "student-template/lesson-10/analysis.py",
+    "student-template/lesson-10/artifacts/starting_inventory.json",
+    "student-template/lesson-10/report.md",
+    "student-template/lesson-10/submission.json",
+    "student-template/lesson-11/LEARN.md",
+    "student-template/lesson-11/README.md",
+    "student-template/lesson-11/SUPPORT.md",
+    "student-template/lesson-11/analysis.py",
+    "student-template/lesson-11/artifacts/starting_inventory.json",
+    "student-template/lesson-11/report.md",
+    "student-template/lesson-11/submission.json",
+    "student-template/lesson-12/LEARN.md",
+    "student-template/lesson-12/README.md",
+    "student-template/lesson-12/SUPPORT.md",
+    "student-template/lesson-12/analysis.py",
+    "student-template/lesson-12/artifacts/starting_inventory.json",
+    "student-template/lesson-12/report.md",
+    "student-template/lesson-12/submission.json",
+    "student-template/lesson-13/LEARN.md",
+    "student-template/lesson-13/README.md",
+    "student-template/lesson-13/SUPPORT.md",
+    "student-template/lesson-13/analysis.py",
+    "student-template/lesson-13/artifacts/starting_inventory.json",
+    "student-template/lesson-13/report.md",
+    "student-template/lesson-13/submission.json",
+    "student-template/lesson-14/LEARN.md",
+    "student-template/lesson-14/README.md",
+    "student-template/lesson-14/SUPPORT.md",
+    "student-template/lesson-14/analysis.py",
+    "student-template/lesson-14/artifacts/starting_inventory.json",
+    "student-template/lesson-14/report.md",
+    "student-template/lesson-14/submission.json",
+    "student-template/lesson-15/LEARN.md",
+    "student-template/lesson-15/README.md",
+    "student-template/lesson-15/SUPPORT.md",
+    "student-template/lesson-15/analysis.py",
+    "student-template/lesson-15/artifacts/starting_inventory.json",
+    "student-template/lesson-15/report.md",
+    "student-template/lesson-15/submission.json",
+    "student-template/lesson-16/LEARN.md",
+    "student-template/lesson-16/README.md",
+    "student-template/lesson-16/SUPPORT.md",
+    "student-template/lesson-16/analysis.py",
+    "student-template/lesson-16/artifacts/starting_inventory.json",
+    "student-template/lesson-16/report.md",
+    "student-template/lesson-16/submission.json",
+    "student-template/lesson-17/LEARN.md",
+    "student-template/lesson-17/README.md",
+    "student-template/lesson-17/SUPPORT.md",
+    "student-template/lesson-17/analysis.py",
+    "student-template/lesson-17/artifacts/starting_inventory.json",
+    "student-template/lesson-17/report.md",
+    "student-template/lesson-17/submission.json",
+    "student-template/lesson-18/LEARN.md",
+    "student-template/lesson-18/README.md",
+    "student-template/lesson-18/SUPPORT.md",
+    "student-template/lesson-18/analysis.py",
+    "student-template/lesson-18/artifacts/starting_inventory.json",
+    "student-template/lesson-18/report.md",
+    "student-template/lesson-18/submission.json",
+    "student-template/lesson-19/LEARN.md",
+    "student-template/lesson-19/README.md",
+    "student-template/lesson-19/SUPPORT.md",
+    "student-template/lesson-19/analysis.py",
+    "student-template/lesson-19/artifacts/starting_inventory.json",
+    "student-template/lesson-19/report.md",
+    "student-template/lesson-19/submission.json",
+    "student-template/lesson-20/LEARN.md",
+    "student-template/lesson-20/README.md",
+    "student-template/lesson-20/SUPPORT.md",
+    "student-template/lesson-20/analysis.py",
+    "student-template/lesson-20/artifacts/starting_inventory.json",
+    "student-template/lesson-20/report.md",
+    "student-template/lesson-20/submission.json",
+    "student-template/lesson-21/LEARN.md",
+    "student-template/lesson-21/README.md",
+    "student-template/lesson-21/SUPPORT.md",
+    "student-template/lesson-21/analysis.py",
+    "student-template/lesson-21/artifacts/starting_summary.json",
+    "student-template/lesson-21/report.md",
+    "student-template/lesson-21/submission.json",
+    "student-template/lesson-22/LEARN.md",
+    "student-template/lesson-22/README.md",
+    "student-template/lesson-22/SUPPORT.md",
+    "student-template/lesson-22/analysis.py",
+    "student-template/lesson-22/artifacts/starting_summary.json",
+    "student-template/lesson-22/report.md",
+    "student-template/lesson-22/submission.json",
+    "student-template/lesson-23/LEARN.md",
+    "student-template/lesson-23/README.md",
+    "student-template/lesson-23/SUPPORT.md",
+    "student-template/lesson-23/analysis.py",
+    "student-template/lesson-23/artifacts/starting_summary.json",
+    "student-template/lesson-23/report.md",
+    "student-template/lesson-23/submission.json",
+    "student-template/lesson-24/LEARN.md",
+    "student-template/lesson-24/README.md",
+    "student-template/lesson-24/SUPPORT.md",
+    "student-template/lesson-24/analysis.py",
+    "student-template/lesson-24/artifacts/starting_summary.json",
+    "student-template/lesson-24/report.md",
+    "student-template/lesson-24/submission.json",
+    "student-template/lesson-25/LEARN.md",
+    "student-template/lesson-25/README.md",
+    "student-template/lesson-25/SUPPORT.md",
+    "student-template/lesson-25/analysis.py",
+    "student-template/lesson-25/artifacts/starting_summary.json",
+    "student-template/lesson-25/report.md",
+    "student-template/lesson-25/submission.json",
+    "student-template/lesson-26/LEARN.md",
+    "student-template/lesson-26/README.md",
+    "student-template/lesson-26/SUPPORT.md",
+    "student-template/lesson-26/analysis.py",
+    "student-template/lesson-26/artifacts/starting_summary.json",
+    "student-template/lesson-26/report.md",
+    "student-template/lesson-26/submission.json",
+    "student-template/lesson-27/LEARN.md",
+    "student-template/lesson-27/README.md",
+    "student-template/lesson-27/SUPPORT.md",
+    "student-template/lesson-27/analysis.py",
+    "student-template/lesson-27/artifacts/starting_summary.json",
+    "student-template/lesson-27/report.md",
+    "student-template/lesson-27/submission.json",
+    "student-template/lesson-28/LEARN.md",
+    "student-template/lesson-28/README.md",
+    "student-template/lesson-28/SUPPORT.md",
+    "student-template/lesson-28/analysis.py",
+    "student-template/lesson-28/artifacts/starting_summary.json",
+    "student-template/lesson-28/report.md",
+    "student-template/lesson-28/submission.json",
+    "student-template/lesson-29/LEARN.md",
+    "student-template/lesson-29/README.md",
+    "student-template/lesson-29/SUPPORT.md",
+    "student-template/lesson-29/analysis.py",
+    "student-template/lesson-29/artifacts/starting_summary.json",
+    "student-template/lesson-29/report.md",
+    "student-template/lesson-29/submission.json",
+    "student-template/lesson-30/LEARN.md",
+    "student-template/lesson-30/README.md",
+    "student-template/lesson-30/SUPPORT.md",
+    "student-template/lesson-30/analysis.py",
+    "student-template/lesson-30/artifacts/starting_summary.json",
+    "student-template/lesson-30/report.md",
+    "student-template/lesson-30/submission.json",
+    "student-template/lesson-31/LEARN.md",
+    "student-template/lesson-31/LESSON_32_PLAN.md",
+    "student-template/lesson-31/README.md",
+    "student-template/lesson-31/SUPPORT.md",
+    "student-template/lesson-31/analysis.py",
+    "student-template/lesson-31/artifacts/starting_summary.json",
+    "student-template/lesson-31/report.md",
+    "student-template/lesson-31/submission.json",
+    "student-template/lesson-32/LEARN.md",
+    "student-template/lesson-32/README.md",
+    "student-template/lesson-32/SUPPORT.md",
+    "student-template/lesson-32/analysis.py",
+    "student-template/lesson-32/artifacts/starting_summary.json",
+    "student-template/lesson-32/report.md",
+    "student-template/lesson-32/submission.json",
+    "student-template/scripts/generate_experiments.py",
+    "student-template/scripts/generate_inference.py",
+    "student-template/scripts/generate_policy.py",
+    "student-template/scripts/generate_prediction.py"
+  ],
+  "moved_to_history": [
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-09.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-09.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-10.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-10.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-11.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-11.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-12.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-12.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-13.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-13.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-14.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-14.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-15.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-15.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-16.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-16.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-17.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-17.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-18.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-18.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-19.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-19.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-20.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-20.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-21.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-21.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-22.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-22.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-23.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-23.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-24.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-24.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-25.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-25.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-26.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-26.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-27.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-27.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-28.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-28.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-29.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-29.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-30.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-30.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-31.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-31.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2-32.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-32.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-09.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-09.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-10.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-10.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-11.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-11.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-12.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-12.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-13.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-13.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-14.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-14.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-15.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-15.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-16.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-16.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-17.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-17.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-18.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-18.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-19.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-19.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-20.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-20.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-21.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-21.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-22.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-22.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-23.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-23.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-24.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-24.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-25.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-25.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-26.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-26.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-27.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-27.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-28.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-28.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-29.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-29.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-30.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-30.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-31.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-31.yml"
+    },
+    {
+      "original_path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-32.yml",
+      "archive_path": "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-32.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-09.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-09.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-10.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-10.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-11.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-11.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-12.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-12.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-13.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-13.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-14.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-14.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-15.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-15.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-16.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-16.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-17.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-17.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-18.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-18.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-19.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-19.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-20.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-20.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-21.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-21.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-22.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-22.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-23.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-23.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-24.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-24.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-25.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-25.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-26.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-26.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-27.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-27.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-28.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-28.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-29.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-29.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-30.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-30.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-31.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-31.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2-32.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-32.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-09.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-09.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-10.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-10.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-11.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-11.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-12.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-12.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-13.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-13.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-14.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-14.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-15.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-15.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-16.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-16.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-17.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-17.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-18.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-18.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-19.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-19.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-20.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-20.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-21.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-21.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-22.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-22.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-23.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-23.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-24.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-24.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-25.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-25.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-26.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-26.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-27.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-27.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-28.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-28.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-29.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-29.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-30.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-30.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-31.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-31.yml"
+    },
+    {
+      "original_path": "stat-check/app/question_bank/lesson-v2r1-32.yml",
+      "archive_path": "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-32.yml"
+    },
+    {
+      "original_path": "instructor-guide/CURRICULUM_REVIEW_2026-09-21.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/CURRICULUM_REVIEW_2026-09-21.md"
+    },
+    {
+      "original_path": "instructor-guide/LANGUAGE_REVIEW.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/LANGUAGE_REVIEW.md"
+    },
+    {
+      "original_path": "instructor-guide/RELEASE_V2.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/RELEASE_V2.md"
+    },
+    {
+      "original_path": "instructor-guide/MIGRATION_V2.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/MIGRATION_V2.md"
+    },
+    {
+      "original_path": "instructor-guide/PR_01_03_REVIEW.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/PR_01_03_REVIEW.md"
+    },
+    {
+      "original_path": "instructor-guide/STUDENT_COLD_READ_01_08.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/STUDENT_COLD_READ_01_08.md"
+    },
+    {
+      "original_path": "instructor-guide/STUDENT_COLD_READ_FOLLOWUP_01_08.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/STUDENT_COLD_READ_FOLLOWUP_01_08.md"
+    },
+    {
+      "original_path": "instructor-guide/CODE_REVIEW_01_08.md",
+      "archive_path": "instructor-guide/archive/redesign-2026-10-09/old-documents/CODE_REVIEW_01_08.md"
+    }
+  ],
+  "retained_shared_data": [
+    "student-template/data/service/",
+    "student-template/data/alerts/"
+  ],
+  "active_lessons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "future_placeholders": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19,
+    20,
+    21,
+    22,
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32
+  ]
+}

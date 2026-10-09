@@ -63,7 +63,11 @@ class QuestionBank:
 
 
 def load_question_banks(directory: Path) -> tuple[QuestionBank, ...]:
-    banks = tuple(QuestionBank(path) for path in sorted(directory.glob("lesson-*.yml")))
+    # Historical banks remain readable by their immutable ID, but are outside
+    # the active top-level scan. Do not scan arbitrary repository archives.
+    paths = list(directory.glob("lesson-*.yml"))
+    paths.extend((directory / "archive/redesign-2026-10-09").glob("lesson-*.yml"))
+    banks = tuple(QuestionBank(path) for path in sorted(paths, key=lambda p: p.name))
     if not banks:
         raise ValueError("question bank directory is empty")
     lesson_ids = [bank.lesson_id for bank in banks]
@@ -73,13 +77,18 @@ def load_question_banks(directory: Path) -> tuple[QuestionBank, ...]:
 
 
 V2_LESSON_ID = re.compile(r"^v2-l(\d{2})(?:-r([1-9]\d*))?$")
+ACTIVE_LESSONS = tuple(range(1, 9))
 
 
-def select_current_banks(banks: tuple[QuestionBank, ...]) -> tuple[QuestionBank, ...]:
+def select_current_banks(
+    banks: tuple[QuestionBank, ...],
+    active_lessons: tuple[int, ...] = ACTIVE_LESSONS,
+) -> tuple[QuestionBank, ...]:
     """Choose the highest numeric revision per V2 lesson, not one global suffix.
 
     Old banks stay in BANKS: existing sessions must retain their exact lesson_id.
-    A partial revision (e.g. L01-08 r2, L09-32 r1) still lists every lesson once.
+    Only authored active lessons are offered for new sessions. Archived lessons
+    remain in BANKS for exact-ID history lookup.
     """
     latest: dict[int, tuple[int, QuestionBank]] = {}
     for bank in banks:
@@ -87,11 +96,11 @@ def select_current_banks(banks: tuple[QuestionBank, ...]) -> tuple[QuestionBank,
         if match is None:
             continue
         number, revision = int(match.group(1)), int(match.group(2) or 0)
-        if not 1 <= number <= 32:
+        if number not in active_lessons:
             continue
         if number not in latest or revision > latest[number][0]:
             latest[number] = (revision, bank)
-    return tuple(latest[number][1] for number in sorted(latest)) or banks
+    return tuple(latest[number][1] for number in sorted(latest))
 
 
 QUESTION_BANKS = load_question_banks(Path(__file__).parent / "question_bank")

@@ -1,6 +1,5 @@
 #!/bin/sh
 set -eu
-. /root/.config/statistics-release/env
 today=$(TZ=Asia/Shanghai date +%F)
 lesson=$(TODAY="$today" python3 - <<'PY'
 import os
@@ -20,15 +19,15 @@ PY
 )
 [ -n "$lesson" ] || exit 0
 [ "$lesson" -gt 0 ] || exit 0
+# 本地重设计目前只制作第1—8课。后续大纲占位不得自动发布。
+# 扩大范围前应完成新课包、数据和核验，并同步所有 ACTIVE_LESSONS。
+[ "$lesson" -le 8 ] || exit 0
+. /root/.config/statistics-release/env
 two=$(printf '%02d' "$lesson")
 dataset=""
 case "$lesson" in
   1) dataset="service" ;;
   5) dataset="alerts" ;;
-  9) dataset="inference" ;;
-  15) dataset="experiments" ;;
-  21) dataset="prediction" ;;
-  27) dataset="policy" ;;
 esac
 
 tmp=$(mktemp -d /tmp/statistics-release.XXXX)
@@ -51,13 +50,6 @@ if [ -n "$dataset" ] && [ ! -e "$tmp/release/data/$dataset" ]; then
   cp -a "$source_data" "$tmp/release/data/"
   git -C "$tmp/release" add "data/$dataset"
 fi
-if [ "$lesson" -eq 27 ] && [ ! -e "$tmp/release/data/README.md" ]; then
-  source_data_readme=$(find "$tmp" -type f -path '*/data/README.md' -print -quit)
-  [ -n "$source_data_readme" ] && [ -f "$source_data_readme" ]
-  cp "$source_data_readme" "$tmp/release/data/README.md"
-  git -C "$tmp/release" add "data/README.md"
-fi
-
 if git -C "$tmp/release" diff --cached --quiet; then
   exit 0
 fi

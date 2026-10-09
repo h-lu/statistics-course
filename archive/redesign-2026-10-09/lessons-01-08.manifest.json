@@ -1,0 +1,488 @@
+{
+  "created_utc": "2026-10-09T00:51:52.211774+00:00",
+  "source_branch": "redesign/2026-10-09",
+  "source_head": "336e7e8abca722e69bd6360764a2163a55398a14",
+  "excludes": "Untracked and ignored files, Git metadata, credentials, production state and student submissions are not included.",
+  "files": [
+    {
+      "path": "instructor-guide/lesson-01/REFERENCE.md",
+      "bytes": 3878,
+      "sha256": "9d554424fdab2eb4f0b594d95aa96858dce8e6cd15c2441e6a45f47ef7a0641a"
+    },
+    {
+      "path": "instructor-guide/lesson-01/REVIEW_01_04.md",
+      "bytes": 4487,
+      "sha256": "371c86f9981c8f4a3e0a71dddb6641c3565a1b447c5ca6ac81be5d833e8b0346"
+    },
+    {
+      "path": "instructor-guide/lesson-01/RUNBOOK.md",
+      "bytes": 8013,
+      "sha256": "5ea774b106e4af06ec447bf27a528bdfbee6477a2a3d27b76349fa5c98039bea"
+    },
+    {
+      "path": "instructor-guide/lesson-01/reference.py",
+      "bytes": 5784,
+      "sha256": "eed5eecbb45383daefcbc3a4f2aa191876050c09a0b488ee7c1abbc3e75e2c3d"
+    },
+    {
+      "path": "instructor-guide/lesson-01/test_reference.py",
+      "bytes": 18023,
+      "sha256": "ea391557693da29c83ecba861dedd1c3686dd3e16fa38257a122a6e47f7075fd"
+    },
+    {
+      "path": "instructor-guide/lesson-01/test_student_cold_read_01_08.py",
+      "bytes": 8234,
+      "sha256": "d31a51d176ebee021997d721b2269be0e7e55ea26e6199c46258f3fa7f97a12d"
+    },
+    {
+      "path": "instructor-guide/lesson-01/test_student_reading_clarifications.py",
+      "bytes": 11596,
+      "sha256": "ff3d5635205dc0f49a4a35a8095a73aeab14b265b716dbf84d943421707f7922"
+    },
+    {
+      "path": "instructor-guide/lesson-02/REFERENCE.md",
+      "bytes": 4026,
+      "sha256": "090e11cf6a8e46b62023bc06446d7efec399dc4430e0a7fdadf447f9e629701a"
+    },
+    {
+      "path": "instructor-guide/lesson-02/RUNBOOK.md",
+      "bytes": 7590,
+      "sha256": "fe01219693c710e80621f292369e5178152a4347a1822c4143b126d56de51479"
+    },
+    {
+      "path": "instructor-guide/lesson-02/reference.py",
+      "bytes": 2563,
+      "sha256": "994f990224984c532893427f61b938ad2de7e5969879f8cb0139643c5a4f41ea"
+    },
+    {
+      "path": "instructor-guide/lesson-03/REFERENCE.md",
+      "bytes": 6785,
+      "sha256": "783eaca9f3d37bb11a883f3ea9a18065cf88cdca35ab9f6e4cf1853c84f0c68f"
+    },
+    {
+      "path": "instructor-guide/lesson-03/REVIEW_FULL.md",
+      "bytes": 9897,
+      "sha256": "16cc5c0b835c5211f652929d8d46aae51e0d6c6b9290ba415f4eefb2a62bde56"
+    },
+    {
+      "path": "instructor-guide/lesson-03/RUNBOOK.md",
+      "bytes": 8347,
+      "sha256": "4af9b8720df1280f03aa0a1daf23a2b63aef1cdc5bff71c77d1687ff8086bf25"
+    },
+    {
+      "path": "instructor-guide/lesson-03/reference.py",
+      "bytes": 6967,
+      "sha256": "a3c2c152a13729a6fd4c101bcef7398ed547cae5d527888ebf0152b26633e589"
+    },
+    {
+      "path": "instructor-guide/lesson-03/test_lesson03_full.py",
+      "bytes": 7492,
+      "sha256": "0652631f6b0b720d0712ba46d7736d3353ec2e45cd5580f9bb30c1e6d86353fa"
+    },
+    {
+      "path": "instructor-guide/lesson-03/walkthrough.py",
+      "bytes": 10123,
+      "sha256": "12688c0998b2f1c930c1e61eced64e5f104b90692abf03c83c5330aa04d006a4"
+    },
+    {
+      "path": "instructor-guide/lesson-04/REFERENCE.md",
+      "bytes": 5790,
+      "sha256": "1479e0b8764761716583db59b4362e0766c93b94ea4ab6b3b99f0a4c91471145"
+    },
+    {
+      "path": "instructor-guide/lesson-04/REVIEW_FULL.md",
+      "bytes": 9626,
+      "sha256": "5d6f5fd88a883fcd551e246e45c5bd35d3031f7e98fc1986915bc702491d0e06"
+    },
+    {
+      "path": "instructor-guide/lesson-04/RUNBOOK.md",
+      "bytes": 7815,
+      "sha256": "cba009bfd5f2fc1a1285c19ea9e310da3c8e4388db52df1eb686fe1c937e9f0e"
+    },
+    {
+      "path": "instructor-guide/lesson-04/reference.py",
+      "bytes": 4524,
+      "sha256": "41e12fe34fc87dff7494ddcddcd46e36fecb94fb7d31afbbf80c2e3e1c7fe4cc"
+    },
+    {
+      "path": "instructor-guide/lesson-04/test_lesson04_full.py",
+      "bytes": 9755,
+      "sha256": "43e0c3e5866464c56316271bf2b7335b119a70c70a09fb6d6d75cd990067555c"
+    },
+    {
+      "path": "instructor-guide/lesson-04/walkthrough.py",
+      "bytes": 11822,
+      "sha256": "10dcc1e29f02c14f2b82c395662033cfcd66a818c4ecad1ca2d28ec8cb6f0d7b"
+    },
+    {
+      "path": "instructor-guide/lesson-05/DEPLOYMENT_2026-09-23.md",
+      "bytes": 2222,
+      "sha256": "b692b65b4d6220c63b17c526029fec91d8932985de1891c4a05cf6d305447841"
+    },
+    {
+      "path": "instructor-guide/lesson-05/REFERENCE.md",
+      "bytes": 5108,
+      "sha256": "516e705b838cde2aea85230bb1c662c39b916b06d40797ac62a43121d87f6110"
+    },
+    {
+      "path": "instructor-guide/lesson-05/REVIEW_05_08.md",
+      "bytes": 8009,
+      "sha256": "054e84ea323b9b3f662ee51aa1924a9c7d0ef352f682af4ec598b6c904be557f"
+    },
+    {
+      "path": "instructor-guide/lesson-05/RUNBOOK.md",
+      "bytes": 9155,
+      "sha256": "972c8801eba77e3d2efeff1d85960dbc221f0dd0935be860158f965f100bf222"
+    },
+    {
+      "path": "instructor-guide/lesson-05/reference.py",
+      "bytes": 8285,
+      "sha256": "b04b48d1f6025454cc91fff1fbc1272129477592d56824c7b4bca0ec50b2fa87"
+    },
+    {
+      "path": "instructor-guide/lesson-05/test_pr6_review.py",
+      "bytes": 5072,
+      "sha256": "51dcfa6a1d40c42e85a72c0b31d8fa6bfab14c0f7b49dd31f2031b59f767d03f"
+    },
+    {
+      "path": "instructor-guide/lesson-05/test_teaching_05_08.py",
+      "bytes": 14159,
+      "sha256": "45e3798729addb25853d297adebb3f9d348f72b8f1938e7e6d5d7bba1a077973"
+    },
+    {
+      "path": "instructor-guide/lesson-06/REFERENCE.md",
+      "bytes": 4215,
+      "sha256": "5d0cdcfe86e56f7007fde2956cae207c5ee15d44702627bbe1810ccfd7ad4b4f"
+    },
+    {
+      "path": "instructor-guide/lesson-06/RUNBOOK.md",
+      "bytes": 7253,
+      "sha256": "3f45ea41f60b5dd382cc725d087c0bfc4aaa0fd1996e299d646f38f6650b5e92"
+    },
+    {
+      "path": "instructor-guide/lesson-06/reference.py",
+      "bytes": 3268,
+      "sha256": "31e8875b70c72edc5339280880bb617d3f991f8ecf8af8057597529d33b7ad6d"
+    },
+    {
+      "path": "instructor-guide/lesson-07/REFERENCE.md",
+      "bytes": 4427,
+      "sha256": "70bc6e81904daebc6c80c874b08f298976a84961567f77a9b2aeab317d501a21"
+    },
+    {
+      "path": "instructor-guide/lesson-07/RUNBOOK.md",
+      "bytes": 7871,
+      "sha256": "19119a1d42eac4ac3477310b1e1cdc6a81df1030d5ecd2e424c8ca94f9c431d3"
+    },
+    {
+      "path": "instructor-guide/lesson-07/reference.py",
+      "bytes": 4719,
+      "sha256": "52ff69569b169944e993d26633bf25f2655974348251d8fcb6f1616a923e9e65"
+    },
+    {
+      "path": "instructor-guide/lesson-08/REFERENCE.md",
+      "bytes": 6172,
+      "sha256": "1e814b8acb036c3fe6768081431063fcc34f08a80cae26f5004f2d36a1265d4b"
+    },
+    {
+      "path": "instructor-guide/lesson-08/RUNBOOK.md",
+      "bytes": 10181,
+      "sha256": "1ea7302dc0fe99f0ea81714857689751bf7da869977ae85e980afae58f4d6087"
+    },
+    {
+      "path": "instructor-guide/lesson-08/reference.py",
+      "bytes": 8201,
+      "sha256": "30c35f3cf45ad82fd53e9c3490fbb811430d4695977043f7202b903004fbfb43"
+    },
+    {
+      "path": "instructor-guide/lesson-08/test_reference_integration.py",
+      "bytes": 3804,
+      "sha256": "f708a9661be754347b2865d5a961df530b5df7528c6acf44385d769f40645d34"
+    },
+    {
+      "path": "student-template/lesson-01/LEARN.md",
+      "bytes": 4731,
+      "sha256": "7aac2ece419a523a31506d8e9ab2c95afdd7f5f2ed2110563277620198ab561e"
+    },
+    {
+      "path": "student-template/lesson-01/README.md",
+      "bytes": 5825,
+      "sha256": "ba77168ae6932f4605ce7707bcc6254c428c0286f36a3f0159cab6fa933e5312"
+    },
+    {
+      "path": "student-template/lesson-01/SUPPORT.md",
+      "bytes": 4923,
+      "sha256": "5b80f2f9839b7b186f221bb9216b46d07c98d202f6175dfb9814564defe58054"
+    },
+    {
+      "path": "student-template/lesson-01/analysis.py",
+      "bytes": 2631,
+      "sha256": "63383ede4ee82cc04c60abee810d81469e165b154141db57e1506474e8b2288e"
+    },
+    {
+      "path": "student-template/lesson-01/artifacts/starting_overview.json",
+      "bytes": 789,
+      "sha256": "20320118b64bde29c75d811d267ad4fd83b47292e4fd064c8b7bf05b566ccb7d"
+    },
+    {
+      "path": "student-template/lesson-01/report.md",
+      "bytes": 2341,
+      "sha256": "c13f7890a1922dcbd03b1034ad092256e4df1ac85010060aa68ae4a2df5c8323"
+    },
+    {
+      "path": "student-template/lesson-01/submission.json",
+      "bytes": 167,
+      "sha256": "1223bc6f4efa5a5134623be6de1fdf9d36ef99f2d95c01cc4968439397db3cd3"
+    },
+    {
+      "path": "student-template/lesson-01/test_learning_examples.py",
+      "bytes": 6515,
+      "sha256": "3670e2705d43fdddfa1ffe4cabaf2d9830ce36ba83de9c7794491f0c66afae7f"
+    },
+    {
+      "path": "student-template/lesson-02/LEARN.md",
+      "bytes": 5074,
+      "sha256": "6cfca91e59b5e97582cf6f3ecc14e22c9f84a7bbde4ad68f3a152350c79b9aa9"
+    },
+    {
+      "path": "student-template/lesson-02/README.md",
+      "bytes": 4216,
+      "sha256": "8ebc062161ec20353cf4158cc3c9c62c8f126d7f754e1cf21efead13e59d769a"
+    },
+    {
+      "path": "student-template/lesson-02/SUPPORT.md",
+      "bytes": 4786,
+      "sha256": "4387ca8c971504e18259bb934ea359df20d7c81507eeb6fe7a0b7a31f3e5d7ce"
+    },
+    {
+      "path": "student-template/lesson-02/analysis.py",
+      "bytes": 2057,
+      "sha256": "95174a9840ee38bb6ac3af20147ce5f8cb2348e79cafb9913519c7fd43a3919c"
+    },
+    {
+      "path": "student-template/lesson-02/artifacts/starting_overview.json",
+      "bytes": 346,
+      "sha256": "c79626a07c14664a0fd301114fcf03edbb51e75fd04c31de80d8b9761e0cdef2"
+    },
+    {
+      "path": "student-template/lesson-02/report.md",
+      "bytes": 2210,
+      "sha256": "9a7e9f93325b838df495cd79e64f0f4dfe2d4d5145f024ccfa2d5a047289f1d0"
+    },
+    {
+      "path": "student-template/lesson-02/submission.json",
+      "bytes": 167,
+      "sha256": "a07077b308f5bbe36e91583ceb81ddd43c1e491fc533aadb34ab08f233a79f18"
+    },
+    {
+      "path": "student-template/lesson-03/LEARN.md",
+      "bytes": 7379,
+      "sha256": "e49e872433bf5012827575087b1e063be396126243862ae7d1d4fef08148a716"
+    },
+    {
+      "path": "student-template/lesson-03/README.md",
+      "bytes": 8750,
+      "sha256": "c93afd4616dc0fef9cca2404f4c9e7b48f8484bc6015bbd689f2328182d82042"
+    },
+    {
+      "path": "student-template/lesson-03/SUPPORT.md",
+      "bytes": 7627,
+      "sha256": "98512cf7358d6d8c94bab49cf6a741e1ca23267334aea4d7d9492e20318c0053"
+    },
+    {
+      "path": "student-template/lesson-03/analysis.py",
+      "bytes": 1974,
+      "sha256": "a7fa9985fe759c903f9aa692590a18d880c701377ca44b1dbdef1f7f43d7f010"
+    },
+    {
+      "path": "student-template/lesson-03/artifacts/starting_overview.json",
+      "bytes": 368,
+      "sha256": "01613222ec0eb291dbf19c09e537d41ca6140c68823d52e0639e2fc9444bf3f0"
+    },
+    {
+      "path": "student-template/lesson-03/report.md",
+      "bytes": 2965,
+      "sha256": "fdb457499486daa5fac1208de9dfeb9b58d96aa7ae31a05a78799ef74d1b21d1"
+    },
+    {
+      "path": "student-template/lesson-03/submission.json",
+      "bytes": 167,
+      "sha256": "602de211314c2ab580d6616c13657b7c9fb1ecb49cd356d4890c0f6905334b0c"
+    },
+    {
+      "path": "student-template/lesson-04/LEARN.md",
+      "bytes": 6168,
+      "sha256": "3b4a156546fc00b14789ba8c6be7d4c50c898319fc9791bf6365d4f4aa2f9eee"
+    },
+    {
+      "path": "student-template/lesson-04/README.md",
+      "bytes": 7943,
+      "sha256": "ed1b0f17a5094aa807eb18033215f2789b6d5e587be44325eb7fbc672df286bc"
+    },
+    {
+      "path": "student-template/lesson-04/SUPPORT.md",
+      "bytes": 9110,
+      "sha256": "6b9280f47c8f31cf020f2bfa3cbf256c30529d959450add930b08335940db4de"
+    },
+    {
+      "path": "student-template/lesson-04/analysis.py",
+      "bytes": 3938,
+      "sha256": "c3974856910f6765c20928034faece1424890a3a399c2faa37076b5a7bd687de"
+    },
+    {
+      "path": "student-template/lesson-04/artifacts/starting_overview.json",
+      "bytes": 971,
+      "sha256": "b1df4162ed500b8c35fa911487bec5a620f2b8333bfe667b56c71a2ff2d0184e"
+    },
+    {
+      "path": "student-template/lesson-04/report.md",
+      "bytes": 4048,
+      "sha256": "56c3223664e6898fb3d7d7e22eaaafcba1a863dce5c9446231e962dfb6feb74a"
+    },
+    {
+      "path": "student-template/lesson-04/submission.json",
+      "bytes": 167,
+      "sha256": "1b5273becaece0cf663fe247f48e45c1147bf7b864c60507f3ab321d371d933f"
+    },
+    {
+      "path": "student-template/lesson-05/LEARN.md",
+      "bytes": 13193,
+      "sha256": "2238946546dceeb487d96eff24f48671bd40d8d73157dc41da020a5a472d179a"
+    },
+    {
+      "path": "student-template/lesson-05/README.md",
+      "bytes": 10636,
+      "sha256": "1f415658dc363bcc23296058d487b59c5dfcbb56899c54183b47e490e4a9e544"
+    },
+    {
+      "path": "student-template/lesson-05/SUPPORT.md",
+      "bytes": 13843,
+      "sha256": "c261a9d183edfac479053e5a4d452e2f80ec4f857e9d513c1bfdfbab45bc2043"
+    },
+    {
+      "path": "student-template/lesson-05/analysis.py",
+      "bytes": 2764,
+      "sha256": "34949a38abb61ab4bf028c831f29fc6afad2e6765e0d85117089bf6809645866"
+    },
+    {
+      "path": "student-template/lesson-05/artifacts/starting_overview.json",
+      "bytes": 3852,
+      "sha256": "ce38d92439faacb225451c28de69011d96b01e4d51bb8bbfb43331ad7c3b0ff6"
+    },
+    {
+      "path": "student-template/lesson-05/report.md",
+      "bytes": 3832,
+      "sha256": "dbffa4a4bbccaab36696fc901ab4b8d2894131dd903fc301f25821581fc705ad"
+    },
+    {
+      "path": "student-template/lesson-05/submission.json",
+      "bytes": 167,
+      "sha256": "a267cedb19d85601959667f339962c46e2f04e5132fd514effcdf290ffd6c1ef"
+    },
+    {
+      "path": "student-template/lesson-06/LEARN.md",
+      "bytes": 6329,
+      "sha256": "02d13e93c9b773e04d38dcb419c40fdb74b252edf6da7d5bf1f7c2bb8b46b171"
+    },
+    {
+      "path": "student-template/lesson-06/README.md",
+      "bytes": 8574,
+      "sha256": "cbf0b5a5be80be07eb2815262e282597c13e28f331ab91a1296191da3840558a"
+    },
+    {
+      "path": "student-template/lesson-06/SUPPORT.md",
+      "bytes": 7786,
+      "sha256": "9c707ebdbfc667b43ca907d7302fe23fed2dccb760d7f7f73313b55736f2fba8"
+    },
+    {
+      "path": "student-template/lesson-06/analysis.py",
+      "bytes": 2229,
+      "sha256": "7d37f84ef8bd83ad50f68816324cbf3fdd7c3f7cd7dbefe3000a5b4ff1d852fb"
+    },
+    {
+      "path": "student-template/lesson-06/artifacts/starting_overview.json",
+      "bytes": 776,
+      "sha256": "8a7321e26c98dea621ef5c3ba2e26bbabee6563634bf919c7cc670d85755c7f2"
+    },
+    {
+      "path": "student-template/lesson-06/report.md",
+      "bytes": 1657,
+      "sha256": "f0ccaf3c6223dd08ba5c404a15000bb8cde4a17c987ecf89c960a340e713c220"
+    },
+    {
+      "path": "student-template/lesson-06/submission.json",
+      "bytes": 167,
+      "sha256": "6a62bc05c957ccb896e3dba99a87506b5c2c23bc128d850fb064d4c9a2ff7792"
+    },
+    {
+      "path": "student-template/lesson-07/LEARN.md",
+      "bytes": 8542,
+      "sha256": "6a54b65374c1810c023243e6e0078b367f93b610b7cb083ae7a8e3c3a77ceb72"
+    },
+    {
+      "path": "student-template/lesson-07/README.md",
+      "bytes": 9847,
+      "sha256": "0b53b194d104fa92146def774cf8d2fd9c3b2fc32e5e0f0c843dc592facda4f2"
+    },
+    {
+      "path": "student-template/lesson-07/SUPPORT.md",
+      "bytes": 9911,
+      "sha256": "9b39f74abbb8af0dbbe17eac923f081093ac11c456c4e982ad913976f05ddba8"
+    },
+    {
+      "path": "student-template/lesson-07/analysis.py",
+      "bytes": 2190,
+      "sha256": "94fbe19a20e4e5b04e69cfc4448b2887744d80f2be36c1f3fd130b7aeb4e9ac0"
+    },
+    {
+      "path": "student-template/lesson-07/artifacts/starting_overview.json",
+      "bytes": 364,
+      "sha256": "1906c187b48ef163a3d129ad9faec008c9ffc50f00ffa7363fcca30248224235"
+    },
+    {
+      "path": "student-template/lesson-07/report.md",
+      "bytes": 2188,
+      "sha256": "9c02abbed257fd41f7052d29c671564e484ef6375fbd0e28eba2916d5c4b4a01"
+    },
+    {
+      "path": "student-template/lesson-07/submission.json",
+      "bytes": 167,
+      "sha256": "81d90226c57958b4a6c6bf98417cb3399859c37a20c33eb301c999baa338a224"
+    },
+    {
+      "path": "student-template/lesson-08/LEARN.md",
+      "bytes": 7744,
+      "sha256": "a470f67f33863cd346a933cbc5077a98afc0bbdd0fb540236c141d211fe31d09"
+    },
+    {
+      "path": "student-template/lesson-08/README.md",
+      "bytes": 8178,
+      "sha256": "ea7541d6ef503544d4ea6e46b41d77491925476b44ca7c4454633285b8834e76"
+    },
+    {
+      "path": "student-template/lesson-08/SUPPORT.md",
+      "bytes": 3845,
+      "sha256": "81c904804332874d6f84d1e6da958714d20dd1c32bdc538a7be8d1186848cd06"
+    },
+    {
+      "path": "student-template/lesson-08/analysis.py",
+      "bytes": 1239,
+      "sha256": "d5c3ae2685028d877ca71e3779aee18569c30276075b5706da2cdd4e233c118d"
+    },
+    {
+      "path": "student-template/lesson-08/artifacts/starting_overview.json",
+      "bytes": 1153,
+      "sha256": "e0f4fe27536647700220a2832a488f5530fc1cd213ae215f9c491f8f6eec30ec"
+    },
+    {
+      "path": "student-template/lesson-08/report.md",
+      "bytes": 1986,
+      "sha256": "6d8146897e3bee32134730ef440f3c9712f988466d4969a95a6e79f378848988"
+    },
+    {
+      "path": "student-template/lesson-08/submission.json",
+      "bytes": 167,
+      "sha256": "0575ac58c002ea16ffbebb91dccf55a7eb2da03fa124acee954e77d04666fea0"
+    }
+  ]
+}

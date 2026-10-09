@@ -4,38 +4,44 @@
       "center": "A",
       "business_code": "basic",
       "n": 252,
-      "completed": 238
+      "completed": 238,
+      "rate": 0.9444444444444444
     },
     {
       "center": "A",
       "business_code": "case",
       "n": 948,
-      "completed": 697
+      "completed": 697,
+      "rate": 0.7352320675105485
     },
     {
       "center": "B",
       "business_code": "basic",
       "n": 935,
-      "completed": 834
+      "completed": 834,
+      "rate": 0.8919786096256684
     },
     {
       "center": "B",
       "business_code": "case",
       "n": 265,
-      "completed": 163
+      "completed": 163,
+      "rate": 0.6150943396226415
     },
     {
       "center": "C",
       "business_code": "basic",
       "n": 591,
-      "completed": 529
+      "completed": 529,
+      "rate": 0.8950930626057529
     },
     {
       "center": "C",
       "business_code": "case",
       "n": 609,
-      "completed": 414
+      "completed": 414,
+      "rate": 0.6798029556650246
     }
   ],
-  "note": "这是分层计数示例，尚未确定共同业务构成、检查比较结果的稳定性或提出发布建议。"
+  "note": "只核对分层计数；共同构成、敏感性范围与发布办法由学生自行组织。"
 }

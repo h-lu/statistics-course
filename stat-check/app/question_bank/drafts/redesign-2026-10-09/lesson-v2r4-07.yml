@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l07-r4",
+  "title": "第07课 · 满意度调查的覆盖与无回答问题",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "invitation-coverage",
+      "title": "调查邀请与覆盖",
+      "tutor_context": "换一项调查解释目标人数、邀请数和有效评价数，区分邀请率、评价覆盖与缺少登记。",
+      "pair": {
+        "a": {
+          "prompt": "目标150张工单中90张收到邀请，54张有有效评价。邀请率和全目标评价覆盖分别怎样计算？",
+          "options": [
+            {
+              "id": "A",
+              "text": "54/90与90/150",
+              "misconception": "response-rate-as-invitation-rate"
+            },
+            {
+              "id": "B",
+              "text": "90/150与54/150",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "90/54与54/90",
+              "misconception": "reverse-and-conditional-denominators"
+            },
+            {
+              "id": "D",
+              "text": "两者都是54/150",
+              "misconception": "rating-count-replaces-invitation-count"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：54/90是受邀者回答率；90/150是邀请率，不能按题问次序替代。 B：邀请率以目标150为分母，分子90；评价覆盖同以目标150为分母，分子54。 C：90/54把分子分母反过来；54/90描述受邀者回答率，不是全目标覆盖。 D：有评价54不等于邀请90，两个过程对应的分子不同。"
+        },
+        "b": {
+          "prompt": "调查表缺少某张目标工单的整条登记。工作人员尚未核实邀请系统，能否把它归为“未受邀”？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不能；邀请状态尚未知，应单列缺登记并核实",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "能，缺登记与明确invited=0相同",
+              "misconception": "unmatched-as-uninvited"
+            },
+            {
+              "id": "C",
+              "text": "不能，应直接归为受邀后无回答",
+              "misconception": "unmatched-as-invited-nonresponse"
+            },
+            {
+              "id": "D",
+              "text": "能，并且这张工单满意度应记0",
+              "misconception": "missing-register-as-zero-rating"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：缺整条登记不提供邀请事实，不能推断已邀或未邀。 B：明确0来自已记录状态，缺登记是信息未取得，两者不同。 C：同样没有证据证明收到邀请，不能直接归入无回答。 D：邀请未知与评分未知都不能转换成事实，更不能填成0分。"
+        }
+      }
+    },
+    {
+      "concept_id": "unit-item-nonresponse",
+      "title": "单位无回答与项目无回答",
+      "tutor_context": "用一份含多个问题的问卷解释整份未回答与其中问题未回答；未邀请者不列为受邀无回答。",
+      "pair": {
+        "a": {
+          "prompt": "邀请96位服务对象，64位交回问卷，其中16位没有填写体验评价问题。仅针对本次邀请，单位无回答和该问题的项目无回答分别多少位？",
+          "options": [
+            {
+              "id": "A",
+              "text": "48位与16位",
+              "misconception": "item-missing-added-to-unit-nonresponse"
+            },
+            {
+              "id": "B",
+              "text": "32位与48位",
+              "misconception": "valid-item-count-as-item-nonresponse"
+            },
+            {
+              "id": "C",
+              "text": "32位与16位",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "16位与32位",
+              "misconception": "swap-unit-and-item-nonresponse"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：单位无回答是未交问卷的32位；交回但缺某项的16位不是另外16位单位无回答。 B：48位填写了体验评价，不是项目无回答。 C：96−64=32位整份无回答；已交64位中16位未填该问题，属于项目无回答。 D：把整份未交和已交但缺问题两种过程对调了。"
+        },
+        "b": {
+          "prompt": "某批目标工单中12张明确未受邀，另外23张已受邀但没有回复。两类的体验评价都空白。怎样用于调查过程报告？",
+          "options": [
+            {
+              "id": "A",
+              "text": "都记为受邀无回答，共35张",
+              "misconception": "all-blank-ratings-as-nonresponse"
+            },
+            {
+              "id": "B",
+              "text": "都记为不满意，因为不回复已经表示态度",
+              "misconception": "absence-of-response-as-negative-rating"
+            },
+            {
+              "id": "C",
+              "text": "都删除，不报告邀请和回答过程",
+              "misconception": "complete-case-hides-process"
+            },
+            {
+              "id": "D",
+              "text": "未受邀12张和受邀无回答23张分别报告",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：受邀无回答要求已收到邀请，12张未受邀不满足。 B：空白记录没有观察到评价，不能转换为不满意。 C：删除会隐藏覆盖与回答过程，妨碍说明结论范围。 D：两种信息取得过程不同，应分别计数，评分空白本身不能合并它们。"
+        }
+      }
+    },
+    {
+      "concept_id": "identification-scope",
+      "title": "回答者描述与全目标识别",
+      "tutor_context": "用已答与未知者说明什么可直接观察、什么需要额外信息或假设；名册信息不能自动替代未观察评价。",
+      "pair": {
+        "a": {
+          "prompt": "目标75张工单，30张回答，其中21张满意；没有其他评价信息。哪项是直接成立的描述？",
+          "options": [
+            {
+              "id": "A",
+              "text": "回答的30张中满意比例70%，全目标比例尚未唯一确定",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "全部75张满意比例70%",
+              "misconception": "respondents-as-target-population"
+            },
+            {
+              "id": "C",
+              "text": "全部75张实际满意比例28%",
+              "misconception": "known-positive-share-as-point-truth"
+            },
+            {
+              "id": "D",
+              "text": "存在45张未知，所以回答者70%也不能计算",
+              "misconception": "unknown-target-invalidates-known-subset"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：21/30=70%描述回答者；未答45张的评价未知，不能由此唯一确定全目标。 B：需要回答者代表全部工单等额外依据，现有信息未给出。 C：21/75=28%是已知满意占目标的比例，可作下界，不是全体实际值已确定。 D：未知部分不妨碍准确描述已观察的30张。"
+        },
+        "b": {
+          "prompt": "一份调查已知回答者的评价。后来只补齐未答者人数和联系方式，没有取得他们的评分，也未提出代表性假设。这会唯一确定全目标满意比例吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "会，人数齐全就等于评价信息齐全",
+              "misconception": "complete-roster-as-complete-outcome"
+            },
+            {
+              "id": "B",
+              "text": "会，把回答者比例乘总人数即得到观察到的满意人数",
+              "misconception": "scaling-as-new-observation"
+            },
+            {
+              "id": "C",
+              "text": "不会，因此连回答者结果也必须撤回",
+              "misconception": "nonidentification-erases-subset-description"
+            },
+            {
+              "id": "D",
+              "text": "不会；名册信息不等于未答者评价，可支持后续追访",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：人数和联系方式不包含未知评分，不能替代结果信息。 B：乘法推算不是新增观察，仍依赖推广假设。 C：全目标未确定不否定已回答者的描述。 D：名册改善了取得数据的条件，但当前仍缺评价或相应可辩护假设。"
+        }
+      }
+    },
+    {
+      "concept_id": "logical-bounds",
+      "title": "未知评价范围与条件门槛",
+      "tutor_context": "用新的满意二元结果演示固定目标下的逻辑范围，再解释门槛所需条件不是未知者的观察事实。",
+      "pair": {
+        "a": {
+          "prompt": "目标140张工单中84张有评价，其中63张满意；满意定义固定。对其余56张不增加假设，全目标满意比例的逻辑范围是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "固定75%",
+              "misconception": "respondent-proportion-as-known-target"
+            },
+            {
+              "id": "B",
+              "text": "45%至60%",
+              "misconception": "responded-count-as-upper-satisfaction-bound"
+            },
+            {
+              "id": "C",
+              "text": "45%至85%",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "75%至100%",
+              "misconception": "respondent-rate-as-target-lower-bound"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：63/84=75%只描述回答者，不是无需假设的全目标值。 B：60%是评价覆盖84/140，未知者仍可能满意，上界不能限于回答人数。 C：最少63张满意为45%；最多63+56=119张满意为85%。这是未知取值的逻辑范围，不是置信区间。 D：未知者都不满意时全体可低至45%，回答者75%不是全目标下界。"
+        },
+        "b": {
+          "prompt": "目标180张工单中100张回答、70张满意，另有50张未受邀和30张受邀未答。假设未受邀者40%满意，若全目标需至少60%满意，受邀未答者至少多少比例满意？",
+          "options": [
+            {
+              "id": "A",
+              "text": "60%",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "10%",
+              "misconception": "all-target-denominator-for-needed-unknown-rate"
+            },
+            {
+              "id": "C",
+              "text": "36%",
+              "misconception": "uninvited-denominator-for-nonrespondent-rate"
+            },
+            {
+              "id": "D",
+              "text": "70%",
+              "misconception": "copy-respondent-proportion"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：目标需108张满意；已知70与假设未受邀20共90，还需18/30=60%。这是使门槛成立的条件，不证明实际达到。 B：18/180=10%是所需新增满意占全目标的比例，题问分母是30位受邀未答者。 C：18/50=36%用了未受邀组，而需确定的是30张受邀未答者。 D：70%是回答者满意率，不能未经核算当成门槛所需条件。"
+        }
+      }
+    },
+    {
+      "concept_id": "conditional-missingness-assumptions",
+      "title": "随机缺失条件与观测支持",
+      "tutor_context": "用另一项调查解释给定已观察变量后的可比性是假设，不能仅靠回答率差异证明；零回答层还缺观测支持。",
+      "pair": {
+        "a": {
+          "prompt": "已观察的业务类别不同，回答率明显不同。仅凭这一现象，关于“给定业务类别后回答是否仍依赖未知评分”，哪项判断成立？",
+          "options": [
+            {
+              "id": "A",
+              "text": "已证明完全随机缺失",
+              "misconception": "observed-response-association-as-mcar"
+            },
+            {
+              "id": "B",
+              "text": "只发现回答与类别有关，尚不能确定类别内是否还依赖未知评分",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "已证明非随机缺失，因为回答率不一样",
+              "misconception": "different-observed-rates-prove-mnar"
+            },
+            {
+              "id": "D",
+              "text": "已证明随机缺失，因为类别已记录",
+              "misconception": "measuring-covariate-proves-mar"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：回答率与已观察类别有关，不能由此证明完全随机缺失。 B：观察到类别关系不识别类别内未知评分与回答的关系，仍需假设、补采或敏感性分析。 C：随机缺失也允许回答依赖已观察变量；不同回答率不单独证明依赖未知评分。 D：记录一个相关变量不保证在条件内未知评分不再影响回答。"
+        },
+        "b": {
+          "prompt": "分析者假设同一类别内回答者可代表未答者，但某个目标类别没有任何回答。仅凭该假设，能否直接得到这个类别的满意比例并作分组加权？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，随机缺失假设自动给出该类别数值",
+              "misconception": "mar-creates-unobserved-stratum-outcomes"
+            },
+            {
+              "id": "B",
+              "text": "能，把零回答类别的满意比例设为0",
+              "misconception": "zero-responses-as-zero-satisfaction"
+            },
+            {
+              "id": "C",
+              "text": "不能直接算；还需取得该类评价或说明跨类别模型假设",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "能，若该类别较小，就从目标构成删掉而不作说明",
+              "misconception": "drop-small-unsupported-target-group"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：假设不是观测数值，零回答类别没有可直接计算的比例。 B：零分母不是0%满意；把未知当不满意增加了不同假设。 C：组内可比性并不创造组内数据，零回答层缺支持，外推需另说明依据。 D：删目标类别改变总体和权重，不能悄悄当成原全目标估计。"
+        }
+      }
+    }
+  ]
+}

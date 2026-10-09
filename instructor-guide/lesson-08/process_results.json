@@ -1,0 +1,312 @@
+{
+  "synthetic_data": true,
+  "cleaning": {
+    "exact_duplicate_rows": 39,
+    "superseded_revision_rows": 26,
+    "raw_rows": 1265,
+    "second_period_ids": 1200,
+    "first_period_ids": 3600,
+    "combined_ids": 4800,
+    "field_flags": {
+      "window_unknown": 7,
+      "completion_unknown": 7,
+      "wait_unknown": 19,
+      "business_unknown": 10
+    },
+    "revision_conflict_rule": "stop"
+  },
+  "comparisons": {
+    "main": {
+      "choices": {
+        "revision_conflict": "stop",
+        "window_join": "left",
+        "metric_scope": "per_metric",
+        "staffing_coverage": "union"
+      },
+      "metrics": {
+        "ticket_scope_n": 4800,
+        "metric_base_n": 4800,
+        "common_complete_required_fields": [
+          "wait/unit",
+          "abandonment",
+          "completion",
+          "window",
+          "business",
+          "registration_date",
+          "revision_consistency"
+        ],
+        "served_wait_n": 4632,
+        "served_wait_mean": 13.189328151986183,
+        "completion_n": 4793,
+        "completed_n": 3820,
+        "completion_rate": 0.7969956186104736,
+        "response_n": 2789,
+        "satisfied_n": 2451,
+        "satisfied_among_responses": 0.8788096091789172,
+        "contact_weighted_wait_mean": 14.839921536091028,
+        "scope_contact_n": 8921,
+        "scope_contact_minutes": 89466.8,
+        "not_measured_personal_productivity": true
+      },
+      "join_audit": {
+        "input_ticket_n": 4800,
+        "joined_ticket_n": 4800,
+        "unknown_window_n": 7,
+        "excluded_ticket_ids": [],
+        "survey_status_all": {
+          "responded": 2789,
+          "no_response": 1470,
+          "not_invited": 541
+        },
+        "orphan_contact_n": 0,
+        "orphan_contact_minutes": 0,
+        "contacts_missing_on_ticket_n": 0,
+        "unmatched_survey_rows": 0,
+        "source_contact_minutes": 89466.8,
+        "aggregated_contact_minutes": 89466.8
+      },
+      "reconciliation": {
+        "input_contact_n": 8921,
+        "assigned_contact_n": 8904,
+        "unassigned_contact_n": 17,
+        "source_minutes": 89466.8,
+        "assigned_minutes": 89260.34,
+        "unassigned_minutes": 206.46,
+        "minutes_reconciled": true,
+        "unique_plan_window_days": 240,
+        "reported_window_days": 240,
+        "unassigned_ticket_n": 7,
+        "unknown_registration_date_ticket_n": 0,
+        "known_plan_person_hours_all": 2460.0,
+        "known_plan_person_hours_in_report": 2460.0,
+        "plan_days_without_recorded_activity": 0,
+        "activity_days_without_plan": 0,
+        "cross_day_contacts": 0,
+        "proxy_window_assignment": "contact window is not observed; use ticket window explicitly",
+        "zero_activity_limitation": "no input rows does not prove complete source coverage",
+        "partial_plan_limitation": "known plan total is incomplete if activity days lack plan"
+      }
+    },
+    "inner": {
+      "choices": {
+        "revision_conflict": "stop",
+        "window_join": "inner",
+        "metric_scope": "per_metric",
+        "staffing_coverage": "union"
+      },
+      "metrics": {
+        "ticket_scope_n": 4793,
+        "metric_base_n": 4793,
+        "common_complete_required_fields": [
+          "wait/unit",
+          "abandonment",
+          "completion",
+          "window",
+          "business",
+          "registration_date",
+          "revision_consistency"
+        ],
+        "served_wait_n": 4625,
+        "served_wait_mean": 13.186509837837837,
+        "completion_n": 4786,
+        "completed_n": 3815,
+        "completion_rate": 0.7971165900543251,
+        "response_n": 2787,
+        "satisfied_n": 2450,
+        "satisfied_among_responses": 0.8790814495873699,
+        "contact_weighted_wait_mean": 14.838427315914489,
+        "scope_contact_n": 8904,
+        "scope_contact_minutes": 89260.34,
+        "not_measured_personal_productivity": true
+      },
+      "join_audit": {
+        "input_ticket_n": 4800,
+        "joined_ticket_n": 4793,
+        "unknown_window_n": 7,
+        "excluded_ticket_ids": [
+          "T03603",
+          "T03800",
+          "T03997",
+          "T04194",
+          "T04391",
+          "T04588",
+          "T04785"
+        ],
+        "survey_status_all": {
+          "responded": 2789,
+          "no_response": 1470,
+          "not_invited": 541
+        },
+        "orphan_contact_n": 0,
+        "orphan_contact_minutes": 0,
+        "contacts_missing_on_ticket_n": 0,
+        "unmatched_survey_rows": 0,
+        "source_contact_minutes": 89466.8,
+        "aggregated_contact_minutes": 89466.8
+      },
+      "reconciliation": {
+        "input_contact_n": 8921,
+        "assigned_contact_n": 8904,
+        "unassigned_contact_n": 17,
+        "source_minutes": 89466.8,
+        "assigned_minutes": 89260.34,
+        "unassigned_minutes": 206.46,
+        "minutes_reconciled": true,
+        "unique_plan_window_days": 240,
+        "reported_window_days": 240,
+        "unassigned_ticket_n": 0,
+        "unknown_registration_date_ticket_n": 0,
+        "known_plan_person_hours_all": 2460.0,
+        "known_plan_person_hours_in_report": 2460.0,
+        "plan_days_without_recorded_activity": 0,
+        "activity_days_without_plan": 0,
+        "cross_day_contacts": 0,
+        "proxy_window_assignment": "contact window is not observed; use ticket window explicitly",
+        "zero_activity_limitation": "no input rows does not prove complete source coverage",
+        "partial_plan_limitation": "known plan total is incomplete if activity days lack plan"
+      }
+    },
+    "common": {
+      "choices": {
+        "revision_conflict": "stop",
+        "window_join": "left",
+        "metric_scope": "common_complete",
+        "staffing_coverage": "union"
+      },
+      "metrics": {
+        "ticket_scope_n": 4800,
+        "metric_base_n": 4758,
+        "common_complete_required_fields": [
+          "wait/unit",
+          "abandonment",
+          "completion",
+          "window",
+          "business",
+          "registration_date",
+          "revision_consistency"
+        ],
+        "served_wait_n": 4610,
+        "served_wait_mean": 13.191238177874187,
+        "completion_n": 4758,
+        "completed_n": 3797,
+        "completion_rate": 0.7980243799915931,
+        "response_n": 2761,
+        "satisfied_n": 2426,
+        "satisfied_among_responses": 0.8786671495834842,
+        "contact_weighted_wait_mean": 14.841941624970216,
+        "scope_contact_n": 8921,
+        "scope_contact_minutes": 89466.8,
+        "not_measured_personal_productivity": true
+      },
+      "join_audit": {
+        "input_ticket_n": 4800,
+        "joined_ticket_n": 4800,
+        "unknown_window_n": 7,
+        "excluded_ticket_ids": [],
+        "survey_status_all": {
+          "responded": 2789,
+          "no_response": 1470,
+          "not_invited": 541
+        },
+        "orphan_contact_n": 0,
+        "orphan_contact_minutes": 0,
+        "contacts_missing_on_ticket_n": 0,
+        "unmatched_survey_rows": 0,
+        "source_contact_minutes": 89466.8,
+        "aggregated_contact_minutes": 89466.8
+      },
+      "reconciliation": {
+        "input_contact_n": 8921,
+        "assigned_contact_n": 8904,
+        "unassigned_contact_n": 17,
+        "source_minutes": 89466.8,
+        "assigned_minutes": 89260.34,
+        "unassigned_minutes": 206.46,
+        "minutes_reconciled": true,
+        "unique_plan_window_days": 240,
+        "reported_window_days": 240,
+        "unassigned_ticket_n": 7,
+        "unknown_registration_date_ticket_n": 0,
+        "known_plan_person_hours_all": 2460.0,
+        "known_plan_person_hours_in_report": 2460.0,
+        "plan_days_without_recorded_activity": 0,
+        "activity_days_without_plan": 0,
+        "cross_day_contacts": 0,
+        "proxy_window_assignment": "contact window is not observed; use ticket window explicitly",
+        "zero_activity_limitation": "no input rows does not prove complete source coverage",
+        "partial_plan_limitation": "known plan total is incomplete if activity days lack plan"
+      }
+    },
+    "activity": {
+      "choices": {
+        "revision_conflict": "stop",
+        "window_join": "left",
+        "metric_scope": "per_metric",
+        "staffing_coverage": "activity_only"
+      },
+      "metrics": {
+        "ticket_scope_n": 4800,
+        "metric_base_n": 4800,
+        "common_complete_required_fields": [
+          "wait/unit",
+          "abandonment",
+          "completion",
+          "window",
+          "business",
+          "registration_date",
+          "revision_consistency"
+        ],
+        "served_wait_n": 4632,
+        "served_wait_mean": 13.189328151986183,
+        "completion_n": 4793,
+        "completed_n": 3820,
+        "completion_rate": 0.7969956186104736,
+        "response_n": 2789,
+        "satisfied_n": 2451,
+        "satisfied_among_responses": 0.8788096091789172,
+        "contact_weighted_wait_mean": 14.839921536091028,
+        "scope_contact_n": 8921,
+        "scope_contact_minutes": 89466.8,
+        "not_measured_personal_productivity": true
+      },
+      "join_audit": {
+        "input_ticket_n": 4800,
+        "joined_ticket_n": 4800,
+        "unknown_window_n": 7,
+        "excluded_ticket_ids": [],
+        "survey_status_all": {
+          "responded": 2789,
+          "no_response": 1470,
+          "not_invited": 541
+        },
+        "orphan_contact_n": 0,
+        "orphan_contact_minutes": 0,
+        "contacts_missing_on_ticket_n": 0,
+        "unmatched_survey_rows": 0,
+        "source_contact_minutes": 89466.8,
+        "aggregated_contact_minutes": 89466.8
+      },
+      "reconciliation": {
+        "input_contact_n": 8921,
+        "assigned_contact_n": 8904,
+        "unassigned_contact_n": 17,
+        "source_minutes": 89466.8,
+        "assigned_minutes": 89260.34,
+        "unassigned_minutes": 206.46,
+        "minutes_reconciled": true,
+        "unique_plan_window_days": 240,
+        "reported_window_days": 240,
+        "unassigned_ticket_n": 7,
+        "unknown_registration_date_ticket_n": 0,
+        "known_plan_person_hours_all": 2460.0,
+        "known_plan_person_hours_in_report": 2460.0,
+        "plan_days_without_recorded_activity": 0,
+        "activity_days_without_plan": 0,
+        "cross_day_contacts": 0,
+        "proxy_window_assignment": "contact window is not observed; use ticket window explicitly",
+        "zero_activity_limitation": "no input rows does not prove complete source coverage",
+        "partial_plan_limitation": "known plan total is incomplete if activity days lack plan"
+      }
+    }
+  }
+}

@@ -14,12 +14,15 @@ import argparse
 import shutil
 from pathlib import Path
 
+ACTIVE_LESSONS = tuple(range(1, 9))
+
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--source", type=Path, required=True, help="完整教师/模板工作树")
     parser.add_argument("--destination", type=Path, required=True, help="学生私有仓库工作树")
-    parser.add_argument("--lesson", type=int, required=True, choices=range(1, 33))
+    parser.add_argument("--lesson", type=int, required=True, choices=ACTIVE_LESSONS,
+                        help="当前已制作课包：01—08；09—32仅有大纲，禁止发布")
     return parser.parse_args()
 
 

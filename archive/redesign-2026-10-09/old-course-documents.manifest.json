@@ -1,0 +1,90 @@
+{
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 2694,
+      "sha256": "041401ebabab51abba3fab225cddd47a5c8fd2f4498db09b61a989bd5b908447"
+    },
+    {
+      "path": "student-template/README.md",
+      "bytes": 6736,
+      "sha256": "bc7bc9e19247b0a3256f2fa827e8c1a786801aa1194190833287fca1aaae2dfe"
+    },
+    {
+      "path": "student-template/docs/LESSON_SUPPORT.md",
+      "bytes": 1219,
+      "sha256": "ed11032ee95d5ebec1686f3b30efa8eefcf262f17ad67038dbad35a3b9c8d086"
+    },
+    {
+      "path": "student-template/data/README.md",
+      "bytes": 1158,
+      "sha256": "e4ce06d791b261bce2a02f1597ea18c6d173f13b02802566b0bd90d07f981b8b"
+    },
+    {
+      "path": "instructor-guide/README.md",
+      "bytes": 3029,
+      "sha256": "7018fcca5383ba8bf862e6237fac45c2888bb8e5041906afc8c1401b53508dbc"
+    },
+    {
+      "path": "instructor-guide/COURSE_MAP.md",
+      "bytes": 9182,
+      "sha256": "80556bdf028d1c01837000eff3cd457386b2d900f8380e4f278fd5126f86f821"
+    },
+    {
+      "path": "instructor-guide/STUDENT_LESSON_RELEASE.md",
+      "bytes": 3162,
+      "sha256": "d4ebb7a736261f59fc0147a13bdb5993450cb9087b713e549c040f1bf174a351"
+    },
+    {
+      "path": "instructor-guide/AUTHORING_INTERFACE.md",
+      "bytes": 2792,
+      "sha256": "464b76807333621354a901a318a559b4e5055cb73d2c4efe9e4f263843fb6c0e"
+    },
+    {
+      "path": "instructor-guide/tests/test_student_materials_structure.py",
+      "bytes": 2684,
+      "sha256": "7c72fef583c2c9489e53d1ca403c4e26ec3d5335b678cf167275db5503f55a74"
+    },
+    {
+      "path": "instructor-guide/CURRICULUM_REVIEW_2026-09-21.md",
+      "bytes": 3343,
+      "sha256": "7b111d8d3186e7f5553fbdb2773b2dda20b69892d069c54bd95c64e2c1e8332f"
+    },
+    {
+      "path": "instructor-guide/LANGUAGE_REVIEW.md",
+      "bytes": 3417,
+      "sha256": "56e1cafe7ec25c610909a85fc4b61f37e681eb6567346e4462fd8997c461f76e"
+    },
+    {
+      "path": "instructor-guide/RELEASE_V2.md",
+      "bytes": 5370,
+      "sha256": "ad25810ad03efe3a4c6d7ef08bfe8931c4288b7b715dd0d36fcdbcc16585c637"
+    },
+    {
+      "path": "instructor-guide/MIGRATION_V2.md",
+      "bytes": 2513,
+      "sha256": "deaefad911f343e353896bd8538bf41decbe80810a16579530cace4554110d9f"
+    },
+    {
+      "path": "instructor-guide/PR_01_03_REVIEW.md",
+      "bytes": 4891,
+      "sha256": "42014d084b9238a0038b074ca7b579a342cc0549e5e73d1d48618ce565300bba"
+    },
+    {
+      "path": "instructor-guide/STUDENT_COLD_READ_01_08.md",
+      "bytes": 7761,
+      "sha256": "a3b3b71aa59c483256b8522fd2aae413cf9e1913e746973fb264f10db6115ba4"
+    },
+    {
+      "path": "instructor-guide/STUDENT_COLD_READ_FOLLOWUP_01_08.md",
+      "bytes": 7065,
+      "sha256": "de81581c2cd3f85c410d9df2355e41f3ae27dbc2c36d8ebb41642b8bbd7e3f1d"
+    },
+    {
+      "path": "instructor-guide/CODE_REVIEW_01_08.md",
+      "bytes": 7200,
+      "sha256": "726e848a72891822f0d20bcd1ca66cb767d9481fe08bafebec7f12ac27258ce1"
+    }
+  ],
+  "scope": "old-course-documents"
+}

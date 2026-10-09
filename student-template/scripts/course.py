@@ -18,6 +18,8 @@ TAG = re.compile(r"^v2-l(\d{2})-(?:final|revision-[1-9]\d*)$")
 LESSON_DIR = re.compile(r"^lesson-(\d{2})$")
 RELEASE_REMOTE = "course-release"
 RELEASE_URL = "ssh://git@hblu.top:2222/statistics/course-student-release-2026.git"
+ACTIVE_LESSONS = tuple(range(1, 9))
+ACTIVE_DATASETS = {"service", "alerts"}
 
 
 def lesson_name(value: str | int) -> str:
@@ -37,6 +39,8 @@ def inside(root: Path, relative: str) -> Path:
 
 
 def manifest(root: Path, lesson: str) -> dict:
+    if int(lesson_name(lesson)[-2:]) not in ACTIVE_LESSONS:
+        raise ValueError(f"{lesson}：本课只有大纲占位，当前可运行、检查和同步的课次为01—08")
     path = root / lesson / "submission.json"
     obj = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(obj, dict) or obj.get("lesson") != lesson:
@@ -66,7 +70,7 @@ def start(root: Path, lesson: str) -> None:
     (root / lesson / "submission.json").write_text(
         json.dumps(obj, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
     )
-    print(f"已开始{lesson}。先读README了解任务，按SUPPORT跟做；遇到概念时读LEARN，再回到README完成标准任务。")
+    print(f"已开始{lesson}。先读README明确问题与证据要求，自主组织分析；SUPPORT和LEARN按需查看，最后核对标准任务。")
 
 
 def run(root: Path, lesson: str) -> None:
@@ -129,7 +133,7 @@ def ci(root: Path, ref: str = "") -> None:
         lessons = sorted(
             path.name for path in root.iterdir()
             if path.is_dir() and LESSON_DIR.fullmatch(path.name)
-            and 1 <= int(path.name[-2:]) <= 32
+            and int(path.name[-2:]) in ACTIVE_LESSONS
         )
         # A published directory with a missing/bad manifest must still fail.
         objects = {lesson: manifest(root, lesson) for lesson in lessons}
@@ -186,6 +190,12 @@ def sync_missing_tree(root: Path, source_ref: str, prefix: str, label: str) -> l
     for entry in listing.splitlines():
         metadata, relative = entry.split("\t", 1)
         mode, kind, _ = metadata.split()
+        if prefix == "data":
+            parts = relative.split("/")
+            # An old remote data/README may still link to retired future data.
+            # Sync only the two authored shared datasets, never that overview.
+            if len(parts) < 3 or parts[1] not in ACTIVE_DATASETS:
+                continue
         if kind != "blob" or mode not in {"100644", "100755"}:
             raise ValueError(f"发布的{label}必须是普通文件：{relative}")
         if relative != prefix and not relative.startswith(prefix + "/"):
@@ -223,7 +233,7 @@ def sync(root: Path) -> None:
     published = sorted(
         name.strip()
         for name in names.splitlines()
-        if LESSON_DIR.fullmatch(name.strip()) and 1 <= int(name.strip()[-2:]) <= 32
+        if LESSON_DIR.fullmatch(name.strip()) and int(name.strip()[-2:]) in ACTIVE_LESSONS
     )
     if not published and not support_added:
         print("发布仓库中还没有可同步的课次。")

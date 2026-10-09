@@ -263,7 +263,7 @@ def test_question_bank_directory_and_answer_positions() -> None:
     ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)] + [f"lesson-v2r3-{number:02d}.yml" for number in range(1, 9)] + ["lesson-v2r4-05.yml"]
     assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 87
     assert [bank.lesson_id for bank in CURRENT_BANKS] == [
-        f"v2-l{n:02d}-r{4 if n == 5 else 3 if n <= 8 else 1}" for n in range(1, 33)
+        f"v2-l{n:02d}-r{4 if n == 5 else 3 if n <= 8 else 1}" for n in range(1, 9)
     ]
     assert BANK.lesson_id == "v2-l01-r3"
     for bank in QUESTION_BANKS:
@@ -511,7 +511,7 @@ def test_refresh_markers_are_present(tmp_path) -> None:
     assert "新建本课自查（暂不开放）" in teacher_page.text
     assert 'value="v2-l01-r3"' in teacher_page.text
     assert 'value="v2-l01-r1"' not in teacher_page.text
-    assert 'value="v2-l09-r1"' in teacher_page.text
+    assert 'value="v2-l09-r1"' not in teacher_page.text
     assert 'value="v2-l01"' not in teacher_page.text
     assert 'value="bootcamp-01"' not in teacher_page.text
 

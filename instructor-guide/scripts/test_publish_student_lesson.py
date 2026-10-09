@@ -65,6 +65,16 @@ class PublishStudentLessonTests(unittest.TestCase):
         self.assertNotEqual(self.publish().returncode, 0)
         self.assertFalse((self.target / "lesson-01").exists())
 
+    def test_future_placeholder_cannot_be_published(self):
+        future = self.source / "lesson-09"
+        future.mkdir()
+        (future / "README.md").write_text("大纲占位", encoding="utf-8")
+        result = subprocess.run([sys.executable, str(SCRIPT), "--source", str(self.source),
+                                 "--destination", str(self.target), "--lesson", "9"],
+                                capture_output=True, text=True, timeout=15)
+        self.assertNotEqual(result.returncode, 0)
+        self.assertFalse((self.target / "lesson-09").exists())
+
 
 if __name__ == "__main__":
     unittest.main()

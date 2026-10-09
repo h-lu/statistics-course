@@ -1,0 +1,1990 @@
+{
+  "files": [
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-09.yml",
+      "bytes": 7657,
+      "sha256": "00487e71b3922fa7a93e63f8c17c6ecf9425416c5b75e948e3774cdaab3751c8"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-10.yml",
+      "bytes": 7780,
+      "sha256": "d5d26eee7531097c32b3aaaaa53800e031127dac16f007dfcfc25f56a0a0e708"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-11.yml",
+      "bytes": 7935,
+      "sha256": "8432f5863770fe135f95fb6f7b8e11ad7790bfacb67f94837d8e6fc393f9de59"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-12.yml",
+      "bytes": 7496,
+      "sha256": "e389e7b410814680ddc618bd4d8b8b456e4596681f4ec094925d850c91670887"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-13.yml",
+      "bytes": 7646,
+      "sha256": "15875f3297451b99f642c182d679b9c661ecfbb968d0ab1b65c6ea03f413c91d"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-14.yml",
+      "bytes": 7824,
+      "sha256": "bb1e993d50e162b3ef7e86c6b618933e3b8d84d72150289d4ea80ad294f52c0b"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-15.yml",
+      "bytes": 7747,
+      "sha256": "119d9dff0f605519e6469d7c2ae35ea1796803980fd4a531fa23f8ea7a801e0c"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-16.yml",
+      "bytes": 7942,
+      "sha256": "f6336a4c42da7c8f07726a59eac0377cce9111878844157b8117ab06f4286221"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-17.yml",
+      "bytes": 7492,
+      "sha256": "71d8bb1984df0dedcc3afcea98f352ae2487bdba213254bc34fd85f26cd52f4e"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-18.yml",
+      "bytes": 7812,
+      "sha256": "9f10a7f39ad298e2a64d4b1b845f9ec4db7e605f2667460de1076eb267640e97"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-19.yml",
+      "bytes": 7637,
+      "sha256": "9e886d7de4307277a922b4a7e11d9934f765ce861924a3db9fea99a36f66c7b6"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-20.yml",
+      "bytes": 8052,
+      "sha256": "eaefd237ce7fa7f3bf7536e696e0b30817fbe98243be131d1b178e0e41868628"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-21.yml",
+      "bytes": 8594,
+      "sha256": "d230ff5c436a874e0057599cdb2738d3de24c923fe786d15f3ecf53a2a45cfcd"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-22.yml",
+      "bytes": 8494,
+      "sha256": "8ab91591585d630d6efaae6fe720293d2285140305158ac54e15849856a52658"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-23.yml",
+      "bytes": 8020,
+      "sha256": "f3cad11cf92bca3df491fbfb88b37ca1220f420d124350cbbd3e37a4bf9eb329"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-24.yml",
+      "bytes": 8522,
+      "sha256": "7f9e289c999b6907e160db932fb580e49a1583fc0ac11c82baf9c722b3368b05"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-25.yml",
+      "bytes": 8442,
+      "sha256": "8eff644e20b734b6d23d437cffc93d10fcdeefd79f74f91396baf85c693e4f06"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-26.yml",
+      "bytes": 8432,
+      "sha256": "f4e9807795d6ea40961f13265deb435a16e5e05e4fb80142b821a90d6e1dbb8f"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-27.yml",
+      "bytes": 8522,
+      "sha256": "f2e19027e06a5e17fc0123a7f18c0afd2e03d84f7b687a603d3c954e849e8f68"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-28.yml",
+      "bytes": 8385,
+      "sha256": "facd4e41f2f1a3625330955f6348dbb4d8ffea90b7d8ea4cd7820731e5e8c6b4"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-29.yml",
+      "bytes": 8052,
+      "sha256": "8f8807880edee4b780fde1e43d616c6a9f065acdccec277aa48cf30795636558"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-30.yml",
+      "bytes": 8316,
+      "sha256": "c7808e35f939189f3d97b6e41c6c71f78194aa073b1189c6d1d167bdfaf0026b"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-31.yml",
+      "bytes": 8207,
+      "sha256": "e54ad7d04c01114cea0a7788267d08cee1a6aff804e4f4f44cd7245bcb347f7e"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2-32.yml",
+      "bytes": 8569,
+      "sha256": "fc7c98a9a845bf0c1f9a417fa745599678c16083dfe4e1a517e4874aaa289758"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-09.yml",
+      "bytes": 7690,
+      "sha256": "9251e1bd3965207cf98e6ddcbf0718166661ba692960536faf33c23ab029fe85"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-10.yml",
+      "bytes": 7795,
+      "sha256": "439e93ac56aaabe86a86e58cd253fa8efb5f0e738ee4707cf13c636d8866e189"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-11.yml",
+      "bytes": 7971,
+      "sha256": "438de38099f25b3faa8ff018a1aa01a65c4c057127b3b1f1d5a5149db07fd7e0"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-12.yml",
+      "bytes": 7729,
+      "sha256": "73ce56d1e794b3aac3871b7c7732cc2d3289f275563f2bbe4f031f499f4ccae1"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-13.yml",
+      "bytes": 7700,
+      "sha256": "4ecbb65cd8506bf44b86e736629edbaf9d6a8867b4efae67f370128b1e7e8304"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-14.yml",
+      "bytes": 7902,
+      "sha256": "7a52b4ab843ced7b85b8be997493cf85093581c7a9d94e7e792f1bcfa3233394"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-15.yml",
+      "bytes": 7819,
+      "sha256": "2f2cc004e83ab25b2627af96e4243a5501e28a6692a7aeba0e0cd15f252e53d7"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-16.yml",
+      "bytes": 7975,
+      "sha256": "0e55c4bb364225a8e0577b148c0ddc37289b848e83b6684a9b865de16cd3388a"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-17.yml",
+      "bytes": 7687,
+      "sha256": "1ddc2fb6f5cdbe6196497864b8fac449392bb3527bff409e5fdfb4819f221b88"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-18.yml",
+      "bytes": 7878,
+      "sha256": "58340c9a13752b579b15d8deae0fb4881a90c48eef645426191c5210d2435d8c"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-19.yml",
+      "bytes": 7711,
+      "sha256": "5dd1bbd06d6fff25472b37c039848fe0042133b5e4f622e137dba7057297f423"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-20.yml",
+      "bytes": 8139,
+      "sha256": "16557fea37bf9c0fdbae45173deab9712b79c3fecf0631f6f04b736759065ce0"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-21.yml",
+      "bytes": 8741,
+      "sha256": "e4a1fd561639a55b6c9f6ae4f2b1cdec2ad7f2dabbb58a32c264d480b3f2c1b0"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-22.yml",
+      "bytes": 9135,
+      "sha256": "ebd7c56c9a014c48b9c682da8d8a7ce9b95d6792e6c91f036f63013a74950ff3"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-23.yml",
+      "bytes": 8341,
+      "sha256": "567ffca8222614ef0b6b9c66ff2b398c77753cf2028159ef017676d19e983749"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-24.yml",
+      "bytes": 8950,
+      "sha256": "bca14e5268b40bd890711951808a0712eb9e0044fe4a519a1eb64efbe943f113"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-25.yml",
+      "bytes": 8885,
+      "sha256": "a4353a63acb7a93fa19c5baac66437909105f5f5af34eab0624c573bb46074ef"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-26.yml",
+      "bytes": 8740,
+      "sha256": "2c06a232fbc6fe2d432c214903815c60eda6f617c4c3c594d86f568ff04df79a"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-27.yml",
+      "bytes": 8883,
+      "sha256": "6d2fb550b50662e1dc8f36a18f53e0bb5b7831c75a9525f5a1b9a0becc88b298"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-28.yml",
+      "bytes": 8936,
+      "sha256": "290c76fa8566b49cf881c807bf2ff51866c1b85d2a7de0ee96ae71454ae58eb0"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-29.yml",
+      "bytes": 8435,
+      "sha256": "9f6bc51b7d99a59e6df436a6c836f6bce7e5728b00829265a971de18975a1160"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-30.yml",
+      "bytes": 8624,
+      "sha256": "7682b0a2dc0aa25b2e8f04a08581a1f60c2d401efaecee257d4c089fc56b0271"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-31.yml",
+      "bytes": 8648,
+      "sha256": "f625560f4d876c553ef86a1fb01a689b6369e285de6fbe0e354902eccd56fc00"
+    },
+    {
+      "path": "instructor-guide/knowledge-check/question-bank/lesson-v2r1-32.yml",
+      "bytes": 8763,
+      "sha256": "5e727dc667fb063730869c2c854a00bbe3ad8a58068b2a26d390936464aa1fab"
+    },
+    {
+      "path": "instructor-guide/lesson-09/REFERENCE.md",
+      "bytes": 3085,
+      "sha256": "89ee32372e7c36ab466cf201818e042a6371e62a4c5eff30e68a084b63117302"
+    },
+    {
+      "path": "instructor-guide/lesson-09/RUNBOOK.md",
+      "bytes": 6256,
+      "sha256": "a24c0a41bf3dbd4fdab7f01d0889bcab8491520c3238be06f1a7fc3fa1596572"
+    },
+    {
+      "path": "instructor-guide/lesson-09/reference.py",
+      "bytes": 1644,
+      "sha256": "99c3afd74880787157e757acc16f8f75e09b2b3d17ecf600bce7e36cfc50e9c6"
+    },
+    {
+      "path": "instructor-guide/lesson-09/reference_result.json",
+      "bytes": 7486,
+      "sha256": "4fa2d1bc4445b1f08d0b0d56efae20a69ab916f67c1de6e75ba3c0884b46a330"
+    },
+    {
+      "path": "instructor-guide/lesson-09/reference_tools.py",
+      "bytes": 2041,
+      "sha256": "34a6977ca258c060ac390995485d3a78c3635dad7c4bd8cdfacc3db90f85134d"
+    },
+    {
+      "path": "instructor-guide/lesson-10/REFERENCE.md",
+      "bytes": 3483,
+      "sha256": "a7ee9dd62b3cf9a4f58d8016bd93f5a73f0ff0e67557123511b7cc212e6b40fd"
+    },
+    {
+      "path": "instructor-guide/lesson-10/RUNBOOK.md",
+      "bytes": 6135,
+      "sha256": "45133aef6852851a24cfbb6574375e97e9115b1505ddcaa06d6272d5db1395d2"
+    },
+    {
+      "path": "instructor-guide/lesson-10/reference.py",
+      "bytes": 1444,
+      "sha256": "1a86e474a91cbbf86c63fbd99f21860cb8eff28e94cd5d1f803f77c767f83426"
+    },
+    {
+      "path": "instructor-guide/lesson-10/reference_result.json",
+      "bytes": 3759,
+      "sha256": "42add8e77449832c21b53f7699d062bb1c0768b28cef8e46c20d9faef06fe44f"
+    },
+    {
+      "path": "instructor-guide/lesson-11/REFERENCE.md",
+      "bytes": 2962,
+      "sha256": "ce804e1c16c18e776ea76ad5f95deb02bdeb6593b6c1f040eb250286a4820890"
+    },
+    {
+      "path": "instructor-guide/lesson-11/RUNBOOK.md",
+      "bytes": 6080,
+      "sha256": "c65188b83f6cbcf389ca767e94fdab1bd31968d3ec4def25aa6fe4c5aea8ef5b"
+    },
+    {
+      "path": "instructor-guide/lesson-11/reference.py",
+      "bytes": 1059,
+      "sha256": "0ebd4201b6cd29b59dff3301c6d5f746ed75eee371672a32a1c773e0d4dc36b6"
+    },
+    {
+      "path": "instructor-guide/lesson-11/reference_result.json",
+      "bytes": 1871,
+      "sha256": "182292475732a6a97a176aa0a4fa5983a63f9800b66d14a31c74640e88b1e47c"
+    },
+    {
+      "path": "instructor-guide/lesson-12/REFERENCE.md",
+      "bytes": 3481,
+      "sha256": "69b0a96898fd44b50ae161192f59e4204be31d69b68590a7a329eb6f798d48c4"
+    },
+    {
+      "path": "instructor-guide/lesson-12/RUNBOOK.md",
+      "bytes": 6200,
+      "sha256": "3f0e2872d98d0d54dcbcaf4caf9e00aaeca47546f42af0f5eb6a6f3d8a98c867"
+    },
+    {
+      "path": "instructor-guide/lesson-12/reference.py",
+      "bytes": 1050,
+      "sha256": "e2e83fdc1ff371511106198391e273339912e1419bfa54bb8bba565d97ab26ca"
+    },
+    {
+      "path": "instructor-guide/lesson-12/reference_result.json",
+      "bytes": 3786,
+      "sha256": "8d5dcc9960ea341fcb0b6459743028520d3d3f0d5a64f83fb1da6f870daa2f42"
+    },
+    {
+      "path": "instructor-guide/lesson-13/REFERENCE.md",
+      "bytes": 3193,
+      "sha256": "0389e8ad0432b627f6efec58a5038cd8b6ece8a4c13520ee2afc4e0096e935b0"
+    },
+    {
+      "path": "instructor-guide/lesson-13/RUNBOOK.md",
+      "bytes": 5995,
+      "sha256": "eeca49539e0adc1a671e8b07b42c7bc7cf186b068e9db1c0f28afc853d860a44"
+    },
+    {
+      "path": "instructor-guide/lesson-13/reference.py",
+      "bytes": 1031,
+      "sha256": "34ad6884b0008b71ba51c27f773494df4229f442a12b36f64eb6dbe80e03262a"
+    },
+    {
+      "path": "instructor-guide/lesson-13/reference_result.json",
+      "bytes": 424,
+      "sha256": "85d49a7e9c1480ef44af1ee23c4a2e2df881b61bdbcd8fcd2a6a6675d422f2a4"
+    },
+    {
+      "path": "instructor-guide/lesson-14/REFERENCE.md",
+      "bytes": 3475,
+      "sha256": "a40eca7293f289eca161850edfd6a63a97602f918e64a0026f3bce90bfbfa140"
+    },
+    {
+      "path": "instructor-guide/lesson-14/RUNBOOK.md",
+      "bytes": 6195,
+      "sha256": "d6ce60c1ba1523638a052ee588034aaf4094ce65a9865c8c8b4ad6c283bb0bf9"
+    },
+    {
+      "path": "instructor-guide/lesson-14/reference.py",
+      "bytes": 2228,
+      "sha256": "ef745317f70d7b6e4adf3be43fd52deb0828d068376a75964dbf2cbd7cb4792b"
+    },
+    {
+      "path": "instructor-guide/lesson-14/reference_result.json",
+      "bytes": 5275,
+      "sha256": "61534b83ceddaf391786e00524ec6c7b3aef77f837f29f781b03a3b4cbb0dc83"
+    },
+    {
+      "path": "instructor-guide/lesson-14/reference_selected.csv",
+      "bytes": 214268,
+      "sha256": "c06553cf94b67c71ccc26052e41fd523ee623f8b8d06f1f2526dc87c0029a64a"
+    },
+    {
+      "path": "instructor-guide/lesson-15/REFERENCE.md",
+      "bytes": 3022,
+      "sha256": "60071b8cc757e6333708f9cf7b77277a4b64c99f70da0dcc93e7b76245cb14a0"
+    },
+    {
+      "path": "instructor-guide/lesson-15/RUNBOOK.md",
+      "bytes": 6121,
+      "sha256": "9e3252338837820b2857dcd642850bc5708ff156bf9ec99471c702c59030da23"
+    },
+    {
+      "path": "instructor-guide/lesson-15/reference.py",
+      "bytes": 921,
+      "sha256": "f8f9a191a131e90aeafae5f5c329391d2b666d9aa8af4c39722ef139a34ae3bb"
+    },
+    {
+      "path": "instructor-guide/lesson-15/reference_result.json",
+      "bytes": 976,
+      "sha256": "72057330009696228589b0cec2c844c04a72ad7b0ee21281869da3eaf7f215fe"
+    },
+    {
+      "path": "instructor-guide/lesson-16/REFERENCE.md",
+      "bytes": 3171,
+      "sha256": "b23b8af91de4e22b5fe0417ae96e3ba7e023beecc9e2a2cfd18bb34dd459cd34"
+    },
+    {
+      "path": "instructor-guide/lesson-16/RUNBOOK.md",
+      "bytes": 6231,
+      "sha256": "252c3fe0d929a8f99786f2f02cef517f5c37457f54cea00a78d77c9fed1bd76b"
+    },
+    {
+      "path": "instructor-guide/lesson-16/reference.py",
+      "bytes": 1708,
+      "sha256": "91014050c5446784fe323e6db2b795599a48b3f8f1fe134ff30ecfdca43fc281"
+    },
+    {
+      "path": "instructor-guide/lesson-16/reference_result.json",
+      "bytes": 1065,
+      "sha256": "b4beba999be867a79c0c8f38921986dea601303920b543293684f8bc6fc619d0"
+    },
+    {
+      "path": "instructor-guide/lesson-17/REFERENCE.md",
+      "bytes": 3411,
+      "sha256": "9e545c606e0f9c28d23a89ba8f66d728e30f6574812f12b148b02b0cbcc82eb1"
+    },
+    {
+      "path": "instructor-guide/lesson-17/RUNBOOK.md",
+      "bytes": 6091,
+      "sha256": "2e2f7f401e2f01b9cd42c38233a4ee4811af07e83d25a84cf1137437d3868a98"
+    },
+    {
+      "path": "instructor-guide/lesson-17/reference.py",
+      "bytes": 1430,
+      "sha256": "1f276df69a003b7e0f5e9868ebd4b6e0843665d7c36b3798f6f3386764960f39"
+    },
+    {
+      "path": "instructor-guide/lesson-17/reference_result.json",
+      "bytes": 1164,
+      "sha256": "c8b716cafbdf5ca4e6175b43245e4743b4696cd11560657f6a459b5b0c90f89b"
+    },
+    {
+      "path": "instructor-guide/lesson-18/REFERENCE.md",
+      "bytes": 3456,
+      "sha256": "18028046374462a97318a730ce69b7fb626f36418181b41dccf8985923a418c9"
+    },
+    {
+      "path": "instructor-guide/lesson-18/RUNBOOK.md",
+      "bytes": 6033,
+      "sha256": "1d8a68f609b4bcfc5cfe5e68844e282015500d5d1897fceaf6416a8aaa5be236"
+    },
+    {
+      "path": "instructor-guide/lesson-18/reference.py",
+      "bytes": 929,
+      "sha256": "f879373963e5d62a0f472185a46e94d2e262d5c02c483c0bc7f88def18ce92d7"
+    },
+    {
+      "path": "instructor-guide/lesson-18/reference_result.json",
+      "bytes": 4215,
+      "sha256": "e8858e3358f79b82424f6599db7148e6b2e5d97677b50891c1b566aa7776c28f"
+    },
+    {
+      "path": "instructor-guide/lesson-19/REFERENCE.md",
+      "bytes": 3495,
+      "sha256": "d5cb727b3a69c6225ee4fac67759593692d6d9c56f0f21be16745b8c4718fe1f"
+    },
+    {
+      "path": "instructor-guide/lesson-19/RUNBOOK.md",
+      "bytes": 6299,
+      "sha256": "1c3387556ef40f27ffa17dcd307b591cee7fc0ddd6a11c56c96ab44bea0871cd"
+    },
+    {
+      "path": "instructor-guide/lesson-19/reference.py",
+      "bytes": 1104,
+      "sha256": "efb8c410a4a0045f46076ea684c8e8b1cda8650c120d3c2cdc81ff583fcdce22"
+    },
+    {
+      "path": "instructor-guide/lesson-19/reference_result.json",
+      "bytes": 4198,
+      "sha256": "7779bffbe0b13d2137a7b7611482b635bdee0fca90b9581f77121acdbcade76d"
+    },
+    {
+      "path": "instructor-guide/lesson-20/REFERENCE.md",
+      "bytes": 3431,
+      "sha256": "13afc33e887531488349cf03595a8b1652dce75cdcaaf56cf1a43829431b2a8c"
+    },
+    {
+      "path": "instructor-guide/lesson-20/RUNBOOK.md",
+      "bytes": 6529,
+      "sha256": "8a0e4084c2ba3db6d38a70a9264d4a0354a948e9093883cb231cce0af5beac1e"
+    },
+    {
+      "path": "instructor-guide/lesson-20/reference.py",
+      "bytes": 1749,
+      "sha256": "fc6499fb25ad890f9974ca2241313eb26e6c065062fcfcc45db316f6c6e4ba64"
+    },
+    {
+      "path": "instructor-guide/lesson-20/reference_result.json",
+      "bytes": 1037,
+      "sha256": "6ef88a9301eaa74c23b9d2dcc743a4f222a743ec14cb841f02751035ae128003"
+    },
+    {
+      "path": "instructor-guide/lesson-21/REFERENCE.md",
+      "bytes": 2196,
+      "sha256": "0b09c9891bd1a8d6ff3894d5c1bc23bb37197720b2d5b2556928d0a6bfa886cc"
+    },
+    {
+      "path": "instructor-guide/lesson-21/RUNBOOK.md",
+      "bytes": 4312,
+      "sha256": "70a49687ce982384e4fcd9ddea8acb036aed9be578d13528d1a2523c3cdfc0b8"
+    },
+    {
+      "path": "instructor-guide/lesson-21/reference.py",
+      "bytes": 237,
+      "sha256": "19d9076bb0547ee016556de8588a7c874dbb6d6d80ce5f1241a3472f37b213d3"
+    },
+    {
+      "path": "instructor-guide/lesson-21/reference_common.py",
+      "bytes": 18357,
+      "sha256": "75c278b7b012d28cab6a1f466a84bd03c03c3fb260989368c2b3ebf7c46fdea6"
+    },
+    {
+      "path": "instructor-guide/lesson-21/reference_results.json",
+      "bytes": 1061,
+      "sha256": "4e797325f60fd84575bd6f4ea57c14cfcde05db6baab0eafdc8271aa1a0a543a"
+    },
+    {
+      "path": "instructor-guide/lesson-22/REFERENCE.md",
+      "bytes": 2282,
+      "sha256": "2b99ceb28bef44b072f8b803334b761af9ba999e654353935c4fc33f486ab62e"
+    },
+    {
+      "path": "instructor-guide/lesson-22/RUNBOOK.md",
+      "bytes": 4775,
+      "sha256": "5e66e682cb2de4d9cb0f5d569407187fe4c412499b354b74bde0728f055d395a"
+    },
+    {
+      "path": "instructor-guide/lesson-22/reference.py",
+      "bytes": 235,
+      "sha256": "211de2d14cbd0064e716d2f750d89be7a50d1e81cf6ffdce377ddde270b634f2"
+    },
+    {
+      "path": "instructor-guide/lesson-22/reference_results.json",
+      "bytes": 1603,
+      "sha256": "5cd76be391daea30eaa0c862bd6c83df87dd8518a330cff8feea478fb081b833"
+    },
+    {
+      "path": "instructor-guide/lesson-23/REFERENCE.md",
+      "bytes": 2535,
+      "sha256": "76377d8b3887abe585b3414310d4e8d02f8ae84a49c613682e14a0395b71e360"
+    },
+    {
+      "path": "instructor-guide/lesson-23/RUNBOOK.md",
+      "bytes": 4704,
+      "sha256": "8b28895681136d51ba33f628edc223b7f79cfd96c613a9175794b00c36cfc749"
+    },
+    {
+      "path": "instructor-guide/lesson-23/reference.py",
+      "bytes": 235,
+      "sha256": "d60c6d39530ed972ee62c1daba37c0eaeae409c14f69e0bc4fc75ebfa326d87e"
+    },
+    {
+      "path": "instructor-guide/lesson-23/reference_results.json",
+      "bytes": 2034,
+      "sha256": "a87e31c0bc0f9b840fa81978cab14cd32e1827ac75d7a216e634826d96629ea5"
+    },
+    {
+      "path": "instructor-guide/lesson-24/REFERENCE.md",
+      "bytes": 2748,
+      "sha256": "b5d5ba72c042c65f3f2f5755caa45ba84b75288e944f8520d807f624ba353875"
+    },
+    {
+      "path": "instructor-guide/lesson-24/RUNBOOK.md",
+      "bytes": 5005,
+      "sha256": "db8bed21d54cad3db4f94db508a97bc248e8af90fe9d5212c8f1a14b04a71428"
+    },
+    {
+      "path": "instructor-guide/lesson-24/reference.py",
+      "bytes": 235,
+      "sha256": "33640ca6d04cf5c50d1431259c31d34f5603f81e2a75d69987eb53bd027e6a09"
+    },
+    {
+      "path": "instructor-guide/lesson-24/reference_results.json",
+      "bytes": 1730,
+      "sha256": "ea82e3beacd95b04a9b735088f50c2431b1321dc5455605c1e08b078a97c7130"
+    },
+    {
+      "path": "instructor-guide/lesson-25/REFERENCE.md",
+      "bytes": 2400,
+      "sha256": "dc6c17fa44511adc63717de825b1eed71269d1960fbd00c3549bec052239364d"
+    },
+    {
+      "path": "instructor-guide/lesson-25/RUNBOOK.md",
+      "bytes": 4664,
+      "sha256": "cb5f510c24261575e38da7f65735ce1545f8b2ec2f3f46d746fdf8b46430dfd7"
+    },
+    {
+      "path": "instructor-guide/lesson-25/reference.py",
+      "bytes": 235,
+      "sha256": "89017f412e9a6b8a3505dc4400db9326be05d718de73b304fe937c154882456c"
+    },
+    {
+      "path": "instructor-guide/lesson-25/reference_results.json",
+      "bytes": 1925,
+      "sha256": "6bf7c32f88847403bdf0a4dd41285f707836686e24f0e2bd7dbd890274f39a8e"
+    },
+    {
+      "path": "instructor-guide/lesson-26/REFERENCE.md",
+      "bytes": 2808,
+      "sha256": "dea17320dc58f6911adb8ad76576673a8eb2383f337076434548ce4dc0172e21"
+    },
+    {
+      "path": "instructor-guide/lesson-26/RUNBOOK.md",
+      "bytes": 4512,
+      "sha256": "e49a4fc4fde6c4b044b9d5cd8db87ca2e585ff4b2d7cf9f8a6a780338f82fe90"
+    },
+    {
+      "path": "instructor-guide/lesson-26/reference.py",
+      "bytes": 235,
+      "sha256": "acebc8db9305e99405844ba2f29515d4f2caa0ea5422a44d6541191a7e06f00c"
+    },
+    {
+      "path": "instructor-guide/lesson-26/reference_results.json",
+      "bytes": 2436,
+      "sha256": "b83e17787a6bce7c3be4b955b6880f7e2a590e9f2ba44f7e6e109b09034053b5"
+    },
+    {
+      "path": "instructor-guide/lesson-27/REFERENCE.md",
+      "bytes": 3699,
+      "sha256": "66febda7fab688f4d158f40c05555ad5c40c747e9864e392a8a0b4ae4dd4221e"
+    },
+    {
+      "path": "instructor-guide/lesson-27/RUNBOOK.md",
+      "bytes": 4638,
+      "sha256": "6e45b15c2acb5f221a78621ae3a52db40faf2cf77dadf46e4e9dca271159e81f"
+    },
+    {
+      "path": "instructor-guide/lesson-27/reference.py",
+      "bytes": 235,
+      "sha256": "48afea82a2de5f828b3bbb64662f24e970a85fb40266ccdb2f72a6d28584e866"
+    },
+    {
+      "path": "instructor-guide/lesson-27/reference_results.json",
+      "bytes": 560,
+      "sha256": "61fb9e01bbba2019f234160250e90d17edeabfeaf630b89beb52b173f9768b27"
+    },
+    {
+      "path": "instructor-guide/lesson-28/REFERENCE.md",
+      "bytes": 2474,
+      "sha256": "40787cbbbaa1ac8cf129284fbc10ebf9d360059b6c99198abcfe95bf38e3bacc"
+    },
+    {
+      "path": "instructor-guide/lesson-28/RUNBOOK.md",
+      "bytes": 4901,
+      "sha256": "acc129a00706d9e23f7db429e79fb73ecccd8393a7b972728a23a0b69c1194c9"
+    },
+    {
+      "path": "instructor-guide/lesson-28/reference.py",
+      "bytes": 235,
+      "sha256": "e0a514e10fd0cb3c18b8f1a565793fa5d524289b3137153dc3f45f9f53661360"
+    },
+    {
+      "path": "instructor-guide/lesson-28/reference_results.json",
+      "bytes": 984,
+      "sha256": "3b3a28834809244eda995b6618c55925b1dc02dd9d2c8a709ac04081bc6e0df6"
+    },
+    {
+      "path": "instructor-guide/lesson-29/REFERENCE.md",
+      "bytes": 2352,
+      "sha256": "0706c69cc17b11d1a8996c6b344b82c9b121b25129101935757e7465242fdec7"
+    },
+    {
+      "path": "instructor-guide/lesson-29/RUNBOOK.md",
+      "bytes": 4586,
+      "sha256": "1bac882a126540047e50ffbd87ad1b56b0345dd346d4deedc2dd42abb8c839c6"
+    },
+    {
+      "path": "instructor-guide/lesson-29/reference.py",
+      "bytes": 235,
+      "sha256": "0cb189e7e9d928d3938321a714517bc452849febba7e3f8df278afc1768d5cdb"
+    },
+    {
+      "path": "instructor-guide/lesson-29/reference_results.json",
+      "bytes": 4446,
+      "sha256": "3ae4ae78f547a6603712ca10f5773a8888bad2f9450e8f599bf8bc443803f4c1"
+    },
+    {
+      "path": "instructor-guide/lesson-30/REFERENCE.md",
+      "bytes": 2391,
+      "sha256": "41df65b424ee5f43f81d3a9456879593a55106f1820b1b03f033ce1817dbebdf"
+    },
+    {
+      "path": "instructor-guide/lesson-30/RUNBOOK.md",
+      "bytes": 4488,
+      "sha256": "2a0d0842471603b2827dc7d47d71ab7a775d5925e88d8975a0aaf8bd1a36a47c"
+    },
+    {
+      "path": "instructor-guide/lesson-30/reference.py",
+      "bytes": 235,
+      "sha256": "528b14a4a0af33ac011177c89b107e768e7f21dcd164e02d649b16dbdf0cd7d5"
+    },
+    {
+      "path": "instructor-guide/lesson-30/reference_results.json",
+      "bytes": 5001,
+      "sha256": "5b52ac9dbf34bbe4f29526ddf722ab7269de338bdbcf8ca75fdc01aa337468b2"
+    },
+    {
+      "path": "instructor-guide/lesson-31/REFERENCE.md",
+      "bytes": 2502,
+      "sha256": "121d95102ce8d0d25c5a9b95a6aba7bf730bf6febdc4a34acf9f03e77219c7ec"
+    },
+    {
+      "path": "instructor-guide/lesson-31/RUNBOOK.md",
+      "bytes": 5143,
+      "sha256": "93f95ecaf14d28c0d9561eaa0ce4d0d9c82570d1268899ddba29e35d362c19a6"
+    },
+    {
+      "path": "instructor-guide/lesson-31/reference.py",
+      "bytes": 235,
+      "sha256": "eb22bd2ccfd8bd55c10f1b7aa66c7e2c00ca05b842a2928b0b3fcadb4d6f0ffa"
+    },
+    {
+      "path": "instructor-guide/lesson-31/reference_results.json",
+      "bytes": 1861,
+      "sha256": "39b01b33552dc4068fb37f0aae7be0fccb10399bc2c6a7e818e56f7e3e389e00"
+    },
+    {
+      "path": "instructor-guide/lesson-32/REFERENCE.md",
+      "bytes": 2781,
+      "sha256": "2507d532284a5c32a4fa4d34b75e665485b827211a2abb1578b7d878e539f708"
+    },
+    {
+      "path": "instructor-guide/lesson-32/RUNBOOK.md",
+      "bytes": 5485,
+      "sha256": "f5b15333a4812aefe29192a8de8c8baad0d0f852e79457d694e7663f01fb9aa9"
+    },
+    {
+      "path": "instructor-guide/lesson-32/reference.py",
+      "bytes": 235,
+      "sha256": "bbc38a318ffd616e9caabf37b0e3af32555c86fdba974140f361e5c1dba32974"
+    },
+    {
+      "path": "instructor-guide/lesson-32/reference_results.json",
+      "bytes": 2209,
+      "sha256": "6956dfb190803aa925d168732d7adf46ab44afc75dc58f6cbb70d7d27471eaa8"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-09.yml",
+      "bytes": 7657,
+      "sha256": "00487e71b3922fa7a93e63f8c17c6ecf9425416c5b75e948e3774cdaab3751c8"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-10.yml",
+      "bytes": 7780,
+      "sha256": "d5d26eee7531097c32b3aaaaa53800e031127dac16f007dfcfc25f56a0a0e708"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-11.yml",
+      "bytes": 7935,
+      "sha256": "8432f5863770fe135f95fb6f7b8e11ad7790bfacb67f94837d8e6fc393f9de59"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-12.yml",
+      "bytes": 7496,
+      "sha256": "e389e7b410814680ddc618bd4d8b8b456e4596681f4ec094925d850c91670887"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-13.yml",
+      "bytes": 7646,
+      "sha256": "15875f3297451b99f642c182d679b9c661ecfbb968d0ab1b65c6ea03f413c91d"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-14.yml",
+      "bytes": 7824,
+      "sha256": "bb1e993d50e162b3ef7e86c6b618933e3b8d84d72150289d4ea80ad294f52c0b"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-15.yml",
+      "bytes": 7747,
+      "sha256": "119d9dff0f605519e6469d7c2ae35ea1796803980fd4a531fa23f8ea7a801e0c"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-16.yml",
+      "bytes": 7942,
+      "sha256": "f6336a4c42da7c8f07726a59eac0377cce9111878844157b8117ab06f4286221"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-17.yml",
+      "bytes": 7492,
+      "sha256": "71d8bb1984df0dedcc3afcea98f352ae2487bdba213254bc34fd85f26cd52f4e"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-18.yml",
+      "bytes": 7812,
+      "sha256": "9f10a7f39ad298e2a64d4b1b845f9ec4db7e605f2667460de1076eb267640e97"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-19.yml",
+      "bytes": 7637,
+      "sha256": "9e886d7de4307277a922b4a7e11d9934f765ce861924a3db9fea99a36f66c7b6"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-20.yml",
+      "bytes": 8052,
+      "sha256": "eaefd237ce7fa7f3bf7536e696e0b30817fbe98243be131d1b178e0e41868628"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-21.yml",
+      "bytes": 8594,
+      "sha256": "d230ff5c436a874e0057599cdb2738d3de24c923fe786d15f3ecf53a2a45cfcd"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-22.yml",
+      "bytes": 8494,
+      "sha256": "8ab91591585d630d6efaae6fe720293d2285140305158ac54e15849856a52658"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-23.yml",
+      "bytes": 8020,
+      "sha256": "f3cad11cf92bca3df491fbfb88b37ca1220f420d124350cbbd3e37a4bf9eb329"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-24.yml",
+      "bytes": 8522,
+      "sha256": "7f9e289c999b6907e160db932fb580e49a1583fc0ac11c82baf9c722b3368b05"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-25.yml",
+      "bytes": 8442,
+      "sha256": "8eff644e20b734b6d23d437cffc93d10fcdeefd79f74f91396baf85c693e4f06"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-26.yml",
+      "bytes": 8432,
+      "sha256": "f4e9807795d6ea40961f13265deb435a16e5e05e4fb80142b821a90d6e1dbb8f"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-27.yml",
+      "bytes": 8522,
+      "sha256": "f2e19027e06a5e17fc0123a7f18c0afd2e03d84f7b687a603d3c954e849e8f68"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-28.yml",
+      "bytes": 8385,
+      "sha256": "facd4e41f2f1a3625330955f6348dbb4d8ffea90b7d8ea4cd7820731e5e8c6b4"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-29.yml",
+      "bytes": 8052,
+      "sha256": "8f8807880edee4b780fde1e43d616c6a9f065acdccec277aa48cf30795636558"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-30.yml",
+      "bytes": 8316,
+      "sha256": "c7808e35f939189f3d97b6e41c6c71f78194aa073b1189c6d1d167bdfaf0026b"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-31.yml",
+      "bytes": 8207,
+      "sha256": "e54ad7d04c01114cea0a7788267d08cee1a6aff804e4f4f44cd7245bcb347f7e"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2-32.yml",
+      "bytes": 8569,
+      "sha256": "fc7c98a9a845bf0c1f9a417fa745599678c16083dfe4e1a517e4874aaa289758"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-09.yml",
+      "bytes": 7690,
+      "sha256": "9251e1bd3965207cf98e6ddcbf0718166661ba692960536faf33c23ab029fe85"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-10.yml",
+      "bytes": 7795,
+      "sha256": "439e93ac56aaabe86a86e58cd253fa8efb5f0e738ee4707cf13c636d8866e189"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-11.yml",
+      "bytes": 7971,
+      "sha256": "438de38099f25b3faa8ff018a1aa01a65c4c057127b3b1f1d5a5149db07fd7e0"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-12.yml",
+      "bytes": 7729,
+      "sha256": "73ce56d1e794b3aac3871b7c7732cc2d3289f275563f2bbe4f031f499f4ccae1"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-13.yml",
+      "bytes": 7700,
+      "sha256": "4ecbb65cd8506bf44b86e736629edbaf9d6a8867b4efae67f370128b1e7e8304"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-14.yml",
+      "bytes": 7902,
+      "sha256": "7a52b4ab843ced7b85b8be997493cf85093581c7a9d94e7e792f1bcfa3233394"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-15.yml",
+      "bytes": 7819,
+      "sha256": "2f2cc004e83ab25b2627af96e4243a5501e28a6692a7aeba0e0cd15f252e53d7"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-16.yml",
+      "bytes": 7975,
+      "sha256": "0e55c4bb364225a8e0577b148c0ddc37289b848e83b6684a9b865de16cd3388a"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-17.yml",
+      "bytes": 7687,
+      "sha256": "1ddc2fb6f5cdbe6196497864b8fac449392bb3527bff409e5fdfb4819f221b88"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-18.yml",
+      "bytes": 7878,
+      "sha256": "58340c9a13752b579b15d8deae0fb4881a90c48eef645426191c5210d2435d8c"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-19.yml",
+      "bytes": 7711,
+      "sha256": "5dd1bbd06d6fff25472b37c039848fe0042133b5e4f622e137dba7057297f423"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-20.yml",
+      "bytes": 8139,
+      "sha256": "16557fea37bf9c0fdbae45173deab9712b79c3fecf0631f6f04b736759065ce0"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-21.yml",
+      "bytes": 8741,
+      "sha256": "e4a1fd561639a55b6c9f6ae4f2b1cdec2ad7f2dabbb58a32c264d480b3f2c1b0"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-22.yml",
+      "bytes": 9135,
+      "sha256": "ebd7c56c9a014c48b9c682da8d8a7ce9b95d6792e6c91f036f63013a74950ff3"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-23.yml",
+      "bytes": 8341,
+      "sha256": "567ffca8222614ef0b6b9c66ff2b398c77753cf2028159ef017676d19e983749"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-24.yml",
+      "bytes": 8950,
+      "sha256": "bca14e5268b40bd890711951808a0712eb9e0044fe4a519a1eb64efbe943f113"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-25.yml",
+      "bytes": 8885,
+      "sha256": "a4353a63acb7a93fa19c5baac66437909105f5f5af34eab0624c573bb46074ef"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-26.yml",
+      "bytes": 8740,
+      "sha256": "2c06a232fbc6fe2d432c214903815c60eda6f617c4c3c594d86f568ff04df79a"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-27.yml",
+      "bytes": 8883,
+      "sha256": "6d2fb550b50662e1dc8f36a18f53e0bb5b7831c75a9525f5a1b9a0becc88b298"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-28.yml",
+      "bytes": 8936,
+      "sha256": "290c76fa8566b49cf881c807bf2ff51866c1b85d2a7de0ee96ae71454ae58eb0"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-29.yml",
+      "bytes": 8435,
+      "sha256": "9f6bc51b7d99a59e6df436a6c836f6bce7e5728b00829265a971de18975a1160"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-30.yml",
+      "bytes": 8624,
+      "sha256": "7682b0a2dc0aa25b2e8f04a08581a1f60c2d401efaecee257d4c089fc56b0271"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-31.yml",
+      "bytes": 8648,
+      "sha256": "f625560f4d876c553ef86a1fb01a689b6369e285de6fbe0e354902eccd56fc00"
+    },
+    {
+      "path": "stat-check/app/question_bank/lesson-v2r1-32.yml",
+      "bytes": 8763,
+      "sha256": "5e727dc667fb063730869c2c854a00bbe3ad8a58068b2a26d390936464aa1fab"
+    },
+    {
+      "path": "student-template/data/experiments/README.md",
+      "bytes": 4595,
+      "sha256": "19e8d885df96cd37a83b9aa37b2d6e300ca6a44b9d4ec09cf2afb35d026db879"
+    },
+    {
+      "path": "student-template/data/experiments/daily_experiment.csv",
+      "bytes": 1128,
+      "sha256": "9e2f8b6044832c3e2b817d7c60dd83390d07bbd719b32592c1129996c2fa5461"
+    },
+    {
+      "path": "student-template/data/experiments/experiment_costs.csv",
+      "bytes": 208,
+      "sha256": "0643f367eb6501f322eb57d4d7bfbab1e201f2f6e211c4a3d96c8271df8257dc"
+    },
+    {
+      "path": "student-template/data/experiments/experiment_metrics.csv",
+      "bytes": 224889,
+      "sha256": "5a497c3b0327146686e02e354787a4e861ce75d0905cc938c6012cc007f7f569"
+    },
+    {
+      "path": "student-template/data/experiments/experiment_outcomes.csv",
+      "bytes": 12542,
+      "sha256": "9c7bcbfc10c1b7d4fb59609969cf67f22f7289fea9a8ecba79d591ff2935a519"
+    },
+    {
+      "path": "student-template/data/experiments/experiment_roster.csv",
+      "bytes": 13389,
+      "sha256": "2a4e86138fa8241877d88d0bca6803c0d7d98cfda71e14b2b68b146737e3466a"
+    },
+    {
+      "path": "student-template/data/experiments/independent_comparison.csv",
+      "bytes": 1514,
+      "sha256": "c74fff1a56af7a473827d55e5196edff170950f602af985f7256d766db2a9cbd"
+    },
+    {
+      "path": "student-template/data/experiments/metric_plan.csv",
+      "bytes": 473,
+      "sha256": "95c340fb59977cdee56dd52033e50934d6e3aad87d60f0cbac851ef0c5ebbdaa"
+    },
+    {
+      "path": "student-template/data/experiments/paired_study.csv",
+      "bytes": 2425,
+      "sha256": "085eb776e3223f711ad31da41dd4244afc85a587d9263ba85cbf24d802724b47"
+    },
+    {
+      "path": "student-template/data/experiments/repeated_measurements.csv",
+      "bytes": 5893,
+      "sha256": "9562a0d8791e2cce7a56e3bb1461c4ab431a8057e641b15e87ce9aa656d3cdcd"
+    },
+    {
+      "path": "student-template/data/inference/README.md",
+      "bytes": 4472,
+      "sha256": "c2df9d6b65d9f0b3b8481a2e8934355ef5566bc2a8fe3e94f62dbeb5c8a4fa2d"
+    },
+    {
+      "path": "student-template/data/inference/capacity_options.csv",
+      "bytes": 152,
+      "sha256": "66703975cebc06ef9942cbea59f10606697d282c7df211fee794f3320a7600f0"
+    },
+    {
+      "path": "student-template/data/inference/decision_sample.csv",
+      "bytes": 2340,
+      "sha256": "2db3be371a8445508c74559d886c828e2b6d28c9ef6650f3a3d771b402ff7cea"
+    },
+    {
+      "path": "student-template/data/inference/demand_history.csv",
+      "bytes": 3790,
+      "sha256": "0d143e4beb8d3b57626fbb4d20c0d6606521ec4c5ac0dbe561a4085580eddd9d"
+    },
+    {
+      "path": "student-template/data/inference/estimation_populations.csv",
+      "bytes": 610520,
+      "sha256": "dfd4615e2fda75eb22d3a58f80e7cd9b0b808a0e1ed8053559df3d7a577a58ac"
+    },
+    {
+      "path": "student-template/data/inference/population_frame.csv",
+      "bytes": 148953,
+      "sha256": "61bcabcbdb91cf206d9ce73d5b6d2e490639351379294e54052a9372865dce09"
+    },
+    {
+      "path": "student-template/data/inference/sampling_costs.csv",
+      "bytes": 233,
+      "sha256": "f56271cd5ab0ec138c1ea874fa3b35fe21a4d5cf09528e1c5fac7aa2ddee5744"
+    },
+    {
+      "path": "student-template/data/inference/screening_groups.csv",
+      "bytes": 228,
+      "sha256": "efb73c65f1f01f3db7da2d049493cf308c9203866c87cb25879671c6369c7519"
+    },
+    {
+      "path": "student-template/data/inference/screening_validation.csv",
+      "bytes": 310,
+      "sha256": "674669cc3e8844dc6da3d046534bd1bfbe721684568f72b3d76b5ca0deda53f2"
+    },
+    {
+      "path": "student-template/data/inference/voluntary_survey.csv",
+      "bytes": 25388,
+      "sha256": "0cc0801e150abb7ae73448f6002fb3adb995d0301da742d160ad5c0ccf099a76"
+    },
+    {
+      "path": "student-template/data/policy/README.md",
+      "bytes": 3187,
+      "sha256": "615ce4bc6811cedb0ce8c235ed510332418ee497a6b095cf182e720ee82e0388"
+    },
+    {
+      "path": "student-template/data/policy/decision_options.csv",
+      "bytes": 108,
+      "sha256": "98ef7ffc306bc65ad957669ccd1e7bf262b0f80e9d3fbe95e8bcff783226bd89"
+    },
+    {
+      "path": "student-template/data/policy/district_panel.csv",
+      "bytes": 28236,
+      "sha256": "a9628c6af582f6f9f8e9d0a86840f6e6471ae79873c4d74572d838631b81c5f8"
+    },
+    {
+      "path": "student-template/data/policy/pilot_test.csv",
+      "bytes": 75,
+      "sha256": "e1b31981a79761d2c7ad834b72ef512a2ca044b8bcc4955e9a07143efc9970d2"
+    },
+    {
+      "path": "student-template/data/policy/support_observational.csv",
+      "bytes": 55484,
+      "sha256": "4e811c8dc5d5c1637445b85780eb80051c8a340143dac0de9063bd4fe01b83b0"
+    },
+    {
+      "path": "student-template/data/policy/weekly_demand.csv",
+      "bytes": 2276,
+      "sha256": "b7b3a99f78dbd79a7a37a23e143524142721914d29d5d7696a542525de375bb3"
+    },
+    {
+      "path": "student-template/data/prediction/README.md",
+      "bytes": 2697,
+      "sha256": "57e7d530b0e64183c7477ca5d2872188b8b875a600936ec93ee11765c406e3d0"
+    },
+    {
+      "path": "student-template/data/prediction/feature_availability.csv",
+      "bytes": 1085,
+      "sha256": "d2e97fb037ecbbc31f12027f0ddd2dcd560cd8425197140081506b3c876734b4"
+    },
+    {
+      "path": "student-template/data/prediction/requests.csv",
+      "bytes": 403688,
+      "sha256": "3fee0c0df600d1626c8d3f031d3247e37812feae701c7b070603433e8e9f9f49"
+    },
+    {
+      "path": "student-template/lesson-09/LEARN.md",
+      "bytes": 5027,
+      "sha256": "625e865e1c4912e08e053572caf7652aff9e0304b4df0b9ea647d4440ddcf131"
+    },
+    {
+      "path": "student-template/lesson-09/README.md",
+      "bytes": 5269,
+      "sha256": "674114fcf7b9747220a3dbe3a8e241fcf35b66bc82259b5bd796eaa506b54d16"
+    },
+    {
+      "path": "student-template/lesson-09/SUPPORT.md",
+      "bytes": 7316,
+      "sha256": "51be0287e53442022f98238a01a439670c9bfec84e25065272e09a971790bdeb"
+    },
+    {
+      "path": "student-template/lesson-09/analysis.py",
+      "bytes": 1564,
+      "sha256": "5b495f042833f9d0c4be1ca6fafe350d8cf06fe9a1824cbc668a2ead6c04ea5c"
+    },
+    {
+      "path": "student-template/lesson-09/artifacts/starting_inventory.json",
+      "bytes": 3000,
+      "sha256": "0106c184de0a758663349482036d4411f7fa3ff749acedcadec4599901f4ec58"
+    },
+    {
+      "path": "student-template/lesson-09/report.md",
+      "bytes": 729,
+      "sha256": "01d7951d1e0fb7ce965a82e7ce5be40779cb77974508fa596ce578cf7b4768fd"
+    },
+    {
+      "path": "student-template/lesson-09/submission.json",
+      "bytes": 167,
+      "sha256": "abbc204a73e5dc67e0736f6613a30da79e3ad307d38973508490182ee313dd37"
+    },
+    {
+      "path": "student-template/lesson-10/LEARN.md",
+      "bytes": 4740,
+      "sha256": "0c389021cef0919884db5cd91a20447256012a244340763ffb47b0d0d7562ac0"
+    },
+    {
+      "path": "student-template/lesson-10/README.md",
+      "bytes": 5128,
+      "sha256": "129a12fad329381dcfbaeb9881bb53e766fed5965d88afe85b98d030c8b803eb"
+    },
+    {
+      "path": "student-template/lesson-10/SUPPORT.md",
+      "bytes": 6034,
+      "sha256": "f7b631a14a8168523baf2539d59408db3b3ba8bcaec78b7e96139893a002a1b9"
+    },
+    {
+      "path": "student-template/lesson-10/analysis.py",
+      "bytes": 1558,
+      "sha256": "d1a1d65b9d827e019809885840a55e4ee95dd7cd3419676faded55eebb0de200"
+    },
+    {
+      "path": "student-template/lesson-10/artifacts/starting_inventory.json",
+      "bytes": 2212,
+      "sha256": "455e12dd00c4bca797065667130d154ef10d36551596b5b85a79591af4a1f397"
+    },
+    {
+      "path": "student-template/lesson-10/report.md",
+      "bytes": 726,
+      "sha256": "927e532c474f694a5e4b1e8f8ac88ad2de6326c1c35e091824384dc5efcd7865"
+    },
+    {
+      "path": "student-template/lesson-10/submission.json",
+      "bytes": 167,
+      "sha256": "0dbc098c99717eeab559599e461f9af0e4795210af218ced0a8a55fad9323e45"
+    },
+    {
+      "path": "student-template/lesson-11/LEARN.md",
+      "bytes": 4970,
+      "sha256": "e95c5175868e57b451bc5cb83bfb993843d978c8014eb0e91ffd8afc25522f7d"
+    },
+    {
+      "path": "student-template/lesson-11/README.md",
+      "bytes": 5211,
+      "sha256": "379d8ab85391dc0e4a129a3868dfe141dc6ea790ed879907d5e070a908ef7c8a"
+    },
+    {
+      "path": "student-template/lesson-11/SUPPORT.md",
+      "bytes": 5656,
+      "sha256": "a7aeb228f62aa0884fb98f745f2ebcaa89a5267530484d326e43e7e55b20b2fb"
+    },
+    {
+      "path": "student-template/lesson-11/analysis.py",
+      "bytes": 1554,
+      "sha256": "aeb73fe45b954399d5a363732f32db3879ae31ac4eb5e35568664be6d7a6e597"
+    },
+    {
+      "path": "student-template/lesson-11/artifacts/starting_inventory.json",
+      "bytes": 2494,
+      "sha256": "440240d816bc0099c59db69818026d43afb7313836c6757d00b98ebb38b98b0c"
+    },
+    {
+      "path": "student-template/lesson-11/report.md",
+      "bytes": 771,
+      "sha256": "339d9fc355045803a47515a8aa4244d7921569f477fc76376979b447a59b6348"
+    },
+    {
+      "path": "student-template/lesson-11/submission.json",
+      "bytes": 167,
+      "sha256": "25a8f888cfe1e803873054673a7a5d41c9097e745e7de914dca08ee5d4af5fa8"
+    },
+    {
+      "path": "student-template/lesson-12/LEARN.md",
+      "bytes": 5664,
+      "sha256": "83ce0ca642d156d4ede8ab78eb614af1cb18e71ac3ab89049817628e5351ccb8"
+    },
+    {
+      "path": "student-template/lesson-12/README.md",
+      "bytes": 5289,
+      "sha256": "30cc4b1f705d011c49de6dd50a03d3ed72d038b38438373b6922db96706c922d"
+    },
+    {
+      "path": "student-template/lesson-12/SUPPORT.md",
+      "bytes": 5699,
+      "sha256": "2d6eda3495f801f4078a7cb9e0a31f9efef801e5b449692cb32f9f594ac0c02d"
+    },
+    {
+      "path": "student-template/lesson-12/analysis.py",
+      "bytes": 1516,
+      "sha256": "6d1845297d25fd82850d6b5fbb09f5dbca566f4c0044f3932695e8d1989a3db9"
+    },
+    {
+      "path": "student-template/lesson-12/artifacts/starting_inventory.json",
+      "bytes": 585,
+      "sha256": "07b870740ea12ac67d17b3085abcf450b553094c65a8bd67ce622c7c0d9b1539"
+    },
+    {
+      "path": "student-template/lesson-12/report.md",
+      "bytes": 771,
+      "sha256": "0bc74a422f067931fcaa77e148c5a734dc46d98b18a95c9e9a29afe7eaee344b"
+    },
+    {
+      "path": "student-template/lesson-12/submission.json",
+      "bytes": 167,
+      "sha256": "3216fb25a5f14c4238a43b41c0f4be4cc79e431755c15fcfaa7fedd41d244789"
+    },
+    {
+      "path": "student-template/lesson-13/LEARN.md",
+      "bytes": 5102,
+      "sha256": "c0223d51082f1821092cf52f85ed3ee3640cf273fe359ec7ba9008031ed955cc"
+    },
+    {
+      "path": "student-template/lesson-13/README.md",
+      "bytes": 5143,
+      "sha256": "eb0e014f35d6cf79af09e9a95ca7e3f26ccc6667477d1af13e69047fca58739e"
+    },
+    {
+      "path": "student-template/lesson-13/SUPPORT.md",
+      "bytes": 5633,
+      "sha256": "60bee2b3155524ad2061f1f04820b6acfc7a00a88b385b1c00766f3f2e216c98"
+    },
+    {
+      "path": "student-template/lesson-13/analysis.py",
+      "bytes": 1538,
+      "sha256": "93c8c62352501be9ec874382c7c5be5ef6e13fc78d08dad60426a0a0e7567296"
+    },
+    {
+      "path": "student-template/lesson-13/artifacts/starting_inventory.json",
+      "bytes": 1030,
+      "sha256": "b5b39b563dcd8580ecbdd399d8d9b0ae82d5040f7e7327c726ed42b203c2bf57"
+    },
+    {
+      "path": "student-template/lesson-13/report.md",
+      "bytes": 768,
+      "sha256": "4f6db2235962360deb70e32df490826e71aeb67b881545c33e5180b3092b43c7"
+    },
+    {
+      "path": "student-template/lesson-13/submission.json",
+      "bytes": 167,
+      "sha256": "5a8170a39377779dfe95740b9f111cef7bcb4267ec8570ca2d61f8ae323f0cde"
+    },
+    {
+      "path": "student-template/lesson-14/LEARN.md",
+      "bytes": 4913,
+      "sha256": "51d7050a35a92d5c44dbbce017968cec618961ae5b01cb076ba0ec20773646e6"
+    },
+    {
+      "path": "student-template/lesson-14/README.md",
+      "bytes": 5325,
+      "sha256": "a7439348622f0d642a69633356bc6dc0b45086ca6c02daca9487fcc517af6b0c"
+    },
+    {
+      "path": "student-template/lesson-14/SUPPORT.md",
+      "bytes": 5575,
+      "sha256": "31ca36e4d31be52b7102520d1151c406f4e3747957170dc8d552f6e9c8897efe"
+    },
+    {
+      "path": "student-template/lesson-14/analysis.py",
+      "bytes": 1554,
+      "sha256": "ca6b1310c1ab0a0dc085f9346e1430c19ff796e43ec56721f51582ceb5e11220"
+    },
+    {
+      "path": "student-template/lesson-14/artifacts/starting_inventory.json",
+      "bytes": 2494,
+      "sha256": "440240d816bc0099c59db69818026d43afb7313836c6757d00b98ebb38b98b0c"
+    },
+    {
+      "path": "student-template/lesson-14/report.md",
+      "bytes": 774,
+      "sha256": "f4b1262fbc7011a28dcd56b0a0ec19146c6afe6476d159f4bf14950edbf2b714"
+    },
+    {
+      "path": "student-template/lesson-14/submission.json",
+      "bytes": 167,
+      "sha256": "6c4e981117646db309c970d102e8f3d63a3648c9126450f41980cdfd256f8c6a"
+    },
+    {
+      "path": "student-template/lesson-15/LEARN.md",
+      "bytes": 4689,
+      "sha256": "ed78f1772408bd5ad842599d5c79931796ae770386bb9b1b55e302fa0f5e6473"
+    },
+    {
+      "path": "student-template/lesson-15/README.md",
+      "bytes": 5307,
+      "sha256": "741851df968625ae35b23ac77a7e07eea9ec0f9b87f8238fc470b73aab465d56"
+    },
+    {
+      "path": "student-template/lesson-15/SUPPORT.md",
+      "bytes": 5485,
+      "sha256": "56611f8168d02f1be2703693da2b18cfe005c66fc84e13708c3621868e17427c"
+    },
+    {
+      "path": "student-template/lesson-15/analysis.py",
+      "bytes": 1538,
+      "sha256": "455a2dfa36e44be97df5bbcaaa2469f32cd35944addd8339896319972ba5f9e3"
+    },
+    {
+      "path": "student-template/lesson-15/artifacts/starting_inventory.json",
+      "bytes": 1265,
+      "sha256": "c6e9ca4d5fe101c6e77ad1fcb5e0d068540305186429641bc2d8c74d69d47336"
+    },
+    {
+      "path": "student-template/lesson-15/report.md",
+      "bytes": 780,
+      "sha256": "8342cd6586fb56b7ca63a7a6447d23b1923a32a4cefde3210dac9931f7d305ce"
+    },
+    {
+      "path": "student-template/lesson-15/submission.json",
+      "bytes": 167,
+      "sha256": "27a6e4c79992cebd098576d58711b25d9a2d0fb6af56e9c94fdc23eba916478c"
+    },
+    {
+      "path": "student-template/lesson-16/LEARN.md",
+      "bytes": 5117,
+      "sha256": "f3edbd71a9a2f31729c5283462e7b82bc41b44b7cf7ced63e40cdac99932f9aa"
+    },
+    {
+      "path": "student-template/lesson-16/README.md",
+      "bytes": 5377,
+      "sha256": "72a7dc7ad9804418c4d819a68fb7d20b2f67053d3dbd4e3c1da083b46d01455f"
+    },
+    {
+      "path": "student-template/lesson-16/SUPPORT.md",
+      "bytes": 5574,
+      "sha256": "b0ae71f516e9c27be3713b7d21246d12283223317d108bedf9628720a143081a"
+    },
+    {
+      "path": "student-template/lesson-16/analysis.py",
+      "bytes": 1564,
+      "sha256": "58a85e92d612dc0952a3acf9e388ee8f7c345d7344d1be4e7d2b26901c5fc29b"
+    },
+    {
+      "path": "student-template/lesson-16/artifacts/starting_inventory.json",
+      "bytes": 2369,
+      "sha256": "14906924837e108db0a9818810615727264d2ce57d118a6a7f61a07c7e4b03ae"
+    },
+    {
+      "path": "student-template/lesson-16/report.md",
+      "bytes": 786,
+      "sha256": "0b62de4d24e0974b512503bc82da9948589021e7057537caf96cd6ab451dd060"
+    },
+    {
+      "path": "student-template/lesson-16/submission.json",
+      "bytes": 167,
+      "sha256": "5c050e3d64334a164542505811389f6abf355e00cde0a216888fa6e3c4c8f60a"
+    },
+    {
+      "path": "student-template/lesson-17/LEARN.md",
+      "bytes": 4769,
+      "sha256": "d2dbedcd7b6264a534ddcf431e7f3ab3361731fe10c78ffb1c1b9f144771d2a1"
+    },
+    {
+      "path": "student-template/lesson-17/README.md",
+      "bytes": 5311,
+      "sha256": "a36b9ad0ed4c5bb58adf1d3f2b077f4775c576607d111f6ab9521adec932c995"
+    },
+    {
+      "path": "student-template/lesson-17/SUPPORT.md",
+      "bytes": 5270,
+      "sha256": "0e0c8d4d1494f60dfa43dd69d4e6914e32bb3832998393917f43a44e27f17f2c"
+    },
+    {
+      "path": "student-template/lesson-17/analysis.py",
+      "bytes": 1567,
+      "sha256": "b34c66ea58d8761b26411c1c1a5c46184667dc7ea30805fee70c0bbba1cadf1c"
+    },
+    {
+      "path": "student-template/lesson-17/artifacts/starting_inventory.json",
+      "bytes": 1839,
+      "sha256": "d2781102d5386eea848ed68621272840239626478bfb2ad6ce3cdb8379b60681"
+    },
+    {
+      "path": "student-template/lesson-17/report.md",
+      "bytes": 783,
+      "sha256": "3893705a0640ce7df577373bee01398c1e7da19077468333b39450e480129dc2"
+    },
+    {
+      "path": "student-template/lesson-17/submission.json",
+      "bytes": 167,
+      "sha256": "66a50b5854ae96994edc83d1c1ebb76370d86c012793ce2167027e8b91eb71a1"
+    },
+    {
+      "path": "student-template/lesson-18/LEARN.md",
+      "bytes": 5026,
+      "sha256": "81803ba34b1cca14b061b2f392861be61a8b4b34d381eb2a6200ffb95b988db5"
+    },
+    {
+      "path": "student-template/lesson-18/README.md",
+      "bytes": 5275,
+      "sha256": "91e00ae63a959b53c5ebe2223b5bff514a2179b3955fa2c8f52e5e45e0d2b31e"
+    },
+    {
+      "path": "student-template/lesson-18/SUPPORT.md",
+      "bytes": 5672,
+      "sha256": "3ae67dffba30dc1199d7fcf5009db0a4c4bb562dc77b80436c2e4538b7b37720"
+    },
+    {
+      "path": "student-template/lesson-18/analysis.py",
+      "bytes": 1564,
+      "sha256": "c7f6d878213745a3e03b6447a2a55e4c2870d238d2e869362ce1640ae07b9631"
+    },
+    {
+      "path": "student-template/lesson-18/artifacts/starting_inventory.json",
+      "bytes": 2369,
+      "sha256": "14906924837e108db0a9818810615727264d2ce57d118a6a7f61a07c7e4b03ae"
+    },
+    {
+      "path": "student-template/lesson-18/report.md",
+      "bytes": 777,
+      "sha256": "4d5ec09914d6237a6205e14ba93d95d82c4fd77b11a7e5ab47a89921ab8c412c"
+    },
+    {
+      "path": "student-template/lesson-18/submission.json",
+      "bytes": 167,
+      "sha256": "60387c1b6faf911e38b6384658a8deb7ce4342aa5fa6e7f22c06b67a0edf2299"
+    },
+    {
+      "path": "student-template/lesson-19/LEARN.md",
+      "bytes": 5219,
+      "sha256": "0d5053e4f6e771ba2dce40b8930c12f9a3499df481ae2f4c24949c4eae05efd7"
+    },
+    {
+      "path": "student-template/lesson-19/README.md",
+      "bytes": 5494,
+      "sha256": "6099fe04f373ba2591b74bb85986325e8b6c45ccd7f0bd064a178abfc9335470"
+    },
+    {
+      "path": "student-template/lesson-19/SUPPORT.md",
+      "bytes": 5717,
+      "sha256": "7057430cfe979993d4ef60b652c0a6b97e2764b74ff4a57de577f293f5337b92"
+    },
+    {
+      "path": "student-template/lesson-19/analysis.py",
+      "bytes": 1534,
+      "sha256": "fd78be8f06a3f89329e751589c7bcd80dc3eb46d1058ef63675977d640820340"
+    },
+    {
+      "path": "student-template/lesson-19/artifacts/starting_inventory.json",
+      "bytes": 1205,
+      "sha256": "f056dc184cd62255c05545783b57834c9323b82860073d4a67caad47bd072a4a"
+    },
+    {
+      "path": "student-template/lesson-19/report.md",
+      "bytes": 777,
+      "sha256": "c098222bea8627452c7e7f6384acdb8daed241878a861a1ef39a0d373440e37a"
+    },
+    {
+      "path": "student-template/lesson-19/submission.json",
+      "bytes": 167,
+      "sha256": "4f3844c42a513f6f24f4023cbd193061245e8b38ff709ac67a273c90d91ee572"
+    },
+    {
+      "path": "student-template/lesson-20/LEARN.md",
+      "bytes": 5245,
+      "sha256": "e6dd0cbf3301d7b86785610b02150f4f0e01a7b7444b72587d039bc8e26b9661"
+    },
+    {
+      "path": "student-template/lesson-20/README.md",
+      "bytes": 5597,
+      "sha256": "dcd03778798c4c35af57e711b5515166b1819c32e4a8960cf39ce65cf58be9ee"
+    },
+    {
+      "path": "student-template/lesson-20/SUPPORT.md",
+      "bytes": 5967,
+      "sha256": "6715250a5e760f39d695cfb584fa9011d67117718b93b4607f483fe18061bd65"
+    },
+    {
+      "path": "student-template/lesson-20/analysis.py",
+      "bytes": 1537,
+      "sha256": "450ae04f49e943b228f0a6b29d3f4351d4b1af0e6c0ca7856ca00f04c5d00ff2"
+    },
+    {
+      "path": "student-template/lesson-20/artifacts/starting_inventory.json",
+      "bytes": 1497,
+      "sha256": "730cb2771716f5ba5f4622c9701ae7cc9bf13d1ea9b141da50191497e269afac"
+    },
+    {
+      "path": "student-template/lesson-20/report.md",
+      "bytes": 771,
+      "sha256": "48466a7503912740bc3723161206e50b89a19d6e25ccd9dc379ee38042daff3d"
+    },
+    {
+      "path": "student-template/lesson-20/submission.json",
+      "bytes": 167,
+      "sha256": "58d77dd9c18ca42b396e4f8040fb20d4fdfbf9eb5f15803481f638867374bd51"
+    },
+    {
+      "path": "student-template/lesson-21/LEARN.md",
+      "bytes": 4219,
+      "sha256": "659d86f9a313a3d1295631edf43530057109b3dbfccd30db484180ec14dca647"
+    },
+    {
+      "path": "student-template/lesson-21/README.md",
+      "bytes": 4579,
+      "sha256": "50e5fb5f9cac5a374e808439ebaae3ee7287ce3f3aa3d0fd814ed62e6f174100"
+    },
+    {
+      "path": "student-template/lesson-21/SUPPORT.md",
+      "bytes": 7261,
+      "sha256": "12c841fb66c2d28bcef150ef183894a3fe496fd6b5ed70b78c1d2f4551a16f1d"
+    },
+    {
+      "path": "student-template/lesson-21/analysis.py",
+      "bytes": 1543,
+      "sha256": "33cbb22c852f6904c89e0f647ca867e9b920d3846881c6271661d34aea74c199"
+    },
+    {
+      "path": "student-template/lesson-21/artifacts/starting_summary.json",
+      "bytes": 1295,
+      "sha256": "c727983be0e31cffc6b48d39528f1d193626c91c443ce6d16ae5e348bbfca3c3"
+    },
+    {
+      "path": "student-template/lesson-21/report.md",
+      "bytes": 883,
+      "sha256": "8f0c4b0486874adec61a4934d613b171ce445318f8dbfae584219f834f16415b"
+    },
+    {
+      "path": "student-template/lesson-21/submission.json",
+      "bytes": 168,
+      "sha256": "3ae29dca8707895d23b8b9e8042c692e940943d9a5b4149d176f16118fc8777e"
+    },
+    {
+      "path": "student-template/lesson-22/LEARN.md",
+      "bytes": 3705,
+      "sha256": "06c0b00837e0cc42cd8a8fe27b251c3d536560f665a5d992794738698a60f78b"
+    },
+    {
+      "path": "student-template/lesson-22/README.md",
+      "bytes": 4647,
+      "sha256": "34d9f3b949c0ed8d1b4fae99855801bee40d3b25ef0262d64cbb08f0805d538b"
+    },
+    {
+      "path": "student-template/lesson-22/SUPPORT.md",
+      "bytes": 6755,
+      "sha256": "1fbbbe9132e57bab648c092a6d1aee57b4f02b52fd75c2b489eb1c1bc512a709"
+    },
+    {
+      "path": "student-template/lesson-22/analysis.py",
+      "bytes": 1572,
+      "sha256": "3068f4067fab8134526dd938adc89a124327e41dd496715b2937253833b4f43f"
+    },
+    {
+      "path": "student-template/lesson-22/artifacts/starting_summary.json",
+      "bytes": 935,
+      "sha256": "b969a1a0e97e0f8018c8628ca65e9d47e542b6c9e883d5006d55912c589dd36f"
+    },
+    {
+      "path": "student-template/lesson-22/report.md",
+      "bytes": 884,
+      "sha256": "7c61b146d6b96dd158fc03e419346f966c3f18c82a04b207bbd4c4038d17520f"
+    },
+    {
+      "path": "student-template/lesson-22/submission.json",
+      "bytes": 168,
+      "sha256": "a96fd3f7bd7dc0224a79b059c08978b8d258e95a784bffcb199eb10ce0aadfb9"
+    },
+    {
+      "path": "student-template/lesson-23/LEARN.md",
+      "bytes": 4102,
+      "sha256": "76b3ac55bba26e523670aa75a525b7096d0c351572a1767995cee06b639c7f46"
+    },
+    {
+      "path": "student-template/lesson-23/README.md",
+      "bytes": 4859,
+      "sha256": "4e7e01be040f5771e396d67055a55142a11bb9aa8abc70ea89ef30593d811aae"
+    },
+    {
+      "path": "student-template/lesson-23/SUPPORT.md",
+      "bytes": 6611,
+      "sha256": "4adba07e586bdf6b0b5672fe331af3923971c5f0b186a588c8fc9c62ce8b9edd"
+    },
+    {
+      "path": "student-template/lesson-23/analysis.py",
+      "bytes": 1561,
+      "sha256": "ca9c5651afe106f16a6aab41391667355c4964ca5c0e5db7a2a1b5c1a20aba7f"
+    },
+    {
+      "path": "student-template/lesson-23/artifacts/starting_summary.json",
+      "bytes": 1266,
+      "sha256": "9dc432239c58579d57ac80525064ad2d2746ae2c0f2f87f37e34438c26f6d9a6"
+    },
+    {
+      "path": "student-template/lesson-23/report.md",
+      "bytes": 926,
+      "sha256": "482ab118b228686b7f827289986b8900ac526496a9854d4c0daefb54104e4299"
+    },
+    {
+      "path": "student-template/lesson-23/submission.json",
+      "bytes": 168,
+      "sha256": "7531df415b1ce4dfd50439aa6f483af25742492cfe38718999683d5cda75f891"
+    },
+    {
+      "path": "student-template/lesson-24/LEARN.md",
+      "bytes": 3949,
+      "sha256": "fadef8f0e675bb28f3fe8a5a7d7e9ceebc19752aeed0e96fc947ada2417bad3f"
+    },
+    {
+      "path": "student-template/lesson-24/README.md",
+      "bytes": 5238,
+      "sha256": "a424446c7bf504051031fe5eb673f5cd44bf4ad86008930df75eb25ea1a3c5b9"
+    },
+    {
+      "path": "student-template/lesson-24/SUPPORT.md",
+      "bytes": 7394,
+      "sha256": "915dfe6545d1af7101e7735917f6bd82a17bedffe570e6ffc33c12beaa3d3b79"
+    },
+    {
+      "path": "student-template/lesson-24/analysis.py",
+      "bytes": 1563,
+      "sha256": "52596f298c6d871d7913024250569cc28cb1bdf73c1ab03d493d7f452fd4459a"
+    },
+    {
+      "path": "student-template/lesson-24/artifacts/starting_summary.json",
+      "bytes": 5595,
+      "sha256": "7d184d394063fa2c2c93e1e1c26a3a4c17fa8410af5addb11d2dd0ee5f4e36e5"
+    },
+    {
+      "path": "student-template/lesson-24/report.md",
+      "bytes": 974,
+      "sha256": "3b52b934fb152f3face83f7251cb44e30b2227b5a828630abac0952477adebc9"
+    },
+    {
+      "path": "student-template/lesson-24/submission.json",
+      "bytes": 168,
+      "sha256": "37c1c2149e923396d7d8a1b5e6195b866cbdaf8149626a465a3ebd2cec42e9a0"
+    },
+    {
+      "path": "student-template/lesson-25/LEARN.md",
+      "bytes": 3850,
+      "sha256": "d985f297e46815bb5e17a116874ef49b43c6d7778655a9f31307e919b62bb164"
+    },
+    {
+      "path": "student-template/lesson-25/README.md",
+      "bytes": 4690,
+      "sha256": "99a725371a98f9cdbaf2434a9ef84ae15ab588ac09a2f160f7fa91ca6d5a0119"
+    },
+    {
+      "path": "student-template/lesson-25/SUPPORT.md",
+      "bytes": 6593,
+      "sha256": "69357cedd5d1ad09cf7431f0974c236c127b088fb995ad67fd67ebad59aa4dc7"
+    },
+    {
+      "path": "student-template/lesson-25/analysis.py",
+      "bytes": 1581,
+      "sha256": "8863211bf4e0dd6af6d76b8f0c873411bc529e928d8e04fd4669e231171d9b7f"
+    },
+    {
+      "path": "student-template/lesson-25/artifacts/starting_summary.json",
+      "bytes": 1780,
+      "sha256": "31aacb12eb349ca57cbaecb33588cd8980a56dc41f067be865c44a4679132f33"
+    },
+    {
+      "path": "student-template/lesson-25/report.md",
+      "bytes": 841,
+      "sha256": "aaeb128015dc06daac196be2ddd2ec9694e02441c8cbecf3ef8d1c2a90dc1275"
+    },
+    {
+      "path": "student-template/lesson-25/submission.json",
+      "bytes": 168,
+      "sha256": "94ad341fdc862ebaffe19bcfd9a29505dcc8ee49f9c1dc400374b25417356615"
+    },
+    {
+      "path": "student-template/lesson-26/LEARN.md",
+      "bytes": 3750,
+      "sha256": "250a667ea8176904a40288f7d8bebd1a94e498796c8f0ab16654678f06d9436b"
+    },
+    {
+      "path": "student-template/lesson-26/README.md",
+      "bytes": 4717,
+      "sha256": "1b903034dcbb16f0943c0c1044f805e53bd5a23f211694455516b0c5949757cd"
+    },
+    {
+      "path": "student-template/lesson-26/SUPPORT.md",
+      "bytes": 6768,
+      "sha256": "950d69ee702194a39159c6d84657a74cf23221581f2feafa6d28ab126ab7a2cc"
+    },
+    {
+      "path": "student-template/lesson-26/analysis.py",
+      "bytes": 1430,
+      "sha256": "9a984219fc02c8a05bcbd59a6fe75aee85cf13c8c774d120e4c5482a6f4aaa73"
+    },
+    {
+      "path": "student-template/lesson-26/artifacts/starting_summary.json",
+      "bytes": 801,
+      "sha256": "818674696d0d022cd1c276a333b6797083a4441081a95f39436fe2df1ed3c34e"
+    },
+    {
+      "path": "student-template/lesson-26/report.md",
+      "bytes": 892,
+      "sha256": "a0e43b3075faf00671a4a5b8984d1137cf4b6f4198840d274624fe99bfe96b84"
+    },
+    {
+      "path": "student-template/lesson-26/submission.json",
+      "bytes": 168,
+      "sha256": "139adb012db478f1e9f5506039876e9e54f46fc6aa8c3d2948ad9f8a2de3f1aa"
+    },
+    {
+      "path": "student-template/lesson-27/LEARN.md",
+      "bytes": 3861,
+      "sha256": "8e524cb8295f426d51ef7fd2e252d8ca1f696b3e55b099da22a65bd88a299f62"
+    },
+    {
+      "path": "student-template/lesson-27/README.md",
+      "bytes": 4643,
+      "sha256": "47a2e978c966ba04ff1c9b3d945eb8d9e6ec3023bd1bb7de4f16dda44ca87c1a"
+    },
+    {
+      "path": "student-template/lesson-27/SUPPORT.md",
+      "bytes": 6731,
+      "sha256": "b8287f525aeadb10172bd748bceb1a4a4751395825d62c7ffab29b53c1e6d0ec"
+    },
+    {
+      "path": "student-template/lesson-27/analysis.py",
+      "bytes": 1471,
+      "sha256": "ccb0d2fdbc7fe1dadfaadca5a86a877d4b398ac0c2b6451c43e74b9ad4aba8a0"
+    },
+    {
+      "path": "student-template/lesson-27/artifacts/starting_summary.json",
+      "bytes": 1243,
+      "sha256": "a0c52de41a50a441b3911871a30885a9bad4d3ab8ccdb98e1a9c903b62067d49"
+    },
+    {
+      "path": "student-template/lesson-27/report.md",
+      "bytes": 799,
+      "sha256": "615045ad2b040487604842e4301a6642aceb33718bb693813ef0eb72cdac3cec"
+    },
+    {
+      "path": "student-template/lesson-27/submission.json",
+      "bytes": 168,
+      "sha256": "2a0bd1fe38b996556a2ce045776a5922a6a482806b04c050ab326d64f249754e"
+    },
+    {
+      "path": "student-template/lesson-28/LEARN.md",
+      "bytes": 4625,
+      "sha256": "2206bc0dc118cde42df47d886c228483b3582f3bf34fbc3340a6d48863fc2c77"
+    },
+    {
+      "path": "student-template/lesson-28/README.md",
+      "bytes": 4989,
+      "sha256": "f54fd0dfb71f7b9222415c95ba4c4d8a1e5558bc16ce8a45eeb53073e90a1f3a"
+    },
+    {
+      "path": "student-template/lesson-28/SUPPORT.md",
+      "bytes": 7054,
+      "sha256": "dd7782e55897970415651191cabb08b54bd40f3dac3be9f3c48e1a793b0721ea"
+    },
+    {
+      "path": "student-template/lesson-28/analysis.py",
+      "bytes": 1453,
+      "sha256": "1564c6423ced79b35c72452b96f2bdb257d10ee61b070edb19e579c5c8e92b79"
+    },
+    {
+      "path": "student-template/lesson-28/artifacts/starting_summary.json",
+      "bytes": 913,
+      "sha256": "61f66d64dd1114121e61b93a31fe332444510675c5f4905e45e86e77c2adf318"
+    },
+    {
+      "path": "student-template/lesson-28/report.md",
+      "bytes": 842,
+      "sha256": "9e060a5f2953b7aa34a1ac43b0b1c5d13773cf7c7bcd041993429dbb7aa97b75"
+    },
+    {
+      "path": "student-template/lesson-28/submission.json",
+      "bytes": 168,
+      "sha256": "17fa966d62173e899c36e2d903ea395c8d024c3b7004ddb31a14c1ae75675394"
+    },
+    {
+      "path": "student-template/lesson-29/LEARN.md",
+      "bytes": 3929,
+      "sha256": "177e771e77e402120c52ebe2cc3ece394bc519798167e4dbe0fa543f00ca21e2"
+    },
+    {
+      "path": "student-template/lesson-29/README.md",
+      "bytes": 4529,
+      "sha256": "85141fac49283ef29545bd09e284320f16c3e3d2f71dcf4224003015b10cc910"
+    },
+    {
+      "path": "student-template/lesson-29/SUPPORT.md",
+      "bytes": 6519,
+      "sha256": "fa9bec1dfc2fc7d66353551754d00876773a40051e0530be0250e7e99ad3093e"
+    },
+    {
+      "path": "student-template/lesson-29/analysis.py",
+      "bytes": 1436,
+      "sha256": "f1a5ce3aed874e7a57386ee1022741339a9c42e02fc0fe9cdce186ca320f9f9c"
+    },
+    {
+      "path": "student-template/lesson-29/artifacts/starting_summary.json",
+      "bytes": 1243,
+      "sha256": "9dac95b6e3f56b283c779bd668ac6719db3b8ec74b6afef318ab588b04b404ce"
+    },
+    {
+      "path": "student-template/lesson-29/report.md",
+      "bytes": 832,
+      "sha256": "6f8171a4a489a85653b8a8ba21728bf78e2ecc0c80db17c9ccc0a893561ec0cf"
+    },
+    {
+      "path": "student-template/lesson-29/submission.json",
+      "bytes": 168,
+      "sha256": "95367b75920e1aac17e23bbae2fea02118a4857f336de94a9cc2c58d886219cd"
+    },
+    {
+      "path": "student-template/lesson-30/LEARN.md",
+      "bytes": 3992,
+      "sha256": "5862dc196c110e11ee2b48e39dd460819e01a65d4e4455756ff5f6567c276cd5"
+    },
+    {
+      "path": "student-template/lesson-30/README.md",
+      "bytes": 5121,
+      "sha256": "5f133390f620015be9a4477c162f63b5989011c359e60dc851f2526283777512"
+    },
+    {
+      "path": "student-template/lesson-30/SUPPORT.md",
+      "bytes": 6958,
+      "sha256": "683e3a730aab29610255609376a678838e9c065f2f3c1949bea9f40b933d5e92"
+    },
+    {
+      "path": "student-template/lesson-30/analysis.py",
+      "bytes": 1458,
+      "sha256": "282d83505a5877634772e55935d8e28f7a446b7bb45e25f91e1f5266fcb997d5"
+    },
+    {
+      "path": "student-template/lesson-30/artifacts/starting_summary.json",
+      "bytes": 885,
+      "sha256": "ef197cf17e36908d4cca71fd54b53b4984b30eda4ff9bc3d004d84f24af89dd7"
+    },
+    {
+      "path": "student-template/lesson-30/report.md",
+      "bytes": 1101,
+      "sha256": "b8dbeabbc6ec96c39271ba378bee2e21af9ac5e35c22596c8495131c0b90be73"
+    },
+    {
+      "path": "student-template/lesson-30/submission.json",
+      "bytes": 168,
+      "sha256": "b788725b4377b4a57f00610754646bb3b1d7a73f6183002f265207c21147ee61"
+    },
+    {
+      "path": "student-template/lesson-31/LEARN.md",
+      "bytes": 3950,
+      "sha256": "ab459fc522f134a440339ed856a1c452eac6051389a29c0e5df8f73c14ec4023"
+    },
+    {
+      "path": "student-template/lesson-31/LESSON_32_PLAN.md",
+      "bytes": 2147,
+      "sha256": "a6ad8f81145d59054ae00c3006e8e01b19247498381938867872924e5bc04ae6"
+    },
+    {
+      "path": "student-template/lesson-31/README.md",
+      "bytes": 5593,
+      "sha256": "1eeb85fe940e314c1fddca848decbd5cb9d2bebb94af071f92925f3ad3405c94"
+    },
+    {
+      "path": "student-template/lesson-31/SUPPORT.md",
+      "bytes": 6907,
+      "sha256": "afd5f8725661ea8977898ed4a6aa77f5ed9be2284b7c92b7adcda053c48b63a8"
+    },
+    {
+      "path": "student-template/lesson-31/analysis.py",
+      "bytes": 1424,
+      "sha256": "07b5c7a2887a62d1b673b4274f950457419b3f9d7dbe3d41aa9b3a09cecfa926"
+    },
+    {
+      "path": "student-template/lesson-31/artifacts/starting_summary.json",
+      "bytes": 714,
+      "sha256": "7f02098b37be4b8130a1bdf951b32bb3cd787870c65208917147c12c21e66687"
+    },
+    {
+      "path": "student-template/lesson-31/report.md",
+      "bytes": 863,
+      "sha256": "6a3643020c372621a78e9566f8e120de5ed21dddd2a087c600613db9956ed721"
+    },
+    {
+      "path": "student-template/lesson-31/submission.json",
+      "bytes": 168,
+      "sha256": "a39d679c451a02f29f4391631f7e6aaf9bbffad4038f5c6891872c9c0572fbe9"
+    },
+    {
+      "path": "student-template/lesson-32/LEARN.md",
+      "bytes": 4074,
+      "sha256": "eaa5d174e2f38f303b54f55ecad9a457d14736729a31d569b77d3322f511fa28"
+    },
+    {
+      "path": "student-template/lesson-32/README.md",
+      "bytes": 7297,
+      "sha256": "0e1428a6de2f438dd2ca63c245adf550eaf315c7d17a575140963af68c1fe98a"
+    },
+    {
+      "path": "student-template/lesson-32/SUPPORT.md",
+      "bytes": 7316,
+      "sha256": "fd75baf9671b855fd1e29e229453985bb52603ceaea91bdb0cba8f5a74c555ee"
+    },
+    {
+      "path": "student-template/lesson-32/analysis.py",
+      "bytes": 1424,
+      "sha256": "b9575ff00af5bfa554256e6e58dc114bc0506e79b5c05e039abe5b969345974f"
+    },
+    {
+      "path": "student-template/lesson-32/artifacts/starting_summary.json",
+      "bytes": 714,
+      "sha256": "7f02098b37be4b8130a1bdf951b32bb3cd787870c65208917147c12c21e66687"
+    },
+    {
+      "path": "student-template/lesson-32/report.md",
+      "bytes": 1028,
+      "sha256": "631429646e85c2c960398235d09d44a8696b6983e2bd9c3c48e581c970c6b992"
+    },
+    {
+      "path": "student-template/lesson-32/submission.json",
+      "bytes": 168,
+      "sha256": "243e186d94e5eda6384593d428477ca001a9a90eaca4c4915e517096d57cac57"
+    },
+    {
+      "path": "student-template/scripts/generate_experiments.py",
+      "bytes": 5190,
+      "sha256": "fd743131a5520ab3e188aabe63f7b25ae8effecaea12e47b67862a9c013182be"
+    },
+    {
+      "path": "student-template/scripts/generate_inference.py",
+      "bytes": 3685,
+      "sha256": "f5333099a2b5905d61c92e43aba63474164971854734b3a3a22cadffebfa5d6c"
+    },
+    {
+      "path": "student-template/scripts/generate_policy.py",
+      "bytes": 3007,
+      "sha256": "46687d726100947efa89e9dec8d3c5e17c28ae24dce1479ee261be483530f649"
+    },
+    {
+      "path": "student-template/scripts/generate_prediction.py",
+      "bytes": 3673,
+      "sha256": "91af231de3ba3f3a2dbefeb88a120ff437ae82f850db7d4ae6c6fa8a7efac95f"
+    }
+  ],
+  "scope": "lessons-09-32-and-specific-assets"
+}

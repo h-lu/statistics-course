@@ -3,9 +3,25 @@ from collections import Counter
 from pathlib import Path
 import csv
 import json
+import math
 
 HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
+
+
+def parse_wait_value(raw_value, unit):
+    """一个等待值的基础解析；不负责选版本、记录范围或完整处理路线。"""
+    if raw_value is None or not str(raw_value).strip():
+        return None, "not_measured"
+    try:
+        value = float(raw_value)
+    except (TypeError, ValueError):
+        return None, "invalid_value"
+    if value in (999, -1):
+        return None, "not_measured"
+    if not math.isfinite(value) or value < 0 or unit not in ("minute", "second"):
+        return None, "invalid_value_or_unit"
+    return value / 60 if unit == "second" else value, None
 
 
 def read(relative):

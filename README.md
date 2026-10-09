@@ -1,50 +1,25 @@
-# 统计学项目课
+# 统计学 2026–2027：学习材料改进
 
-这是面向 AI 时代的项目制统计学课程资料库。课程按 16 周、32 次课组织。学生可以使用 AI 编程、计算、分析和写作，但要对统计口径、分析选择、结论依据和适用范围负责。
+保留原32课主线、模块用途与评分；课程按每次90分钟组织，学生可以全程使用AI，需对统计问题、分析单位、分母、方法依据和结论范围负责。现行学期设计见[32课课程地图](instructor-guide/COURSE_MAP.md)。当前实际制作范围为第1–8课；第9–32课只保留大纲占位，新课包尚未制作。
 
-## 先看哪一部分
+- [学生学习材料](student-template/README.md)：第1–8课任务、学习页、分层练习、合成数据和运行工具。
+- [教师材料](instructor-guide/README.md)：课程规范、10/65/15课堂安排、过程答案和评价依据。
+- [知识自查](stat-check/README.md)：当前可新建场次为第1–8课；全部旧题库ID继续可供历史场次读取。
+- [重设计前完整归档与恢复](archive/redesign-2026-10-09/README.md)：原1–8课、原9–32课、旧大纲和全部tracked教学文件的逐路径SHA-256与恢复工具。
 
-本仓库包含三类材料：
+学生从本课README了解情境、目标、资源、约束和证据标准，可直接自主分析，遇阻时任选SUPPORT提示或LEARN解释与小例。至少两项会影响结论的重要决定由学生作出，允许多个合理方法与有证据的保留意见。基础练习帮助开始；标准任务要求完成统计判断；提高与拓展比较合理规则、敏感性或决策后果。教学合成数据须明确标注，不能当作真实机构事实。
 
-- [`instructor-guide/`](instructor-guide/)：教师使用的课程标准、32课地图、授课运行手册、知识自查题库和参考材料；
-- [`student-template/`](student-template/)：完整的32课学生模板，包含数据、示例程序、每课任务和提交工具；
-- [`stat-check/`](stat-check/)：课末知识自查服务，支持Gitea登录、A版基础题、学习阶段、B版变式题和教师统计。
+课程规范以[课程设计标准](instructor-guide/COURSE_DESIGN_STANDARD.md)、[术语与基础知识规范](instructor-guide/TERMINOLOGY_AND_FOUNDATIONS.md)、[学生材料规范](instructor-guide/STUDENT_MATERIALS_STANDARD.md)和[评分规则](instructor-guide/GRADING.md)为准。本次不改评分，不修改真实学生仓库、已发布课次、账号、成绩或历史场次。教学内容发布到GitHub main；课程服务器部署和新题库场次启用须另行操作，不随本次发布执行。
 
-正式上课时，学生不要直接从完整模板开始。学生应从 hblu.top 的逐课发布仓库创建自己的私有仓库，按课程进度获得材料：
-
-[统计学逐课学生发布仓库](https://hblu.top/gitea/statistics/course-student-release-2026)
-
-完整模板适合教师维护、查看全部课程结构或查找后续课次；它会提前包含尚未开放的课程。
-
-## 学生材料怎样组织
-
-每课目录通常包含：
-
-- `README.md`：本课问题、数据、分析任务和需要提交的内容；
-- `SUPPORT.md`：从第一步开始的入门跟做、概念提示、反思问题和提高路径；
-- `LEARN.md`：统计术语、原理、手算例子和适用条件；
-- `analysis.py`：可以运行的示例程序，不是完整作业答案；
-- `report.md`、`submission.json` 和 `artifacts/`：学生的报告、提交声明和结果文件。
-
-学生材料先使用通俗语言，再给出统计学社区通行术语。报告应区分“观察到的事实”“可能的解释”和“需要进一步验证的行动”。课程数据是教学合成数据，不能写成现实学校、企业或个人的事实。
-
-## 课程设计入口
-
-- [课程设计标准](instructor-guide/COURSE_DESIGN_STANDARD.md)
-- [32课课程地图](instructor-guide/COURSE_MAP.md)
-- [学生材料编写规范](instructor-guide/STUDENT_MATERIALS_STANDARD.md)
-- [逐课发布说明](instructor-guide/STUDENT_LESSON_RELEASE.md)
-- [完整学生模板](student-template/README.md)
-- [知识自查设计](instructor-guide/knowledge-check/DESIGN.md)
-- [工作区编写规则](AGENTS.md)
-
-## 本地检查
-
-修改课程材料后，先检查相关文件和链接，再运行知识自查测试：
+本地结构与运行核验：
 
 ```bash
+python3 instructor-guide/scripts/validate_course.py --student student-template --run
+python3 -m unittest discover -s student-template/tests -v
 cd stat-check
 python3 -m pytest -q
 ```
 
-生产部署配置、真实账号凭据和数据库不放入 Git。课程内容发布到Gitea前，应确认发布仓库只包含当前开放课次，并检查链接、命令、示例数字和 `git diff --check`。
+[独立质量审核](instructor-guide/REDESIGN_QA.md)记录实跑、概念与数值检查。最新模拟课堂操作见[第1–4课](instructor-guide/FINAL_STUDENT_SIMULATION_01_04.md)、[第5–7课](instructor-guide/FINAL_STUDENT_SIMULATION_05_07.md)和[第8课](instructor-guide/FINAL_STUDENT_SIMULATION_08.md)。[学习改进框架](instructor-guide/REDESIGN_FRAMEWORK_2026-10-09.md)说明原设计继承与当前边界。
+
+运行成功和文件检查不等于统计论证已经合格，也不等于真实学生90分钟试教通过。当前课次边界在检查、运行、同步、发布和新场次目录中均明确设为第1–8课；后续占位不会执行旧内容。

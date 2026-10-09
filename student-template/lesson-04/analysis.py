@@ -9,6 +9,20 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 
 
+def quantile(values, probability):
+    """通用线性插值分位数，不选择评价指标、阈值或发布规则。"""
+    if not 0 <= probability <= 1:
+        raise ValueError("分位数比例须在0到1之间")
+    ordered = sorted(values)
+    if not ordered:
+        return None
+    if any(not math.isfinite(value) for value in ordered):
+        raise ValueError("分位数输入须为有限数")
+    position = (len(ordered) - 1) * probability
+    lower, upper = math.floor(position), math.ceil(position)
+    return ordered[lower] + (position - lower) * (ordered[upper] - ordered[lower])
+
+
 def read(relative, required_fields):
     with (ROOT / "data" / relative).open(encoding="utf-8", newline="") as handle:
         reader = csv.DictReader(handle)

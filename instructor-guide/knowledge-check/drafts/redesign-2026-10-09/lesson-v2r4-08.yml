@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l08-r4",
+  "title": "第08课 · 多表数据整合与统计指标核查",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "keys-and-revisions",
+      "title": "联合主键与最新修订冲突",
+      "tutor_context": "用一天有多个班次的排班说明主键随记录单位改变；再解释同一最新修订号出现内容冲突时不能随意选行。",
+      "pair": {
+        "a": {
+          "prompt": "排班表一行表示一家门店在某天的一个班次，早晚班可各有一行，多个门店和日期均有记录。按此约定，哪个组合应唯一识别一行？",
+          "options": [
+            {
+              "id": "A",
+              "text": "门店与日期",
+              "misconception": "ignore-within-day-shift"
+            },
+            {
+              "id": "B",
+              "text": "门店与班次",
+              "misconception": "ignore-calendar-date"
+            },
+            {
+              "id": "C",
+              "text": "门店、日期与班次",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "日期与班次",
+              "misconception": "ignore-store-identity"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：同门店同日可有早晚两个班次，缺少班次不能唯一。 B：相同门店相同班次会跨日期重复。 C：三个字段共同对应指定的一家门店、一天、一个班次，匹配记录单位。 D：同一天同班次可有多家门店，缺少门店不能唯一。"
+        },
+        "b": {
+          "prompt": "工单K的修订号3记录等待6分钟；最新修订号12有两行，分别写5与9分钟。规则要求用数值最大的修订号，但两行均为最新且内容冲突。下一步应怎样处理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "标记最新冲突、保留追溯信息并待核实，不随意选一行",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "取文件最后一行，行序自然代表真值",
+              "misconception": "file-order-resolves-content-conflict"
+            },
+            {
+              "id": "C",
+              "text": "取5与9的平均7，称为已核实等待",
+              "misconception": "average-conflicting-records-as-truth"
+            },
+            {
+              "id": "D",
+              "text": "退回修订3的6分钟，并称它仍是最新结果",
+              "misconception": "fallback-old-version-as-latest"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：最大修订号只决定最新版本范围，不能解决相同最新号的内容冲突。 B：题目没有授权文件顺序决定最新同号的正确内容。 C：平均冲突值不是核实事实，未经依据创建了新的测量值。 D：旧版本可作追溯，但不能改称最新；如临时采用也需说明额外规则与影响。"
+        }
+      }
+    },
+    {
+      "concept_id": "append-and-cardinality",
+      "title": "跨期追加与一对多汇总",
+      "tutor_context": "用跨期编号重叠说明追加行数不等于不同单位数；用每订单多次事件说明连接关系与保留主表单位。",
+      "pair": {
+        "a": {
+          "prompt": "两期工单分别每编号一行，有75与45行，统一字段后按行追加得到120行；发现3个编号在两期都出现。仅凭这些事实，哪项判断正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "两期时间不同，所以一定是120张不同工单",
+              "misconception": "period-label-guarantees-unique-units"
+            },
+            {
+              "id": "B",
+              "text": "有120行不证明120张不同工单，需核实编号跨期含义和重叠",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "以一期为左表连接二期即可保留两期全部工单",
+              "misconception": "left-join-keeps-all-new-period-units"
+            },
+            {
+              "id": "D",
+              "text": "按编号内连接仅留3行，就完成完整两期整合",
+              "misconception": "overlap-only-as-complete-periods"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：时间不同不保证编号对应不同单位，需要核对编号语义与重复来源。 B：按这些编号可数到117个不同值，但实体是否复用编号或重复导出仍需核实，不能跳过主键检查。 C：一期左连接不会自动保留仅出现在二期的工单。 D：内连接只保留共同编号，舍弃两期非重叠记录，不是全范围整合。"
+        },
+        "b": {
+          "prompt": "三张订单甲、乙、丙分别有2、0、1次配送，配送日志已确认完整。要给订单补充真实配送次数且保持每张订单一行，哪项合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "把3条配送记录追加到3张订单下，称为6张订单",
+              "misconception": "append-events-as-new-orders"
+            },
+            {
+              "id": "B",
+              "text": "直接内连接配送表，仍称覆盖三张订单",
+              "misconception": "inner-join-drops-zero-event-unit"
+            },
+            {
+              "id": "C",
+              "text": "每订单只留首次配送，所以次数都是1",
+              "misconception": "drop-real-repeat-events"
+            },
+            {
+              "id": "D",
+              "text": "先按订单汇总，再保留三张订单连接，次数为2、0、1",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：混合不同记录单位，配送不是另一张订单。 B：乙没有配送行会消失，甲还会展开成两行，不能保持原单位。 C：甲第二次真实配送被丢失；乙没有配送，次数也不应为1。 D：汇总保持事件总量，保留订单避免漏掉乙；题设日志完整，乙无配送可记0。"
+        }
+      }
+    },
+    {
+      "concept_id": "duplication-and-unit-weights",
+      "title": "连接后的单位权重",
+      "tutor_context": "换一种多事件情境说明目标量如何被重复行加权，再介绍每事件赋1/k权重恢复完整单位权重的条件。",
+      "pair": {
+        "a": {
+          "prompt": "两张报修单等待6与18分钟，分别对应2与4次现场记录。直接展开后均值14分钟。若目标是每张报修单等权的平均等待，哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "14分钟；多出的现场记录让工单均值更准确",
+              "misconception": "expanded-rows-as-more-independent-tickets"
+            },
+            {
+              "id": "B",
+              "text": "42分钟；展开总和84除以两张报修单即可",
+              "misconception": "repair-denominator-not-duplicated-sum"
+            },
+            {
+              "id": "C",
+              "text": "6分钟；只留等待较短的报修单",
+              "misconception": "drop-unit-to-avoid-duplicates"
+            },
+            {
+              "id": "D",
+              "text": "12分钟；每张报修单的等待各计一次",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：现场次数改变了权重，不是增加独立报修单。 B：分子84已经重复，改分母为2仍得错误目标量42。 C：删除另一真实报修单改变目标范围，不能作为两单均值。 D：(6+18)/2=12；14是现场记录加权结果，应恢复报修单层次。"
+        },
+        "b": {
+          "prompt": "每张订单都至少有1条事件且日志完整。订单有k条事件时，给它每条展开行权重1/k，再用这些权重计算订单金额的加权均值。为何可恢复订单等权均值？",
+          "options": [
+            {
+              "id": "A",
+              "text": "因为任何非负权重都能得到订单等权均值",
+              "misconception": "all-weights-preserve-target"
+            },
+            {
+              "id": "B",
+              "text": "每张订单的k条行总权重为1，金额按订单共计一次",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "因为加权后事件次数k变成真实金额",
+              "misconception": "event-count-as-outcome"
+            },
+            {
+              "id": "D",
+              "text": "因此即使订单无事件或事件漏录，也保证恢复全部订单均值",
+              "misconception": "inverse-weighting-guarantees-coverage"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：非负只约束符号，不保证每订单的总权重相同。 B：k×(1/k)=1；在所有订单有完整事件和一致金额的条件下，各订单总权重一致，恢复等权目标。 C：权重修正重复计数，不改变订单金额为事件次数。 D：无事件订单不在展开表，漏录或k错误也需另外处理，题设条件不能省略。"
+        }
+      }
+    },
+    {
+      "concept_id": "coverage-and-zero",
+      "title": "连接覆盖与零业务判断",
+      "tutor_context": "用未匹配归属但结果有效的记录说明总体与分组范围，再区分无匹配日志和已核实零业务。",
+      "pair": {
+        "a": {
+          "prompt": "100张工单等待均有效；87张匹配地区字典，平均等待5分钟，13张地区未知，平均30分钟。内连接后平均5分钟。哪项发布合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "全部100张平均5分钟，因为字典匹配后更整洁",
+              "misconception": "matched-subset-as-full-target"
+            },
+            {
+              "id": "B",
+              "text": "全体平均8.25分钟，并把未知地区按已有地区比例分摊，称为已核实归属",
+              "misconception": "assumed-allocation-as-verified-location"
+            },
+            {
+              "id": "C",
+              "text": "匹配者平均5，全体平均8.25，地区未知13张单列",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "未知地区等待填0，全体平均4.35",
+              "misconception": "unmatched-key-as-zero-outcome"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：5只描述匹配87张，删除未知地区记录改变覆盖。 B：总体均值虽为8.25，分摊归属是假设，不是已核实地区，整项不成立。 C：全体(87×5+13×30)/100=8.25；等待可描述总体，未知地区不能直接归到某组。 D：30分钟测量有效，地区未匹配不能改成0；4.35来自伪造结果。"
+        },
+        "b": {
+          "prompt": "某窗口日有12人时计划排班，但业务日志没有匹配行，尚未确认当日日志完整。报告该日计划量与业务量时，哪项合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "保留计划12人时，业务量暂记未知，核实日志后才能确认是否为0",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "删除这个排班日，认为没有匹配就没有计划",
+              "misconception": "inner-match-only-capacity"
+            },
+            {
+              "id": "C",
+              "text": "把计划与业务量都记0",
+              "misconception": "missing-match-as-zero-capacity-and-activity"
+            },
+            {
+              "id": "D",
+              "text": "直接将业务量记0，因为左连接空值都表示无业务",
+              "misconception": "left-join-null-as-confirmed-zero"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：计划记录已存在；缺业务行可能是零业务或漏记录，不能尚未核实就填0。 B：无业务匹配不否定已有计划记录，删除改变计划范围。 C：计划12已知；业务未知也不等于0。 D：左连接空值只表示没有匹配，不能证明来源完整或实际零业务。"
+        }
+      }
+    },
+    {
+      "concept_id": "time-unit-reconciliation",
+      "title": "时间、单位与总量核对",
+      "tutor_context": "用分钟和人时解释同单位比较，再用跨日事件说明工作量日期与登记日期不一定相同，窗口归属还可能是假设。",
+      "pair": {
+        "a": {
+          "prompt": "某窗口3人各计划5小时，当日合计缺勤3人时。接触记录工作人员分钟总计420。报告“接触工作人员人时/计划有效人时”应采用哪项？",
+          "options": [
+            {
+              "id": "A",
+              "text": "420/12=35，称为工时占比",
+              "misconception": "minutes-over-hours-without-conversion"
+            },
+            {
+              "id": "B",
+              "text": "420/[3×(5−3)]，因为每人都应减3小时",
+              "misconception": "multiply-total-absence-per-person"
+            },
+            {
+              "id": "C",
+              "text": "12/7，计划量除接触量就是题问比例",
+              "misconception": "reverse-ratio"
+            },
+            {
+              "id": "D",
+              "text": "(420/60)/(3×5−3)=7/12；计划量按该窗口日计一次",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：分子分钟、分母人时未统一，35不是无量纲工时占比。 B：合计缺勤只减一次，不能当每人各缺勤3小时；分钟也尚未换算。 C：12/7是反向比值，题问接触除计划。 D：420分钟为7人时，计划有效15−3=12人时；比值7/12，不等同个人实际生产率。"
+        },
+        "b": {
+          "prompt": "工单6月16日登记在窗口W，某次接触发生6月18日、耗150工作人员分钟；接触记录没有实际办理窗口。按日汇总接触工作量时，哪项表述准确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "把150分钟全部计6月16日，因为工单登记日决定所有活动日期",
+              "misconception": "registration-date-for-all-events"
+            },
+            {
+              "id": "B",
+              "text": "只计算登记日当天接触，因此这次必须删除",
+              "misconception": "drop-cross-day-real-events"
+            },
+            {
+              "id": "C",
+              "text": "日期计6月18日；若归给W，须说明采用登记窗口代理实际窗口的假设",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "计6月18日并断言一定发生在W，因为按工单编号已连接",
+              "misconception": "key-match-verifies-event-location"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：接触实际日期18日，登记16日不是该活动发生日。 B：跨日接触是有效活动，删除会遗漏工作量。 C：活动日期可直接观察；实际窗口未记录，登记窗口只能有条件代理，不能称已核实。 D：工单编号连接只找到登记归属，不验证该次实际窗口。"
+        }
+      }
+    }
+  ]
+}

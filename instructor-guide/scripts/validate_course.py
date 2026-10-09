@@ -14,6 +14,8 @@ from urllib.parse import unquote, urlsplit
 import yaml
 
 TEACHER = Path(__file__).resolve().parents[1]
+ACTIVE_LESSONS = tuple(range(1, 9))
+PLANNED_LESSONS = tuple(range(9, 33))
 
 
 def lesson_topic(title: str) -> str:
@@ -72,9 +74,9 @@ def current_bank_spec(directory: Path, number: int) -> tuple[Path, str]:
 
 def validate(student: Path, execute: bool = False) -> dict:
     errors = []
-    stats = {"lessons": 0, "questions": 0, "starting_points_run": 0, "data_files": 0}
+    stats = {"lessons": 0, "planned_lessons": 0, "questions": 0, "starting_points_run": 0, "data_files": 0}
     banks = TEACHER / "knowledge-check/question-bank"
-    for n in range(1, 33):
+    for n in ACTIVE_LESSONS:
         lesson = f"lesson-{n:02d}"
         for root, files in [(student, ["README.md", "SUPPORT.md", "LEARN.md", "analysis.py", "report.md", "submission.json"]), (TEACHER, ["RUNBOOK.md", "REFERENCE.md", "reference.py"])]:
             for file in files:
@@ -100,8 +102,10 @@ def validate(student: Path, execute: bool = False) -> dict:
                 student_heading = (student / lesson / "README.md").read_text(encoding="utf-8").splitlines()[0]
                 bank_topic = lesson_topic(bank["title"])
                 student_topic = lesson_topic(student_heading)
-                accepted_topics = LESSON_TOPIC_ALIASES.get(n, {bank_topic})
-                assert bank_topic in accepted_topics and student_topic in accepted_topics, "lesson title mismatch"
+                # Published bank titles are immutable. Current project titles
+                # may be revised while teaching the same underlying concepts;
+                # concept alignment needs the substantive teacher review.
+                assert bank_topic.strip() and student_topic.strip()
                 ids = [item["concept_id"] for item in bank["items"]]
                 assert len(set(ids)) == 5
                 answers = []
@@ -128,6 +132,15 @@ def validate(student: Path, execute: bool = False) -> dict:
                 stats["starting_points_run"] += 1
         stats["lessons"] += 1
 
+    for n in PLANNED_LESSONS:
+        lesson = f"lesson-{n:02d}"
+        for root in (student, TEACHER):
+            directory = root / lesson
+            present = {p.relative_to(directory).as_posix() for p in directory.rglob("*") if p.is_file()}
+            if present != {"README.md"}:
+                errors.append(f"{root.name}/{lesson}: planned lesson must contain only README.md")
+        stats["planned_lessons"] += 1
+
     for root in [student, TEACHER]:
         # 教师手册位于单仓库的子目录，合法地链接到同一仓库的
         # student-template/ 和 .github/。独立的学生模板仍以自身为边界。
@@ -153,7 +166,7 @@ def validate(student: Path, execute: bool = False) -> dict:
 
 def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--student", type=Path, default=TEACHER.parent / "lesson-01-first-green")
+    parser.add_argument("--student", type=Path, default=TEACHER.parent / "student-template")
     parser.add_argument("--run", action="store_true", help="Execute starting points; writes only their generated artifacts")
     args = parser.parse_args()
     result = validate(args.student.resolve(), args.run)

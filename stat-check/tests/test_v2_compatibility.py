@@ -25,7 +25,7 @@ def test_legacy_bank_bytes_are_unchanged():
 
 
 def test_current_catalog_is_v2_and_legacy_lookup_survives():
-    assert len(CURRENT_BANKS) == 32
+    assert len(CURRENT_BANKS) == 8
     assert DEFAULT_BANK.lesson_id == "v2-l01-r3"
     assert BANKS["bootcamp-01"].lesson_id == "bootcamp-01"
     assert BANKS["s04-grouped-comparison"].lesson_id == "s04-grouped-comparison"
@@ -37,7 +37,7 @@ def test_published_v2_bank_bytes_are_unchanged():
     expected = json.loads(Path(__file__).with_name("published_v2_bank_hashes.json").read_text())
     assert len(expected) == 32
     for name, digest in expected.items():
-        assert hashlib.sha256((directory / name).read_bytes()).hexdigest() == digest
+        assert hashlib.sha256(next(bank.path for bank in BANKS.values() if bank.path.name == name).read_bytes()).hexdigest() == digest
 
 
 def test_language_revision_preserves_question_structure_and_answer_keys():

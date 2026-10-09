@@ -1,0 +1,30 @@
+{
+  "source-tracked": {
+    "files": 688,
+    "source_bytes": 6361883,
+    "archive_bytes": 1771296,
+    "archive_sha256": "c8df356bf4eec89f63708a5ea59a56e8099274e1786dea1c9faf42f989f161f5",
+    "verified": true
+  },
+  "lessons-01-08": {
+    "files": 96,
+    "source_bytes": 526937,
+    "archive_bytes": 196427,
+    "archive_sha256": "607e7b19d4c0a04dad667ff0c56f19b6a76a9357a15746980112b33bdaf97b37",
+    "verified": true
+  },
+  "lessons-09-32-and-specific-assets": {
+    "files": 397,
+    "source_bytes": 3366311,
+    "archive_bytes": 771079,
+    "archive_sha256": "0a938f4f0bbf43af39f3211f53bfa24bfc2be9674ff05e7fb92975d505e84b75",
+    "verified": true
+  },
+  "old-course-documents": {
+    "files": 17,
+    "source_bytes": 74216,
+    "archive_bytes": 32539,
+    "archive_sha256": "7da9dc81ca54710b4c80dbcafa147c51ec6eaf12aaebd6ef19d79e33ff9448bb",
+    "verified": true
+  }
+}

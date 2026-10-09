@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l02-r4",
+  "title": "第02课 · 分析结论对统计口径有多敏感",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "quantile",
+      "title": "分位数与计算约定",
+      "tutor_context": "请用新的五条数据说明排序、百分位位置与插值，并解释不同合法算法为何可能给出不同结果。",
+      "pair": {
+        "a": {
+          "prompt": "四件包裹运输时长排序为2、6、12、20小时。第60百分位数约定用位置h=(n−1)×0.60，位置从0开始并在线性相邻值之间插值。结果是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "12小时，直接取第三个数。",
+              "misconception": "round-percentile-position-without-interpolation"
+            },
+            {
+              "id": "B",
+              "text": "20小时，百分位数都取最大值。",
+              "misconception": "equate-percentile-with-maximum"
+            },
+            {
+              "id": "C",
+              "text": "10.8小时，因为h=1.8，位于6与12之间。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "9小时，因为百分位数就是均值。",
+              "misconception": "equate-percentile-with-arithmetic-mean"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：h=3×0.60=1.8；位置1与2的值为6和12，6+0.8×(12−6)=10.8小时。A改用了取整规则。B把任意百分位都当最大值。D的9既不是此插值结果，也把分位位置和均值混为一谈；这四项的均值实际上为10小时。"
+        },
+        "b": {
+          "prompt": "两名分析者对同一批有效等待计算第90百分位数，一人得到16.4分钟，另一人得到18分钟。前者用线性插值，后者用最近秩算法。尚未核查实现。下一步哪项最合理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "先核对纳入记录、排序和各自算法，再统一比较所用约定；不同结果不自动说明其中一人算错。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "较大结果一定更真实，因为它更保守。",
+              "misconception": "conservatism-selects-true-percentile"
+            },
+            {
+              "id": "C",
+              "text": "把两个结果平均后，当作不依赖算法的标准答案。",
+              "misconception": "average-method-results-without-definition"
+            },
+            {
+              "id": "D",
+              "text": "只把两张图用同一颜色画出，数值便可直接比较。",
+              "misconception": "formatting-repairs-calculation-convention"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：相同数据的合法分位数约定可能不同，公平比较需先核对范围和算法；仍要检查实现是否符合各自约定。B用偏好代替定义。C平均两个方法的结果并未定义新的有依据分位数。D的图形颜色不改变计算约定。"
+        }
+      }
+    },
+    {
+      "concept_id": "dispersion",
+      "title": "离散程度与单位",
+      "tutor_context": "请分别解释标准差的测量单位和相同均值下不同离散程度，再区分四分位距所描述的范围。",
+      "pair": {
+        "a": {
+          "prompt": "同一组时长按分钟记录，描述现有记录的标准差为1.5分钟，计算分母固定为n。将每个数都换成秒，再采用同一分母，标准差应是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "1.5秒，单位变了但数值不变。",
+              "misconception": "change-unit-label-without-scale-conversion"
+            },
+            {
+              "id": "B",
+              "text": "5400秒，标准差按60的平方放大。",
+              "misconception": "apply-variance-scaling-to-standard-deviation"
+            },
+            {
+              "id": "C",
+              "text": "1.5分钟，因为离散程度不能换算单位。",
+              "misconception": "deny-unit-conversion-for-dispersion"
+            },
+            {
+              "id": "D",
+              "text": "90秒，与每个时长一样乘以60。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：标准差与原变量同单位，所有值乘60时标准差也乘60，1.5×60=90秒。A只换单位标签。B把方差的平方缩放套到标准差。C错误否认单位换算；保留1.5分钟是同一量的另一种表达，但题目要求秒。"
+        },
+        "b": {
+          "prompt": "两间合成机房的温度记录分别为19、21摄氏度和9、31摄氏度。每间均值都是20摄氏度。哪项判断准确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "均值相同，标准差也必须相同。",
+              "misconception": "equal-location-implies-equal-dispersion"
+            },
+            {
+              "id": "B",
+              "text": "第二间的记录离20更远，离散程度更大；这不表示其均值更高。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "第二间均值是第一间的两倍，因为跨度较大。",
+              "misconception": "interpret-range-as-location-ratio"
+            },
+            {
+              "id": "D",
+              "text": "标准差只描述样本量，两间各两条所以相同。",
+              "misconception": "standard-deviation-measures-record-count"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：偏离均值分别为±1与±11，按相同分母计算第二间标准差更大，但均值仍为20。A忽略位置和离散描述不同方面。C把跨度误当均值。D把标准差误当记录数量。"
+        }
+      }
+    },
+    {
+      "concept_id": "definition",
+      "title": "统计口径与研究问题",
+      "tutor_context": "请提出两种都有用途但分析范围或目标不同的摘要，说明它们为何不能当作同一个量的纠错结果。",
+      "pair": {
+        "a": {
+          "prompt": "运输报告原来描述“已经送达订单从发货到签收的时长”，后来改为“所有订单从发货到签收或取消的经过时间”。哪项理解正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "记录范围和终点定义都改变了，两项摘要回答不同问题，应分别说明。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "后者自动证明前者的计算错误。",
+              "misconception": "new-target-proves-old-calculation-wrong"
+            },
+            {
+              "id": "C",
+              "text": "取消订单的经过时间可以一律写0，两个定义就相同。",
+              "misconception": "replace-unobserved-delivery-time-with-zero"
+            },
+            {
+              "id": "D",
+              "text": "只要列名都叫时长，就可不说明终点。",
+              "misconception": "same-column-name-implies-same-measurement"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：已送达与全部订单是不同范围，签收与取消也不是同一终点。B把目标变化误称纠错。C把取消经历改成零会改变含义，也不能获得不存在的签收时间。D用列名掩盖测量定义。"
+        },
+        "b": {
+          "prompt": "一份报告按各中心实际业务构成计算平均等待，另一份把每类业务都赋相同权重再计算。这两份结果不同，但原始数据、组内计算均经核对无误。哪句话最准确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "至少一份程序一定出错，平均等待只有唯一口径。",
+              "misconception": "assume-only-one-weighting-target"
+            },
+            {
+              "id": "B",
+              "text": "相同权重一定恢复了每个中心真实发生的业务构成。",
+              "misconception": "equal-weights-recreate-actual-composition"
+            },
+            {
+              "id": "C",
+              "text": "可选择使排名最喜欢的一份而不说明权重。",
+              "misconception": "choose-weighting-by-desired-ranking"
+            },
+            {
+              "id": "D",
+              "text": "前者描述实际构成，后者描述假定的共同构成；需说明两种用途和权重含义。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：实际构成与共同构成的加权目标不同，数值差异不必来自计算错误。A错误认定只能有一种合理口径。B把人为共同权重当作实际构成。C按偏好挑选结果，隐藏了会影响判断的分析选择。"
+        }
+      }
+    },
+    {
+      "concept_id": "sensitivity",
+      "title": "有依据的敏感性分析",
+      "tutor_context": "请换一个决策情境，说明何为有理由的方案范围、结果保持时能说到哪里，以及结果改变时如何解释。",
+      "pair": {
+        "a": {
+          "prompt": "研究者预先依据业务规则检查了三个等待门槛，甲的超时比例在三种规则下都低于乙。哪种报告措辞得到检查的直接支持？",
+          "options": [
+            {
+              "id": "A",
+              "text": "甲在任何可能门槛下都更好。",
+              "misconception": "generalize-finite-checks-to-all-definitions"
+            },
+            {
+              "id": "B",
+              "text": "排名没有反转，所以敏感性分析没有价值。",
+              "misconception": "require-reversal-for-valid-sensitivity"
+            },
+            {
+              "id": "C",
+              "text": "在已检查且有业务理由的三个门槛下，甲的超时比例都较低；其他门槛未评价。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "因为试了多个门槛，甲较低就成了因果结论。",
+              "misconception": "sensitivity-analysis-proves-causality"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：检查支持的是所列合理门槛范围内的稳定方向。A把有限范围外推为全部选择。B忽略稳定性本身也是结果。D没有通过门槛比较建立因果识别条件。"
+        },
+        "b": {
+          "prompt": "委员会事先规定要比较两个合理评价方案。两方案都没有改变调查名单。一名成员建议再随意试几十个权重，直到名单反转后才报告。哪种做法更合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只报告最后找到的反转，这能证明做过敏感性分析。",
+              "misconception": "search-until-reversal-and-report-selectively"
+            },
+            {
+              "id": "B",
+              "text": "报告预定方案、未改变的结果与适用范围；新增方案需有用途依据，不能为制造反转而挑选。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "删去一个方案，让报告只留下单一结果。",
+              "misconception": "hide-reasonable-alternative-after-comparison"
+            },
+            {
+              "id": "D",
+              "text": "名单相同就证明所有指标和每个人的经历完全相同。",
+              "misconception": "stable-decision-implies-identical-data"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：有理由的选择及其后果是分析重点，结论保持也有信息。A按想要的变化挑选结果。C隐藏已经比较过的合理方案。D把名单稳定误当所有指标与个体经历相同。"
+        }
+      }
+    },
+    {
+      "concept_id": "exploration",
+      "title": "探索与后续评价",
+      "tutor_context": "请区分计算复核、在同期资料中继续探索和使用未参与发现的数据评价固定规则，并说明仍需核查可比条件。",
+      "pair": {
+        "a": {
+          "prompt": "分析者在同一期资料中试过许多指标，挑出一个差异最大的指标。若希望用较独立资料检验这项发现，以下哪一步最合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "在原资料上再挑一次差异最大的指标。",
+              "misconception": "repeat-outcome-selection-on-discovery-data"
+            },
+            {
+              "id": "B",
+              "text": "把原表复制成另一个文件后重算。",
+              "misconception": "file-copy-creates-independent-evidence"
+            },
+            {
+              "id": "C",
+              "text": "只换绘图颜色，并保留最突出的差异。",
+              "misconception": "new-presentation-is-new-validation"
+            },
+            {
+              "id": "D",
+              "text": "先固定指标、范围和比较规则，再用未参与发现的另一批资料评价，同时核查时期和构成可比性。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：未参与发现的资料能提供较独立的评价，固定规则避免再次按结果挑选；仍须核查资料是否可比。A重复探索。B复制文件没有增加独立信息。C只改变呈现方式。"
+        },
+        "b": {
+          "prompt": "另一位分析者使用不同代码，把同一批原记录和同一口径的主要数字独立复算一致。这最直接增加了什么证据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "增加计算可复核性的证据，但并未取得另一批独立资料来验证发现。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "证明结论适用于所有未来月份。",
+              "misconception": "computational-replication-proves-future-generalization"
+            },
+            {
+              "id": "C",
+              "text": "把原有登记资料自动变成随机样本。",
+              "misconception": "reimplementation-changes-sampling-mechanism"
+            },
+            {
+              "id": "D",
+              "text": "证明所有备选口径都会得到同一结论。",
+              "misconception": "same-definition-replication-proves-all-definitions"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：不同实现复算可检查计算错误，但两次仍使用同一资料和口径。B越过未来适用性限制。C代码不改变资料取得机制。D只检查了一种口径，不能替代其他合理选择的比较。"
+        }
+      }
+    }
+  ]
+}

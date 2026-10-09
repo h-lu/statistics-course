@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l04-r4",
+  "title": "第04课 · 设计服务质量评价办法",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "center-tail",
+      "title": "集中趋势与较长等待",
+      "tutor_context": "请用中位数和靠后分位数给出不同排序的情境，说明所关心目标与不能写成全面优越的原因。",
+      "pair": {
+        "a": {
+          "prompt": "两个合成柜台的有效已服务记录中，甲中位等待4分钟、第90百分位数27分钟；乙分别为7分钟和15分钟，算法与范围一致。哪种评价最准确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "甲的中间位置较短，乙的靠后位置较短；应按评价目标分别解释，不能仅据其中一项说全面更好。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "甲中位数低，所以其每位顾客都比乙等得短。",
+              "misconception": "median-order-implies-every-individual-order"
+            },
+            {
+              "id": "C",
+              "text": "乙第90百分位数低，所以乙中位数也必然低。",
+              "misconception": "tail-quantile-order-implies-center-order"
+            },
+            {
+              "id": "D",
+              "text": "两种指标排序不同，说明至少一种计算必然错误。",
+              "misconception": "different-summary-goals-imply-calculation-error"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：中位数与第90百分位数描述不同位置，给出不同排序可以是数据的真实特征。B把中位位置扩展到每个个体。C忽略已经给出的中位数。D把不同评价目标的结果误作算错。"
+        },
+        "b": {
+          "prompt": "11张已服务工单等待均有效。最大值原为18分钟，次大值17分钟；核实后最大值修正为58分钟，排序仍是最后一项，其他值不变。第90百分位数采用位置(n−1)×0.90的线性插值。哪项准确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "均值、中位数与第90百分位数都不变。",
+              "misconception": "assume-all-summaries-immune-to-largest-value"
+            },
+            {
+              "id": "B",
+              "text": "中位数和第90百分位数都增加40分钟。",
+              "misconception": "transfer-maximum-change-to-all-order-statistics"
+            },
+            {
+              "id": "C",
+              "text": "均值增加40/11分钟；中位数不变，第90百分位数仍为17分钟。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "均值下降，因为修正只涉及一张工单。",
+              "misconception": "single-large-increase-lowers-mean"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：总等待增加40分钟，均值增加40/11；中位数是第6项，不涉及最大值；P90位置为10×0.90=9，即从0开始的第9项，也就是次大值17。A忽略总量变化。B把最大值的变化套到其他排序位置。D与均值的加总定义相反。"
+        }
+      }
+    },
+    {
+      "concept_id": "iqr-robustness",
+      "title": "四分位距与稳健性的局限",
+      "tutor_context": "请解释四分位距保留了哪些分布信息、遗漏了哪些信息，并换一个较大极端值不改变四分位距的例子。",
+      "pair": {
+        "a": {
+          "prompt": "两套有效时长数据采用相同算法，第一四分位数都为6分钟，第三四分位数都为10分钟；甲最大值14分钟，乙最大值90分钟。哪项解释合理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "四分位距相同，所以最大等待和总等待都相同。",
+              "misconception": "same-iqr-implies-entire-distribution-identical"
+            },
+            {
+              "id": "B",
+              "text": "两者四分位距都是4分钟，只说明中间一半跨度相同；尾部仍可能很不同。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "乙四分位距是90−6=84分钟。",
+              "misconception": "use-maximum-instead-of-third-quartile"
+            },
+            {
+              "id": "D",
+              "text": "四分位距相同证明所有时长都相同。",
+              "misconception": "zero-or-equal-iqr-implies-no-variation"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：IQR=10−6=4分钟，仅描述中间一半的跨度。A把相同IQR扩展到全部分布与总量。C把第三四分位数换成最大值。D把同一个摘要数当作所有观测相同。"
+        },
+        "b": {
+          "prompt": "七个有效时长已排序，只有最大值被确认更大，其余六个不变，且修改后仍为最大值。第一和第三四分位数均用位置(n−1)×p线性插值。哪项一定成立？",
+          "options": [
+            {
+              "id": "A",
+              "text": "四分位距一定增大，因为最大值增大。",
+              "misconception": "maximum-change-always-changes-iqr"
+            },
+            {
+              "id": "B",
+              "text": "总时长不变，因为最大值不参与中位数。",
+              "misconception": "exclude-tail-from-total-sum"
+            },
+            {
+              "id": "C",
+              "text": "四分位距不变，所以全部用户的经历完全没有变化。",
+              "misconception": "stable-middle-spread-implies-no-record-change"
+            },
+            {
+              "id": "D",
+              "text": "四分位距不变，但总时长和均值增大；仍须关注这次极长经历。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：n=7，两个四分位位置是1.5和4.5，都不涉及最大值的位置6，故IQR不变；总量及均值使用最大值，都会增加。A忽略分位位置。B把中位数的性质套到总量。C把摘要稳定当作所有记录不变。"
+        }
+      }
+    },
+    {
+      "concept_id": "composite",
+      "title": "综合指标的尺度与权重",
+      "tutor_context": "请解释测量单位变换如何保持同一总分规则，并说明一个维度较好为何不必抵消不可接受的严重问题。",
+      "pair": {
+        "a": {
+          "prompt": "另设评价总分S=平均等待分钟数/5分钟+2×未解决比例，比例写成0到1。现在等待改用秒记录，希望保持原先相同的相对权重。哪种写法等价？",
+          "options": [
+            {
+              "id": "A",
+              "text": "S=平均等待秒数/5秒+2×未解决比例。",
+              "misconception": "keep-normalization-number-after-unit-change"
+            },
+            {
+              "id": "B",
+              "text": "S=平均等待秒数/300秒+2×未解决百分数，百分数写成0到100。",
+              "misconception": "change-proportion-scale-without-weight-change"
+            },
+            {
+              "id": "C",
+              "text": "S=平均等待秒数/300秒+120×未解决比例。",
+              "misconception": "rescale-unrelated-indicator-weight"
+            },
+            {
+              "id": "D",
+              "text": "S=平均等待秒数/300秒+2×未解决比例，比例仍写成0到1。",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "D正确：5分钟=300秒，等待分项保持相同，比例的尺度与系数也保持原样。A把等待分项放大60倍。B把比例从0到1换到0到100却不改系数，放大其相对权重100倍。C无依据把另一分项权重也乘60。"
+        },
+        "b": {
+          "prompt": "评价部门声明：只要出现一项未经核实的严重安全事件，就暂缓发布“合格”结论，无论一般等待多短。甲乙的综合总分相同，但甲有此类事件、乙没有。哪项最符合这套规则？",
+          "options": [
+            {
+              "id": "A",
+              "text": "分别报告原指标并执行安全事件的暂缓条件；相同总分不消除这一限制。",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "总分相同就必须发布相同“合格”结论。",
+              "misconception": "composite-score-erases-noncompensatory-rule"
+            },
+            {
+              "id": "C",
+              "text": "甲的等待如果很短，便可自动抵消安全事件。",
+              "misconception": "good-center-offsets-prohibited-serious-event"
+            },
+            {
+              "id": "D",
+              "text": "为使两者一致，直接把甲的安全事件改成不存在。",
+              "misconception": "modify-data-to-fit-composite-ranking"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A正确：此规则明确设定不能由其他表现抵消的发布条件，总分之外必须保留原指标。B忽略该条件。C擅自允许抵消。D篡改记录而非评价证据。暂缓是规则要求，不等于已经判定事件造成了某种现实后果。"
+        }
+      }
+    },
+    {
+      "concept_id": "goal-metric",
+      "title": "评价事件、分母与阈值",
+      "tutor_context": "请分别解释个体事件与群体触发比例，使用一个重叠事件和一个等于阈值的反例检验分子分母。",
+      "pair": {
+        "a": {
+          "prompt": "18张不同投诉的状态均已知：5张未解决，7张回复迟到，其中3张同时未解决且迟到。规则关注“未解决或迟到”的投诉。此事件比例是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "12/18，因为5与7直接相加。",
+              "misconception": "double-count-overlap-in-composite-event"
+            },
+            {
+              "id": "B",
+              "text": "3/18，因为只计算同时符合者。",
+              "misconception": "replace-union-event-with-intersection"
+            },
+            {
+              "id": "C",
+              "text": "9/18，即50%，因为同时符合者只计一次。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "9/12，因为分母只用有某项问题的出现次数。",
+              "misconception": "use-issue-occurrences-as-complaint-denominator"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：事件并集为5+7−3=9张，分母是18张不同投诉，所以50%。A重复计入交集。B算的是“未解决且迟到”。D把分母换成两种问题的出现次数，和所问投诉比例不符。"
+        },
+        "b": {
+          "prompt": "另设规则：一张工单“严格超过22分钟”算超时，一组工单“至少25%超时”就调查。16张等待有效工单中，4张严格超过22分钟、2张恰好22分钟，其余低于22。按规则应怎样判断？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不调查，因为组内比例必须严格超过25%。",
+              "misconception": "replace-at-least-group-threshold-with-strictly-greater"
+            },
+            {
+              "id": "B",
+              "text": "超时4张，占25%，应调查；恰好22分钟的两张不计超时。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "超时6张，应调查，因为恰好22也属于严格超过。",
+              "misconception": "include-equality-in-strict-individual-threshold"
+            },
+            {
+              "id": "D",
+              "text": "不调查，因为一张工单的分钟数不能用于任何组级规则。",
+              "misconception": "deny-valid-aggregation-of-defined-events"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：个体条件是>22，分子4、分母16，比例25%；组级条件是≥25%，等号触发调查。A把组级“至少”改成严格大于。C把个体“严格超过”改成包含等号。D否定了对明确定义事件计算群体比例的合理做法。"
+        }
+      }
+    },
+    {
+      "concept_id": "incentive",
+      "title": "评价办法与行为激励",
+      "tutor_context": "请换一种评分可能影响记录范围或时间记录的情境，说明如何核查风险而不把动机或效果当作已证明事实。",
+      "pair": {
+        "a": {
+          "prompt": "服务站采用“已受理业务的平均等待越低越好”作为主要评价。后来平均等待下降，同时复杂业务受理数量明显减少。哪项建议最有依据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "均值下降证明同类复杂业务服务已经变快。",
+              "misconception": "composition-change-proves-within-type-improvement"
+            },
+            {
+              "id": "B",
+              "text": "核查咨询、拒收、转介与业务构成记录，并作同类比较；不能仅凭均值认定改善或故意少接。",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "复杂业务少了就证明工作人员有意操纵评分。",
+              "misconception": "infer-intent-from-aggregate-pattern"
+            },
+            {
+              "id": "D",
+              "text": "删去业务类型字段，评价便不会受构成影响。",
+              "misconception": "remove-composition-variable-removes-composition-effect"
+            }
+          ],
+          "answer": "B",
+          "explanation": "B正确：已有现象与业务构成或选择性受理有关的解释相容，需补充覆盖与同类资料；既不自动证明改善，也不证明动机。A忽略构成变化。C将一种风险当作已查实意图。D删除字段只妨碍核查，并不会改变业务构成。"
+        },
+        "b": {
+          "prompt": "一项等待考核从“进入排队区”改为“工作人员点击开始”作为计时起点。某站成绩改善，但真正入队到点击之间没有记录。若关心顾客真实经历，下一步最重要的核查是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只反复重算点击后的时长，以确认较小均值。",
+              "misconception": "repeat-selected-measurement-without-coverage-check"
+            },
+            {
+              "id": "B",
+              "text": "把改善幅度直接解释为服务效率提高。",
+              "misconception": "redefined-clock-proves-process-improvement"
+            },
+            {
+              "id": "C",
+              "text": "补充或核对独立入队时间与点击时间，检查未计入的等待，并按相同起止定义比较。",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "因为存在改起点的可能性，断言该站已经作弊。",
+              "misconception": "measurement-risk-proves-misconduct"
+            }
+          ],
+          "answer": "C",
+          "explanation": "C正确：目标是顾客经历，需要核查被改变的起点与遗漏时段；相同测量定义才便于比较。A只能复核当前被截短的时段。B把定义变化造成的改善当效果。D在缺少核实证据时直接归因于故意行为。"
+        }
+      }
+    }
+  ]
+}

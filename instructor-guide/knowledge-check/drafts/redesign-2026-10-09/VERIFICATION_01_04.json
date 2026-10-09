@@ -1,0 +1,51 @@
+{
+  "draft_lessons": [
+    "v2-l01-r4",
+    "v2-l02-r4",
+    "v2-l03-r4",
+    "v2-l04-r4"
+  ],
+  "concepts": 20,
+  "questions": 40,
+  "byte_identical_runtime_pairs": 4,
+  "answer_distributions": {
+    "v2-l01-r4": {
+      "A": 2,
+      "D": 3,
+      "B": 3,
+      "C": 2
+    },
+    "v2-l02-r4": {
+      "C": 2,
+      "A": 3,
+      "D": 3,
+      "B": 2
+    },
+    "v2-l03-r4": {
+      "D": 3,
+      "B": 3,
+      "C": 2,
+      "A": 2
+    },
+    "v2-l04-r4": {
+      "A": 2,
+      "C": 3,
+      "B": 3,
+      "D": 2
+    }
+  },
+  "numeric_relations_checked": true,
+  "unchanged_published_yml_files": 174,
+  "installed_banks": 87,
+  "current_ids_unchanged": [
+    "v2-l01-r3",
+    "v2-l02-r3",
+    "v2-l03-r3",
+    "v2-l04-r3",
+    "v2-l05-r4",
+    "v2-l06-r3",
+    "v2-l07-r3",
+    "v2-l08-r3"
+  ],
+  "draft_ids_absent_from_BANKS": true
+}

@@ -1,0 +1,10 @@
+{
+  "test_student_reading_clarifications.py": {
+    "bytes": 11596,
+    "sha256": "ff3d5635205dc0f49a4a35a8095a73aeab14b265b716dbf84d943421707f7922"
+  },
+  "test_student_cold_read_01_08.py": {
+    "bytes": 8234,
+    "sha256": "d31a51d176ebee021997d721b2269be0e7e55ea26e6199c46258f3fa7f97a12d"
+  }
+}
