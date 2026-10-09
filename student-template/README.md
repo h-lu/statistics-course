@@ -1,6 +1,8 @@
 # 统计学项目课学生仓库
 
-本仓库当前提供第1–8课的学习材料、教学合成数据、示例程序和提交检查工具。全学期共32次课；第9–32课目前只有大纲占位，新课包尚未制作。每课的具体任务写在对应目录的 `README.md` 中，`SUPPORT.md` 提供可选提示和排错，`LEARN.md` 解释本课概念与小例子。
+本仓库当前提供第1–8课的学习材料、教学合成数据、示例程序和提交检查工具。全学期共32次课；第9–32课暂未开放，新课包尚未制作。每课的具体任务写在对应目录的 `README.md` 中，`SUPPORT.md` 提供可选提示和排错，`LEARN.md` 解释本课概念与小例子。
+
+已完成前七次作业的同学无需重交。
 
 课程的目标不是写出最多代码，而是用数据回答一个清楚的问题：你观察到了什么，证据是什么，结论适用于哪里，下一步还需要核实什么。你可以使用 AI 辅助编程、计算、查资料和修改文字，但提交前必须自己检查变量、分母、计算结果和结论范围。
 
@@ -14,7 +16,20 @@
 
 ## 当前学习入口
 
-第[1](lesson-01/README.md)、[2](lesson-02/README.md)、[3](lesson-03/README.md)、[4](lesson-04/README.md)、[5](lesson-05/README.md)、[6](lesson-06/README.md)、[7](lesson-07/README.md)、[8](lesson-08/README.md)课各有独立任务。先读本课 `README.md`，明确分析问题和成果要求，再自主安排分析。需要帮助时，可查阅 `SUPPORT.md` 的提示或 `LEARN.md` 的概念解释。提交前回到 `README.md`，核对标准任务是否完成、结论是否有计算结果支持。
+直接选择本课的新版学习页。先读情境与目标，再自主安排分析；概念和小例见知识页，遇阻时选择支持页中的提示。
+
+| 课次 | 新版学习页 | 知识与小例 | 可选支持 |
+|---|---|---|---|
+| 01 | [服务数据的探索性分析](lesson-01/README.md) | [数字描述的是谁](lesson-01/LEARN.md) | [遇到困难时再查](lesson-01/SUPPORT.md) |
+| 02 | [分析结论对统计口径有多敏感](lesson-02/README.md) | [比较与统计口径](lesson-02/LEARN.md) | [选择与核对方法](lesson-02/SUPPORT.md) |
+| 03 | [业务数据质量与适用性评估](lesson-03/README.md) | [版本、单位与缺失](lesson-03/LEARN.md) | [数据核查提示](lesson-03/SUPPORT.md) |
+| 04 | [怎样评价服务质量](lesson-04/README.md) | [指标与评价规则](lesson-04/LEARN.md) | [评价与复核提示](lesson-04/SUPPORT.md) |
+| 05 | [有限复核名额下的告警策略](lesson-05/README.md) | [成本、损失与取舍](lesson-05/LEARN.md) | [策略比较提示](lesson-05/SUPPORT.md) |
+| 06 | [业务构成不同的机构应如何比较](lesson-06/README.md) | [共同构成与比较范围](lesson-06/LEARN.md) | [分层核算提示](lesson-06/SUPPORT.md) |
+| 07 | [满意度调查的覆盖与无回答问题](lesson-07/README.md) | [未知评价与敏感性](lesson-07/LEARN.md) | [覆盖与假设提示](lesson-07/SUPPORT.md) |
+| 08 | [多表数据整合与统计指标核查](lesson-08/README.md) | [连接、单位与分母](lesson-08/LEARN.md) | [整合与核查提示](lesson-08/SUPPORT.md) |
+
+第9–32课尚未开放，课包完成并核验后由教师另行通知。
 
 ## 第一次使用
 
@@ -136,6 +151,5 @@ python scripts/course.py run 01
 - [AI 使用建议](docs/AI_USAGE.md)
 - [知识自查说明](docs/KNOWLEDGE_CHECK.md)
 - [数据总说明](data/README.md)
-- [课程逐课发布日程](https://hblu.top/gitea/statistics/course-student-release-2026/src/branch/main/RELEASE_SCHEDULE.md)
 
 完成本课项目后进入[知识自查](https://hblu.top/stat-check/)，确认教师已经开放对应场次后再作答。
