@@ -84,7 +84,7 @@ def revision():
                        "conflict": len(signatures) != 1,
                        "published_wait": latest[0]["wait"] if len(signatures) == 1 else None})
     return {"synthetic_microcase": True, "raw": records, "selection": output,
-            "question": "冲突时停止全部发布与隔离该工单各适用于什么用途？两者报告的范围怎样不同？"}
+            "question": "最新版本存在冲突时，哪些指标需要暂缓使用？哪些已知信息仍可保留？说明不同处理下结果的适用范围。"}
 
 
 def staffing():

@@ -14,7 +14,7 @@
 
 ## 当前学习入口
 
-第[1](lesson-01/README.md)、[2](lesson-02/README.md)、[3](lesson-03/README.md)、[4](lesson-04/README.md)、[5](lesson-05/README.md)、[6](lesson-06/README.md)、[7](lesson-07/README.md)、[8](lesson-08/README.md)课各有独立任务。按 README明确问题 → 自主分析，按需SUPPORT/LEARN → 核对标准证据 自主安排学习。
+第[1](lesson-01/README.md)、[2](lesson-02/README.md)、[3](lesson-03/README.md)、[4](lesson-04/README.md)、[5](lesson-05/README.md)、[6](lesson-06/README.md)、[7](lesson-07/README.md)、[8](lesson-08/README.md)课各有独立任务。先读本课 `README.md`，明确分析问题和成果要求，再自主安排分析。需要帮助时，可查阅 `SUPPORT.md` 的提示或 `LEARN.md` 的概念解释。提交前回到 `README.md`，核对标准任务是否完成、结论是否有计算结果支持。
 
 ## 第一次使用
 

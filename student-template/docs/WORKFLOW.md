@@ -61,7 +61,7 @@ python scripts/course.py start 03
 python scripts/course.py run 03
 ```
 
-阅读 `lesson-03/README.md`、`SUPPORT.md` 和 `LEARN.md`，再修改程序和报告。原始数据不手工改写，处理后的数据和图表另存到 `lesson-03/artifacts/`。
+阅读 `lesson-03/README.md`，明确任务，再自主修改程序和报告；需要帮助时，可查阅 `SUPPORT.md` 的提示和 `LEARN.md` 的概念解释。原始数据不手工改写，处理后的数据和图表另存到 `lesson-03/artifacts/`。
 
 在 `lesson-03/submission.json` 中填写：
 
