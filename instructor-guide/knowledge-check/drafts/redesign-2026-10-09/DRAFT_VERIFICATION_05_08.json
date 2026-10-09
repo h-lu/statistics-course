@@ -49,12 +49,12 @@
       "id": "v2-l08-r4",
       "filename": "lesson-v2r4-08.yml",
       "questions": 10,
-      "bytes": 15786,
-      "sha256": "c2c45852af5338e57b497d807dee4b79132eb179904a0bc206b51f8499d4d8c6",
+      "bytes": 16231,
+      "sha256": "073f1b0b63f3f37672e28169fba13fb470aa39803addc7c403d6bb452d219380",
       "answer_distribution": {
         "A": 2,
-        "B": 2,
-        "C": 3,
+        "B": 3,
+        "C": 2,
         "D": 3
       }
     }
@@ -106,5 +106,58 @@
     "stat-check/app/question_bank/lesson-v2r3-07.yml": "cc853f1be125e53cfb2ef022ddb8989328ac5d73107c43129812ace7923d79ec",
     "stat-check/app/question_bank/lesson-v2r3-08.yml": "7b3641eb7e617ea0e4850005de35deeafbebfdcdf4db1cbd995dfbb096d28f51",
     "stat-check/app/question_bank/lesson-v2r4-05.yml": "d1c134ae2841b232bd5c440d4a8fed35d75ca9a65e87cce2526bee54c1ae9406"
-  }
+  },
+  "lesson08_parallel_pairs": [
+    {
+      "concept_id": "latest-revision-conflict",
+      "title": "最新修订中的内容冲突",
+      "answers": [
+        "C",
+        "A"
+      ]
+    },
+    {
+      "concept_id": "aggregate-before-unit-join",
+      "title": "先汇总事件，保留主表单位",
+      "answers": [
+        "B",
+        "D"
+      ]
+    },
+    {
+      "concept_id": "unit-mean-after-duplication",
+      "title": "重复行与单位等权均值",
+      "answers": [
+        "D",
+        "B"
+      ]
+    },
+    {
+      "concept_id": "unmatched-activity-zero-or-unknown",
+      "title": "未匹配活动记录：零还是未知",
+      "answers": [
+        "A",
+        "C"
+      ]
+    },
+    {
+      "concept_id": "person-time-plan-ratio",
+      "title": "统一人时单位后计算工作量与排班量之比",
+      "answers": [
+        "D",
+        "B"
+      ]
+    }
+  ],
+  "lesson08_numeric_contracts": {
+    "ticket_equal_mean": 12,
+    "ticket_expanded_mean": 14,
+    "ticket_wrong_denominator": 42,
+    "order_equal_mean": 140,
+    "order_expanded_mean": 110,
+    "order_wrong_denominator": 220,
+    "time_ratio_a": "7/12",
+    "time_ratio_b": "10/13"
+  },
+  "lesson08_pairing_review": "Independent content review passed: same core relation and comparable reasoning/calculation steps; classroom difficulty equivalence unmeasured."
 }

@@ -8,307 +8,307 @@
   },
   "items": [
     {
-      "concept_id": "keys-and-revisions",
-      "title": "联合主键与最新修订冲突",
-      "tutor_context": "用一天有多个班次的排班说明主键随记录单位改变；再解释同一最新修订号出现内容冲突时不能随意选行。",
+      "concept_id": "latest-revision-conflict",
+      "title": "最新修订中的内容冲突",
+      "tutor_context": "另设两行同属最新修订但测量值不同的例子，说明版本较新与内容已核实的区别，以及哪些信息仍可保留。不要复述原题或给出原题答案。",
       "pair": {
         "a": {
-          "prompt": "排班表一行表示一家门店在某天的一个班次，早晚班可各有一行，多个门店和日期均有记录。按此约定，哪个组合应唯一识别一行？",
+          "prompt": "工单K的旧修订号3记录等待6分钟；已确认最新修订号12有两行，分别记录5分钟和9分钟，其他字段一致。要依据最新已核实数据报告等待，哪项处理合适？",
           "options": [
             {
               "id": "A",
-              "text": "门店与日期",
-              "misconception": "ignore-within-day-shift"
-            },
-            {
-              "id": "B",
-              "text": "门店与班次",
-              "misconception": "ignore-calendar-date"
-            },
-            {
-              "id": "C",
-              "text": "门店、日期与班次",
-              "misconception": null
-            },
-            {
-              "id": "D",
-              "text": "日期与班次",
-              "misconception": "ignore-store-identity"
-            }
-          ],
-          "answer": "C",
-          "explanation": "A：同门店同日可有早晚两个班次，缺少班次不能唯一。 B：相同门店相同班次会跨日期重复。 C：三个字段共同对应指定的一家门店、一天、一个班次，匹配记录单位。 D：同一天同班次可有多家门店，缺少门店不能唯一。"
-        },
-        "b": {
-          "prompt": "工单K的修订号3记录等待6分钟；最新修订号12有两行，分别写5与9分钟。规则要求用数值最大的修订号，但两行均为最新且内容冲突。下一步应怎样处理？",
-          "options": [
-            {
-              "id": "A",
-              "text": "标记最新冲突、保留追溯信息并待核实，不随意选一行",
-              "misconception": null
-            },
-            {
-              "id": "B",
-              "text": "取文件最后一行，行序自然代表真值",
+              "text": "取文件最后一行的9分钟，作为已核实值",
               "misconception": "file-order-resolves-content-conflict"
             },
             {
-              "id": "C",
-              "text": "取5与9的平均7，称为已核实等待",
+              "id": "B",
+              "text": "取两行均值7分钟，作为已核实值",
               "misconception": "average-conflicting-records-as-truth"
             },
             {
+              "id": "C",
+              "text": "保留工单及冲突标记，将等待值列为待核实",
+              "misconception": null
+            },
+            {
               "id": "D",
-              "text": "退回修订3的6分钟，并称它仍是最新结果",
+              "text": "取旧修订的6分钟，仍称为最新已核实值",
               "misconception": "fallback-old-version-as-latest"
             }
           ],
+          "answer": "C",
+          "explanation": "A：文件顺序不能核实同一最新版本中的哪个值正确。 B：5与9的均值7是另作的计算，不能作为已核实测量。 C：两行都是最新却互相冲突，应保留追溯信息，相关等待暂不能作为已核实值。 D：旧修订可供追溯，但不能改称最新；临时使用需另说明规则和条件。"
+        },
+        "b": {
+          "prompt": "某商品库存的旧修订号4记录24件；已确认最新修订号9有两行，分别记录18件和22件，其他字段一致。要依据最新已核实数据报告库存，哪项处理合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "保留库存记录及冲突标记，将件数列为待核实",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "取两行均值20件，作为已核实值",
+              "misconception": "average-conflicting-records-as-truth"
+            },
+            {
+              "id": "C",
+              "text": "取旧修订的24件，仍称为最新已核实值",
+              "misconception": "fallback-old-version-as-latest"
+            },
+            {
+              "id": "D",
+              "text": "取文件最后一行的22件，作为已核实值",
+              "misconception": "file-order-resolves-content-conflict"
+            }
+          ],
           "answer": "A",
-          "explanation": "A：最大修订号只决定最新版本范围，不能解决相同最新号的内容冲突。 B：题目没有授权文件顺序决定最新同号的正确内容。 C：平均冲突值不是核实事实，未经依据创建了新的测量值。 D：旧版本可作追溯，但不能改称最新；如临时采用也需说明额外规则与影响。"
+          "explanation": "A：同一最新修订号的件数冲突，仍需核查来源；记录及其他一致信息可以保留。 B：18与22的均值20不代表已查明真实库存。 C：旧修订不是最新，不能用旧值冒充最新已核实值。 D：题目没有依据证明最后一行正确，行序不能消解内容冲突。"
         }
       }
     },
     {
-      "concept_id": "append-and-cardinality",
-      "title": "跨期追加与一对多汇总",
-      "tutor_context": "用跨期编号重叠说明追加行数不等于不同单位数；用每订单多次事件说明连接关系与保留主表单位。",
+      "concept_id": "aggregate-before-unit-join",
+      "title": "先汇总事件，保留主表单位",
+      "tutor_context": "另设一个主表对象对应多次事件、另一个没有事件且日志完整的例子，解释怎样保留每个主表对象一行并记录真实事件次数。不要复述原题或给出原题答案。",
       "pair": {
         "a": {
-          "prompt": "两期工单分别每编号一行，有75与45行，统一字段后按行追加得到120行；发现3个编号在两期都出现。仅凭这些事实，哪项判断正确？",
+          "prompt": "三张工单甲、乙、丙分别有1、3、0次接触，接触日志已确认完整。要补充接触次数并保持三张工单各一行，哪项合适？",
           "options": [
             {
               "id": "A",
-              "text": "两期时间不同，所以一定是120张不同工单",
-              "misconception": "period-label-guarantees-unique-units"
+              "text": "直接内连接接触表，仍称三张工单各一行",
+              "misconception": "inner-join-drops-zero-event-unit"
             },
             {
               "id": "B",
-              "text": "有120行不证明120张不同工单，需核实编号跨期含义和重叠",
+              "text": "先按工单汇总接触次数，再保留三张工单连接，次数为1、3、0",
               "misconception": null
             },
             {
               "id": "C",
-              "text": "以一期为左表连接二期即可保留两期全部工单",
-              "misconception": "left-join-keeps-all-new-period-units"
-            },
-            {
-              "id": "D",
-              "text": "按编号内连接仅留3行，就完成完整两期整合",
-              "misconception": "overlap-only-as-complete-periods"
-            }
-          ],
-          "answer": "B",
-          "explanation": "A：时间不同不保证编号对应不同单位，需要核对编号语义与重复来源。 B：按这些编号可数到117个不同值，但实体是否复用编号或重复导出仍需核实，不能跳过主键检查。 C：一期左连接不会自动保留仅出现在二期的工单。 D：内连接只保留共同编号，舍弃两期非重叠记录，不是全范围整合。"
-        },
-        "b": {
-          "prompt": "三张订单甲、乙、丙分别有2、0、1次配送，配送日志已确认完整。要给订单补充真实配送次数且保持每张订单一行，哪项合适？",
-          "options": [
-            {
-              "id": "A",
-              "text": "把3条配送记录追加到3张订单下，称为6张订单",
-              "misconception": "append-events-as-new-orders"
-            },
-            {
-              "id": "B",
-              "text": "直接内连接配送表，仍称覆盖三张订单",
-              "misconception": "inner-join-drops-zero-event-unit"
-            },
-            {
-              "id": "C",
-              "text": "每订单只留首次配送，所以次数都是1",
+              "text": "每工单只留首次接触，再把三张工单的次数都记1",
               "misconception": "drop-real-repeat-events"
             },
             {
               "id": "D",
-              "text": "先按订单汇总，再保留三张订单连接，次数为2、0、1",
+              "text": "把4条接触记录追加到工单表下，称为7张工单",
+              "misconception": "append-events-as-new-units"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：丙没有接触行会消失，乙会展开成三行，不能保持每工单一行。 B：先汇总再连接可保留三张工单和真实次数；日志完整，丙确无接触可记0。 C：乙的后两次真实接触被丢掉，丙也不应记1。 D：接触和工单是不同记录单位，追加不能把接触变成新工单。"
+        },
+        "b": {
+          "prompt": "三张订单甲、乙、丙分别有2、0、1次配送，配送日志已确认完整。要补充配送次数并保持三张订单各一行，哪项合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "把3条配送记录追加到订单表下，称为6张订单",
+              "misconception": "append-events-as-new-units"
+            },
+            {
+              "id": "B",
+              "text": "直接内连接配送表，仍称三张订单各一行",
+              "misconception": "inner-join-drops-zero-event-unit"
+            },
+            {
+              "id": "C",
+              "text": "每订单只留首次配送，再把三张订单的次数都记1",
+              "misconception": "drop-real-repeat-events"
+            },
+            {
+              "id": "D",
+              "text": "先按订单汇总配送次数，再保留三张订单连接，次数为2、0、1",
               "misconception": null
             }
           ],
           "answer": "D",
-          "explanation": "A：混合不同记录单位，配送不是另一张订单。 B：乙没有配送行会消失，甲还会展开成两行，不能保持原单位。 C：甲第二次真实配送被丢失；乙没有配送，次数也不应为1。 D：汇总保持事件总量，保留订单避免漏掉乙；题设日志完整，乙无配送可记0。"
+          "explanation": "A：配送记录不是新的订单，混合记录单位会误计订单数。 B：乙没有配送行会消失，甲会展开成两行。 C：甲的第二次真实配送被丢掉，乙也不应记1。 D：汇总保留事件次数，保留订单避免漏掉乙；日志完整，乙确无配送可记0。"
         }
       }
     },
     {
-      "concept_id": "duplication-and-unit-weights",
-      "title": "连接后的单位权重",
-      "tutor_context": "换一种多事件情境说明目标量如何被重复行加权，再介绍每事件赋1/k权重恢复完整单位权重的条件。",
+      "concept_id": "unit-mean-after-duplication",
+      "title": "重复行与单位等权均值",
+      "tutor_context": "另设两个对象的固定测量值在事件行重复的例子，分别计算对象等权均值和展开行均值，说明为何只改分母仍可能错误。不要用各次新增费用代替复制的固定属性，不复述原题或给出原题答案。",
       "pair": {
         "a": {
-          "prompt": "两张报修单等待6与18分钟，分别对应2与4次现场记录。直接展开后均值14分钟。若目标是每张报修单等权的平均等待，哪项正确？",
+          "prompt": "两张报修单等待6分钟和18分钟，分别有2次和4次现场记录；每次现场记录都复制所属报修单的等待。展开行均值为14分钟。若目标是两张报修单等权的平均等待，哪项正确？",
           "options": [
             {
               "id": "A",
-              "text": "14分钟；多出的现场记录让工单均值更准确",
-              "misconception": "expanded-rows-as-more-independent-tickets"
+              "text": "14分钟，直接使用展开行均值",
+              "misconception": "expanded-rows-as-equal-units"
             },
             {
               "id": "B",
-              "text": "42分钟；展开总和84除以两张报修单即可",
+              "text": "42分钟，把展开等待总和84除以两张报修单",
               "misconception": "repair-denominator-not-duplicated-sum"
             },
             {
               "id": "C",
-              "text": "6分钟；只留等待较短的报修单",
+              "text": "6分钟，只保留等待较短的报修单",
               "misconception": "drop-unit-to-avoid-duplicates"
             },
             {
               "id": "D",
-              "text": "12分钟；每张报修单的等待各计一次",
+              "text": "12分钟，两张报修单的等待各计一次",
               "misconception": null
             }
           ],
           "answer": "D",
-          "explanation": "A：现场次数改变了权重，不是增加独立报修单。 B：分子84已经重复，改分母为2仍得错误目标量42。 C：删除另一真实报修单改变目标范围，不能作为两单均值。 D：(6+18)/2=12；14是现场记录加权结果，应恢复报修单层次。"
+          "explanation": "A：两张报修单按2次和4次重复，14是现场记录加权结果。 B：展开分子84已重复，仅把分母改为2仍错。 C：删除一张真实报修单改变了目标对象。 D：每张报修单等权，均值为(6+18)/2=12分钟。"
         },
         "b": {
-          "prompt": "每张订单都至少有1条事件且日志完整。订单有k条事件时，给它每条展开行权重1/k，再用这些权重计算订单金额的加权均值。为何可恢复订单等权均值？",
+          "prompt": "两张订单总金额分别为80元和200元，分别有3条和1条状态事件；每条事件都原样复制所属订单的总金额。展开行均值为110元。若目标是两张订单等权的平均总金额，哪项正确？",
           "options": [
             {
               "id": "A",
-              "text": "因为任何非负权重都能得到订单等权均值",
-              "misconception": "all-weights-preserve-target"
+              "text": "110元，直接使用展开行均值",
+              "misconception": "expanded-rows-as-equal-units"
             },
             {
               "id": "B",
-              "text": "每张订单的k条行总权重为1，金额按订单共计一次",
+              "text": "140元，两张订单的总金额各计一次",
               "misconception": null
             },
             {
               "id": "C",
-              "text": "因为加权后事件次数k变成真实金额",
-              "misconception": "event-count-as-outcome"
+              "text": "220元，把展开金额总和440除以两张订单",
+              "misconception": "repair-denominator-not-duplicated-sum"
             },
             {
               "id": "D",
-              "text": "因此即使订单无事件或事件漏录，也保证恢复全部订单均值",
-              "misconception": "inverse-weighting-guarantees-coverage"
+              "text": "80元，只保留总金额较小的订单",
+              "misconception": "drop-unit-to-avoid-duplicates"
             }
           ],
           "answer": "B",
-          "explanation": "A：非负只约束符号，不保证每订单的总权重相同。 B：k×(1/k)=1；在所有订单有完整事件和一致金额的条件下，各订单总权重一致，恢复等权目标。 C：权重修正重复计数，不改变订单金额为事件次数。 D：无事件订单不在展开表，漏录或k错误也需另外处理，题设条件不能省略。"
+          "explanation": "A：80元被计三次，200元被计一次，110是事件行均值。 B：每张订单等权，均值为(80+200)/2=140元。 C：展开分子440已重复，改分母为2仍不能恢复订单均值。 D：只留一张订单改变了目标范围。这里各事件行复制固定订单总金额，不是各次新增费用。"
         }
       }
     },
     {
-      "concept_id": "coverage-and-zero",
-      "title": "连接覆盖与零业务判断",
-      "tutor_context": "用未匹配归属但结果有效的记录说明总体与分组范围，再区分无匹配日志和已核实零业务。",
+      "concept_id": "unmatched-activity-zero-or-unknown",
+      "title": "未匹配活动记录：零还是未知",
+      "tutor_context": "另设计划记录存在但活动日志未匹配的例子，说明计划量与活动量分别已知什么，以及确认数据完整后才可判断零活动的条件。不要复述原题或给出原题答案。",
       "pair": {
         "a": {
-          "prompt": "100张工单等待均有效；87张匹配地区字典，平均等待5分钟，13张地区未知，平均30分钟。内连接后平均5分钟。哪项发布合适？",
+          "prompt": "某窗口日的排班计划为12人时，业务日志没有匹配行，尚未确认当日日志完整。报告该日排班量与业务量时，哪项合适？",
           "options": [
             {
               "id": "A",
-              "text": "全部100张平均5分钟，因为字典匹配后更整洁",
-              "misconception": "matched-subset-as-full-target"
-            },
-            {
-              "id": "B",
-              "text": "全体平均8.25分钟，并把未知地区按已有地区比例分摊，称为已核实归属",
-              "misconception": "assumed-allocation-as-verified-location"
-            },
-            {
-              "id": "C",
-              "text": "匹配者平均5，全体平均8.25，地区未知13张单列",
-              "misconception": null
-            },
-            {
-              "id": "D",
-              "text": "未知地区等待填0，全体平均4.35",
-              "misconception": "unmatched-key-as-zero-outcome"
-            }
-          ],
-          "answer": "C",
-          "explanation": "A：5只描述匹配87张，删除未知地区记录改变覆盖。 B：总体均值虽为8.25，分摊归属是假设，不是已核实地区，整项不成立。 C：全体(87×5+13×30)/100=8.25；等待可描述总体，未知地区不能直接归到某组。 D：30分钟测量有效，地区未匹配不能改成0；4.35来自伪造结果。"
-        },
-        "b": {
-          "prompt": "某窗口日有12人时计划排班，但业务日志没有匹配行，尚未确认当日日志完整。报告该日计划量与业务量时，哪项合适？",
-          "options": [
-            {
-              "id": "A",
-              "text": "保留计划12人时，业务量暂记未知，核实日志后才能确认是否为0",
+              "text": "保留排班12人时，业务量暂记未知，核实日志后才能确认是否为0",
               "misconception": null
             },
             {
               "id": "B",
-              "text": "删除这个排班日，认为没有匹配就没有计划",
-              "misconception": "inner-match-only-capacity"
+              "text": "删除该排班日，认为没有匹配就没有排班",
+              "misconception": "drop-known-plan-with-unmatched-activity"
             },
             {
               "id": "C",
-              "text": "把计划与业务量都记0",
-              "misconception": "missing-match-as-zero-capacity-and-activity"
+              "text": "将排班量与业务量都记为0",
+              "misconception": "missing-match-as-zero-plan-and-activity"
             },
             {
               "id": "D",
-              "text": "直接将业务量记0，因为左连接空值都表示无业务",
+              "text": "保留排班12人时，直接把业务量记0，因为左连接空值表示无业务",
               "misconception": "left-join-null-as-confirmed-zero"
             }
           ],
           "answer": "A",
-          "explanation": "A：计划记录已存在；缺业务行可能是零业务或漏记录，不能尚未核实就填0。 B：无业务匹配不否定已有计划记录，删除改变计划范围。 C：计划12已知；业务未知也不等于0。 D：左连接空值只表示没有匹配，不能证明来源完整或实际零业务。"
+          "explanation": "A：排班12人时已知；没有业务匹配可能是零业务或记录缺失，需核实来源。 B：没有活动匹配不能否定已有排班，删除会改变计划范围。 C：已知排班量不能改成0，未知业务量也不能直接填0。 D：左连接空值只表示未匹配，不能证明业务日志完整或真实零业务。"
+        },
+        "b": {
+          "prompt": "某仓库日的排班计划为8人时，出库记录没有匹配行，尚不清楚当日记录是否漏导出。报告该日排班量与出库件数时，哪项合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "删除该排班日，认为没有匹配就没有排班",
+              "misconception": "drop-known-plan-with-unmatched-activity"
+            },
+            {
+              "id": "B",
+              "text": "将排班量与出库件数都记为0",
+              "misconception": "missing-match-as-zero-plan-and-activity"
+            },
+            {
+              "id": "C",
+              "text": "保留排班8人时，出库件数暂记未知，核实记录后才能确认是否为0",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "保留排班8人时，直接把出库件数记0，因为左连接空值表示未出库",
+              "misconception": "left-join-null-as-confirmed-zero"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：出库记录未匹配不能使已知排班消失，删除会改变计划范围。 B：排班8人时已知；尚未取得完整出库信息也不等于0件。 C：分别保留已知计划量与未知活动量，查明日志是否完整及真实业务后再判断零值。 D：左连接空值不证明没有出库，也可能是漏导出或未匹配。"
         }
       }
     },
     {
-      "concept_id": "time-unit-reconciliation",
-      "title": "时间、单位与总量核对",
-      "tutor_context": "用分钟和人时解释同单位比较，再用跨日事件说明工作量日期与登记日期不一定相同，窗口归属还可能是假设。",
+      "concept_id": "person-time-plan-ratio",
+      "title": "统一人时单位后计算工作量与排班量之比",
+      "tutor_context": "另设人员排班和工作人员分钟的例子，按同一顺序比较：扣除合计缺勤得到计划人时，分钟除以60换成人时，再计算记录工作量除以计划量。解释比值的含义和限制，不复述原题或给出原题答案。",
       "pair": {
         "a": {
-          "prompt": "某窗口3人各计划5小时，当日合计缺勤3人时。接触记录工作人员分钟总计420。报告“接触工作人员人时/计划有效人时”应采用哪项？",
+          "prompt": "某窗口3人各计划5小时，当日合计缺勤3人时。接触记录工作人员分钟总计420。要计算“记录的接触耗时（人时）÷扣除缺勤后的排班人时”，哪项正确？",
           "options": [
             {
               "id": "A",
-              "text": "420/12=35，称为工时占比",
+              "text": "420/(3×5−3)=35",
               "misconception": "minutes-over-hours-without-conversion"
             },
             {
               "id": "B",
-              "text": "420/[3×(5−3)]，因为每人都应减3小时",
+              "text": "(420/60)/[3×(5−3)]=7/6",
               "misconception": "multiply-total-absence-per-person"
             },
             {
               "id": "C",
-              "text": "12/7，计划量除接触量就是题问比例",
+              "text": "(3×5−3)/(420/60)=12/7",
               "misconception": "reverse-ratio"
             },
             {
               "id": "D",
-              "text": "(420/60)/(3×5−3)=7/12；计划量按该窗口日计一次",
+              "text": "(420/60)/(3×5−3)=7/12",
               "misconception": null
             }
           ],
           "answer": "D",
-          "explanation": "A：分子分钟、分母人时未统一，35不是无量纲工时占比。 B：合计缺勤只减一次，不能当每人各缺勤3小时；分钟也尚未换算。 C：12/7是反向比值，题问接触除计划。 D：420分钟为7人时，计划有效15−3=12人时；比值7/12，不等同个人实际生产率。"
+          "explanation": "A：工作人员分钟与排班人时没有统一单位，35不是题问比值。 B：3人时是合计缺勤，只减一次，不能按每人各缺勤3小时计算。 C：这是排班量除接触量，方向与题目相反。 D：420分钟为7人时，排班为15−3=12人时，比值7/12；计划量不等于实际劳动投入，不能由此断定个人生产率。"
         },
         "b": {
-          "prompt": "工单6月16日登记在窗口W，某次接触发生6月18日、耗150工作人员分钟；接触记录没有实际办理窗口。按日汇总接触工作量时，哪项表述准确？",
+          "prompt": "某电话服务组2人各计划7小时，当日合计缺勤1人时。接听与处理咨询记录工作人员分钟总计600。要计算“记录的咨询处理耗时（人时）÷扣除缺勤后的排班人时”，哪项正确？",
           "options": [
             {
               "id": "A",
-              "text": "把150分钟全部计6月16日，因为工单登记日决定所有活动日期",
-              "misconception": "registration-date-for-all-events"
+              "text": "600/(2×7−1)=600/13",
+              "misconception": "minutes-over-hours-without-conversion"
             },
             {
               "id": "B",
-              "text": "只计算登记日当天接触，因此这次必须删除",
-              "misconception": "drop-cross-day-real-events"
-            },
-            {
-              "id": "C",
-              "text": "日期计6月18日；若归给W，须说明采用登记窗口代理实际窗口的假设",
+              "text": "(600/60)/(2×7−1)=10/13",
               "misconception": null
             },
             {
+              "id": "C",
+              "text": "(600/60)/[2×(7−1)]=10/12",
+              "misconception": "multiply-total-absence-per-person"
+            },
+            {
               "id": "D",
-              "text": "计6月18日并断言一定发生在W，因为按工单编号已连接",
-              "misconception": "key-match-verifies-event-location"
+              "text": "(2×7−1)/(600/60)=13/10",
+              "misconception": "reverse-ratio"
             }
           ],
-          "answer": "C",
-          "explanation": "A：接触实际日期18日，登记16日不是该活动发生日。 B：跨日接触是有效活动，删除会遗漏工作量。 C：活动日期可直接观察；实际窗口未记录，登记窗口只能有条件代理，不能称已核实。 D：工单编号连接只找到登记归属，不验证该次实际窗口。"
+          "answer": "B",
+          "explanation": "A：分子还是分钟，分母是人时，未统一单位。 B：600分钟为10人时，排班为14−1=13人时，比值10/13。 C：合计缺勤1人时只减一次，不能对每人都减1小时。 D：这是排班量除咨询量，方向相反。该比值描述记录工作量与计划量的关系，不是个人生产率。"
         }
       }
     }
