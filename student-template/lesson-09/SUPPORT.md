@@ -23,7 +23,7 @@ python3 scripts/course.py run 09
 
 ## 2. 运行以后，结果在哪里？
 
-打开 `lesson-09/artifacts/example.json`。JSON是保存数据的一种文件格式，可以直接用编辑器查看，也可以请AI帮你把内容整理成表格。
+打开 `lesson-09/artifacts/example.json`。JSON（JavaScript Object Notation）是保存数据的一种文件格式，可以直接用编辑器查看，也可以请AI帮你把内容整理成表格。
 
 其中 `example_only` 内的 `positive_predictive_value` 应约为0.153846，也就是15.38%。它对应LEARN中1000台设备的小例。
 
@@ -33,7 +33,7 @@ python3 scripts/course.py run 09
 
 ## 3. CSV中的英文名字是什么意思？
 
-CSV是可以用表格软件打开的数据文件。本课只用下面两个文件。
+CSV（comma-separated values，逗号分隔值）是可以用表格软件打开的数据文件。本课只用下面两个文件。
 
 ### alert_groups.csv：设备组
 
