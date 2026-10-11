@@ -1,4 +1,4 @@
-"""Runnable small example and input preview. Extend for your chosen comparison."""
+"""运行教学小例并预览输入；正式任务需要你另行完成两套安排的比较。"""
 from pathlib import Path
 import sys
 import json
@@ -11,7 +11,7 @@ sys.path.insert(0,str(HERE.parent/'data'/'inference-09-14'))
 import toolkit as t
 
 example = t.natural_frequencies(1000,.01,.9,.95)
-# Separate 20-device teaching example from LEARN; not the formal CSV policy.
+# 下面演示LEARN中的20台设备小例，不是正式CSV中1500台设备的安排。
 small_groups = [('甲', 2, 8), ('乙', 6, 4)]
 small_policies = []
 for name, reviews in [('甲1乙3', (1, 3)), ('甲0乙4', (0, 4))]:
