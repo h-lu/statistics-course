@@ -1,0 +1,16 @@
+{
+  "example_only": {
+    "all_means": [
+      3,
+      4,
+      5,
+      5,
+      6,
+      7
+    ],
+    "mean_of_means": 5,
+    "exact_SE": 1.2909944487358056,
+    "population_SD": 2.23606797749979
+  },
+  "population_rows": 4000
+}

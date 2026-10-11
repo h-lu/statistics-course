@@ -1,0 +1,13 @@
+{
+  "lesson": "lesson-09",
+  "status": "complete",
+  "report": "lesson-09/report.md",
+  "artifacts": [
+    "lesson-09/artifacts/policy.json",
+    "lesson-09/artifacts/comparison.csv"
+  ],
+  "run": [
+    "python3",
+    "lesson-09/policy.py"
+  ]
+}

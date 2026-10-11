@@ -1,0 +1,98 @@
+[
+  {
+    "policy": "A",
+    "scenario": "base",
+    "reserve_routine": 30,
+    "groups": [
+      {
+        "group": "routine",
+        "method": "sensitive",
+        "faults": 20.0,
+        "true_positive": 18.0,
+        "false_positive": 49.0,
+        "positive": 67.0,
+        "risk": 0.26865671641791045,
+        "screen_cost": 1000.0,
+        "miss_unit": 60.0,
+        "reviews": 30,
+        "cap": 67,
+        "found": 8.059701492537313,
+        "missed": 11.940298507462687,
+        "miss_loss": 716.4179104477612,
+        "review_cost": 90
+      },
+      {
+        "group": "priority",
+        "method": "sensitive",
+        "faults": 50.0,
+        "true_positive": 45.0,
+        "false_positive": 22.5,
+        "positive": 67.5,
+        "risk": 0.6666666666666666,
+        "screen_cost": 500.0,
+        "miss_unit": 100.0,
+        "reviews": 60,
+        "cap": 67,
+        "found": 40.0,
+        "missed": 10.0,
+        "miss_loss": 1000.0,
+        "review_cost": 180
+      }
+    ],
+    "totals": {
+      "screen_cost": 1500.0,
+      "review_cost": 270,
+      "missed": 21.940298507462686,
+      "miss_loss": 1716.4179104477612,
+      "total_cost": 3486.417910447761
+    }
+  },
+  {
+    "policy": "B",
+    "scenario": "base",
+    "reserve_routine": 0,
+    "groups": [
+      {
+        "group": "routine",
+        "method": "sensitive",
+        "faults": 20.0,
+        "true_positive": 18.0,
+        "false_positive": 49.0,
+        "positive": 67.0,
+        "risk": 0.26865671641791045,
+        "screen_cost": 1000.0,
+        "miss_unit": 60.0,
+        "reviews": 46,
+        "cap": 67,
+        "found": 12.35820895522388,
+        "missed": 7.641791044776119,
+        "miss_loss": 458.5074626865672,
+        "review_cost": 138
+      },
+      {
+        "group": "priority",
+        "method": "precise",
+        "faults": 50.0,
+        "true_positive": 40.0,
+        "false_positive": 4.5,
+        "positive": 44.5,
+        "risk": 0.898876404494382,
+        "screen_cost": 1000.0,
+        "miss_unit": 100.0,
+        "reviews": 44,
+        "cap": 44,
+        "found": 39.550561797752806,
+        "missed": 10.44943820224719,
+        "miss_loss": 1044.943820224719,
+        "review_cost": 132
+      }
+    ],
+    "totals": {
+      "screen_cost": 2000.0,
+      "review_cost": 270,
+      "missed": 18.09122924702331,
+      "miss_loss": 1503.4512829112862,
+      "total_cost": 3773.4512829112864
+    }
+  }
+]

@@ -1,0 +1,6 @@
+INPUT UNCHANGED data/inference-09-14/alert_groups.csv a1d3990b496ffb9af3f146a42caadb9c173902312d66df24149a11e1831b4ca5
+INPUT UNCHANGED data/inference-09-14/screening.csv 74df4992d03bf8753974d49466057e0ce8394e11d87eabfb254c9528aa210120
+Independent arithmetic checks PASS: routine 20-23*18/67; priority 50-67*45/67.5; reserve loss difference
+ARTIFACT lesson-09/artifacts/comparison.csv 613f96eb21578af2a0788c4f35c8ba14dc0dfceee03acf356c024ff31d711cb6
+ARTIFACT lesson-09/artifacts/example.json 1fd73ebfb6f52290e6c197f4b43c9f72c9b7a079a3a3ac9e9dbabc432ae104a3
+ARTIFACT lesson-09/artifacts/totals.csv 43fecfcf8df51e89b43686173c15509ee5c09fae9d88c9ddb42e714202333538

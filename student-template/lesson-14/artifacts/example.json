@@ -1,0 +1,40 @@
+{
+  "example_only": {
+    "proportional_allocation": [
+      16,
+      4
+    ],
+    "equal_allocation": [
+      10,
+      10
+    ],
+    "population_weights": [
+      0.8,
+      0.2
+    ],
+    "equal_allocation_counts": [
+      5,
+      9
+    ],
+    "equal_allocation_sample_proportions": [
+      0.5,
+      0.9
+    ],
+    "equal_allocation_pooled": 0.7,
+    "design_weighted": 0.58
+  },
+  "inputs": [
+    {
+      "group": "A",
+      "population_size": "3200",
+      "complete_cost": "1",
+      "ordinary_response": "0.8"
+    },
+    {
+      "group": "B",
+      "population_size": "800",
+      "complete_cost": "3",
+      "ordinary_response": "0.6"
+    }
+  ]
+}

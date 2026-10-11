@@ -1,0 +1,3 @@
+运行lesson-09：<SYSTEM_BIN>/python3 lesson-09/minimum.py
+A {'screen_cost': 1500.0, 'review_cost': 270, 'missed': 21.940298507462686, 'miss_loss': 1716.4179104477612, 'total_cost': 3486.417910447761}
+B {'screen_cost': 2000.0, 'review_cost': 270, 'missed': 18.09122924702331, 'miss_loss': 1503.4512829112862, 'total_cost': 3773.4512829112864}

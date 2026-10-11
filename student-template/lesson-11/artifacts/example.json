@@ -1,0 +1,37 @@
+{
+  "example_only": {
+    "unweighted": 0.7,
+    "composition_adjusted": 0.5800000000000001
+  },
+  "input_preview": {
+    "not_invited": {
+      "person_id": "A0001",
+      "group": "A",
+      "in_frame": 1,
+      "invited": 0,
+      "answered": 0,
+      "invite_probability": 0.02,
+      "observed_need": null
+    },
+    "invited_not_answered": {
+      "person_id": "A0386",
+      "group": "A",
+      "in_frame": 1,
+      "invited": 1,
+      "answered": 0,
+      "invite_probability": 0.02,
+      "observed_need": null
+    },
+    "answered": {
+      "person_id": "A0019",
+      "group": "A",
+      "in_frame": 1,
+      "invited": 1,
+      "answered": 1,
+      "invite_probability": 0.02,
+      "observed_need": 1
+    }
+  },
+  "invited": 80,
+  "answered": 66
+}

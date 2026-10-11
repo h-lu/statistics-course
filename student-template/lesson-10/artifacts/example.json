@@ -1,0 +1,40 @@
+{
+  "example_only": {
+    "mean_exact": 1.1,
+    "variance_exact": 0.49,
+    "shortage_probability_capacity1": 0.3,
+    "simulated_mean": 1.094
+  },
+  "inputs": [
+    {
+      "scenario": "base",
+      "demand": "40",
+      "probability": "0.20"
+    },
+    {
+      "scenario": "base",
+      "demand": "80",
+      "probability": "0.60"
+    },
+    {
+      "scenario": "base",
+      "demand": "160",
+      "probability": "0.20"
+    },
+    {
+      "scenario": "stress",
+      "demand": "40",
+      "probability": "0.55"
+    },
+    {
+      "scenario": "stress",
+      "demand": "80",
+      "probability": "0.20"
+    },
+    {
+      "scenario": "stress",
+      "demand": "200",
+      "probability": "0.25"
+    }
+  ]
+}

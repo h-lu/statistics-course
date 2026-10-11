@@ -1,0 +1,80 @@
+{
+  "transport": "in-process ASGI HTTP through TestClient; no TCP server",
+  "test_only_adjustment": "10ms event-loop timer; no application changes",
+  "lessons": [
+    {
+      "lesson": 9,
+      "draft_id": "v2-l09-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 10,
+      "draft_id": "v2-l10-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 11,
+      "draft_id": "v2-l11-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 12,
+      "draft_id": "v2-l12-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 13,
+      "draft_id": "v2-l13-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 14,
+      "draft_id": "v2-l14-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    }
+  ],
+  "existing_suite_exit_code": 0,
+  "seconds": 50.675
+}

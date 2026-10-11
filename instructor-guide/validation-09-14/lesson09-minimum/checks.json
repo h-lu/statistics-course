@@ -1,0 +1,12 @@
+{
+  "baseline": "460df03314f2d2a85098ab3d4ef2a27defc47b82",
+  "protected_existing_files": 612,
+  "course_map_outside09_unchanged": true,
+  "bridge_example_unchanged": true,
+  "fresh_examples": "passed: conditional risk, coverage/width, weighting, quantile, Wilson",
+  "base_policies": 2,
+  "student_input_csv_unchanged": true,
+  "delete_outputs_then_rebuild": "passed",
+  "rebuild_seconds": 0.0453,
+  "classroom_trial": "not conducted"
+}

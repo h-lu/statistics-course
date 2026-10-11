@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l14-r2",
+  "title": "第14课 · 在有限预算下设计一项调查",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l14-r2-c1",
+      "title": "分层取得",
+      "tutor_context": "请用不同于题目的小例解释“分层取得”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "A/B先分组，再各层等概率无放回抽人，这是什么设计？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只挑容易联系者",
+              "misconception": "只挑容易联系者"
+            },
+            {
+              "id": "B",
+              "text": "对同一人重复测量",
+              "misconception": "对同一人重复测量"
+            },
+            {
+              "id": "C",
+              "text": "分层抽样",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "随机分派治疗",
+              "misconception": "随机分派治疗"
+            }
+          ],
+          "answer": "C",
+          "explanation": "分层是抽样前划分覆盖总体的组，并在各组内按设计抽取。"
+        },
+        "b": {
+          "prompt": "调查结束后发现B只有2人，再把这两人复制十遍，能改善B组的抽样精度吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不能，未增加独立取得的信息",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "能，表格行数已增加",
+              "misconception": "能，表格行数已增加"
+            },
+            {
+              "id": "C",
+              "text": "能，复制等同分层随机抽样",
+              "misconception": "能，复制等同分层随机抽样"
+            },
+            {
+              "id": "D",
+              "text": "能，复制后样本比例更正确",
+              "misconception": "能，复制后样本比例更正确"
+            }
+          ],
+          "answer": "A",
+          "explanation": "复制记录不等于新抽单位，不能按增加后的行数计算精度。"
+        }
+      }
+    },
+    {
+      "concept_id": "l14-r2-c2",
+      "title": "权重与合并",
+      "tutor_context": "请用不同于题目的小例解释“权重与合并”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "总体A80%、B20%，等额样本层内比例0.5、0.9。总体估计应该是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "0.70",
+              "misconception": "0.70"
+            },
+            {
+              "id": "B",
+              "text": "0.90",
+              "misconception": "0.90"
+            },
+            {
+              "id": "C",
+              "text": "0.50",
+              "misconception": "0.50"
+            },
+            {
+              "id": "D",
+              "text": "0.58",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "目标权重来自总体份额，不等于等额样本的各半份额。"
+        },
+        "b": {
+          "prompt": "B的入样概率比A高，直接合并样本行比例会有什么问题？",
+          "options": [
+            {
+              "id": "A",
+              "text": "必然精确等于总体比例",
+              "misconception": "必然精确等于总体比例"
+            },
+            {
+              "id": "B",
+              "text": "通常使B在总体估计中权重过大",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "必须将B全部删除",
+              "misconception": "必须将B全部删除"
+            },
+            {
+              "id": "D",
+              "text": "只影响文件大小",
+              "misconception": "只影响文件大小"
+            }
+          ],
+          "answer": "B",
+          "explanation": "不等概率取得应匹配设计权重；直接合并通常改变目标构成。"
+        }
+      }
+    },
+    {
+      "concept_id": "l14-r2-c3",
+      "title": "预算比较",
+      "tutor_context": "请用不同于题目的小例解释“预算比较”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "A每人1、B每人3，抽A120与B40，费用是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "240",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "160",
+              "misconception": "160"
+            },
+            {
+              "id": "C",
+              "text": "360",
+              "misconception": "360"
+            },
+            {
+              "id": "D",
+              "text": "480",
+              "misconception": "480"
+            }
+          ],
+          "answer": "A",
+          "explanation": "120×1+40×3=240；不能仅按总人数160计算成本。"
+        },
+        "b": {
+          "prompt": "两个方案人数一样，但一个多抽昂贵B组。可直接称为同预算比较吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "可以，人数就是成本",
+              "misconception": "可以，人数就是成本"
+            },
+            {
+              "id": "B",
+              "text": "可以，组别不影响任何精度",
+              "misconception": "可以，组别不影响任何精度"
+            },
+            {
+              "id": "C",
+              "text": "不可以，需核算费用或匹配预算",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "不可以，所有分配都不能比较",
+              "misconception": "不可以，所有分配都不能比较"
+            }
+          ],
+          "answer": "C",
+          "explanation": "成本由各层人数与单价共同决定，应说明预算可比性。"
+        }
+      }
+    },
+    {
+      "concept_id": "l14-r2-c4",
+      "title": "总体与小群体精度",
+      "tutor_context": "请用不同于题目的小例解释“总体与小群体精度”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "同预算方案甲总体SE较小，乙B组SE较小。怎样推荐？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只看总体SE，B永远无关",
+              "misconception": "只看总体SE，B永远无关"
+            },
+            {
+              "id": "B",
+              "text": "说明服务优先级与两项精度取舍",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "只看B组，成本永远无关",
+              "misconception": "只看B组，成本永远无关"
+            },
+            {
+              "id": "D",
+              "text": "选择代码较短者",
+              "misconception": "选择代码较短者"
+            }
+          ],
+          "answer": "B",
+          "explanation": "设计取舍由总体与小群体用途共同决定，不能暗中只优化一个指标。"
+        },
+        "b": {
+          "prompt": "报告设计效应为0.8，却未说明参照设计。缺少什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "仅缺报告字体",
+              "misconception": "仅缺报告字体"
+            },
+            {
+              "id": "B",
+              "text": "缺一个更大的模拟种子",
+              "misconception": "缺一个更大的模拟种子"
+            },
+            {
+              "id": "C",
+              "text": "只需补上95%字样",
+              "misconception": "只需补上95%字样"
+            },
+            {
+              "id": "D",
+              "text": "同一估计目标的参照方差及人数/成本口径",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "设计效应是方差比，参照设计及比较条件必须明确。"
+        }
+      }
+    },
+    {
+      "concept_id": "l14-r2-c5",
+      "title": "设计与区间边界",
+      "tutor_context": "请用不同于题目的小例解释“设计与区间边界”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "不等比例分层样本，合并后逐行普通bootstrap可自动给正确分层区间吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "可以，bootstrap适用任何设计",
+              "misconception": "可以，bootstrap适用任何设计"
+            },
+            {
+              "id": "B",
+              "text": "可以，只要重抽超过1000次",
+              "misconception": "可以，只要重抽超过1000次"
+            },
+            {
+              "id": "C",
+              "text": "不可以，它忽略分层及设计权重",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "可以，只要四人都答1",
+              "misconception": "可以，只要四人都答1"
+            }
+          ],
+          "answer": "C",
+          "explanation": "抽样与重抽设计应匹配；增加次数不修复结构错误。"
+        },
+        "b": {
+          "prompt": "本课已用固定总体反复分层抽样比较SE。还必须算单次复杂分层区间才能完成主任务吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不必，主线是总体/B组SE与成本，扩展区间须匹配设计",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "必须，且只许合并bootstrap",
+              "misconception": "必须，且只许合并bootstrap"
+            },
+            {
+              "id": "C",
+              "text": "必须，用总体真值作区间上下限",
+              "misconception": "必须，用总体真值作区间上下限"
+            },
+            {
+              "id": "D",
+              "text": "不必，所以不需解释无回答条件",
+              "misconception": "不必，所以不需解释无回答条件"
+            }
+          ],
+          "answer": "A",
+          "explanation": "重复模拟可直接评价主任务精度；单次区间为扩展，回答条件仍须说明。"
+        }
+      }
+    }
+  ]
+}

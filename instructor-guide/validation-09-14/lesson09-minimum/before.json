@@ -1,0 +1,12 @@
+{
+  "commit": "460df03314f2d2a85098ab3d4ef2a27defc47b82",
+  "sha256": {
+    "student-template/lesson-09/README.md": "d3e1d59685dcaf7b5429fd64279248c98670f3dd5306bc35038322a302498fa0",
+    "student-template/lesson-09/LEARN.md": "fcc435b5c52debc0a4c9083c6f3d1d7ec004b7a9f5bfc09ab99e1d18e9fb5974",
+    "student-template/lesson-09/SUPPORT.md": "70a0fa8aaea07652c2f1abebf32d748aae19053ae2441baac4846c860761a3e9",
+    "student-template/lesson-09/report.md": "83c0900d283fa60d6f17550be2af4435e8981f7290f268748d70e71441651a53",
+    "instructor-guide/lesson-09/RUNBOOK.md": "463a1211eabdae69b9d69f6542f5533c2bcf7df9e7ed010b41c0f22139347308",
+    "instructor-guide/lesson-09/REFERENCE.md": "7f37da819897c9aea176f0ac9e38640d5856f3fcb69bf98c1581ce4973983bf0",
+    "instructor-guide/COURSE_MAP.md": "a776afd50043b258bbf996f5c62e64ba3d2548e655e4522b6794b52063ac32c5"
+  }
+}

@@ -1,8 +1,8 @@
 # 统计学 2026–2027：学习材料改进
 
-保留原32课主线、模块用途与评分；课程按每次90分钟组织，学生可以全程使用AI，需对统计问题、分析单位、分母、方法依据和结论范围负责。现行学期设计见[32课课程地图](instructor-guide/COURSE_MAP.md)。当前实际制作范围为第1–8课；第9–32课只保留大纲占位，新课包尚未制作。
+保留原32课主线、模块用途与评分；课程按每次90分钟组织，学生可以全程使用AI，需对统计问题、分析单位、分母、方法依据和结论范围负责。现行学期设计见[32课课程地图](instructor-guide/COURSE_MAP.md)。第1–8课保持已授课版本；第9–14课本地课包已制作，待发布与试教；第15–32课仍保留原大纲占位。
 
-- [学生学习材料](student-template/README.md)：第1–8课任务、学习页、分层练习、合成数据和运行工具。
+- [学生学习材料](student-template/README.md)：第1–14课任务、学习页、合成数据和运行工具；9–14为本地新增。
 - [教师材料](instructor-guide/README.md)：课程规范、10/65/15课堂安排、过程答案和评价依据。
 - [知识自查](stat-check/README.md)：当前可新建场次为第1–8课；全部旧题库ID继续可供历史场次读取。
 - [重设计前完整归档与恢复](archive/redesign-2026-10-09/README.md)：原1–8课、原9–32课、旧大纲和全部tracked教学文件的逐路径SHA-256与恢复工具。
@@ -22,4 +22,4 @@ python3 -m pytest -q
 
 [独立质量审核](instructor-guide/REDESIGN_QA.md)记录实跑、概念与数值检查。最新模拟课堂操作见[第1–4课](instructor-guide/FINAL_STUDENT_SIMULATION_01_04.md)、[第5–7课](instructor-guide/FINAL_STUDENT_SIMULATION_05_07.md)和[第8课](instructor-guide/FINAL_STUDENT_SIMULATION_08.md)。[学习改进框架](instructor-guide/REDESIGN_FRAMEWORK_2026-10-09.md)说明原设计继承与当前边界。
 
-运行成功和文件检查不等于统计论证已经合格，也不等于真实学生90分钟试教通过。当前课次边界在检查、运行、同步、发布和新场次目录中均明确设为第1–8课；后续占位不会执行旧内容。
+运行成功和文件检查不等于统计论证已经合格，也不等于真实学生90分钟试教通过。第9–14课本地运行、检查和同步工具已准备；发布工具和线上新场次目录仍限原范围，需另行发布。第15–32课不执行旧归档内容。第9–14课专用检查：`python3 instructor-guide/validation-09-14/verify.py`，结果见[核验记录](instructor-guide/validation-09-14/REPORT.md)。

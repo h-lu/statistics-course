@@ -1,0 +1,10 @@
+{
+  "primary": {
+    "local_ci_reproduction": "passed",
+    "seconds": 0.0443
+  },
+  "independent": {
+    "local_ci_reproduction": "passed",
+    "seconds": 0.0621
+  }
+}

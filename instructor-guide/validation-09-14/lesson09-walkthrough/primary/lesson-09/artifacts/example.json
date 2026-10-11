@@ -1,0 +1,41 @@
+{
+  "example_only": {
+    "true_positive": 9.0,
+    "false_positive": 49.50000000000004,
+    "positive": 58.50000000000004,
+    "missed": 1.0,
+    "positive_predictive_value": 0.15384615384615374
+  },
+  "input_groups": [
+    {
+      "group": "routine",
+      "daily_devices": "1000",
+      "base_low": "0.01",
+      "base": "0.02",
+      "base_high": "0.04",
+      "miss_cost": "60"
+    },
+    {
+      "group": "priority",
+      "daily_devices": "500",
+      "base_low": "0.06",
+      "base": "0.10",
+      "base_high": "0.16",
+      "miss_cost": "100"
+    }
+  ],
+  "input_methods": [
+    {
+      "method": "sensitive",
+      "sensitivity": "0.90",
+      "specificity": "0.95",
+      "cost_per_device": "1"
+    },
+    {
+      "method": "precise",
+      "sensitivity": "0.80",
+      "specificity": "0.99",
+      "cost_per_device": "2"
+    }
+  ]
+}

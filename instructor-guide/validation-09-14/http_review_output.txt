@@ -1,0 +1,95 @@
+........................................................................ [ 27%]
+........................................................................ [ 55%]
+........................................................................ [ 82%]
+.............................................                            [100%]
+=============================== warnings summary ===============================
+tests/test_app.py: 608 warnings
+tests/test_lesson03_r3.py: 224 warnings
+tests/test_lesson04_full.py: 128 warnings
+tests/test_r2_review.py: 736 warnings
+tests/test_redesign_archive.py: 32 warnings
+  <PYTHON_PACKAGES>/fastapi/routing.py:234: DeprecationWarning: 'asyncio.iscoroutinefunction' is deprecated and slated for removal in Python 3.16; use inspect.iscoroutinefunction() instead
+    is_coroutine = asyncio.iscoroutinefunction(dependant.call)
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+261 passed, 1728 warnings in 39.10s
+{
+  "transport": "in-process ASGI HTTP through TestClient; no TCP server",
+  "test_only_adjustment": "10ms event-loop timer; no application changes",
+  "lessons": [
+    {
+      "lesson": 9,
+      "draft_id": "v2-l09-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 10,
+      "draft_id": "v2-l10-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 11,
+      "draft_id": "v2-l11-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 12,
+      "draft_id": "v2-l12-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 13,
+      "draft_id": "v2-l13-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    },
+    {
+      "lesson": 14,
+      "draft_id": "v2-l14-r2",
+      "status": "passed",
+      "a_answers": 5,
+      "a_correct": 4,
+      "learning_complete": true,
+      "b_answers": 5,
+      "b_correct": 4,
+      "feedback_and_export": "passed",
+      "normal_new_session_creation": "still rejected"
+    }
+  ],
+  "existing_suite_exit_code": 0,
+  "seconds": 50.675
+}

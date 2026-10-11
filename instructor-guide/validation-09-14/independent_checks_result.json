@@ -1,0 +1,198 @@
+{
+  "population_N": 4000,
+  "population_K": 1640,
+  "truth": 0.41,
+  "online_frame_N": 3305,
+  "coverage": [
+    {
+      "n": 80,
+      "method": "wilson",
+      "exact_hypergeometric_coverage": 0.9495593250684659,
+      "exact_mean_width": 0.2094355871548564
+    },
+    {
+      "n": 80,
+      "method": "wald",
+      "exact_hypergeometric_coverage": 0.9495593250684659,
+      "exact_mean_width": 0.2141727683207121
+    },
+    {
+      "n": 200,
+      "method": "wilson",
+      "exact_hypergeometric_coverage": 0.9538156319117725,
+      "exact_mean_width": 0.1347524453034045
+    },
+    {
+      "n": 200,
+      "method": "wald",
+      "exact_hypergeometric_coverage": 0.9538156319117725,
+      "exact_mean_width": 0.13599072541587368
+    }
+  ],
+  "simple_random_sample_SE": [
+    {
+      "n": 80,
+      "finite_population_SE": 0.054442777335483174
+    },
+    {
+      "n": 200,
+      "finite_population_SE": 0.0339015092301511
+    },
+    {
+      "n": 800,
+      "finite_population_SE": 0.015555079238709479
+    }
+  ],
+  "stratified_allocations": [
+    {
+      "A": 168,
+      "B": 24,
+      "cost": 240,
+      "overall_SE": 0.03449167063380443,
+      "B_SE": 0.09594946347475337
+    },
+    {
+      "A": 136,
+      "B": 34,
+      "cost": 238,
+      "overall_SE": 0.03580504818218406,
+      "B_SE": 0.08009257141322604
+    },
+    {
+      "A": 96,
+      "B": 48,
+      "cost": 240,
+      "overall_SE": 0.04062090499376583,
+      "B_SE": 0.06678910325588665
+    },
+    {
+      "A": 100,
+      "B": 25,
+      "cost": 175,
+      "overall_SE": 0.042000086332689174,
+      "B_SE": 0.09395029708789446
+    },
+    {
+      "A": 72,
+      "B": 36,
+      "cost": 180,
+      "overall_SE": 0.04710674102429725,
+      "B_SE": 0.07773430853135573
+    }
+  ],
+  "all_integer_capacity_search": [
+    {
+      "scenario": "base",
+      "shortage_cost": 8,
+      "minimum_expected_cost": 288.0,
+      "minimizing_integer_capacities": [
+        80
+      ],
+      "cost_at_80": 288.0,
+      "cost_at_120": 304.0,
+      "maximum_shortage_at_80": 80,
+      "maximum_shortage_at_120": 40
+    },
+    {
+      "scenario": "base",
+      "shortage_cost": 12,
+      "minimum_expected_cost": 336.0,
+      "minimizing_integer_capacities": [
+        120
+      ],
+      "cost_at_80": 352.0,
+      "cost_at_120": 336.0,
+      "maximum_shortage_at_80": 80,
+      "maximum_shortage_at_120": 40
+    },
+    {
+      "scenario": "base",
+      "shortage_cost": 20,
+      "minimum_expected_cost": 400.0,
+      "minimizing_integer_capacities": [
+        120
+      ],
+      "cost_at_80": 480.0,
+      "cost_at_120": 400.0,
+      "maximum_shortage_at_80": 80,
+      "maximum_shortage_at_120": 40
+    },
+    {
+      "scenario": "stress",
+      "shortage_cost": 8,
+      "minimum_expected_cost": 400.0,
+      "minimizing_integer_capacities": [
+        80,
+        81,
+        82,
+        83,
+        84,
+        85,
+        86,
+        87,
+        88,
+        89,
+        90,
+        91,
+        92,
+        93,
+        94,
+        95,
+        96,
+        97,
+        98,
+        99,
+        100,
+        101,
+        102,
+        103,
+        104,
+        105,
+        106,
+        107,
+        108,
+        109,
+        110,
+        111,
+        112,
+        113,
+        114,
+        115,
+        116,
+        117,
+        118,
+        119,
+        120
+      ],
+      "cost_at_80": 400.0,
+      "cost_at_120": 400.0,
+      "maximum_shortage_at_80": 120,
+      "maximum_shortage_at_120": 80
+    },
+    {
+      "scenario": "stress",
+      "shortage_cost": 12,
+      "minimum_expected_cost": 480.0,
+      "minimizing_integer_capacities": [
+        120
+      ],
+      "cost_at_80": 520.0,
+      "cost_at_120": 480.0,
+      "maximum_shortage_at_80": 120,
+      "maximum_shortage_at_120": 80
+    },
+    {
+      "scenario": "stress",
+      "shortage_cost": 20,
+      "minimum_expected_cost": 640.0,
+      "minimizing_integer_capacities": [
+        120
+      ],
+      "cost_at_80": 760.0,
+      "cost_at_120": 640.0,
+      "maximum_shortage_at_80": 120,
+      "maximum_shortage_at_120": 80
+    }
+  ],
+  "scope": "Exact model/design calculations; not a classroom trial or HTTP test."
+}

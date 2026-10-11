@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l12-r2",
+  "title": "第12课 · 比较估计方法的适用条件",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l12-r2-c1",
+      "title": "参数与统计量",
+      "tutor_context": "请用不同于题目的小例解释“参数与统计量”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "固定4000人的真实需求比例不变，换样本会变的是哪项？",
+          "options": [
+            {
+              "id": "A",
+              "text": "样本比例",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "总体参数必变",
+              "misconception": "总体参数必变"
+            },
+            {
+              "id": "C",
+              "text": "总体人数必变",
+              "misconception": "总体人数必变"
+            },
+            {
+              "id": "D",
+              "text": "需求定义必变",
+              "misconception": "需求定义必变"
+            }
+          ],
+          "answer": "A",
+          "explanation": "样本统计量随抽到的人变化，固定总体的参数不随抽样变化。"
+        },
+        "b": {
+          "prompt": "每次模拟先重新生成整个人群再抽样，却声称只研究同一总体的抽样波动。问题在哪里？",
+          "options": [
+            {
+              "id": "A",
+              "text": "没有问题，所有模拟都等价",
+              "misconception": "没有问题，所有模拟都等价"
+            },
+            {
+              "id": "B",
+              "text": "应只固定输出文件名",
+              "misconception": "应只固定输出文件名"
+            },
+            {
+              "id": "C",
+              "text": "把总体变化混入了抽样变化",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "重复次数超过30就消除问题",
+              "misconception": "重复次数超过30就消除问题"
+            }
+          ],
+          "answer": "C",
+          "explanation": "研究固定总体的抽样分布应固定总体，否则评价对象改变。"
+        }
+      }
+    },
+    {
+      "concept_id": "l12-r2-c2",
+      "title": "抽样分布",
+      "tutor_context": "请用不同于题目的小例解释“抽样分布”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "从2、4、6、8无放回取2，六种均值为3、4、5、5、6、7。它们的平均是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "4",
+              "misconception": "4"
+            },
+            {
+              "id": "B",
+              "text": "5",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "6",
+              "misconception": "6"
+            },
+            {
+              "id": "D",
+              "text": "1.291",
+              "misconception": "1.291"
+            }
+          ],
+          "answer": "B",
+          "explanation": "六个均值相加30，除以6为5，与总体均值相同。"
+        },
+        "b": {
+          "prompt": "研究调查比例的抽样分布，哪种重复才正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "同一批人重复计算同一个比例",
+              "misconception": "同一批人重复计算同一个比例"
+            },
+            {
+              "id": "B",
+              "text": "同一表重复另存100次",
+              "misconception": "同一表重复另存100次"
+            },
+            {
+              "id": "C",
+              "text": "反复改变总体需求定义",
+              "misconception": "反复改变总体需求定义"
+            },
+            {
+              "id": "D",
+              "text": "每次重新抽一批人再计算比例",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "抽样分布的随机性来自重新取得样本，单纯重复运算不产生新的调查。"
+        }
+      }
+    },
+    {
+      "concept_id": "l12-r2-c3",
+      "title": "标准差与标准误",
+      "tutor_context": "请用不同于题目的小例解释“标准差与标准误”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "四个原始值标准差约2.236，六种样本均值标准差约1.291。后一个是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "原始个体标准差",
+              "misconception": "原始个体标准差"
+            },
+            {
+              "id": "B",
+              "text": "总体均值",
+              "misconception": "总体均值"
+            },
+            {
+              "id": "C",
+              "text": "样本均值的标准误",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "固定的系统偏差",
+              "misconception": "固定的系统偏差"
+            }
+          ],
+          "answer": "C",
+          "explanation": "标准误描述估计量跨样本变动，原始标准差描述个体差异。"
+        },
+        "b": {
+          "prompt": "已有500次调查模拟，估计量标准差0.05。把0.05再除以√500当作一次调查的SE是否合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不合适，模拟次数不是一次调查人数",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "合适，因为样本量总是500",
+              "misconception": "合适，因为样本量总是500"
+            },
+            {
+              "id": "C",
+              "text": "合适，模拟越多现实越精准",
+              "misconception": "合适，模拟越多现实越精准"
+            },
+            {
+              "id": "D",
+              "text": "不合适，因为SE不能计算",
+              "misconception": "不合适，因为SE不能计算"
+            }
+          ],
+          "answer": "A",
+          "explanation": "除以√500描述另一种平均的模拟误差，不是一次调查的抽样SE。"
+        }
+      }
+    },
+    {
+      "concept_id": "l12-r2-c4",
+      "title": "偏差与精度",
+      "tutor_context": "请用不同于题目的小例解释“偏差与精度”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "真值0.40，重复估计平均0.55。估计偏差是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "0.55",
+              "misconception": "0.55"
+            },
+            {
+              "id": "B",
+              "text": "0.40",
+              "misconception": "0.40"
+            },
+            {
+              "id": "C",
+              "text": "每次误差都必为0.15",
+              "misconception": "每次误差都必为0.15"
+            },
+            {
+              "id": "D",
+              "text": "0.15",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "偏差是重复均值减真值；单次误差可能不同。"
+        },
+        "b": {
+          "prompt": "某方法增加样本后波动缩小，但平均仍比真值高0.12。能说偏差已消失吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，只要结果更稳定",
+              "misconception": "能，只要结果更稳定"
+            },
+            {
+              "id": "B",
+              "text": "不能，改善了精度而偏差仍在",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "能，标准差小就无偏",
+              "misconception": "能，标准差小就无偏"
+            },
+            {
+              "id": "D",
+              "text": "不能，任何大样本都更差",
+              "misconception": "不能，任何大样本都更差"
+            }
+          ],
+          "answer": "B",
+          "explanation": "偏差与变动分别评价，增加有偏机制下样本不自动纠偏。"
+        }
+      }
+    },
+    {
+      "concept_id": "l12-r2-c5",
+      "title": "近似条件",
+      "tutor_context": "请用不同于题目的小例解释“近似条件”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "四取二无放回抽样比例50%。可直接以独立抽样的标准差/√n作为精确SE吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不可以，需考虑有限总体无放回设计",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "可以，n=2就够了",
+              "misconception": "可以，n=2就够了"
+            },
+            {
+              "id": "C",
+              "text": "可以，只要模拟种子固定",
+              "misconception": "可以，只要模拟种子固定"
+            },
+            {
+              "id": "D",
+              "text": "不可以，因为均值永远无SE",
+              "misconception": "不可以，因为均值永远无SE"
+            }
+          ],
+          "answer": "A",
+          "explanation": "高抽样比例使独立近似不精确，六种样本可枚举检查。"
+        },
+        "b": {
+          "prompt": "中心极限定理被用来证明自愿调查无偏。哪项纠正正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "样本超过30后定理保证无偏",
+              "misconception": "样本超过30后定理保证无偏"
+            },
+            {
+              "id": "B",
+              "text": "先排序就可满足所有条件",
+              "misconception": "先排序就可满足所有条件"
+            },
+            {
+              "id": "C",
+              "text": "近似抽样形状不能修复选择偏差",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "定理说明原始0/1数据会变为正态",
+              "misconception": "定理说明原始0/1数据会变为正态"
+            }
+          ],
+          "answer": "C",
+          "explanation": "定理有机制和样本量条件，讨论均值抽样分布，不消除取得偏差。"
+        }
+      }
+    }
+  ]
+}

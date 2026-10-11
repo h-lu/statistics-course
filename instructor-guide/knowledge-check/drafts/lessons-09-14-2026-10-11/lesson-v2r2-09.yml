@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l09-r2",
+  "title": "第09课 · 筛查阳性之后怎样安排复核",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l09-r2-c1",
+      "title": "条件方向",
+      "tutor_context": "请用不同于题目的小例解释“条件方向”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "某组100个告警中20个确为故障，另知共有25个故障。阳性中的故障比例是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "20/25",
+              "misconception": "20/25"
+            },
+            {
+              "id": "B",
+              "text": "20/100",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "100/125",
+              "misconception": "100/125"
+            },
+            {
+              "id": "D",
+              "text": "25/100",
+              "misconception": "25/100"
+            }
+          ],
+          "answer": "B",
+          "explanation": "条件为阳性，分母是100个告警；20/25回答的是敏感度。"
+        },
+        "b": {
+          "prompt": "报表说“故障中80%会报警”。能否直接向一位收到报警的人说“你有80%概率故障”？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，条件概率可倒过来",
+              "misconception": "能，条件概率可倒过来"
+            },
+            {
+              "id": "B",
+              "text": "能，只要样本量超过30",
+              "misconception": "能，只要样本量超过30"
+            },
+            {
+              "id": "C",
+              "text": "不能，因为概率不能用于设备",
+              "misconception": "不能，因为概率不能用于设备"
+            },
+            {
+              "id": "D",
+              "text": "不能，还需基础率及非故障报警信息",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "两个条件方向不同；需要用基础率与假阳性一起形成阳性分母。"
+        }
+      }
+    },
+    {
+      "concept_id": "l09-r2-c2",
+      "title": "基础率",
+      "tutor_context": "请用不同于题目的小例解释“基础率”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "两地检测性能相同，甲地故障更少。其他条件相同时，阳性故障比例通常怎样？",
+          "options": [
+            {
+              "id": "A",
+              "text": "必然相同",
+              "misconception": "必然相同"
+            },
+            {
+              "id": "B",
+              "text": "甲地较高",
+              "misconception": "甲地较高"
+            },
+            {
+              "id": "C",
+              "text": "甲地较低",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "只由设备总数决定",
+              "misconception": "只由设备总数决定"
+            }
+          ],
+          "answer": "C",
+          "explanation": "低基础率使阳性中的真故障份额降低；敏感度不等于阳性预测值。"
+        },
+        "b": {
+          "prompt": "同一筛查进入高故障率来源组，工作人员发现阳性更常确为故障。最合理的解释是哪项？",
+          "options": [
+            {
+              "id": "A",
+              "text": "基础率改变可改变阳性解释，无需检测性能变好",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "检测特异度必定提高",
+              "misconception": "检测特异度必定提高"
+            },
+            {
+              "id": "C",
+              "text": "每个阳性都可直接认定故障",
+              "misconception": "每个阳性都可直接认定故障"
+            },
+            {
+              "id": "D",
+              "text": "一定是计算出错",
+              "misconception": "一定是计算出错"
+            }
+          ],
+          "answer": "A",
+          "explanation": "目标人群故障构成变化就能造成该现象，不能据此断言性能变化。"
+        }
+      }
+    },
+    {
+      "concept_id": "l09-r2-c3",
+      "title": "自然频数",
+      "tutor_context": "请用不同于题目的小例解释“自然频数”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "1000台中10台故障，敏感度90%、特异度95%，预计真阳性9、假阳性49.5。阳性预测值约多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "90%",
+              "misconception": "90%"
+            },
+            {
+              "id": "B",
+              "text": "95%",
+              "misconception": "95%"
+            },
+            {
+              "id": "C",
+              "text": "1%",
+              "misconception": "1%"
+            },
+            {
+              "id": "D",
+              "text": "15.38%",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "9/(9+49.5)约15.38%；49.5是期望人数，基础率和两种性能的分母不同。"
+        },
+        "b": {
+          "prompt": "另设100台故障、900台非故障。敏感度90%、特异度95%。哪张阳性表正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "故障90，非故障855",
+              "misconception": "故障90，非故障855"
+            },
+            {
+              "id": "B",
+              "text": "故障90，非故障45",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "故障10，非故障45",
+              "misconception": "故障10，非故障45"
+            },
+            {
+              "id": "D",
+              "text": "故障90，非故障5",
+              "misconception": "故障90，非故障5"
+            }
+          ],
+          "answer": "B",
+          "explanation": "真阳性100×0.9=90；假阳性900×0.05=45，855是非故障阴性。"
+        }
+      }
+    },
+    {
+      "concept_id": "l09-r2-c4",
+      "title": "复核与漏检",
+      "tutor_context": "请用不同于题目的小例解释“复核与漏检”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "预计20个故障阳性，只复核一半同组阳性且随机选取。预计仍有多少故障阳性未复核？",
+          "options": [
+            {
+              "id": "A",
+              "text": "10",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "0",
+              "misconception": "0"
+            },
+            {
+              "id": "C",
+              "text": "20",
+              "misconception": "20"
+            },
+            {
+              "id": "D",
+              "text": "无法作任何期望计算",
+              "misconception": "无法作任何期望计算"
+            }
+          ],
+          "answer": "A",
+          "explanation": "随机复核一半，期望查出一半，另一半仍未发现；不能只数初筛阴性漏检。"
+        },
+        "b": {
+          "prompt": "一项政策将所有初筛阴性故障计入损失，却未计名额不足的阳性故障。报告有什么问题？",
+          "options": [
+            {
+              "id": "A",
+              "text": "高估了检测敏感度的分母",
+              "misconception": "高估了检测敏感度的分母"
+            },
+            {
+              "id": "B",
+              "text": "一定高估总损失",
+              "misconception": "一定高估总损失"
+            },
+            {
+              "id": "C",
+              "text": "低估未发现故障损失",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "没有问题，阳性等于修复完成",
+              "misconception": "没有问题，阳性等于修复完成"
+            }
+          ],
+          "answer": "C",
+          "explanation": "阳性只有经准确复核并修复后才避免该损失；未复核者不能当已解决。"
+        }
+      }
+    },
+    {
+      "concept_id": "l09-r2-c5",
+      "title": "公平政策比较",
+      "tutor_context": "请用不同于题目的小例解释“公平政策比较”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "比较两种复核政策，哪项做法能把差异归于政策？",
+          "options": [
+            {
+              "id": "A",
+              "text": "给喜欢的政策更多名额",
+              "misconception": "给喜欢的政策更多名额"
+            },
+            {
+              "id": "B",
+              "text": "保持基础率、容量与损失口径相同",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "分别选择最有利的人群",
+              "misconception": "分别选择最有利的人群"
+            },
+            {
+              "id": "D",
+              "text": "一个计漏检，另一个只计费用",
+              "misconception": "一个计漏检，另一个只计费用"
+            }
+          ],
+          "answer": "B",
+          "explanation": "政策比较要保留共同条件，否则无法判断差异来自政策还是评价口径。"
+        },
+        "b": {
+          "prompt": "部门要求为低风险组保留名额，导致期望损失略升。哪种表述合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "删去较高损失不报告",
+              "misconception": "删去较高损失不报告"
+            },
+            {
+              "id": "B",
+              "text": "宣称数学证明保障名额永远最佳",
+              "misconception": "宣称数学证明保障名额永远最佳"
+            },
+            {
+              "id": "C",
+              "text": "把该组基础率调高使结果好看",
+              "misconception": "把该组基础率调高使结果好看"
+            },
+            {
+              "id": "D",
+              "text": "量化代价并解释服务保障目标，由用途作取舍",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "最低份额是业务选择，可与损失目标冲突，应透明呈现后果。"
+        }
+      }
+    }
+  ]
+}

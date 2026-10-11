@@ -1,0 +1,96 @@
+lesson-09提交文件检查通过；仍需核对分析问题、计算结果和结论。
+运行lesson-09：<SYSTEM_BIN>/python3 lesson-09/analysis.py
+[
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 7.113480578827126,
+    "undetected_loss": 557.5019040365585,
+    "scenario": "base_low",
+    "policy": "S_reserve30",
+    "combined_cost": 2327.5019040365587
+  },
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 7.113480578827126,
+    "undetected_loss": 557.5019040365585,
+    "scenario": "base_low",
+    "policy": "S_loss",
+    "combined_cost": 2327.5019040365587
+  },
+  {
+    "screen_cost": 2000.0,
+    "reviews": 86,
+    "review_cost": 258,
+    "undetected": 7.662288930581624,
+    "undetected_loss": 723.1519699812391,
+    "scenario": "base_low",
+    "policy": "mixed_loss",
+    "combined_cost": 2981.151969981239
+  },
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 21.940298507462707,
+    "undetected_loss": 1716.4179104477628,
+    "scenario": "base",
+    "policy": "S_reserve30",
+    "combined_cost": 3486.4179104477626
+  },
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 19.154228855721414,
+    "undetected_loss": 1362.5870646766189,
+    "scenario": "base",
+    "policy": "S_loss",
+    "combined_cost": 3132.587064676619
+  },
+  {
+    "screen_cost": 2000.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 18.09122924702332,
+    "undetected_loss": 1503.4512829112869,
+    "scenario": "base",
+    "policy": "mixed_loss",
+    "combined_cost": 3773.451282911287
+  },
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 60.691244239631345,
+    "undetected_loss": 4983.410138248849,
+    "scenario": "base_high",
+    "policy": "S_reserve30",
+    "combined_cost": 6753.410138248849
+  },
+  {
+    "screen_cost": 1500.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 50.322580645161295,
+    "undetected_loss": 3432.2580645161297,
+    "scenario": "base_high",
+    "policy": "S_loss",
+    "combined_cost": 5202.25806451613
+  },
+  {
+    "screen_cost": 2000.0,
+    "reviews": 90,
+    "review_cost": 270,
+    "undetected": 46.75911185588606,
+    "undetected_loss": 3453.054042731463,
+    "scenario": "base_high",
+    "policy": "mixed_loss",
+    "combined_cost": 5723.054042731463
+  }
+]
+lesson-09提交文件检查通过；仍需核对分析问题、计算结果和结论。
+检查结束。尚未开始的项目未计为完成；统计质量由成果评价。

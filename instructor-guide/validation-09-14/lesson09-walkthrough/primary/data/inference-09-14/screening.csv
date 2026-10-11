@@ -1,0 +1,3 @@
+method,sensitivity,specificity,cost_per_device
+sensitive,0.90,0.95,1
+precise,0.80,0.99,2

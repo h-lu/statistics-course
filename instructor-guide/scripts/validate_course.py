@@ -14,8 +14,8 @@ from urllib.parse import unquote, urlsplit
 import yaml
 
 TEACHER = Path(__file__).resolve().parents[1]
-ACTIVE_LESSONS = tuple(range(1, 9))
-PLANNED_LESSONS = tuple(range(9, 33))
+ACTIVE_LESSONS = tuple(range(1, 15))
+PLANNED_LESSONS = tuple(range(15, 33))
 
 
 def lesson_topic(title: str) -> str:
@@ -93,6 +93,9 @@ def validate(student: Path, execute: bool = False) -> dict:
             except (ValueError, KeyError, AssertionError):
                 errors.append(f"{lesson}: invalid initial manifest")
         bank_path, expected_id = current_bank_spec(banks, n)
+        if 9 <= n <= 14:
+            bank_path = TEACHER / "knowledge-check/drafts/lessons-09-14-2026-10-11" / f"lesson-v2r2-{n:02d}.yml"
+            expected_id = f"v2-l{n:02d}-r2"
         if not bank_path.exists():
             errors.append(f"missing {bank_path.name}")
         else:
@@ -137,7 +140,7 @@ def validate(student: Path, execute: bool = False) -> dict:
         for root in (student, TEACHER):
             directory = root / lesson
             present = {p.relative_to(directory).as_posix() for p in directory.rglob("*") if p.is_file()}
-            if present != {"README.md"}:
+            if present not in (set(), {"README.md"}):
                 errors.append(f"{root.name}/{lesson}: planned lesson must contain only README.md")
         stats["planned_lessons"] += 1
 

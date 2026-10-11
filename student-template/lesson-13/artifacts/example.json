@@ -1,0 +1,17 @@
+{
+  "example_only": {
+    "normal_interval": [
+      6.08,
+      13.92
+    ],
+    "four_ones_bootstrap_failure": [
+      1.0,
+      1.0
+    ],
+    "four_ones_wilson": [
+      0.5101091635454027,
+      1.0
+    ]
+  },
+  "population_rows": 4000
+}

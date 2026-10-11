@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l13-r2",
+  "title": "第13课 · 置信区间能否支持决策",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l13-r2-c1",
+      "title": "覆盖含义",
+      "tutor_context": "请用不同于题目的小例解释“覆盖含义”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "相同机制重复调查，1000个区间中950个包含固定真值。覆盖率是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "95%的人需求在区间中",
+              "misconception": "95%的人需求在区间中"
+            },
+            {
+              "id": "B",
+              "text": "95%",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "真值每次有95%机会改变",
+              "misconception": "真值每次有95%机会改变"
+            },
+            {
+              "id": "D",
+              "text": "区间宽度95%",
+              "misconception": "区间宽度95%"
+            }
+          ],
+          "answer": "B",
+          "explanation": "覆盖的单位是整次调查生成的区间，不是个人或参数的移动。"
+        },
+        "b": {
+          "prompt": "已经算出一个95%置信区间，哪句话合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "已证明95%的人在区间里",
+              "misconception": "已证明95%的人在区间里"
+            },
+            {
+              "id": "B",
+              "text": "固定真值会有95%时间待在其中",
+              "misconception": "固定真值会有95%时间待在其中"
+            },
+            {
+              "id": "C",
+              "text": "只要区间窄就保证覆盖",
+              "misconception": "只要区间窄就保证覆盖"
+            },
+            {
+              "id": "D",
+              "text": "它来自目标覆盖率95%的程序，单次可能未覆盖",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "频率覆盖描述重复程序，单次实现并非保证。"
+        }
+      }
+    },
+    {
+      "concept_id": "l13-r2-c2",
+      "title": "宽度与可靠性",
+      "tutor_context": "请用不同于题目的小例解释“宽度与可靠性”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "方法甲区间窄但覆盖70%，乙稍宽覆盖接近95%。如何评价？",
+          "options": [
+            {
+              "id": "A",
+              "text": "甲必然更好",
+              "misconception": "甲必然更好"
+            },
+            {
+              "id": "B",
+              "text": "乙必然计算错误",
+              "misconception": "乙必然计算错误"
+            },
+            {
+              "id": "C",
+              "text": "同时比较覆盖与宽度，不能只选更窄的",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "覆盖不重要，只看小数位",
+              "misconception": "覆盖不重要，只看小数位"
+            }
+          ],
+          "answer": "C",
+          "explanation": "宽度与可靠性都影响用途，名义95%的方法若覆盖70%需重新审查。"
+        },
+        "b": {
+          "prompt": "每次都给[0,1]来估计需求比例，为什么仍可能不适合决策？",
+          "options": [
+            {
+              "id": "A",
+              "text": "虽覆盖全部可能真值，但信息很少",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "因为区间不包含任何比例",
+              "misconception": "因为区间不包含任何比例"
+            },
+            {
+              "id": "C",
+              "text": "因为宽区间必有选择偏差",
+              "misconception": "因为宽区间必有选择偏差"
+            },
+            {
+              "id": "D",
+              "text": "因为覆盖率一定为0",
+              "misconception": "因为覆盖率一定为0"
+            }
+          ],
+          "answer": "A",
+          "explanation": "覆盖高不等于实用精度高；需与门槛和行动相关。"
+        }
+      }
+    },
+    {
+      "concept_id": "l13-r2-c3",
+      "title": "区间计算与方法",
+      "tutor_context": "请用不同于题目的小例解释“区间计算与方法”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "估计10、SE=2，适用1.96正态近似。区间是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "[8,12]",
+              "misconception": "[8,12]"
+            },
+            {
+              "id": "B",
+              "text": "[9.02,10.98]",
+              "misconception": "[9.02,10.98]"
+            },
+            {
+              "id": "C",
+              "text": "[0,20]",
+              "misconception": "[0,20]"
+            },
+            {
+              "id": "D",
+              "text": "[6.08,13.92]",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "上下限为10±1.96×2，必须注明适用近似条件。"
+        },
+        "b": {
+          "prompt": "完整名册低比例抽样的二元结果，必须用百分位bootstrap才算合格吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "是，其他区间一律不允许",
+              "misconception": "是，其他区间一律不允许"
+            },
+            {
+              "id": "B",
+              "text": "不，Wilson等有依据方法也可，需核对覆盖与条件",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "不，直接给真值就是调查区间",
+              "misconception": "不，直接给真值就是调查区间"
+            },
+            {
+              "id": "D",
+              "text": "是，bootstrap能修复任何选择偏差",
+              "misconception": "是，bootstrap能修复任何选择偏差"
+            }
+          ],
+          "answer": "B",
+          "explanation": "方法需匹配估计目标与设计，bootstrap只是有边界的可选示范。"
+        }
+      }
+    },
+    {
+      "concept_id": "l13-r2-c4",
+      "title": "bootstrap边界",
+      "tutor_context": "请用不同于题目的小例解释“bootstrap边界”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "4个观测全为1，普通按行bootstrap的百分位区间是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "[1,1]，但不证明总体全1",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "[0,1]且恰好95%",
+              "misconception": "[0,1]且恰好95%"
+            },
+            {
+              "id": "C",
+              "text": "必然包含所有未知的0",
+              "misconception": "必然包含所有未知的0"
+            },
+            {
+              "id": "D",
+              "text": "多重抽后一定变宽",
+              "misconception": "多重抽后一定变宽"
+            }
+          ],
+          "answer": "A",
+          "explanation": "有放回抽只能抽到样本已有的1，退化区间是方法失效警号。"
+        },
+        "b": {
+          "prompt": "只有全0的小样本，增加bootstrap次数能补出未观察到的1吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，次数足够总会产生1",
+              "misconception": "能，次数足够总会产生1"
+            },
+            {
+              "id": "B",
+              "text": "能，因为95%意味着生成95种值",
+              "misconception": "能，因为95%意味着生成95种值"
+            },
+            {
+              "id": "C",
+              "text": "不能，需要重新审查样本信息和方法",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "不能，所以总体必为0",
+              "misconception": "不能，所以总体必为0"
+            }
+          ],
+          "answer": "C",
+          "explanation": "重抽只重复已有支持点，更多次数不能创造未观察结果。"
+        }
+      }
+    },
+    {
+      "concept_id": "l13-r2-c5",
+      "title": "阈值行动",
+      "tutor_context": "请用不同于题目的小例解释“阈值行动”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "预设需求超过45%才支持全面加开，区间[38%,49%]。怎样表述？",
+          "options": [
+            {
+              "id": "A",
+              "text": "已经证明超过45%",
+              "misconception": "已经证明超过45%"
+            },
+            {
+              "id": "B",
+              "text": "跨越门槛，按此规则证据仍不明确",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "已经证明低于45%",
+              "misconception": "已经证明低于45%"
+            },
+            {
+              "id": "D",
+              "text": "把门槛改成37%即可证明原计划",
+              "misconception": "把门槛改成37%即可证明原计划"
+            }
+          ],
+          "answer": "B",
+          "explanation": "区间横跨门槛，既包含低于也包含高于门槛的值，业务可另论试用。"
+        },
+        "b": {
+          "prompt": "看到区间之后把行动门槛降到区间下限以下，再宣称证据支持原门槛，有何问题？",
+          "options": [
+            {
+              "id": "A",
+              "text": "门槛越低统计一定越准确",
+              "misconception": "门槛越低统计一定越准确"
+            },
+            {
+              "id": "B",
+              "text": "只要区间方法正确就没问题",
+              "misconception": "只要区间方法正确就没问题"
+            },
+            {
+              "id": "C",
+              "text": "只要AI建议就无须说明",
+              "misconception": "只要AI建议就无须说明"
+            },
+            {
+              "id": "D",
+              "text": "混淆了事先目标与事后调整",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "事后变门槛改变了决策问题，不能当作原先问题已经解决。"
+        }
+      }
+    }
+  ]
+}

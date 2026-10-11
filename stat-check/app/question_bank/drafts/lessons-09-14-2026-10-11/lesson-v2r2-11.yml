@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l11-r2",
+  "title": "第11课 · 自愿调查能够代表哪些人",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l11-r2-c1",
+      "title": "总体与框",
+      "tutor_context": "请用不同于题目的小例解释“总体与框”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "目标是全部4000人，只在网上名册邀请。无法上网者没机会受邀属于什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "受邀后的无回答",
+              "misconception": "受邀后的无回答"
+            },
+            {
+              "id": "B",
+              "text": "标准误为零",
+              "misconception": "标准误为零"
+            },
+            {
+              "id": "C",
+              "text": "重复抽样误差已消除",
+              "misconception": "重复抽样误差已消除"
+            },
+            {
+              "id": "D",
+              "text": "覆盖问题",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "未入框意味着无被邀请机会，先于无回答过程。"
+        },
+        "b": {
+          "prompt": "某人已在完整名册，但调查仅联系工作日上午能到场的人。能否直接推广到全名册？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，名册完整就自动代表",
+              "misconception": "能，名册完整就自动代表"
+            },
+            {
+              "id": "B",
+              "text": "需说明未能联系者的选择与覆盖条件",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "能，回答者超过30即可",
+              "misconception": "能，回答者超过30即可"
+            },
+            {
+              "id": "D",
+              "text": "不能计算回答者的任何比例",
+              "misconception": "不能计算回答者的任何比例"
+            }
+          ],
+          "answer": "B",
+          "explanation": "完整名单不等于实际取得过程覆盖全体，仍需审查联系机制。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r2-c2",
+      "title": "邀请与回答",
+      "tutor_context": "请用不同于题目的小例解释“邀请与回答”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "随机邀请200人，只有120人回答。可直接把回答者称作原200人的完整随机样本吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不可以，还需考虑回答机制",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "可以，随机邀请保证随机回答",
+              "misconception": "可以，随机邀请保证随机回答"
+            },
+            {
+              "id": "C",
+              "text": "可以，把80个空值填0",
+              "misconception": "可以，把80个空值填0"
+            },
+            {
+              "id": "D",
+              "text": "只要删除邀请记录就可以",
+              "misconception": "只要删除邀请记录就可以"
+            }
+          ],
+          "answer": "A",
+          "explanation": "随机邀请没有消除无回答；空值代表未知。"
+        },
+        "b": {
+          "prompt": "记录中invited=0、answered=0、observed_need为空。该人的需求能怎样处理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "当作没有需求",
+              "misconception": "当作没有需求"
+            },
+            {
+              "id": "B",
+              "text": "当作有需求",
+              "misconception": "当作有需求"
+            },
+            {
+              "id": "C",
+              "text": "保持未知，说明尚未取得",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "当作无效人员删出目标总体",
+              "misconception": "当作无效人员删出目标总体"
+            }
+          ],
+          "answer": "C",
+          "explanation": "未被邀请不意味着没有需求，不应改变固定目标总体。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r2-c3",
+      "title": "选择偏差",
+      "tutor_context": "请用不同于题目的小例解释“选择偏差”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "有需求者比无需求者更愿回复网上调查。反复采用该机制可能怎样？",
+          "options": [
+            {
+              "id": "A",
+              "text": "人数足够大就一定无偏",
+              "misconception": "人数足够大就一定无偏"
+            },
+            {
+              "id": "B",
+              "text": "回答者需求比例系统偏高",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "只影响方差绝不影响均值",
+              "misconception": "只影响方差绝不影响均值"
+            },
+            {
+              "id": "D",
+              "text": "会使所有回答都为1",
+              "misconception": "会使所有回答都为1"
+            }
+          ],
+          "answer": "B",
+          "explanation": "结果相关的选择改变最终样本构成，可能形成偏差而非仅随机波动。"
+        },
+        "b": {
+          "prompt": "大自愿调查很稳定，小概率样本结果较波动。哪种判断合理？",
+          "options": [
+            {
+              "id": "A",
+              "text": "大调查一定更接近总体",
+              "misconception": "大调查一定更接近总体"
+            },
+            {
+              "id": "B",
+              "text": "小调查一定毫无用途",
+              "misconception": "小调查一定毫无用途"
+            },
+            {
+              "id": "C",
+              "text": "只比较运行速度即可",
+              "misconception": "只比较运行速度即可"
+            },
+            {
+              "id": "D",
+              "text": "稳定不等于准确，应同时看取得机制与偏差",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "小SE不排除大偏差；机制与精度要一起评价。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r2-c4",
+      "title": "构成权重",
+      "tutor_context": "请用不同于题目的小例解释“构成权重”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "总体A80%、B20%，样本层内需求比例50%、90%。按总体构成调整是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "70%",
+              "misconception": "70%"
+            },
+            {
+              "id": "B",
+              "text": "40%",
+              "misconception": "40%"
+            },
+            {
+              "id": "C",
+              "text": "58%",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "90%",
+              "misconception": "90%"
+            }
+          ],
+          "answer": "C",
+          "explanation": "0.8×0.5+0.2×0.9=0.58；70%隐含两组各半。"
+        },
+        "b": {
+          "prompt": "已按A/B总体份额调整，但每层都有需求者更愿回答。能够保证消除偏差吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不能，组内代表性仍不成立",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "能，只要权重和为1",
+              "misconception": "能，只要权重和为1"
+            },
+            {
+              "id": "C",
+              "text": "能，因为每层都有至少1人",
+              "misconception": "能，因为每层都有至少1人"
+            },
+            {
+              "id": "D",
+              "text": "不能，因为任何加权都无意义",
+              "misconception": "不能，因为任何加权都无意义"
+            }
+          ],
+          "answer": "A",
+          "explanation": "构成调整可修复组间份额，但不自动修复组内选择。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r2-c5",
+      "title": "界限与区间",
+      "tutor_context": "请用不同于题目的小例解释“界限与区间”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "把未知需求全部设0或全部设1，得到可能比例范围。这是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "95%置信区间",
+              "misconception": "95%置信区间"
+            },
+            {
+              "id": "B",
+              "text": "总体个体值的95%范围",
+              "misconception": "总体个体值的95%范围"
+            },
+            {
+              "id": "C",
+              "text": "重复调查的标准误",
+              "misconception": "重复调查的标准误"
+            },
+            {
+              "id": "D",
+              "text": "无回答假设下的界限，不自动是95%置信区间",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "界限来自未知值取值约束，非重复抽样覆盖程序。"
+        },
+        "b": {
+          "prompt": "L07已经审计现有调查的缺失。L11还需要增加哪项设计？",
+          "options": [
+            {
+              "id": "A",
+              "text": "将缺失全部再插补一次就足够",
+              "misconception": "将缺失全部再插补一次就足够"
+            },
+            {
+              "id": "B",
+              "text": "明确从什么名单怎样抽取并邀请",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "仅换一张图展示同一比例",
+              "misconception": "仅换一张图展示同一比例"
+            },
+            {
+              "id": "D",
+              "text": "以正确率取代项目评价",
+              "misconception": "以正确率取代项目评价"
+            }
+          ],
+          "answer": "B",
+          "explanation": "本课推进到取得机制，抽样框与邀请规则决定谁有机会提供信息。"
+        }
+      }
+    }
+  ]
+}

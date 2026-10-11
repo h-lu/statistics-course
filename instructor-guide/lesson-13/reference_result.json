@@ -1,0 +1,107 @@
+{
+  "main_and_boundary_coverage": [
+    {
+      "method": "wilson",
+      "n": 80,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.9533333333333334,
+      "mean_width": 0.20967913263891072,
+      "coverage_MC_SE": 0.008610931897776692
+    },
+    {
+      "method": "wald",
+      "n": 80,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.9533333333333334,
+      "mean_width": 0.21443430611580172,
+      "coverage_MC_SE": 0.008610931897776692
+    },
+    {
+      "method": "bootstrap",
+      "n": 80,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.9366666666666666,
+      "mean_width": 0.20907916666666657,
+      "coverage_MC_SE": 0.009943358103295406
+    },
+    {
+      "method": "wilson",
+      "n": 200,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.9566666666666667,
+      "mean_width": 0.1348475063311711,
+      "coverage_MC_SE": 0.008312195413522988
+    },
+    {
+      "method": "wald",
+      "n": 200,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.9566666666666667,
+      "mean_width": 0.13608858926385248,
+      "coverage_MC_SE": 0.008312195413522988
+    },
+    {
+      "method": "bootstrap",
+      "n": 200,
+      "R": 600,
+      "truth": 0.41,
+      "coverage": 0.96,
+      "mean_width": 0.1325129166666666,
+      "coverage_MC_SE": 0.008000000000000004
+    },
+    {
+      "method": "wilson",
+      "n": 4,
+      "R": 600,
+      "truth": 0.01,
+      "coverage": 0.9566666666666667,
+      "mean_width": 0.496992305727907,
+      "coverage_MC_SE": 0.008312195413522988,
+      "case": "separate_rare_event_population"
+    },
+    {
+      "method": "wald",
+      "n": 4,
+      "R": 600,
+      "truth": 0.01,
+      "coverage": 0.043333333333333335,
+      "mean_width": 0.03677653635747558,
+      "coverage_MC_SE": 0.008312195413522988,
+      "case": "separate_rare_event_population"
+    },
+    {
+      "method": "bootstrap",
+      "n": 4,
+      "R": 600,
+      "truth": 0.01,
+      "coverage": 0.043333333333333335,
+      "mean_width": 0.031291666666666655,
+      "coverage_MC_SE": 0.008312195413522988,
+      "case": "separate_rare_event_population"
+    }
+  ],
+  "one_main_sample": {
+    "estimate": 0.435,
+    "wilson": [
+      0.36815725502699076,
+      0.504292637402054
+    ],
+    "n": 200
+  },
+  "four_ones": {
+    "bootstrap": [
+      1.0,
+      1.0
+    ],
+    "wilson": [
+      0.5101091635454027,
+      1.0
+    ]
+  },
+  "note": "Bootstrap B=199 is a bounded optional demonstration; coverage is Monte Carlo evidence, not a guarantee."
+}

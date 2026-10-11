@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l10-r2",
+  "title": "第10课 · 为随机需求设计容量方案",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l10-r2-c1",
+      "title": "随机需求与期望",
+      "tutor_context": "请用不同于题目的小例解释“随机需求与期望”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "需求0、1、2的概率为0.2、0.5、0.3，期望需求是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "1",
+              "misconception": "1"
+            },
+            {
+              "id": "B",
+              "text": "0.3",
+              "misconception": "0.3"
+            },
+            {
+              "id": "C",
+              "text": "1.1",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "2",
+              "misconception": "2"
+            }
+          ],
+          "answer": "C",
+          "explanation": "期望是0×0.2+1×0.5+2×0.3=1.1，不是最常见值或最大值。"
+        },
+        "b": {
+          "prompt": "经理说“平均请求88台，所以每天都会有88台”。哪里不对？",
+          "options": [
+            {
+              "id": "A",
+              "text": "均值描述长期平均，不保证单日取值",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "均值只能是整数",
+              "misconception": "均值只能是整数"
+            },
+            {
+              "id": "C",
+              "text": "只要多模拟就每天都88",
+              "misconception": "只要多模拟就每天都88"
+            },
+            {
+              "id": "D",
+              "text": "均值就是最大可能需求",
+              "misconception": "均值就是最大可能需求"
+            }
+          ],
+          "answer": "A",
+          "explanation": "单日是随机结果，期望可以与任何单日值不同。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r2-c2",
+      "title": "方差与尾部",
+      "tutor_context": "请用不同于题目的小例解释“方差与尾部”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "需求均值相同的两种模型，容量规划还应比较什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "只比较均值足够",
+              "misconception": "只比较均值足够"
+            },
+            {
+              "id": "B",
+              "text": "选择文件行数多的模型",
+              "misconception": "选择文件行数多的模型"
+            },
+            {
+              "id": "C",
+              "text": "只比较随机种子大小",
+              "misconception": "只比较随机种子大小"
+            },
+            {
+              "id": "D",
+              "text": "分布尾部与短缺后果",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "同均值不代表高需求概率或严重程度相同，损失可能改变。"
+        },
+        "b": {
+          "prompt": "模型甲每天需求10；乙一半0、一半20。两者均值10，哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "方差必定相同",
+              "misconception": "方差必定相同"
+            },
+            {
+              "id": "B",
+              "text": "乙需求方差更大",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "甲短缺风险总更大",
+              "misconception": "甲短缺风险总更大"
+            },
+            {
+              "id": "D",
+              "text": "乙期望需求为20",
+              "misconception": "乙期望需求为20"
+            }
+          ],
+          "answer": "B",
+          "explanation": "甲无变动，乙有变动；仅由均值不能推断同样容量风险。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r2-c3",
+      "title": "短缺损失",
+      "tutor_context": "请用不同于题目的小例解释“短缺损失”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "容量1，需求0、1、2的概率0.2、0.5、0.3。短缺概率是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "0.3",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "0.5",
+              "misconception": "0.5"
+            },
+            {
+              "id": "C",
+              "text": "0.8",
+              "misconception": "0.8"
+            },
+            {
+              "id": "D",
+              "text": "1.1",
+              "misconception": "1.1"
+            }
+          ],
+          "answer": "A",
+          "explanation": "只有需求严格超过1才短缺，即需求2的概率0.3。"
+        },
+        "b": {
+          "prompt": "预订5个名额每个2单位，需求7，短缺每台12单位。总成本多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "24",
+              "misconception": "24"
+            },
+            {
+              "id": "B",
+              "text": "10",
+              "misconception": "10"
+            },
+            {
+              "id": "C",
+              "text": "34",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "94",
+              "misconception": "94"
+            }
+          ],
+          "answer": "C",
+          "explanation": "固定预订费5×2=10，加短缺2×12=24，共34；只计超出部分。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r2-c4",
+      "title": "蒙特卡洛的作用",
+      "tutor_context": "请用不同于题目的小例解释“蒙特卡洛的作用”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "把模拟从1000天加到100000天，直接改善了什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "现实需求本身的稳定性",
+              "misconception": "现实需求本身的稳定性"
+            },
+            {
+              "id": "B",
+              "text": "同一模型内平均后果的模拟精度",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "错误模型的正确性",
+              "misconception": "错误模型的正确性"
+            },
+            {
+              "id": "D",
+              "text": "实际复核容量",
+              "misconception": "实际复核容量"
+            }
+          ],
+          "answer": "B",
+          "explanation": "重复模拟减少数值随机波动，不改变现实分布或模型假设。"
+        },
+        "b": {
+          "prompt": "错误模型没有突发高需求状态，模拟一百万天后成本很稳定。能否据此放心规划？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，次数足够保证模型真实",
+              "misconception": "能，次数足够保证模型真实"
+            },
+            {
+              "id": "B",
+              "text": "能，标准误小于任何偏差",
+              "misconception": "能，标准误小于任何偏差"
+            },
+            {
+              "id": "C",
+              "text": "不能，因为模拟永远无用",
+              "misconception": "不能，因为模拟永远无用"
+            },
+            {
+              "id": "D",
+              "text": "不能，稳定输出仍可能遗漏现实风险",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "模拟结果以模型为条件，增加次数不能修复遗漏状态。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r2-c5",
+      "title": "可比性与单位",
+      "tutor_context": "请用不同于题目的小例解释“可比性与单位”，说明对象、条件和常见混淆，再提出一道迁移问题；AI可参与全过程。",
+      "pair": {
+        "a": {
+          "prompt": "公平比较容量60与90，模拟时应怎样处理需求？",
+          "options": [
+            {
+              "id": "A",
+              "text": "给90容量只挑低需求日",
+              "misconception": "给90容量只挑低需求日"
+            },
+            {
+              "id": "B",
+              "text": "两种容量用不同成本定义",
+              "misconception": "两种容量用不同成本定义"
+            },
+            {
+              "id": "C",
+              "text": "同一组模拟日分别代入两种容量",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "仅报告各自最好的那天",
+              "misconception": "仅报告各自最好的那天"
+            }
+          ],
+          "answer": "C",
+          "explanation": "共用需求和损失口径使差异对应容量，减少无关模拟噪声。"
+        },
+        "b": {
+          "prompt": "分析者把日请求分布的概率当成每台设备故障概率，直接相乘推断漏检。主要问题是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "随机单位不同，需另说明连接模型",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "概率单位都相同所以必然正确",
+              "misconception": "概率单位都相同所以必然正确"
+            },
+            {
+              "id": "C",
+              "text": "只需把模拟次数加倍",
+              "misconception": "只需把模拟次数加倍"
+            },
+            {
+              "id": "D",
+              "text": "只需将概率改成百分数",
+              "misconception": "只需将概率改成百分数"
+            }
+          ],
+          "answer": "A",
+          "explanation": "日总请求和单台故障是不同随机变量；不能无条件互换。"
+        }
+      }
+    }
+  ]
+}

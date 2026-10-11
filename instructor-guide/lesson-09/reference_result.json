@@ -1,0 +1,458 @@
+[
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base_low",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 557.5019040365585,
+    "total_cost": 2327.5019040365587,
+    "groups": [
+      {
+        "true_positive": 9.0,
+        "false_positive": 49.50000000000004,
+        "positive": 58.50000000000004,
+        "missed": 1.0,
+        "positive_predictive_value": 0.15384615384615374,
+        "group": "routine",
+        "faults": 10.0,
+        "miss_cost": 60.0,
+        "reviewed": 40,
+        "undetected_faults": 3.8461538461538503
+      },
+      {
+        "true_positive": 27.0,
+        "false_positive": 23.50000000000002,
+        "positive": 50.50000000000002,
+        "missed": 3.0,
+        "positive_predictive_value": 0.5346534653465345,
+        "group": "priority",
+        "faults": 30.0,
+        "miss_cost": 100.0,
+        "reviewed": 50,
+        "undetected_faults": 3.2673267326732756
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 1362.5870646766189,
+    "total_cost": 3132.587064676619,
+    "groups": [
+      {
+        "true_positive": 18.0,
+        "false_positive": 49.00000000000004,
+        "positive": 67.00000000000004,
+        "missed": 2.0,
+        "positive_predictive_value": 0.2686567164179103,
+        "group": "routine",
+        "faults": 20.0,
+        "miss_cost": 60.0,
+        "reviewed": 23,
+        "undetected_faults": 13.820895522388064
+      },
+      {
+        "true_positive": 45.0,
+        "false_positive": 22.50000000000002,
+        "positive": 67.50000000000003,
+        "missed": 5.0,
+        "positive_predictive_value": 0.6666666666666664,
+        "group": "priority",
+        "faults": 50.0,
+        "miss_cost": 100.0,
+        "reviewed": 67,
+        "undetected_faults": 5.33333333333335
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base_high",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 3432.2580645161297,
+    "total_cost": 5202.25806451613,
+    "groups": [
+      {
+        "true_positive": 36.0,
+        "false_positive": 48.00000000000004,
+        "positive": 84.00000000000004,
+        "missed": 4.0,
+        "positive_predictive_value": 0.4285714285714284,
+        "group": "routine",
+        "faults": 40.0,
+        "miss_cost": 60.0,
+        "reviewed": 0,
+        "undetected_faults": 40.0
+      },
+      {
+        "true_positive": 72.0,
+        "false_positive": 21.000000000000018,
+        "positive": 93.00000000000001,
+        "missed": 8.0,
+        "positive_predictive_value": 0.7741935483870966,
+        "group": "priority",
+        "faults": 80.0,
+        "miss_cost": 100.0,
+        "reviewed": 90,
+        "undetected_faults": 10.322580645161295
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base_low",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 557.5019040365585,
+    "total_cost": 2327.5019040365587,
+    "groups": [
+      {
+        "true_positive": 9.0,
+        "false_positive": 49.50000000000004,
+        "positive": 58.50000000000004,
+        "missed": 1.0,
+        "positive_predictive_value": 0.15384615384615374,
+        "group": "routine",
+        "faults": 10.0,
+        "miss_cost": 60.0,
+        "reviewed": 40,
+        "undetected_faults": 3.8461538461538503
+      },
+      {
+        "true_positive": 27.0,
+        "false_positive": 23.50000000000002,
+        "positive": 50.50000000000002,
+        "missed": 3.0,
+        "positive_predictive_value": 0.5346534653465345,
+        "group": "priority",
+        "faults": 30.0,
+        "miss_cost": 100.0,
+        "reviewed": 50,
+        "undetected_faults": 3.2673267326732756
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 1716.4179104477628,
+    "total_cost": 3486.4179104477626,
+    "groups": [
+      {
+        "true_positive": 18.0,
+        "false_positive": 49.00000000000004,
+        "positive": 67.00000000000004,
+        "missed": 2.0,
+        "positive_predictive_value": 0.2686567164179103,
+        "group": "routine",
+        "faults": 20.0,
+        "miss_cost": 60.0,
+        "reviewed": 30,
+        "undetected_faults": 11.94029850746269
+      },
+      {
+        "true_positive": 45.0,
+        "false_positive": 22.50000000000002,
+        "positive": 67.50000000000003,
+        "missed": 5.0,
+        "positive_predictive_value": 0.6666666666666664,
+        "group": "priority",
+        "faults": 50.0,
+        "miss_cost": 100.0,
+        "reviewed": 60,
+        "undetected_faults": 10.000000000000014
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "sensitive"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base_high",
+    "screen_cost": 1500.0,
+    "review_cost": 270,
+    "miss_loss": 4983.410138248849,
+    "total_cost": 6753.410138248849,
+    "groups": [
+      {
+        "true_positive": 36.0,
+        "false_positive": 48.00000000000004,
+        "positive": 84.00000000000004,
+        "missed": 4.0,
+        "positive_predictive_value": 0.4285714285714284,
+        "group": "routine",
+        "faults": 40.0,
+        "miss_cost": 60.0,
+        "reviewed": 30,
+        "undetected_faults": 27.14285714285715
+      },
+      {
+        "true_positive": 72.0,
+        "false_positive": 21.000000000000018,
+        "positive": 93.00000000000001,
+        "missed": 8.0,
+        "positive_predictive_value": 0.7741935483870966,
+        "group": "priority",
+        "faults": 80.0,
+        "miss_cost": 100.0,
+        "reviewed": 60,
+        "undetected_faults": 33.5483870967742
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base_low",
+    "screen_cost": 2000.0,
+    "review_cost": 258,
+    "miss_loss": 723.1519699812391,
+    "total_cost": 2981.151969981239,
+    "groups": [
+      {
+        "true_positive": 9.0,
+        "false_positive": 49.50000000000004,
+        "positive": 58.50000000000004,
+        "missed": 1.0,
+        "positive_predictive_value": 0.15384615384615374,
+        "group": "routine",
+        "faults": 10.0,
+        "miss_cost": 60.0,
+        "reviewed": 58,
+        "undetected_faults": 1.0769230769230838
+      },
+      {
+        "true_positive": 24.0,
+        "false_positive": 4.700000000000005,
+        "positive": 28.700000000000003,
+        "missed": 6.0,
+        "positive_predictive_value": 0.8362369337979093,
+        "group": "priority",
+        "faults": 30.0,
+        "miss_cost": 100.0,
+        "reviewed": 28,
+        "undetected_faults": 6.585365853658541
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base",
+    "screen_cost": 2000.0,
+    "review_cost": 270,
+    "miss_loss": 1503.4512829112869,
+    "total_cost": 3773.451282911287,
+    "groups": [
+      {
+        "true_positive": 18.0,
+        "false_positive": 49.00000000000004,
+        "positive": 67.00000000000004,
+        "missed": 2.0,
+        "positive_predictive_value": 0.2686567164179103,
+        "group": "routine",
+        "faults": 20.0,
+        "miss_cost": 60.0,
+        "reviewed": 46,
+        "undetected_faults": 7.641791044776127
+      },
+      {
+        "true_positive": 40.0,
+        "false_positive": 4.5000000000000036,
+        "positive": 44.5,
+        "missed": 10.0,
+        "positive_predictive_value": 0.898876404494382,
+        "group": "priority",
+        "faults": 50.0,
+        "miss_cost": 100.0,
+        "reviewed": 44,
+        "undetected_faults": 10.449438202247194
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "expected_loss",
+    "scenario": "base_high",
+    "screen_cost": 2000.0,
+    "review_cost": 270,
+    "miss_loss": 3453.054042731463,
+    "total_cost": 5723.054042731463,
+    "groups": [
+      {
+        "true_positive": 36.0,
+        "false_positive": 48.00000000000004,
+        "positive": 84.00000000000004,
+        "missed": 4.0,
+        "positive_predictive_value": 0.4285714285714284,
+        "group": "routine",
+        "faults": 40.0,
+        "miss_cost": 60.0,
+        "reviewed": 22,
+        "undetected_faults": 30.571428571428577
+      },
+      {
+        "true_positive": 64.0,
+        "false_positive": 4.200000000000004,
+        "positive": 68.2,
+        "missed": 16.0,
+        "positive_predictive_value": 0.93841642228739,
+        "group": "priority",
+        "faults": 80.0,
+        "miss_cost": 100.0,
+        "reviewed": 68,
+        "undetected_faults": 16.187683284457485
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base_low",
+    "screen_cost": 2000.0,
+    "review_cost": 258,
+    "miss_loss": 723.1519699812391,
+    "total_cost": 2981.151969981239,
+    "groups": [
+      {
+        "true_positive": 9.0,
+        "false_positive": 49.50000000000004,
+        "positive": 58.50000000000004,
+        "missed": 1.0,
+        "positive_predictive_value": 0.15384615384615374,
+        "group": "routine",
+        "faults": 10.0,
+        "miss_cost": 60.0,
+        "reviewed": 58,
+        "undetected_faults": 1.0769230769230838
+      },
+      {
+        "true_positive": 24.0,
+        "false_positive": 4.700000000000005,
+        "positive": 28.700000000000003,
+        "missed": 6.0,
+        "positive_predictive_value": 0.8362369337979093,
+        "group": "priority",
+        "faults": 30.0,
+        "miss_cost": 100.0,
+        "reviewed": 28,
+        "undetected_faults": 6.585365853658541
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base",
+    "screen_cost": 2000.0,
+    "review_cost": 270,
+    "miss_loss": 1503.4512829112869,
+    "total_cost": 3773.451282911287,
+    "groups": [
+      {
+        "true_positive": 18.0,
+        "false_positive": 49.00000000000004,
+        "positive": 67.00000000000004,
+        "missed": 2.0,
+        "positive_predictive_value": 0.2686567164179103,
+        "group": "routine",
+        "faults": 20.0,
+        "miss_cost": 60.0,
+        "reviewed": 46,
+        "undetected_faults": 7.641791044776127
+      },
+      {
+        "true_positive": 40.0,
+        "false_positive": 4.5000000000000036,
+        "positive": 44.5,
+        "missed": 10.0,
+        "positive_predictive_value": 0.898876404494382,
+        "group": "priority",
+        "faults": 50.0,
+        "miss_cost": 100.0,
+        "reviewed": 44,
+        "undetected_faults": 10.449438202247194
+      }
+    ]
+  },
+  {
+    "methods": [
+      "sensitive",
+      "precise"
+    ],
+    "rule": "reserve_routine30",
+    "scenario": "base_high",
+    "screen_cost": 2000.0,
+    "review_cost": 270,
+    "miss_loss": 3998.0728948470887,
+    "total_cost": 6268.072894847089,
+    "groups": [
+      {
+        "true_positive": 36.0,
+        "false_positive": 48.00000000000004,
+        "positive": 84.00000000000004,
+        "missed": 4.0,
+        "positive_predictive_value": 0.4285714285714284,
+        "group": "routine",
+        "faults": 40.0,
+        "miss_cost": 60.0,
+        "reviewed": 30,
+        "undetected_faults": 27.14285714285715
+      },
+      {
+        "true_positive": 64.0,
+        "false_positive": 4.200000000000004,
+        "positive": 68.2,
+        "missed": 16.0,
+        "positive_predictive_value": 0.93841642228739,
+        "group": "priority",
+        "faults": 80.0,
+        "miss_cost": 100.0,
+        "reviewed": 60,
+        "undetected_faults": 23.6950146627566
+      }
+    ]
+  }
+]

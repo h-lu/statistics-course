@@ -1,0 +1,39 @@
+fastapi 0.116.1
+starlette 0.47.3
+httpx 0.28.1
+anyio 4.15.1
+pytest 8.4.1
+create client
+health GET
+Timeout (0:00:08)!
+Thread 0x0000767eaaeff6c0 [asyncio-portal-] (most recent call first):
+  File "<SYSTEM_LIB>/python3.14/selectors.py", line 452 in select
+  File "<SYSTEM_LIB>/python3.14/asyncio/base_events.py", line 2019 in _run_once
+  File "<SYSTEM_LIB>/python3.14/asyncio/base_events.py", line 677 in run_forever
+  File "<SYSTEM_LIB>/python3.14/asyncio/base_events.py", line 706 in run_until_complete
+  File "<SYSTEM_LIB>/python3.14/asyncio/runners.py", line 127 in run
+  File "<PYTHON_PACKAGES>/anyio/_backends/_asyncio.py", line 2548 in run
+  File "<PYTHON_PACKAGES>/anyio/_core/_eventloop.py", line 83 in run
+  File "<PYTHON_PACKAGES>/anyio/from_thread.py", line 538 in run_blocking_portal
+  File "<SYSTEM_LIB>/python3.14/threading.py", line 1024 in run
+  File "<SYSTEM_LIB>/python3.14/threading.py", line 1082 in _bootstrap_inner
+  File "<SYSTEM_LIB>/python3.14/threading.py", line 1044 in _bootstrap
+
+Thread 0x0000767eb2f50200 [python3] (most recent call first):
+  File "<SYSTEM_LIB>/python3.14/threading.py", line 369 in wait
+  File "<SYSTEM_LIB>/python3.14/concurrent/futures/_base.py", line 445 in result
+  File "<PYTHON_PACKAGES>/anyio/_backends/_asyncio.py", line 2780 in run_sync_from_thread
+  File "<PYTHON_PACKAGES>/anyio/from_thread.py", line 119 in run_sync
+  File "<PYTHON_PACKAGES>/anyio/from_thread.py", line 303 in _spawn_task_from_thread
+  File "<PYTHON_PACKAGES>/anyio/from_thread.py", line 384 in start_task_soon
+  File "<PYTHON_PACKAGES>/anyio/from_thread.py", line 340 in call
+  File "<PYTHON_PACKAGES>/starlette/testclient.py", line 350 in handle_request
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 1014 in _send_single_request
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 979 in _send_handling_redirects
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 942 in _send_handling_auth
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 914 in send
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 825 in request
+  File "<PYTHON_PACKAGES>/starlette/testclient.py", line 451 in request
+  File "<PYTHON_PACKAGES>/httpx/_client.py", line 1053 in get
+  File "<PYTHON_PACKAGES>/starlette/testclient.py", line 479 in get
+  File "<stdin>", line 10 in <module>
