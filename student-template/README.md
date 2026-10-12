@@ -28,6 +28,7 @@
 | 06 | [业务构成不同的机构应如何比较](lesson-06/README.md) | [共同构成与比较范围](lesson-06/LEARN.md) | [分层核算提示](lesson-06/SUPPORT.md) |
 | 07 | [满意度调查的覆盖与无回答问题](lesson-07/README.md) | [未知评价与敏感性](lesson-07/LEARN.md) | [覆盖与假设提示](lesson-07/SUPPORT.md) |
 | 08 | [多表数据整合与统计指标核查](lesson-08/README.md) | [连接、单位与分母](lesson-08/LEARN.md) | [整合与核查提示](lesson-08/SUPPORT.md) |
+| 09 | [条件概率与筛查判断](lesson-09/README.md) | [条件概率与自然频数](lesson-09/LEARN.md) | [计算与核对提示](lesson-09/SUPPORT.md) |
 
 第10–32课尚未开放，课包完成并核验后由教师另行通知。
 
