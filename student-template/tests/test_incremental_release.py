@@ -79,7 +79,7 @@ class PartialCITests(unittest.TestCase):
 
     def test_future_placeholder_is_not_parsed_or_run_by_ci(self):
         make_lesson(self.root, 1, "not_started")
-        future = self.root / "lesson-09"
+        future = self.root / "lesson-10"
         future.mkdir()
         (future / "README.md").write_text("大纲占位", encoding="utf-8")
         with patch.object(course, "run") as run, patch.object(course, "reproduce") as reproduce:
@@ -88,9 +88,9 @@ class PartialCITests(unittest.TestCase):
         reproduce.assert_not_called()
         for action in (course.start, course.run, course.check):
             with self.assertRaisesRegex(ValueError, "大纲占位"):
-                action(self.root, "lesson-09")
+                action(self.root, "lesson-10")
         with self.assertRaisesRegex(ValueError, "大纲占位"):
-            course.ci(self.root, "refs/tags/v2-l09-final")
+            course.ci(self.root, "refs/tags/v2-l10-final")
 
     def test_empty_pre_release_repository(self):
         with patch.object(course, "run") as run, patch.object(course, "reproduce") as reproduce:
@@ -200,14 +200,14 @@ class ReadingGuideSyncTests(unittest.TestCase):
         self.assertIn("data/alerts/events.csv", git(self.target, "diff", "--cached", "--name-only").splitlines())
 
     def test_old_future_release_and_its_data_are_not_synced(self):
-        make_lesson(self.source, 9)
+        make_lesson(self.source, 10)
         (self.source / "data/inference").mkdir()
         (self.source / "data/inference/old.csv").write_text("value\n9\n", encoding="utf-8")
         (self.source / "data/README.md").write_text("旧后续数据导航", encoding="utf-8")
         self.publish()
         course.sync(self.target)
         self.assertTrue((self.target / "lesson-01").is_dir())
-        self.assertFalse((self.target / "lesson-09").exists())
+        self.assertFalse((self.target / "lesson-10").exists())
         self.assertFalse((self.target / "data/inference").exists())
         self.assertFalse((self.target / "data/README.md").exists())
 

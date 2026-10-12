@@ -12,7 +12,7 @@ def test_all_archived_future_versions_and_teacher_copies_are_preserved():
     archived = []
     for bank in QUESTION_BANKS:
         match = re.fullmatch(r"v2-l(\d{2})(?:-r\d+)?", bank.lesson_id)
-        if match and int(match.group(1)) >= 9:
+        if match and int(match.group(1)) >= 9 and bank.lesson_id != "v2-l09-r2":
             archived.append(bank)
             assert bank.path.parent.name == "redesign-2026-10-09"
             relative = bank.path.relative_to(Path(__file__).parents[1] / "app/question_bank")
@@ -20,12 +20,12 @@ def test_all_archived_future_versions_and_teacher_copies_are_preserved():
             assert bank_for_lesson(bank.lesson_id) is bank
     assert len(archived) == 48
     assert [int(re.search(r"l(\d{2})", b.lesson_id).group(1)) for b in CURRENT_BANKS] == list(ACTIVE_LESSONS)
-    assert len(BANKS) == 87
+    assert len(BANKS) == 96
 
 
 def test_future_existing_session_and_response_survive_app_restart(tmp_path):
     path = tmp_path / "old-future.sqlite3"
-    bank = BANKS["v2-l09-r1"]
+    bank = BANKS["v2-l10-r1"]
     db.initialize(str(path), bank.lesson_id, bank.title)
     session = db.current_session(str(path))
     user = db.upsert_user(str(path), gitea_id=1, login="synthetic-history", display_name="合成测试用户", role="student")
@@ -37,7 +37,7 @@ def test_future_existing_session_and_response_survive_app_restart(tmp_path):
         assert client.get("/stat-check/healthz").json() == {"status": "ok"}
         assert dict(db.current_session(str(path))) == dict(session)
         page = client.get("/stat-check/teacher")
-        assert 'value="v2-l09-r1"' not in page.text
+        assert 'value="v2-l10-r1"' not in page.text
         rejected = client.post("/stat-check/teacher/session", data={"csrf_token": csrf_from(page), "lesson_id": bank.lesson_id})
         assert rejected.status_code == 400
         assert dict(db.current_session(str(path))) == dict(session)

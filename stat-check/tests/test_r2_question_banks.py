@@ -81,7 +81,7 @@ def test_partial_upgrade_lists_only_active_lessons_in_numeric_order():
     banks = stubs(*[f"v2-l{n:02d}-r1" for n in range(1, 33)],
                   *[f"v2-l{n:02d}-r2" for n in range(1, 9)], "bootcamp-01")
     assert [b.lesson_id for b in select_current_banks(tuple(reversed(banks)))] == [
-        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 9)]
+        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 10)]
     assert len(banks) == 41  # Selection did not remove history from the input catalog.
 
 
@@ -92,7 +92,7 @@ def test_revision_is_numeric_not_lexicographic():
 
 def test_unversioned_fallback_is_per_lesson():
     result = select_current_banks(stubs("v2-l09", "v2-l01", "v2-l01-r2"))
-    assert [b.lesson_id for b in result] == ["v2-l01-r2"]
+    assert [b.lesson_id for b in result] == ["v2-l01-r2", "v2-l09"]
 
 
 def test_legacy_only_catalog_is_history_only():

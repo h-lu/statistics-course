@@ -58,7 +58,7 @@ def test_runtime_filenames_and_teacher_current_copies_agree():
     teacher = Path(__file__).resolve().parents[2] / "instructor-guide/knowledge-check/question-bank"
     if not teacher.is_dir():
         pytest.skip("Standalone Stat Check checkout has no teacher mirror")
-    assert len(CURRENT_BANKS) == 8
+    assert len(CURRENT_BANKS) == 9
     for bank in CURRENT_BANKS:
         match = re.fullmatch(r"v2-l(\d{2})-r(\d+)", bank.lesson_id)
         assert match is not None
@@ -69,8 +69,16 @@ def test_runtime_filenames_and_teacher_current_copies_agree():
 
 @pytest.mark.parametrize("number", range(1, 9), ids=lambda n: f"L{n:02d}")
 def test_each_r2_bank_http_a_learning_b_feedback_and_export(tmp_path, number):
-    path = tmp_path / f"lesson-{number}.sqlite3"
-    bank = BANKS[f"v2-l{number:02d}-r2"]
+    exercise_bank_http(tmp_path, BANKS[f"v2-l{number:02d}-r2"])
+
+
+@pytest.mark.parametrize("bank", CURRENT_BANKS, ids=lambda bank: bank.lesson_id)
+def test_reviewed_current_bank_full_http_flow(tmp_path, bank):
+    exercise_bank_http(tmp_path, bank)
+
+
+def exercise_bank_http(tmp_path, bank):
+    path = tmp_path / f"{bank.lesson_id}.sqlite3"
     with make_client(path, "teacher", "teacher") as teacher, make_client(path, "student", "review-student") as student:
         create_session(teacher, bank.lesson_id)
         session = db.current_session(str(path))

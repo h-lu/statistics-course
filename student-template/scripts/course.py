@@ -18,8 +18,8 @@ TAG = re.compile(r"^v2-l(\d{2})-(?:final|revision-[1-9]\d*)$")
 LESSON_DIR = re.compile(r"^lesson-(\d{2})$")
 RELEASE_REMOTE = "course-release"
 RELEASE_URL = "ssh://git@hblu.top:2222/statistics/course-student-release-2026.git"
-ACTIVE_LESSONS = tuple(range(1, 9))
-ACTIVE_DATASETS = {"service", "alerts"}
+ACTIVE_LESSONS = tuple(range(1, 10))
+ACTIVE_DATASETS = {"service", "alerts", "inference-09-14"}
 
 
 def lesson_name(value: str | int) -> str:
@@ -40,7 +40,7 @@ def inside(root: Path, relative: str) -> Path:
 
 def manifest(root: Path, lesson: str) -> dict:
     if int(lesson_name(lesson)[-2:]) not in ACTIVE_LESSONS:
-        raise ValueError(f"{lesson}：本课只有大纲占位，当前可运行、检查和同步的课次为01—08")
+        raise ValueError(f"{lesson}：本课只有大纲占位，当前可运行、检查和同步的课次为01—09")
     path = root / lesson / "submission.json"
     obj = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(obj, dict) or obj.get("lesson") != lesson:

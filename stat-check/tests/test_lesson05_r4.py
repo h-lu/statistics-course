@@ -12,11 +12,11 @@ from app.questions import BANKS, CURRENT_BANKS
 PUBLISHED_R3_SHA256 = "b38a447a5a6ce188eabc8b4f530d7962c7c2a7bd46b57744dd44a1f9ddbd31c6"
 
 
-def test_r4_is_current_while_r3_remains_unchanged():
+def test_r4_history_survives_r5_publication():
     previous = BANKS["v2-l05-r3"]
     revised = BANKS["v2-l05-r4"]
     assert sha256(previous.path.read_bytes()).hexdigest() == PUBLISHED_R3_SHA256
-    assert next(bank for bank in CURRENT_BANKS if bank.lesson_id.startswith("v2-l05")).lesson_id == revised.lesson_id
+    assert next(bank for bank in CURRENT_BANKS if bank.lesson_id.startswith("v2-l05")).lesson_id == "v2-l05-r5"
     assert previous.concept_ids == revised.concept_ids
     assert previous.durations == revised.durations
     for concept in previous.concept_ids:

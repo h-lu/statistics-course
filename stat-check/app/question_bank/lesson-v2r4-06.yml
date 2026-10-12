@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l06-r4",
+  "title": "第06课 · 业务构成不同的机构应如何比较",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "marginal-composition",
+      "title": "合并比例与实际构成",
+      "tutor_context": "用两类业务不同数量演示合并分子分母，再比较每条记录等权和每个机构等权的不同目标。",
+      "pair": {
+        "a": {
+          "prompt": "某机构只报告上午办结比例75%、下午25%，尚未提供两个时段的工单数。对全日实际办结比例，哪项判断成立？",
+          "options": [
+            {
+              "id": "A",
+              "text": "不能唯一确定；还需两个时段的计数或构成权重",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "已确定50%，两个时段各占一半",
+              "misconception": "equal-time-labels-as-equal-case-counts"
+            },
+            {
+              "id": "C",
+              "text": "已确定100%，将两个比例相加",
+              "misconception": "sum-proportions-with-different-denominators"
+            },
+            {
+              "id": "D",
+              "text": "已确定25%，以最后一个时段为准",
+              "misconception": "last-stratum-as-whole-day"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：全日比例须按上午、下午工单量加权；只知两个层内比例尚不能唯一确定。B：50%仅在两个时段工单数相同等条件下成立，时段名称各一个不提供此条件。C：75%与25%具有不同分母，不能相加作为全日比例。D：下午25%不能代替包含上午的全日结果，时间先后也不决定总体权重。"
+        },
+        "b": {
+          "prompt": "甲机构50张工单，其中15张复杂；乙150张，其中105张复杂。若目标构成是这200张实际工单，而不是两个机构等权，复杂业务应占多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "30%",
+              "misconception": "use-first-institution-only"
+            },
+            {
+              "id": "B",
+              "text": "70%",
+              "misconception": "use-second-institution-only"
+            },
+            {
+              "id": "C",
+              "text": "50%",
+              "misconception": "equal-institution-weighting"
+            },
+            {
+              "id": "D",
+              "text": "60%",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：15/50只描述甲机构构成。 B：105/150只描述乙机构构成。 C：(30%+70%)/2让两机构等权，不是200张工单等权。 D：复杂共15+105=120张，总200张，权重120/200=60%。"
+        }
+      }
+    },
+    {
+      "concept_id": "common-target-weights",
+      "title": "共同权重与目标构成",
+      "tutor_context": "以将要服务的人群为例解释相同、非负且和为1的构成权重；直接标准化不是修改原始记录。",
+      "pair": {
+        "a": {
+          "prompt": "目标构成常规占25%、复杂占75%，某中心两层办结比例分别80%、40%。按该共同构成计算的比例是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "40%",
+              "misconception": "dominant-stratum-only"
+            },
+            {
+              "id": "B",
+              "text": "50%",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "60%",
+              "misconception": "equal-layer-weights"
+            },
+            {
+              "id": "D",
+              "text": "70%",
+              "misconception": "swap-target-weights"
+            }
+          ],
+          "answer": "B",
+          "explanation": "A：只使用较大权重层的比例，漏掉常规层的25%贡献。 B：0.25×80%+0.75×40%=20%+30%=50%。 C：60%使用两层各50%的权重，与指定目标不符。 D：70%将75%给常规、25%给复杂，交换了目标构成。"
+        },
+        "b": {
+          "prompt": "管理者要比较各中心面对同一批预期业务时的结果；这批业务常规70%、复杂30%。哪种权重做法直接回答此问题？",
+          "options": [
+            {
+              "id": "A",
+              "text": "每中心按自己的历史构成，因各自权重都和为1",
+              "misconception": "normalized-but-different-targets"
+            },
+            {
+              "id": "B",
+              "text": "每中心都用50%与50%，因为两层名称各出现一次",
+              "misconception": "category-count-as-target-weight"
+            },
+            {
+              "id": "C",
+              "text": "每中心使用常规70%、复杂30%，并说明这是预期共同构成",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "先取各中心较高的层内比例，再统一小数位",
+              "misconception": "select-best-stratum-as-standardization"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：各自和为1不保证共同构成，仍比较不同业务组合。 B：类别名称各出现一次并不代表目标业务等量。 C：同一目标问题要求对应的共同权重；这是假定目标构成下的比较值。 D：挑高值改变比较范围，小数位一致不能代替共同权重。"
+        }
+      }
+    },
+    {
+      "concept_id": "missing-stratum",
+      "title": "缺少业务层与支持范围",
+      "tutor_context": "用一个缺层机构说明零分母，并比较限制共同人群与作跨层估计假设的不同含义。",
+      "pair": {
+        "a": {
+          "prompt": "目标业务常规80%、复杂20%。某中心只有常规工单，常规办结比例70%，复杂层没有工单。若仅限制未知复杂比例在0至100%，该目标比例可能范围是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "固定56%",
+              "misconception": "zero-missing-stratum-rate"
+            },
+            {
+              "id": "B",
+              "text": "固定70%",
+              "misconception": "renormalize-observed-stratum-as-full-target"
+            },
+            {
+              "id": "C",
+              "text": "70%至100%",
+              "misconception": "observed-rate-as-full-target-lower-bound"
+            },
+            {
+              "id": "D",
+              "text": "56%至76%",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：56%是未知复杂比例取0的下界，不是已确定结果。 B：70%只描述常规，去掉复杂权重改变了目标范围。 C：没有依据让常规70%成为全目标下界；常规贡献只有56个百分点。 D：常规贡献0.8×70%=56%；未知复杂贡献0至20%，总范围56%至76%。这是逻辑范围，不是置信区间。"
+        },
+        "b": {
+          "prompt": "两地区要按城市、农村共同构成比较。甲没有农村样本，乙两层均有数据。暂不作任何跨层预测假设，哪种做法有直接数据依据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "改为双方都有数据的城市层比较，并说明目标范围缩小",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "甲只用城市、乙仍用两层，仍称同一共同构成",
+              "misconception": "different-supported-targets-as-common"
+            },
+            {
+              "id": "C",
+              "text": "甲农村没有满意回答，农村比例记0",
+              "misconception": "zero-denominator-as-zero-rate"
+            },
+            {
+              "id": "D",
+              "text": "软件自动填一个农村比例，就不需要新假设",
+              "misconception": "software-output-validates-extrapolation"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：城市层具有双方直接支持；改成此比较必须明确它不再代表完整城市/农村共同构成。 B：两方实际采用不同目标构成，不能直接冠以共同构成比较。 C：没有样本是零分母，不能把比例设成0。 D：预测可提供数值，但增加跨层外推假设，不是直接观测依据。"
+        }
+      }
+    },
+    {
+      "concept_id": "composition-reversal",
+      "title": "合并方向与权重敏感性",
+      "tutor_context": "另设两个层差异方向或大小不同的例子，先核算目标权重，再区分方向稳定、大小稳定与实际构成。",
+      "pair": {
+        "a": {
+          "prompt": "甲常规办结27/30、复杂56/140；乙常规119/140、复杂7/20。各按常规、复杂各50%进行比较。哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "甲48.82%、乙78.75%，这是各50%共同构成的结果",
+              "misconception": "actual-mix-as-common-target"
+            },
+            {
+              "id": "B",
+              "text": "乙实际合并更高，说明乙在两个层内也都更高",
+              "misconception": "marginal-direction-implies-stratum-direction"
+            },
+            {
+              "id": "C",
+              "text": "共同构成甲65%、乙60%；实际合并乙较高，须说明构成不同",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "共同构成会把甲实际办结数从83改成110.5",
+              "misconception": "adjusted-rate-rewrites-observed-count"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：这两个比例是实际合并83/170和126/160，不是各层50%权重。 B：甲层内为90%与40%，乙85%与35%，甲在两层都高。 C：甲0.5×90%+0.5×40%=65%，乙0.5×85%+0.5×35%=60%；实际构成使合并方向不同。 D：标准化是目标构成下的指标，不更改实际登记办结数83。"
+        },
+        "b": {
+          "prompt": "两层中甲减乙的比例差分别为−6与+9个百分点。第一层共同权重从20%改为80%，第二层为余下权重。加权差怎样变化？",
+          "options": [
+            {
+              "id": "A",
+              "text": "始终+3个百分点，直接把两个层差相加",
+              "misconception": "unweighted-sum-of-layer-effects"
+            },
+            {
+              "id": "B",
+              "text": "从+3变为−6个百分点",
+              "misconception": "ignore-positive-layer-contribution"
+            },
+            {
+              "id": "C",
+              "text": "始终为正，因为第二层差较大",
+              "misconception": "larger-positive-difference-guarantees-sign"
+            },
+            {
+              "id": "D",
+              "text": "从+6变为−3个百分点",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "A：−6+9=3没有用目标权重，不对应两次共同构成。 B：两种构成都同时包含两个层，不能只用某一层差值。 C：正负层共同加权时方向取决于权重，较大的正差不保证合并为正。 D：原为0.2×(−6)+0.8×9=6；新为0.8×(−6)+0.2×9=−3，权重改变可使方向反转。"
+        }
+      }
+    },
+    {
+      "concept_id": "description-causal-scope",
+      "title": "实际记录、共同构成与干预结论",
+      "tutor_context": "举机构比较例子，区分描述指标、假定构成值与采取措施的因果效果；说明有描述用途不等于已经识别因果。",
+      "pair": {
+        "a": {
+          "prompt": "共同构成下甲的投诉比例比乙低5个百分点。主管据此希望改变乙的排班。单靠这项标准化结果，哪种表达有依据？",
+          "options": [
+            {
+              "id": "A",
+              "text": "在选定共同构成下甲投诉比例较低；不能仅据此确定改排班会降低多少投诉",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "改成甲的排班必然让乙下降5个百分点",
+              "misconception": "standardized-difference-as-intervention-effect"
+            },
+            {
+              "id": "C",
+              "text": "权重相同已控制全部混杂，可直接作因果结论",
+              "misconception": "weights-remove-all-confounding"
+            },
+            {
+              "id": "D",
+              "text": "无法证明排班因果，所以标准化比较完全没有用途",
+              "misconception": "no-causality-no-descriptive-value"
+            }
+          ],
+          "answer": "A",
+          "explanation": "A：描述比较有依据，但排班、制度与未记录因素没有被分离，干预效果尚未识别。 B：共同权重没有随机分配排班，差异不是已测得的干预效果。 C：共同权重只针对纳入的业务层，不保证所有混杂已控制。 D：限制因果解释不否定其在共同构成下描述比较的用途。"
+        },
+        "b": {
+          "prompt": "某窗口实际70张办结42张；共同目标构成下指标为68%。负责人说“计算构成调整后，实际办结已从42增加到47.6张”。如何评价？",
+          "options": [
+            {
+              "id": "A",
+              "text": "正确，直接把68%乘70就是新的实际计数",
+              "misconception": "adjusted-proportion-as-observed-count"
+            },
+            {
+              "id": "B",
+              "text": "应改称实际办结比例64%，取60%与68%的平均",
+              "misconception": "average-different-target-quantities"
+            },
+            {
+              "id": "C",
+              "text": "实际仍42/70=60%；68%是另一构成下指标，不证明采取措施增加办结",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "因为68%不是实际比例，必须删掉它而不作说明",
+              "misconception": "discard-useful-adjusted-description"
+            }
+          ],
+          "answer": "C",
+          "explanation": "A：47.6是相乘的数值，不是新观察到的办结工单。 B：60%实际比例与68%目标构成值的平均没有对应实际登记或指定目标。 C：原计数不被统计调整改写；构成比较也不单独识别任何具体干预的效果。 D：它可以另报并说明目标权重，问题在把它误写成实际计数或干预效果。"
+        }
+      }
+    }
+  ]
+}

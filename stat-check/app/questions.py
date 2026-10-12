@@ -77,7 +77,7 @@ def load_question_banks(directory: Path) -> tuple[QuestionBank, ...]:
 
 
 V2_LESSON_ID = re.compile(r"^v2-l(\d{2})(?:-r([1-9]\d*))?$")
-ACTIVE_LESSONS = tuple(range(1, 9))
+ACTIVE_LESSONS = tuple(range(1, 10))
 
 
 def select_current_banks(

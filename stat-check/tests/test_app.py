@@ -260,12 +260,12 @@ def test_question_bank_directory_and_answer_positions() -> None:
         f"lesson-{number:02d}.yml" for number in range(1, 7)
     ] + [f"lesson-v2-{number:02d}.yml" for number in range(1, 33)] + [
         f"lesson-v2r1-{number:02d}.yml" for number in range(1, 33)
-    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 9)] + [f"lesson-v2r3-{number:02d}.yml" for number in range(1, 9)] + ["lesson-v2r4-05.yml"]
-    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 87
+    ] + [f"lesson-v2r2-{number:02d}.yml" for number in range(1, 10)] + [f"lesson-v2r3-{number:02d}.yml" for number in range(1, 9)] + [f"lesson-v2r4-{number:02d}.yml" for number in range(1, 9)] + ["lesson-v2r5-05.yml"]
+    assert len({bank.lesson_id for bank in QUESTION_BANKS}) == 96
     assert [bank.lesson_id for bank in CURRENT_BANKS] == [
-        f"v2-l{n:02d}-r{4 if n == 5 else 3 if n <= 8 else 1}" for n in range(1, 9)
+        f"v2-l{n:02d}-r{5 if n == 5 else 4 if n <= 8 else 2}" for n in range(1, 10)
     ]
-    assert BANK.lesson_id == "v2-l01-r3"
+    assert BANK.lesson_id == "v2-l01-r4"
     for bank in QUESTION_BANKS:
         assert len(bank.items) == 5
         answers = Counter(
@@ -509,7 +509,7 @@ def test_refresh_markers_are_present(tmp_path) -> None:
     teacher_page = teacher.get("/stat-check/teacher")
     assert 'data-auto-reload="15000"' in teacher_page.text
     assert "新建本课自查（暂不开放）" in teacher_page.text
-    assert 'value="v2-l01-r3"' in teacher_page.text
+    assert 'value="v2-l01-r4"' in teacher_page.text
     assert 'value="v2-l01-r1"' not in teacher_page.text
     assert 'value="v2-l09-r1"' not in teacher_page.text
     assert 'value="v2-l01"' not in teacher_page.text
