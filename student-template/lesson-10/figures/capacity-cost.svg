@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="960" height="460" viewBox="0 0 960 460" role="img"><title>相同三种需求下的容量成本：容量1平均5.6元，容量2平均4元</title><rect width="100%" height="100%" fill="#ffffff"/>
+<text x="36" y="36" fill="#172b4d" font-size="25" font-family="Noto Sans CJK SC, sans-serif" text-anchor="start">先算每种情况，再按概率求平均</text>
+<rect x="40" y="53" width="18" height="18" rx="3" fill="#2864b7"/>
+<text x="65" y="69" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="start">订1个名额</text>
+<rect x="225" y="53" width="18" height="18" rx="3" fill="#df831e"/>
+<text x="250" y="69" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="start">订2个名额</text>
+<text x="306" y="107" fill="#172b4d" font-size="20" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">当天总成本（元）</text>
+<text x="778" y="107" fill="#172b4d" font-size="20" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">长期平均成本（元）</text>
+<line x1="75" y1="350" x2="560" y2="350" stroke="#ccd4df" stroke-width="1"/>
+<text x="64" y="356" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">0</text>
+<line x1="75" y1="298" x2="560" y2="298" stroke="#ccd4df" stroke-width="1"/>
+<text x="64" y="304" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">4</text>
+<line x1="75" y1="246" x2="560" y2="246" stroke="#ccd4df" stroke-width="1"/>
+<text x="64" y="252" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">8</text>
+<line x1="75" y1="194" x2="560" y2="194" stroke="#ccd4df" stroke-width="1"/>
+<text x="64" y="200" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">12</text>
+<line x1="75" y1="142" x2="560" y2="142" stroke="#ccd4df" stroke-width="1"/>
+<text x="64" y="148" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">16</text>
+<rect x="105" y="324" width="34" height="26" rx="3" fill="#2864b7"/>
+<text x="122" y="314" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">2</text>
+<rect x="150" y="298" width="34" height="52" rx="3" fill="#df831e"/>
+<text x="167" y="288" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">4</text>
+<text x="145" y="380" fill="#172b4d" font-size="18" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">需求0台</text>
+<text x="145" y="407" fill="#172b4d" font-size="16" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">概率0.2</text>
+<rect x="265" y="324" width="34" height="26" rx="3" fill="#2864b7"/>
+<text x="282" y="314" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">2</text>
+<rect x="310" y="298" width="34" height="52" rx="3" fill="#df831e"/>
+<text x="327" y="288" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">4</text>
+<text x="305" y="380" fill="#172b4d" font-size="18" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">需求1台</text>
+<text x="305" y="407" fill="#172b4d" font-size="16" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">概率0.5</text>
+<rect x="425" y="168" width="34" height="182" rx="3" fill="#2864b7"/>
+<text x="442" y="158" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">14</text>
+<rect x="470" y="298" width="34" height="52" rx="3" fill="#df831e"/>
+<text x="487" y="288" fill="#172b4d" font-size="17" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">4</text>
+<text x="465" y="380" fill="#172b4d" font-size="18" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">需求2台</text>
+<text x="465" y="407" fill="#172b4d" font-size="16" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">概率0.3</text>
+<line x1="605" y1="116" x2="605" y2="413" stroke="#ccd4df" stroke-width="1"/>
+<line x1="650" y1="350" x2="920" y2="350" stroke="#ccd4df" stroke-width="1"/>
+<text x="640" y="356" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">0</text>
+<line x1="650" y1="298" x2="920" y2="298" stroke="#ccd4df" stroke-width="1"/>
+<text x="640" y="304" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">4</text>
+<line x1="650" y1="246" x2="920" y2="246" stroke="#ccd4df" stroke-width="1"/>
+<text x="640" y="252" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">8</text>
+<line x1="650" y1="194" x2="920" y2="194" stroke="#ccd4df" stroke-width="1"/>
+<text x="640" y="200" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">12</text>
+<line x1="650" y1="142" x2="920" y2="142" stroke="#ccd4df" stroke-width="1"/>
+<text x="640" y="148" fill="#172b4d" font-size="15" font-family="Noto Sans CJK SC, sans-serif" text-anchor="end">16</text>
+<rect x="689" y="277.2" width="64" height="72.8" rx="3" fill="#2864b7"/>
+<text x="721" y="266.2" fill="#172b4d" font-size="22" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">5.6</text>
+<text x="721" y="380" fill="#172b4d" font-size="18" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">容量1</text>
+<rect x="811" y="298" width="64" height="52" rx="3" fill="#df831e"/>
+<text x="843" y="287" fill="#172b4d" font-size="22" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">4</text>
+<text x="843" y="380" fill="#172b4d" font-size="18" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">容量2</text>
+<line x1="650" y1="350" x2="920" y2="350" stroke="#ccd4df" stroke-width="1"/>
+<text x="785" y="409" fill="#172b4d" font-size="16" font-family="Noto Sans CJK SC, sans-serif" text-anchor="middle">0.2、0.5、0.3加权</text>
+<text x="36" y="443" fill="#172b4d" font-size="16" font-family="Noto Sans CJK SC, sans-serif" text-anchor="start">小例：每个名额2元；超出容量每台另付12元。不是正式任务的8元。</text></svg>

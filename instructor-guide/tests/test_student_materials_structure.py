@@ -23,7 +23,7 @@ def test_active_lessons_have_support_and_three_levels() -> None:
 
 def test_future_lessons_have_no_executable_or_submission_content() -> None:
     for root in (STUDENT, ROOT / "instructor-guide"):
-        for number in range(9, 33):
+        for number in (n for n in range(9, 33) if n != 10):
             directory = root / f"lesson-{number:02d}"
             paths = {p.relative_to(directory).as_posix() for p in directory.rglob("*") if p.is_file()}
             assert paths == {"README.md"}
@@ -33,6 +33,13 @@ def test_future_lessons_have_no_executable_or_submission_content() -> None:
         assert not (STUDENT / "scripts" / f"generate_{name}.py").exists()
     for name in ("service", "alerts"):
         assert (STUDENT / "data" / name).is_dir()
+
+
+def test_local_lesson10_has_student_files_without_requiring_teacher_python() -> None:
+    for name in ("README.md", "LEARN.md", "SUPPORT.md", "analysis.py", "report.md", "submission.json"):
+        assert (STUDENT / "lesson-10" / name).is_file()
+    for name in ("RUNBOOK.md", "REFERENCE.md"):
+        assert (ROOT / "instructor-guide/lesson-10" / name).is_file()
 
 
 def test_student_markdown_relative_links_resolve() -> None:

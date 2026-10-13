@@ -1,0 +1,7 @@
+scenario,demand,probability
+base,40,0.20
+base,80,0.60
+base,160,0.20
+stress,40,0.55
+stress,80,0.20
+stress,200,0.25

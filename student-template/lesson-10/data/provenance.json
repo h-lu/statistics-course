@@ -1,0 +1,18 @@
+{
+  "kind": "teaching_synthetic_discrete_scenarios",
+  "source_repository": "h-lu/statistics-course",
+  "source_commit": "ce955719b68991166c86fbb1ecae1d203e7a0671",
+  "source_path": "student-template/data/inference-09-14/demand.csv",
+  "file": "demand.csv",
+  "sha256": "3cbcc4991efdf09da5838a288dbd9ab3805feebbb53fde33c09903699f734dd9",
+  "columns": {
+    "scenario": "string",
+    "demand": "integer requests/day",
+    "probability": "number in [0,1]"
+  },
+  "scenarios": [
+    "base",
+    "stress"
+  ],
+  "no_survey_dependencies": true
+}

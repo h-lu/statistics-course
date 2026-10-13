@@ -38,10 +38,10 @@ class PublishStudentLessonTests(unittest.TestCase):
         self.assertEqual(self.publish().returncode, 0)
         self.assertEqual((self.target / "docs/READING_GUIDE.md").read_text(), "个人批注")
 
-    def test_existing_student_lesson_aborts_without_copying(self):
+    def test_existing_student_lesson_skips_without_copying(self):
         (self.target / "lesson-01").mkdir()
         (self.target / "lesson-01/report.md").write_text("学生报告", encoding="utf-8")
-        self.assertNotEqual(self.publish().returncode, 0)
+        self.assertEqual(self.publish().returncode, 0)
         self.assertEqual((self.target / "lesson-01/report.md").read_text(), "学生报告")
         self.assertFalse((self.target / "docs").exists())
 
@@ -66,14 +66,14 @@ class PublishStudentLessonTests(unittest.TestCase):
         self.assertFalse((self.target / "lesson-01").exists())
 
     def test_future_placeholder_cannot_be_published(self):
-        future = self.source / "lesson-09"
+        future = self.source / "lesson-11"
         future.mkdir()
         (future / "README.md").write_text("大纲占位", encoding="utf-8")
         result = subprocess.run([sys.executable, str(SCRIPT), "--source", str(self.source),
-                                 "--destination", str(self.target), "--lesson", "9"],
+                                 "--destination", str(self.target), "--lesson", "11"],
                                 capture_output=True, text=True, timeout=15)
         self.assertNotEqual(result.returncode, 0)
-        self.assertFalse((self.target / "lesson-09").exists())
+        self.assertFalse((self.target / "lesson-11").exists())
 
 
 if __name__ == "__main__":

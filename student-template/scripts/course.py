@@ -18,8 +18,9 @@ TAG = re.compile(r"^v2-l(\d{2})-(?:final|revision-[1-9]\d*)$")
 LESSON_DIR = re.compile(r"^lesson-(\d{2})$")
 RELEASE_REMOTE = "course-release"
 RELEASE_URL = "ssh://git@hblu.top:2222/statistics/course-student-release-2026.git"
-ACTIVE_LESSONS = tuple(range(1, 10))
+ACTIVE_LESSONS = tuple(range(1, 11))
 ACTIVE_DATASETS = {"service", "alerts", "inference-09-14"}
+L10_SUPPORT = ("scripts/course_l10.py",)
 
 
 def lesson_name(value: str | int) -> str:
@@ -40,7 +41,7 @@ def inside(root: Path, relative: str) -> Path:
 
 def manifest(root: Path, lesson: str) -> dict:
     if int(lesson_name(lesson)[-2:]) not in ACTIVE_LESSONS:
-        raise ValueError(f"{lesson}：本课只有大纲占位，当前可运行、检查和同步的课次为01—09")
+        raise ValueError(f"{lesson}：本课只有大纲占位，当前可运行、检查和同步的课次为01—10")
     path = root / lesson / "submission.json"
     obj = json.loads(path.read_text(encoding="utf-8"))
     if not isinstance(obj, dict) or obj.get("lesson") != lesson:
@@ -213,6 +214,55 @@ def sync_missing_tree(root: Path, source_ref: str, prefix: str, label: str) -> l
     return added
 
 
+def released_support(root: Path, source_ref: str, lessons: list[str]) -> dict[str, bytes]:
+    """Resolve explicitly required versioned code when lesson 10 is published."""
+    if "lesson-10" not in lessons:
+        return {}
+    contents = {}
+    for relative in L10_SUPPORT:
+        entry = git(root, "ls-tree", source_ref, "--", relative, capture=True).strip()
+        if not entry:
+            raise ValueError(f"第10课缺少发布依赖：{relative}")
+        metadata, name = entry.split("\t", 1)
+        mode, kind, _ = metadata.split()
+        if name != relative or kind != "blob" or mode not in {"100644", "100755"}:
+            raise ValueError(f"发布依赖必须是普通文件：{relative}")
+        contents[relative] = subprocess.run(
+            ["git", "show", f"{source_ref}:{relative}"], cwd=root,
+            check=True, capture_output=True,
+        ).stdout
+    return contents
+
+
+def preflight_support(root: Path, contents: dict[str, bytes]) -> None:
+    """Check code conflicts before copying/staging anything; never execute local code."""
+    for relative, incoming in contents.items():
+        if (root / relative).is_symlink():
+            raise ValueError(f"共享代码路径不是普通文件：{relative}；保留已有文件")
+        target = inside(root, relative)
+        if target.is_symlink() or (target.exists() and not target.is_file()):
+            raise ValueError(f"共享代码路径不是普通文件：{relative}；保留已有文件")
+        if target.exists() and target.read_bytes() != incoming:
+            raise ValueError(
+                f"共享代码与发布版本不兼容：{relative}；未覆盖任何文件。"
+                "请保留个人修改，并为不同实现使用新的模块名"
+            )
+
+
+def add_missing_support(root: Path, contents: dict[str, bytes]) -> list[str]:
+    added = []
+    for relative, incoming in contents.items():
+        target = inside(root, relative)
+        if target.exists() or target.is_symlink():
+            continue
+        target.parent.mkdir(parents=True, exist_ok=True)
+        with target.open("xb") as handle:
+            handle.write(incoming)
+        git(root, "add", "--", relative)
+        added.append(relative)
+    return added
+
+
 def sync(root: Path) -> None:
     """Add missing lessons and released support files without replacing student work."""
     try:
@@ -224,22 +274,25 @@ def sync(root: Path) -> None:
         raise ValueError("课程发布仓库地址为空")
     git(root, "fetch", RELEASE_REMOTE, "main")
     source_ref = f"{RELEASE_REMOTE}/main"
-    guide_added = sync_reading_guide(root, source_ref)
-    data_added = sync_missing_tree(root, source_ref, "data", "课程数据")
-    tests_added = sync_missing_tree(root, source_ref, "tests", "检查测试")
-    workflows_added = sync_missing_tree(root, source_ref, ".gitea/workflows", "自动检查配置")
-    support_added = bool(guide_added or data_added or tests_added or workflows_added)
     names = git(root, "ls-tree", "--name-only", "-d", source_ref, capture=True)
     published = sorted(
         name.strip()
         for name in names.splitlines()
         if LESSON_DIR.fullmatch(name.strip()) and int(name.strip()[-2:]) in ACTIVE_LESSONS
     )
+    missing = [lesson for lesson in published if not ((root / lesson).exists() or (root / lesson).is_symlink())]
+    already_present = [lesson for lesson in published if (root / lesson).exists() or (root / lesson).is_symlink()]
+    required = released_support(root, source_ref, published)
+    preflight_support(root, required)
+    runner_added = add_missing_support(root, required)
+    guide_added = sync_reading_guide(root, source_ref)
+    data_added = sync_missing_tree(root, source_ref, "data", "课程数据")
+    tests_added = sync_missing_tree(root, source_ref, "tests", "检查测试")
+    workflows_added = sync_missing_tree(root, source_ref, ".gitea/workflows", "自动检查配置")
+    support_added = bool(runner_added or guide_added or data_added or tests_added or workflows_added)
     if not published and not support_added:
         print("发布仓库中还没有可同步的课次。")
         return
-    missing = [lesson for lesson in published if not ((root / lesson).exists() or (root / lesson).is_symlink())]
-    already_present = [lesson for lesson in published if (root / lesson).exists() or (root / lesson).is_symlink()]
     if already_present:
         print("已存在，跳过：" + ", ".join(already_present))
     if not missing and not support_added:
@@ -249,6 +302,10 @@ def sync(root: Path) -> None:
         git(root, "restore", "--source", f"{RELEASE_REMOTE}/main", "--", lesson)
         git(root, "add", "--", lesson)
         print(f"已同步并暂存 {lesson}。")
+    if "lesson-10" in missing:
+        print("第10课兼容入口如下；已有scripts/course.py没有被覆盖：")
+        for action in ("start", "run", "check"):
+            print(f"python3 scripts/course_l10.py {action} 10")
     print("请检查 git diff --cached，然后提交并推送：git commit -m '同步课程发布' && git push")
 
 
@@ -256,12 +313,19 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("action", choices=["start", "run", "check", "sync", "ci"])
     parser.add_argument("lesson", nargs="?")
+    parser.add_argument("--destination", type=Path,
+                        help="仅sync可指定已有学生Git目录；其余动作使用脚本所在目录")
     args = parser.parse_args()
+    if args.destination is not None and args.action != "sync":
+        parser.error("--destination仅用于sync；start/run/check使用学生目录中的入口")
     try:
         if args.action == "ci":
             ci(ROOT, os.getenv("GITHUB_REF", ""))
         elif args.action == "sync":
-            sync(ROOT)
+            destination = args.destination.resolve() if args.destination is not None else ROOT
+            if args.destination is not None and not (destination / ".git").exists():
+                raise ValueError("同步目标必须是已有学生Git工作树")
+            sync(destination)
         else:
             if args.lesson is None:
                 parser.error("请填写课次，如：python scripts/course.py run 03")

@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l10-r3-20261013",
+  "title": "第10课 · 为随机需求安排复核名额",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l10-r3-20261013-c1",
+      "title": "期望与实际需求",
+      "tutor_context": "请用不同于题目的例子解释本概念，并让学生核对分母、条件和计算；AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "某请求数取1或3，概率分别为0.75和0.25。长期平均请求数是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "1.5",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "2",
+              "misconception": "2"
+            },
+            {
+              "id": "C",
+              "text": "3",
+              "misconception": "3"
+            },
+            {
+              "id": "D",
+              "text": "0.5",
+              "misconception": "0.5"
+            }
+          ],
+          "answer": "A",
+          "explanation": "按概率加权为1×0.75+3×0.25=1.5，不能将两个数等权平均。"
+        },
+        "b": {
+          "prompt": "一天需求的期望是2.4台。哪种解释合适？",
+          "options": [
+            {
+              "id": "A",
+              "text": "每天一定收到2.4台",
+              "misconception": "每天一定收到2.4台"
+            },
+            {
+              "id": "B",
+              "text": "约有24%的天收到10台",
+              "misconception": "约有24%的天收到10台"
+            },
+            {
+              "id": "C",
+              "text": "长期平均约2.4台，每天实际数量可以不同",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "最多收到3台",
+              "misconception": "最多收到3台"
+            }
+          ],
+          "answer": "C",
+          "explanation": "期望是长期平均，不规定每一天的数量，也不能据此推断上限。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r3-20261013-c2",
+      "title": "容量、短缺与费用",
+      "tutor_context": "请用不同于题目的例子解释本概念，并让学生核对分母、条件和计算；AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "每个名额预订费3元，预订预算23元，名额只能取整数。最多预订多少个？",
+          "options": [
+            {
+              "id": "A",
+              "text": "8",
+              "misconception": "8"
+            },
+            {
+              "id": "B",
+              "text": "7",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "23",
+              "misconception": "23"
+            },
+            {
+              "id": "D",
+              "text": "3",
+              "misconception": "3"
+            }
+          ],
+          "answer": "B",
+          "explanation": "7个花21元符合预算，8个花24元超过预算。"
+        },
+        "b": {
+          "prompt": "预订4个名额，每个2元；当天来6台，超出部分每台另付7元。总成本是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "12元",
+              "misconception": "12元"
+            },
+            {
+              "id": "B",
+              "text": "14元",
+              "misconception": "14元"
+            },
+            {
+              "id": "C",
+              "text": "42元",
+              "misconception": "42元"
+            },
+            {
+              "id": "D",
+              "text": "22元",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "预订费4×2=8，短缺2台转送费14，合计22元。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r3-20261013-c3",
+      "title": "短缺概率与短缺规模",
+      "tutor_context": "请用不同于题目的例子解释本概念，并让学生核对分母、条件和计算；AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "四个等可能的日子，短缺台数是0、0、0、4。短缺概率和平均短缺台数分别是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "1和0.25",
+              "misconception": "1和0.25"
+            },
+            {
+              "id": "B",
+              "text": "0.25和1",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "0.25和4",
+              "misconception": "0.25和4"
+            },
+            {
+              "id": "D",
+              "text": "1和4",
+              "misconception": "1和4"
+            }
+          ],
+          "answer": "B",
+          "explanation": "四天中一天短缺，所以概率1/4；平均短缺(0+0+0+4)/4=1台。"
+        },
+        "b": {
+          "prompt": "两种日需求的均值相同，就可以保证订同样容量时短缺概率相同吗？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，因为均值决定所有后果",
+              "misconception": "能，因为均值决定所有后果"
+            },
+            {
+              "id": "B",
+              "text": "能，只要模拟天数足够多",
+              "misconception": "能，只要模拟天数足够多"
+            },
+            {
+              "id": "C",
+              "text": "不能，还要看各需求值的概率和容量",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "不能，因为均值不能计算",
+              "misconception": "不能，因为均值不能计算"
+            }
+          ],
+          "answer": "C",
+          "explanation": "均值相同的分布可以有不同尾部，短缺取决于超过容量的概率。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r3-20261013-c4",
+      "title": "模拟误差与模型条件",
+      "tutor_context": "请用不同于题目的例子解释本概念，并让学生核对分母、条件和计算；AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "增加模拟天数后，模拟平均更接近模型的精确期望。这直接说明什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "现实中的需求更稳定了",
+              "misconception": "现实中的需求更稳定了"
+            },
+            {
+              "id": "B",
+              "text": "模型一定正确",
+              "misconception": "模型一定正确"
+            },
+            {
+              "id": "C",
+              "text": "明天不会短缺",
+              "misconception": "明天不会短缺"
+            },
+            {
+              "id": "D",
+              "text": "对模型内平均后果的数值估计通常更稳定",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "增加模拟主要减少模拟误差，不改变现实需求，也不验证模型适用性。"
+        },
+        "b": {
+          "prompt": "比较两个容量时，先抽一批日需求并让两方案使用同一批，主要好处是什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "让两方案面对相同需求，减少额外抽样波动的干扰",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "让两方案必然成本相同",
+              "misconception": "让两方案必然成本相同"
+            },
+            {
+              "id": "C",
+              "text": "保证模型反映真实需求",
+              "misconception": "保证模型反映真实需求"
+            },
+            {
+              "id": "D",
+              "text": "使概率分布不再需要",
+              "misconception": "使概率分布不再需要"
+            }
+          ],
+          "answer": "A",
+          "explanation": "共享日需求方便逐日对照；独立模拟也可估计后果，但会增加随机波动干扰。"
+        }
+      }
+    },
+    {
+      "concept_id": "l10-r3-20261013-c5",
+      "title": "分位数与尾部",
+      "tutor_context": "请用不同于题目的例子解释本概念，并让学生核对分母、条件和计算；AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "短缺0、2、9台的概率为0.80、0.15、0.05。按累计概率首次达到95%的定义，95%分位数是多少？",
+          "options": [
+            {
+              "id": "A",
+              "text": "0",
+              "misconception": "0"
+            },
+            {
+              "id": "B",
+              "text": "1.5",
+              "misconception": "1.5"
+            },
+            {
+              "id": "C",
+              "text": "2",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "9",
+              "misconception": "9"
+            }
+          ],
+          "answer": "C",
+          "explanation": "不超过0台为80%，不超过2台为95%，所以取2台。"
+        },
+        "b": {
+          "prompt": "某模型的95%短缺分位数为2台，最大可能短缺9台。哪句话正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "短缺不可能超过2台",
+              "misconception": "短缺不可能超过2台"
+            },
+            {
+              "id": "B",
+              "text": "至少95%的概率短缺不超过2台，但仍可能出现更大短缺",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "每天平均短缺2台",
+              "misconception": "每天平均短缺2台"
+            },
+            {
+              "id": "D",
+              "text": "9台一定每20天出现一次",
+              "misconception": "9台一定每20天出现一次"
+            }
+          ],
+          "answer": "B",
+          "explanation": "分位数不等于最大值或平均值；概率也不要求在每个固定周期中按次数兑现。"
+        }
+      }
+    }
+  ]
+}

@@ -14,8 +14,11 @@ from urllib.parse import unquote, urlsplit
 import yaml
 
 TEACHER = Path(__file__).resolve().parents[1]
-ACTIVE_LESSONS = tuple(range(1, 9))
-PLANNED_LESSONS = tuple(range(9, 33))
+ACTIVE_LESSONS = tuple(range(1, 9)) + (10,)
+PLANNED_LESSONS = tuple(n for n in range(9, 33) if n != 10)
+LOCAL_DRAFT_BANKS = {
+    10: ("lesson10-20261013/lesson-v2r3-10-20261013.yml", "v2-l10-r3-20261013"),
+}
 
 
 def lesson_topic(title: str) -> str:
@@ -72,13 +75,19 @@ def current_bank_spec(directory: Path, number: int) -> tuple[Path, str]:
     return path, f"v2-l{number:02d}{suffix}"
 
 
-def validate(student: Path, execute: bool = False) -> dict:
+def validate(student: Path, execute: bool = False, selected: int | None = None) -> dict:
     errors = []
     stats = {"lessons": 0, "planned_lessons": 0, "questions": 0, "starting_points_run": 0, "data_files": 0}
     banks = TEACHER / "knowledge-check/question-bank"
-    for n in ACTIVE_LESSONS:
+    stats["teacher_reference_scripts_unprovided"] = []
+    for n in ((selected,) if selected is not None else ACTIVE_LESSONS):
         lesson = f"lesson-{n:02d}"
-        for root, files in [(student, ["README.md", "SUPPORT.md", "LEARN.md", "analysis.py", "report.md", "submission.json"]), (TEACHER, ["RUNBOOK.md", "REFERENCE.md", "reference.py"])]:
+        teacher_files = ["RUNBOOK.md", "REFERENCE.md"]
+        if n not in LOCAL_DRAFT_BANKS:
+            teacher_files.append("reference.py")
+        elif not (TEACHER / lesson / "reference.py").is_file():
+            stats["teacher_reference_scripts_unprovided"].append(n)
+        for root, files in [(student, ["README.md", "SUPPORT.md", "LEARN.md", "analysis.py", "report.md", "submission.json"]), (TEACHER, teacher_files)]:
             for file in files:
                 path = root / lesson / file
                 if not path.is_file() or path.stat().st_size == 0:
@@ -93,6 +102,9 @@ def validate(student: Path, execute: bool = False) -> dict:
             except (ValueError, KeyError, AssertionError):
                 errors.append(f"{lesson}: invalid initial manifest")
         bank_path, expected_id = current_bank_spec(banks, n)
+        if n in LOCAL_DRAFT_BANKS:
+            relative, expected_id = LOCAL_DRAFT_BANKS[n]
+            bank_path = TEACHER / "knowledge-check/drafts" / relative
         if not bank_path.exists():
             errors.append(f"missing {bank_path.name}")
         else:
@@ -132,7 +144,7 @@ def validate(student: Path, execute: bool = False) -> dict:
                 stats["starting_points_run"] += 1
         stats["lessons"] += 1
 
-    for n in PLANNED_LESSONS:
+    for n in (() if selected is not None else PLANNED_LESSONS):
         lesson = f"lesson-{n:02d}"
         for root in (student, TEACHER):
             directory = root / lesson
@@ -145,18 +157,21 @@ def validate(student: Path, execute: bool = False) -> dict:
         # 教师手册位于单仓库的子目录，合法地链接到同一仓库的
         # student-template/ 和 .github/。独立的学生模板仍以自身为边界。
         link_root = TEACHER.parent if root == TEACHER else root
-        for path in root.rglob("*.md"):
+        scan = root / f"lesson-{selected:02d}" if selected is not None else root
+        for path in scan.rglob("*.md"):
             if any(p in {"archive", ".git", ".venv", "legacy"} for p in path.relative_to(root).parts):
                 continue
             errors.extend(local_links(path, link_root))
-        for path in root.rglob("*.py"):
+        for path in scan.rglob("*.py"):
             if any(p in {"archive", ".git", ".venv", "__pycache__"} for p in path.relative_to(root).parts):
                 continue
             try:
                 ast.parse(path.read_text(encoding="utf-8"), filename=str(path))
             except SyntaxError as error:
                 errors.append(str(error))
-    for path in (student / "data").glob("*/*.csv"):
+    data_paths = ((student / f"lesson-{selected:02d}" / "data").rglob("*.csv")
+                  if selected is not None else (student / "data").glob("*/*.csv"))
+    for path in data_paths:
         if path.stat().st_size == 0:
             errors.append(f"empty data: {path}")
         stats["data_files"] += 1
@@ -168,8 +183,10 @@ def main() -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--student", type=Path, default=TEACHER.parent / "student-template")
     parser.add_argument("--run", action="store_true", help="Execute starting points; writes only their generated artifacts")
+    parser.add_argument("--lesson", type=int, choices=ACTIVE_LESSONS,
+                        help="只检查指定本地课，独立于旧全仓占位基线")
     args = parser.parse_args()
-    result = validate(args.student.resolve(), args.run)
+    result = validate(args.student.resolve(), args.run, args.lesson)
     print(json.dumps(result, ensure_ascii=False, indent=2))
     return bool(result["errors"])
 

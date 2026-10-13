@@ -29,6 +29,11 @@ jobs:
       - name: Reproduce submitted project evidence
         env:
           GITHUB_REF: ${{ gitea.ref }}
-        run: .venv/bin/python scripts/course.py ci
+        run: |
+          if [ -f scripts/course_l10.py ]; then
+            .venv/bin/python scripts/course_l10.py ci
+          else
+            .venv/bin/python scripts/course.py ci
+          fi
       - name: Keep supplied data unchanged during analysis
         run: git diff --exit-code -- data
