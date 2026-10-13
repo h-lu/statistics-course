@@ -44,9 +44,9 @@ def test_calculations_and_record_sets_independent_of_key_letters():
 
 
 def test_lessons01_to08_advance_and_teacher_copy_matches():
-    assert len(BANKS) == 96
+    assert len(BANKS) == 97
     assert [b.lesson_id for b in CURRENT_BANKS] == [
-        f'v2-l{n:02d}-r{5 if n==5 else 4 if n<=8 else 2}' for n in range(1,10)]
+        f'v2-l{n:02d}-r{5 if n==5 else 4 if n<=8 else 2}' for n in range(1,10)] + ['v2-l10-r3-20261013']
     mirror = Path(__file__).resolve().parents[2]/'instructor-guide/knowledge-check/question-bank'/BANK.path.name
     if mirror.parent.is_dir():
         assert BANK.path.read_bytes() == mirror.read_bytes()

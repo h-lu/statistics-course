@@ -58,12 +58,12 @@ def test_runtime_filenames_and_teacher_current_copies_agree():
     teacher = Path(__file__).resolve().parents[2] / "instructor-guide/knowledge-check/question-bank"
     if not teacher.is_dir():
         pytest.skip("Standalone Stat Check checkout has no teacher mirror")
-    assert len(CURRENT_BANKS) == 9
+    assert len(CURRENT_BANKS) == 10
     for bank in CURRENT_BANKS:
-        match = re.fullmatch(r"v2-l(\d{2})-r(\d+)", bank.lesson_id)
+        match = re.fullmatch(r"v2-l(\d{2})-r(\d+)(-\d{8})?", bank.lesson_id)
         assert match is not None
-        lesson, revision = match.groups()
-        assert bank.path.name == f"lesson-v2r{revision}-{lesson}.yml"
+        lesson, revision, date_suffix = match.groups()
+        assert bank.path.name == f"lesson-v2r{revision}-{lesson}{date_suffix or ''}.yml"
         assert bank.path.read_bytes() == (teacher / bank.path.name).read_bytes()
 
 

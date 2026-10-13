@@ -1,0 +1,58 @@
+{
+  "schema": "statistics-lesson10-question-release-v1",
+  "baseline_commit": "4a3e1d6a2b1d116df58d460c49b82190135b2880",
+  "new_lesson_id": "v2-l10-r3-20261013",
+  "source_path": "instructor-guide/knowledge-check/drafts/lesson10-20261013/lesson-v2r3-10-20261013.yml",
+  "source_sha256": "4897f57a3c6df300529977e94697997f44f12b57e0ea4fac4d424eea7130a598",
+  "installed_copies": {
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-10-20261013.yml": "4897f57a3c6df300529977e94697997f44f12b57e0ea4fac4d424eea7130a598",
+    "stat-check/app/question_bank/lesson-v2r3-10-20261013.yml": "4897f57a3c6df300529977e94697997f44f12b57e0ea4fac4d424eea7130a598"
+  },
+  "previous_lesson10_versions": {
+    "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2-10.yml": "d5d26eee7531097c32b3aaaaa53800e031127dac16f007dfcfc25f56a0a0e708",
+    "instructor-guide/knowledge-check/question-bank/archive/redesign-2026-10-09/lesson-v2r1-10.yml": "439e93ac56aaabe86a86e58cd253fa8efb5f0e738ee4707cf13c636d8866e189",
+    "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2-10.yml": "d5d26eee7531097c32b3aaaaa53800e031127dac16f007dfcfc25f56a0a0e708",
+    "stat-check/app/question_bank/archive/redesign-2026-10-09/lesson-v2r1-10.yml": "439e93ac56aaabe86a86e58cd253fa8efb5f0e738ee4707cf13c636d8866e189"
+  },
+  "all_202_previous_bank_files_unchanged": true,
+  "non_lesson10_current_ids_unchanged": [
+    "v2-l01-r4",
+    "v2-l02-r4",
+    "v2-l03-r4",
+    "v2-l04-r4",
+    "v2-l05-r5",
+    "v2-l06-r4",
+    "v2-l07-r4",
+    "v2-l08-r4",
+    "v2-l09-r2"
+  ],
+  "new_current_id": "v2-l10-r3-20261013",
+  "grading_policy_and_database_code_unchanged": true,
+  "main_py_change": "stale restriction text 1–8 to 1–10 only; do not replace production main.py",
+  "questions_py_sha256": "194aebe0b31aa6365c8635202d1dd55c7c6ee6ae17d71ed5316999081d49edec",
+  "content_pairs": 5,
+  "questions_per_phase": 5,
+  "durations_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "deployment_status": "Source registration ready; production result is recorded separately by deployment owner",
+  "scope": "Only new lesson10 source registration and selector; no database migration, session opening or historical regrading",
+  "isolated_regression": {
+    "passed": 271,
+    "failures": 0,
+    "errors": 0,
+    "new_lesson10_tests": 16,
+    "scope": "Temporary SQLite and synthetic users; no production calls or credentials",
+    "test_files": [
+      "test_lesson10_online_release.py",
+      "test_redesign_archive.py",
+      "test_r2_question_banks.py",
+      "test_app.py",
+      "test_v2_compatibility.py",
+      "test_lesson03_r3.py",
+      "test_r2_review.py"
+    ]
+  }
+}

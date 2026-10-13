@@ -495,7 +495,7 @@ def create_app(settings: Settings | None = None) -> FastAPI:
             raise HTTPException(status_code=400, detail="所选课次不存在") from error
         match = V2_LESSON_ID.fullmatch(bank.lesson_id)
         if match and int(match.group(1)) not in ACTIVE_LESSONS:
-            raise HTTPException(status_code=400, detail="本课只有大纲占位，当前仅开放第1–8课；历史场次仍保留原题")
+            raise HTTPException(status_code=400, detail="本课只有大纲占位，当前仅开放第1–10课；历史场次仍保留原题")
         db.create_session(settings.database_path, bank.lesson_id, bank.title)
         return RedirectResponse(f"{settings.base_path}/teacher", status_code=303)
 

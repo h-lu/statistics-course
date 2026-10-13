@@ -76,8 +76,9 @@ def load_question_banks(directory: Path) -> tuple[QuestionBank, ...]:
     return banks
 
 
-V2_LESSON_ID = re.compile(r"^v2-l(\d{2})(?:-r([1-9]\d*))?$")
-ACTIVE_LESSONS = tuple(range(1, 10))
+V2_LESSON_ID = re.compile(r"^v2-l(\d{2})(?:-r([1-9]\d*))?(?:-\d{8})?$")
+ACTIVE_LESSONS = tuple(range(1, 11))
+CURRENT_BANK_OVERRIDES = {10: "v2-l10-r3-20261013"}
 
 
 def select_current_banks(
@@ -88,7 +89,8 @@ def select_current_banks(
 
     Old banks stay in BANKS: existing sessions must retain their exact lesson_id.
     Only authored active lessons are offered for new sessions. Archived lessons
-    remain in BANKS for exact-ID history lookup.
+    remain in BANKS for exact-ID history lookup. Explicit release IDs preserve
+    authored dated versions without changing other lessons' numeric selection.
     """
     latest: dict[int, tuple[int, QuestionBank]] = {}
     for bank in banks:
@@ -100,6 +102,13 @@ def select_current_banks(
             continue
         if number not in latest or revision > latest[number][0]:
             latest[number] = (revision, bank)
+    by_id = {bank.lesson_id: bank for bank in banks}
+    for number, lesson_id in CURRENT_BANK_OVERRIDES.items():
+        if number in active_lessons and lesson_id in by_id:
+            bank = by_id[lesson_id]
+            match = V2_LESSON_ID.fullmatch(bank.lesson_id)
+            if match and int(match.group(1)) == number:
+                latest[number] = (int(match.group(2) or 0), bank)
     return tuple(latest[number][1] for number in sorted(latest))
 
 

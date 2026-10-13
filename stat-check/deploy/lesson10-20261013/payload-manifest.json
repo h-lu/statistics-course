@@ -1,0 +1,15 @@
+{
+  "release": "lesson10-bank-20261014-v1",
+  "files": {
+    "app/questions.py": {
+      "before": "9bc6ddcc1036aebaea65904d78b3d6e3e4ad6b139dc506aa5d4018c57d0ae7b8",
+      "after": "16c8c85ce7144ce31b9cd5e8671cd659dc82bd3a3fd1afc9c93d845bd71405e0"
+    },
+    "app/question_bank/lesson-v2r3-10-20261013.yml": {
+      "before": null,
+      "after": "4897f57a3c6df300529977e94697997f44f12b57e0ea4fac4d424eea7130a598"
+    }
+  },
+  "unchanged_production_lesson_count": 31,
+  "rebuild_base": "existing production image; copy only listed files"
+}
