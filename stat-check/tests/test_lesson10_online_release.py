@@ -157,4 +157,3 @@ def test_installation_restart_and_new_session_keep_old_lesson10_record(tmp_path)
         assert db.get_session(path, old_session["id"])["lesson_id"] == old_bank.lesson_id
         history = teacher.get(f"/stat-check/teacher?session_id={old_session['id']}")
         assert history.status_code == 200 and old_bank.title in unescape(history.text)
-

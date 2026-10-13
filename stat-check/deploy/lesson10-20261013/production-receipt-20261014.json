@@ -1,0 +1,42 @@
+{
+  "schema": "lesson10-online-release-v1",
+  "verified_at_utc": "2026-10-13T22:53:04.094392+00:00",
+  "release": "lesson10-bank-20261014-v1",
+  "actual_live_lesson_count": 32,
+  "production_sessions_created": 0,
+  "grading_policy_changed": false,
+  "teacher_action_required": "Login, select lesson10, create a closed session, then open the stages when ready.",
+  "server_backup_saved": true,
+  "live_databases_restored_or_regraded": false,
+  "real_student_tests_performed": false,
+  "ui_verification": {
+    "exact_runtime_synthetic_http_flow": true,
+    "live_loaded_template_selector_rendered": true,
+    "authenticated_browser_visual_check": "not completed: browser net::ERR_BLOCKED_BY_CLIENT",
+    "teacher_public_endpoint_requires_login": true
+  },
+  "course": "statistics",
+  "bank_version": "v2-l10-r3-20261013",
+  "source_commit": "699cac380335a4c90b34f420bc98882806835d0a",
+  "runtime_image_id": "sha256:23c0d2ca7392547c45b974d43936a658da3b552922f7d9982ce6903a19d9211b",
+  "changed_runtime_files": {
+    "app/questions.py": {
+      "before": "9bc6ddcc1036aebaea65904d78b3d6e3e4ad6b139dc506aa5d4018c57d0ae7b8",
+      "after": "16c8c85ce7144ce31b9cd5e8671cd659dc82bd3a3fd1afc9c93d845bd71405e0"
+    },
+    "app/question_bank/lesson-v2r3-10-20261013.yml": {
+      "before": null,
+      "after": "4897f57a3c6df300529977e94697997f44f12b57e0ea4fac4d424eea7130a598"
+    }
+  },
+  "historical_sessions_responses_learning_identical": true,
+  "other_31_lesson_mappings_identical": true,
+  "health_http_status": 200,
+  "teacher_url": "https://hblu.top/stat-check/teacher",
+  "student_url": "https://hblu.top/stat-check/current",
+  "tests": {
+    "regression_passed": 271,
+    "exact_runtime_assertions_passed": 326,
+    "all10_source_questions_and_answers_match": true
+  }
+}

@@ -54,5 +54,7 @@
       "test_lesson03_r3.py",
       "test_r2_review.py"
     ]
-  }
+  },
+  "production_receipt": "../../../../stat-check/deploy/lesson10-20261013/production-receipt-20261014.json",
+  "production_deployed": true
 }
