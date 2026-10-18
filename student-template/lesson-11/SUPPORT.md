@@ -14,7 +14,7 @@
 
 | 工具 | 输入与输出 | 你仍须决定什么 |
 |---|---|---|
-| `load_frame()` | 读取公开联系名册 | 关注完整总体还是哪项辅助分组结果 |
+| `load_frame()` | 读取公开联系名册 | 在完整总体主目标之外，是否增加辅助分组问题 |
 | `choose_invites(frame, n, seed, mechanism)` | 在规定名单内等概率无放回选编号 | n、机制、比较约束及理由 |
 | `make_request(frame, mechanism, n, selection_seed, response_seed)` | 生成含实际邀请编号的方案 | 方案依据、种子与保持相同的条件 |
 | `write_request(request, path)` | 保存方案并返回散列，不覆盖旧文件 | 在第一次取得前保存哪些比较方案 |
