@@ -1,0 +1,23 @@
+{
+  "release": "lesson11-bank-20261018-v1",
+  "course": "statistics",
+  "files": {
+    "app/questions.py": {
+      "before": "16c8c85ce7144ce31b9cd5e8671cd659dc82bd3a3fd1afc9c93d845bd71405e0",
+      "after": "0a7e75bc26a882cd99a952029b113070f8773f612e938dd61c82ceb45edece3b"
+    },
+    "app/question_bank/lesson-v2r3-11-20261018.yml": {
+      "before": null,
+      "after": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54"
+    }
+  },
+  "production_lesson_count": 32,
+  "unchanged_other_lesson_count": 31,
+  "source_lesson_id": "v2-l11-r3-20261018",
+  "source_sha256": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54",
+  "old_ml_version": null,
+  "new_ml_version": null,
+  "database_mutations": false,
+  "sessions_created_or_opened": false,
+  "rebuild_base": "exact currently observed production image; copy only listed files; no package downloads"
+}

@@ -32,9 +32,9 @@ def test_source_id_bytes_mirrors_and_only_lesson10_default_added():
     if draft.is_file():
         assert draft.read_bytes() == formal.read_bytes() == BANK.path.read_bytes()
     assert hashlib.sha256(BANK.path.read_bytes()).hexdigest() == SOURCE_SHA256
-    assert [b.lesson_id for b in CURRENT_BANKS] == [*PREVIOUS_CURRENT, LESSON_ID]
-    assert ACTIVE_LESSONS == tuple(range(1, 11))
-    assert CURRENT_BANK_OVERRIDES == {10: LESSON_ID}
+    assert [b.lesson_id for b in CURRENT_BANKS] == [*PREVIOUS_CURRENT, LESSON_ID, "v2-l11-r3-20261018"]
+    assert ACTIVE_LESSONS == tuple(range(1, 12))
+    assert CURRENT_BANK_OVERRIDES == {10: LESSON_ID, 11: "v2-l11-r3-20261018"}
     assert BANK.durations == {"attempt_a": 300, "learn": 240, "attempt_b": 300}
     assert BANK.concept_ids == [f"l10-r3-20261013-c{i}" for i in range(1, 6)]
     assert len(BANK.items) == 5
@@ -67,7 +67,7 @@ def test_dated_release_preserves_capture_groups_and_override_respects_active_sco
     assert match and match.groups() == ("10", "3")
     assert V2_LESSON_ID.fullmatch("v2-l10-r3-2026101") is None
     stubs = tuple(SimpleNamespace(lesson_id=i) for i in ("v2-l09-r2", "v2-l10-r99", LESSON_ID, "v2-l11-r1"))
-    assert [b.lesson_id for b in select_current_banks(stubs)] == ["v2-l09-r2", LESSON_ID]
+    assert [b.lesson_id for b in select_current_banks(stubs)] == ["v2-l09-r2", LESSON_ID, "v2-l11-r1"]
     assert [b.lesson_id for b in select_current_banks(stubs, active_lessons=(9,))] == ["v2-l09-r2"]
     assert [b.lesson_id for b in select_current_banks(stubs[:-2])] == ["v2-l09-r2", "v2-l10-r99"]
 
@@ -91,7 +91,7 @@ def test_lesson10_teacher_selector_complete_http_flow_scoring_and_answer_visibil
     with make_client(path, "teacher", "teacher") as teacher, make_client(path, "student", "lesson10-fixture") as student:
         page = teacher.get("/stat-check/teacher")
         options = re.findall(r'<option value="([^"]+)"', page.text)
-        assert options == [*PREVIOUS_CURRENT, LESSON_ID]
+        assert options == [*PREVIOUS_CURRENT, LESSON_ID, "v2-l11-r3-20261018"]
         create_session(teacher, LESSON_ID)
         session = db.current_session(str(path))
         assert session["lesson_id"] == LESSON_ID and session["phase"] == "closed"

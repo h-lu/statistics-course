@@ -1,0 +1,316 @@
+{
+  "lesson_id": "v2-l11-r3-20261018",
+  "title": "第11课 · 自愿调查能够代表哪些人",
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "items": [
+    {
+      "concept_id": "l11-r3-20261018-c1",
+      "title": "目标总体、抽样框、邀请与回答",
+      "tutor_context": "请另设一个调查例子，分别指出目标总体、可用于抽取对象的抽样框、被邀请者和回答者；再让学生区分未被邀请与无回答。AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "服务部门关心固定名册中4000人下个周末的需求比例，其中A组3200人、B组800人。假设只有3500人的联系资料可用于本次抽取，从中随机邀请200人，最后120人回答。哪一组对应正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "目标总体3500人，抽样框4000人，被邀请者200人，回答者120人",
+              "misconception": "l11-c1-a-target-frame-reversed"
+            },
+            {
+              "id": "B",
+              "text": "目标总体4000人，抽样框3500人，被邀请者200人，回答者120人",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "目标总体120人，抽样框3500人，被邀请者200人，回答者4000人",
+              "misconception": "l11-c1-a-respondents-redefine-target"
+            },
+            {
+              "id": "D",
+              "text": "目标总体4000人，抽样框3500人，无回答者为未被邀请的3300人",
+              "misconception": "l11-c1-a-not-invited-is-nonresponse"
+            }
+          ],
+          "answer": "B",
+          "explanation": "目标总体是问题关心的全部4000人；本次可用于抽取的3500人构成抽样框。200人被邀请，120人回答，因此受邀后无回答的是80人。框内未被邀请的3300人与未进入框的500人，不能都叫作无回答者。"
+        },
+        "b": {
+          "prompt": "社区要调查全部登记住户的垃圾分类情况。小周在完整住户名册中，但本次随机抽签没有选中；小李被抽中并收到邀请，却没有交回问卷。怎样区分两人？",
+          "options": [
+            {
+              "id": "A",
+              "text": "小周本次未被邀请；小李属于受邀后的无回答",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "两人都属于受邀后的无回答",
+              "misconception": "l11-c1-b-no-record-is-nonresponse"
+            },
+            {
+              "id": "C",
+              "text": "小周不属于目标总体；小李属于目标总体",
+              "misconception": "l11-c1-b-not-selected-outside-target"
+            },
+            {
+              "id": "D",
+              "text": "小周未被抽样框覆盖；小李已回答",
+              "misconception": "l11-c1-b-stage-status-reversed"
+            }
+          ],
+          "answer": "A",
+          "explanation": "小周仍在目标总体和抽样框内，只是本次未入选。小李已收到邀请而未作答，属于无回答。没有回答记录可能对应不同取得阶段，不能只按结果表中是否有一行来分类。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r3-20261018-c2",
+      "title": "覆盖范围与随机抽取",
+      "tutor_context": "请用完整名单抽取和只在某个群内抽取作比较，解释抽取前有机会却未入选，与完全没有被抽取机会的区别。AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "仍要估计固定4000人名册的周末需求比例，A组3200人、B组800人。某线上群的名单恰好只含全部A组，从群内随机邀请200人。关于这次取得方式，哪句话正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "使用随机抽取，就保证B组也有被邀请机会",
+              "misconception": "l11-c2-a-random-removes-undercoverage"
+            },
+            {
+              "id": "B",
+              "text": "200人足以覆盖所有4000人，因此无需考虑名单范围",
+              "misconception": "l11-c2-a-sample-size-replaces-coverage"
+            },
+            {
+              "id": "C",
+              "text": "B组属于本次受邀后的无回答者",
+              "misconception": "l11-c2-a-undercoverage-is-nonresponse"
+            },
+            {
+              "id": "D",
+              "text": "B组在这套抽取规则下被邀请的机会为0；群内随机不能补上这项覆盖缺口",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "抽取只在A组名单上进行，所以每名B组成员都没有被邀请机会。这是抽样框的覆盖缺口，不是B组收到邀请后拒绝回答；增加同一群内的邀请人数也不会让B组进入抽样框。"
+        },
+        "b": {
+          "prompt": "图书馆从完整的60名登记志愿者名单中，等机会随机抽取12人并邀请。小林这次没有被抽中。关于小林在抽签前的机会，哪句话正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "没有被抽中，说明他的被邀请机会原本就是0",
+              "misconception": "l11-c2-b-realized-omission-is-zero-chance"
+            },
+            {
+              "id": "B",
+              "text": "他的被邀请机会是12/48，因为应以未抽中的人数作分母",
+              "misconception": "l11-c2-b-selection-wrong-denominator"
+            },
+            {
+              "id": "C",
+              "text": "他的被邀请机会是12/60=20%；本次未入选不等于没有机会",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "他属于名单未覆盖的人，应从目标总体删除",
+              "misconception": "l11-c2-b-omission-changes-target"
+            }
+          ],
+          "answer": "C",
+          "explanation": "抽签前60人等机会竞争12个邀请名额，每人的被邀请机会为12/60=20%。随机抽取本来就会留下未入选者；小林在名单内，不能把本次未入选解释为覆盖机会为0。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r3-20261018-c3",
+      "title": "随机邀请与回答者代表性",
+      "tutor_context": "请用另一个调查解释：随机决定邀请谁，与被邀请后谁愿意回答，是两个过程。举例说明回答意愿与被调查结果有关时会怎样。AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "从完整的4000人名册随机邀请200人，最后40人回答，其中24人表示下个周末有需求。仅凭这些信息，哪句话最稳妥？",
+          "options": [
+            {
+              "id": "A",
+              "text": "回答者中的需求比例为24/40=60%；能否代表4000人还要考察无回答机制",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "总体需求比例必定为60%，因为邀请是随机的",
+              "misconception": "l11-c3-a-random-invites-guarantee-respondents"
+            },
+            {
+              "id": "C",
+              "text": "总体需求比例为24/200=12%，因为没有回答的人都算无需求",
+              "misconception": "l11-c3-a-nonresponse-is-negative"
+            },
+            {
+              "id": "D",
+              "text": "总体需求比例为24/4000=0.6%，因为目标总体应总作分母",
+              "misconception": "l11-c3-a-count-observed-positives-as-total"
+            }
+          ],
+          "answer": "A",
+          "explanation": "24/40描述实际回答者。随机邀请控制的是邀请阶段，不保证受邀后愿意回答的人与未回答者需求相同。把无回答直接记为无需求，或把观察到的24人当成总体中全部有需求者，都缺少依据。"
+        },
+        "b": {
+          "prompt": "另设一项活动意愿调查的教学模拟。随机邀请的80人中，40人想参加、40人不想参加；前者有30人回答，后者有10人回答。这个例子说明什么？",
+          "options": [
+            {
+              "id": "A",
+              "text": "回答者比例30/40=75%，因此被邀请者中也必定有75%想参加",
+              "misconception": "l11-c3-b-respondent-rate-is-invitee-rate"
+            },
+            {
+              "id": "B",
+              "text": "未回答的40人都不想参加，按0记入即可",
+              "misconception": "l11-c3-b-nonresponse-negative-imputation"
+            },
+            {
+              "id": "C",
+              "text": "邀请是随机的，因此回答选择不会影响比例",
+              "misconception": "l11-c3-b-random-stage-protects-later-stage"
+            },
+            {
+              "id": "D",
+              "text": "被邀请者中想参加的占50%，回答者中却占75%；与意愿有关的回答选择可造成差异",
+              "misconception": null
+            }
+          ],
+          "answer": "D",
+          "explanation": "被邀请者中想参加的是40/80=50%；回答者共30+10=40人，其中想参加的占30/40=75%。想参加者的回答比例为30/40，不想参加者为10/40，两者不同。这里的完整意愿信息是教学模拟的审计设定，实际调查通常不能提前知道未回答者的意愿。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r3-20261018-c4",
+      "title": "已知构成权重与组内选择",
+      "tutor_context": "请另设两个组的小例子，说明按已知总体份额加权怎样调整组别构成；也说明它为什么不能自动修复组内与结果有关的回答选择。没有某组回答时，不把该组比例填为0。AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "另设120人的教学例子：X村90人、Y村30人。两村各有15人回答，其中有需求者分别为6人和12人。若两村内回答者的需求比例都能够代表本村，按总体构成调整的比例及解释，哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "60%；两村回答人数相同，就应各占一半",
+              "misconception": "l11-c4-a-sample-shares-as-target-shares"
+            },
+            {
+              "id": "B",
+              "text": "40%；人数较多的X村可代表全部人",
+              "misconception": "l11-c4-a-largest-group-replaces-population"
+            },
+            {
+              "id": "C",
+              "text": "50%；按90/120和30/120加权，且推断仍需要题设的组内代表性条件",
+              "misconception": null
+            },
+            {
+              "id": "D",
+              "text": "50%；只要组别份额正确，即使组内有需求者更愿回答也必然等于总体真值",
+              "misconception": "l11-c4-a-weights-remove-all-selection"
+            }
+          ],
+          "answer": "C",
+          "explanation": "X村回答者比例为6/15=40%，Y村为12/15=80%。按总体份额计算：(90/120)×40%+(30/120)×80%=50%。回答者直接合并为18/30=60%，构成不同会改变结果。加权只调整已知组别份额；若组内回答选择仍与需求有关，50%就未必代表总体。"
+        },
+        "b": {
+          "prompt": "某单位的培训调查中，新员工占总体30%、老员工占70%。现有20份回答全来自老员工，其中8人需要培训；新员工无人回答。只用这份回答表和已知组别份额，能否直接算出代表全体的构成加权需求比例？",
+          "options": [
+            {
+              "id": "A",
+              "text": "能，新员工无人回答就记为0%，得到28%",
+              "misconception": "l11-c4-b-empty-group-is-zero"
+            },
+            {
+              "id": "B",
+              "text": "不能；新员工的回答者比例未定义，需要补充信息或明确额外假设，不能填0",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "能，老员工的8/20=40%可直接当作全体比例",
+              "misconception": "l11-c4-b-observed-group-represents-absent-group"
+            },
+            {
+              "id": "D",
+              "text": "能，把每份老员工回答乘以更大权重就能补出新员工的结果",
+              "misconception": "l11-c4-b-weight-creates-unobserved-outcomes"
+            }
+          ],
+          "answer": "B",
+          "explanation": "老员工回答者的需求比例是8/20=40%。新员工既没有需求回答人数，也没有回答总人数，比例为0/0，未定义。已知30%的总体份额不能给出这一组的需求比例，重加权也不能创造未观察的结果；补采或额外模型假设须另行说明。"
+        }
+      }
+    },
+    {
+      "concept_id": "l11-r3-20261018-c5",
+      "title": "邀请人数、回答人数与调查成本",
+      "tutor_context": "请换一种联系调查的情境，分别核算邀请人数、预期回答人数和联系成本。解释固定其中一项为何不能视为其他条件也相同，也不自动决定哪个方案更好。AI可参与。",
+      "pair": {
+        "a": {
+          "prompt": "另设教学计划：两种方式都邀请120人。邮件每次邀请成本1元、每名受邀者回答概率25%；电话每次邀请成本4元、回答概率60%。这里只计算邀请成本，不另追访。哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "两者邀请数相同；预期回答数分别30人、72人，邀请成本分别120元、480元",
+              "misconception": null
+            },
+            {
+              "id": "B",
+              "text": "两者都必定收到120份回答，因为邀请了120人",
+              "misconception": "l11-c5-a-invitations-equal-responses"
+            },
+            {
+              "id": "C",
+              "text": "两者成本相同，因为邀请人数相同",
+              "misconception": "l11-c5-a-equal-invites-equal-cost"
+            },
+            {
+              "id": "D",
+              "text": "电话回答概率较高，所以其回答者必然代表目标总体",
+              "misconception": "l11-c5-a-response-rate-guarantees-representativeness"
+            }
+          ],
+          "answer": "A",
+          "explanation": "邮件预期回答120×25%=30人，电话为120×60%=72人；邀请成本为120×1=120元和120×4=480元。预期数不保证每次实际相同。固定邀请人数没有固定成本、实际回答数或代表性，不能仅凭这些数值宣布某方案全面更好。"
+        },
+        "b": {
+          "prompt": "另一教学计划改为每种方式各用200元邀请预算。邮件每邀请一人成本2元、回答概率20%；电话每邀请一人成本5元、回答概率50%。不另追访，均恰好用完预算。哪项正确？",
+          "options": [
+            {
+              "id": "A",
+              "text": "两者预算相同，所以都应邀请200人",
+              "misconception": "l11-c5-b-budget-is-invitation-count"
+            },
+            {
+              "id": "B",
+              "text": "邮件邀请100人、电话邀请40人，预期回答数都为20人；相同预算不等于相同邀请数",
+              "misconception": null
+            },
+            {
+              "id": "C",
+              "text": "预期回答数相同，所以两种方式的抽样框和入样机会必然相同",
+              "misconception": "l11-c5-b-equal-expected-responses-equal-design"
+            },
+            {
+              "id": "D",
+              "text": "两者每次必定各收到20份回答，因此没有取得过程的随机变化",
+              "misconception": "l11-c5-b-expectation-is-guaranteed-count"
+            }
+          ],
+          "answer": "B",
+          "explanation": "邮件可邀请200/2=100人，预期回答100×20%=20人；电话可邀请200/5=40人，预期回答40×50%=20人。这次固定了邀请预算，却没有固定邀请人数；相同预期回答数也不保证实际回答数、覆盖范围或回答者构成相同。"
+        }
+      }
+    }
+  ]
+}

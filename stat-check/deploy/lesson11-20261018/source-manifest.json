@@ -1,0 +1,30 @@
+{
+  "release": "lesson11-bank-20261018-v1",
+  "scope": "local formal registration; production deployment separately requires exact current32-course baseline",
+  "lesson_id": "v2-l11-r3-20261018",
+  "human_lesson": 11,
+  "source_sha256": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54",
+  "reviewed_source_preserved_bytes": true,
+  "formal_copies": [
+    "instructor-guide/knowledge-check/question-bank/lesson-v2r3-11-20261018.yml",
+    "stat-check/app/question_bank/lesson-v2r3-11-20261018.yml"
+  ],
+  "local_active_lessons": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "previous_local_lessons_unchanged": true,
+  "production_candidate_status": "prepared from freshly observed production32 app; only L11 override/new YAML; external deployment tracked separately",
+  "database_changes": false,
+  "sessions_created_or_opened": false,
+  "grading_policy_changes": false
+}

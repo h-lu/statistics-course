@@ -1,0 +1,68 @@
+{
+  "status": "passed_local_formal_registration_and_exact_production_candidate",
+  "release": "lesson11-bank-20261018-v1",
+  "source_sha256": {
+    "statistics": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54",
+    "ml": "2026dd01e062258e88aa44d8bff83676fe0332d14838d9970649a6d242951706"
+  },
+  "new_version_ids": {
+    "statistics": "v2-l11-r3-20261018",
+    "ml": "ml-lesson11-sms-20261018-v1",
+    "ml_lesson_id": "S09",
+    "ml_question_numbers": [
+      21,
+      22,
+      23,
+      24,
+      25
+    ]
+  },
+  "exact_candidate_assertions": {
+    "statistics": 328,
+    "ml": 251
+  },
+  "exact_candidate_assertion_total": 579,
+  "service_regressions": {
+    "statistics_pytest_passed": 291,
+    "ml_unittest_passed": 79
+  },
+  "ml_full_author_validation": {
+    "groups": 8,
+    "all_passed": true,
+    "groups_named": [
+      "题库同步",
+      "学生实验测试",
+      "活跃真实数据教师参考覆盖",
+      "教师状态汇总测试",
+      "检查器与API测试",
+      "student严格检查",
+      "instructor严格检查",
+      "planning严格检查"
+    ]
+  },
+  "payload_archives_byte_reproducible": true,
+  "archive_sha256": {
+    "statistics-course/stat-check/deploy/lesson11-20261018/payload-lesson11-bank-20261018-v1-statistics.tar.gz": "6ab2eb430c2ffff68e3986003a6c94d14acc73189ab6c4d6d04194a9ba048efc",
+    "machine-learning-course/ml-check/deploy/lesson11-20261018/payload-lesson11-bank-20261018-v1-ml.tar.gz": "01a3ac8453d8c9e7622606ca76337594936717d99a3098c928eda04e7256993b"
+  },
+  "production_catalog_preserved": {
+    "full_lesson_count": 32,
+    "unchanged_other_lessons": 31,
+    "old_statistics_banks_preserved_bytes": true,
+    "old_ml_full_bank_preserved_bytes": true,
+    "old_ml_S09_archived_exactly": true
+  },
+  "scoring_policy": "unchanged correctness1/0; no points/weights or participation-policy changes",
+  "isolation": {
+    "test_databases": "temporary synthetic only, deleted after tests",
+    "production_mutations": false,
+    "author_commits_or_pushes": false,
+    "actual_deployment_owner": "root task"
+  },
+  "limitations": [
+    "No production session was created or opened by this subtask.",
+    "Authenticated live teacher-browser inspection was not performed; exact-source teacher HTTP/template rendering passed.",
+    "Local software checks are not a human classroom teaching trial."
+  ],
+  "execution_note": "All tests local or isolated synthetic, no real session or grade records. Main-thread reviewed20questions; A22/B25 revisions independently verified."
+}

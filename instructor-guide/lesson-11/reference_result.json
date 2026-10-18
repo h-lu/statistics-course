@@ -1,0 +1,273 @@
+{
+  "scope": "Teacher mechanism demonstration; not a prescribed student plan or optimal survey",
+  "population_id": "weekend-4000-20261011-v1",
+  "population_n": 4000,
+  "truth": 0.41,
+  "toy_example_is_different_population": true,
+  "same_invitation_count_does_not_fix_cost_or_respondents": true,
+  "worked_single_acquisitions": {
+    "register_ordinary": {
+      "request_sha256": "548e269d77db63dc11d7ee5e0ee42254c1268a8a96078aa16dff1c33105ffd03",
+      "summary": {
+        "invited_n": 200,
+        "answered_n": 145,
+        "respondent_group_counts": {
+          "A": 132,
+          "B": 13
+        },
+        "respondent_rate": 0.45517241379310347,
+        "composition_adjusted_rate": 0.48391608391608393,
+        "invitation_cost_units": 264
+      },
+      "trace": {
+        "outside_frame": null,
+        "in_frame_not_invited": {
+          "person_id": "A0001",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0.05,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "invited_not_answered": {
+          "person_id": "A0019",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 0,
+          "invite_probability": 0.05,
+          "observed_need": null,
+          "invitation_cost_units": 1
+        },
+        "answered": {
+          "person_id": "A0002",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 1,
+          "invite_probability": 0.05,
+          "observed_need": 1,
+          "invitation_cost_units": 1
+        }
+      },
+      "receipt": {
+        "protocol": "lesson11-acquisition-v1",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "548e269d77db63dc11d7ee5e0ee42254c1268a8a96078aa16dff1c33105ffd03",
+        "frame_sha256": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+        "observations_sha256": "b3cfe4c769a0f7bbaa6cff6896bf1f3524034e923471afcdf464c79acb5019bf",
+        "mechanism": "register_ordinary",
+        "invited": 200,
+        "responded": 145,
+        "invitation_cost_units": 264,
+        "cost_scope": "Invitations only; response counts and follow-up costs are not guaranteed",
+        "audit_released": false,
+        "synthetic_teaching_data": true
+      },
+      "post_plan_audit": {
+        "purpose": "Post-plan audit of a fixed synthetic population, not a second sample",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "548e269d77db63dc11d7ee5e0ee42254c1268a8a96078aa16dff1c33105ffd03",
+        "population_n": 4000,
+        "population_need_n": 1640,
+        "population_rate": 0.41,
+        "group_rates": {
+          "A": 0.35,
+          "B": 0.65
+        },
+        "simulator_input_sha256": "1230ee05eb580a93061adc71a7c0d87a867471cb7519962cb4c4a3099bbb3f24"
+      }
+    },
+    "web_voluntary": {
+      "request_sha256": "ffa8c995b44699cec3e95d3fdcc2e79764bf609e7afd6028e182d3d354e0e58b",
+      "summary": {
+        "invited_n": 200,
+        "answered_n": 101,
+        "respondent_group_counts": {
+          "A": 85,
+          "B": 16
+        },
+        "respondent_rate": 0.6732673267326733,
+        "composition_adjusted_rate": 0.683235294117647,
+        "invitation_cost_units": 240
+      },
+      "trace": {
+        "outside_frame": {
+          "person_id": "A0002",
+          "group": "A",
+          "in_frame": 0,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "in_frame_not_invited": {
+          "person_id": "A0001",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "invited_not_answered": {
+          "person_id": "A0004",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 0,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": null,
+          "invitation_cost_units": 1
+        },
+        "answered": {
+          "person_id": "A0003",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 1,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": 1,
+          "invitation_cost_units": 1
+        }
+      },
+      "receipt": {
+        "protocol": "lesson11-acquisition-v1",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "ffa8c995b44699cec3e95d3fdcc2e79764bf609e7afd6028e182d3d354e0e58b",
+        "frame_sha256": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+        "observations_sha256": "79f9980fe0044b3b9e91e83ac8e2ac5627b233b294d9c12c77d2a3b7cfb72ba1",
+        "mechanism": "web_voluntary",
+        "invited": 200,
+        "responded": 101,
+        "invitation_cost_units": 240,
+        "cost_scope": "Invitations only; response counts and follow-up costs are not guaranteed",
+        "audit_released": false,
+        "synthetic_teaching_data": true
+      },
+      "post_plan_audit": {
+        "purpose": "Post-plan audit of a fixed synthetic population, not a second sample",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "ffa8c995b44699cec3e95d3fdcc2e79764bf609e7afd6028e182d3d354e0e58b",
+        "population_n": 4000,
+        "population_need_n": 1640,
+        "population_rate": 0.41,
+        "group_rates": {
+          "A": 0.35,
+          "B": 0.65
+        },
+        "simulator_input_sha256": "1230ee05eb580a93061adc71a7c0d87a867471cb7519962cb4c4a3099bbb3f24"
+      }
+    },
+    "register_complete": {
+      "request_sha256": "a92a2add7893f2d09786fd1f519e192775f2395d112f3ed8c52445111f69efa1",
+      "summary": {
+        "invited_n": 200,
+        "answered_n": 200,
+        "respondent_group_counts": {
+          "A": 168,
+          "B": 32
+        },
+        "respondent_rate": 0.455,
+        "composition_adjusted_rate": 0.4675595238095238,
+        "invitation_cost_units": 264
+      },
+      "trace": {
+        "outside_frame": null,
+        "in_frame_not_invited": {
+          "person_id": "A0001",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0.05,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "invited_not_answered": null,
+        "answered": {
+          "person_id": "A0002",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 1,
+          "invite_probability": 0.05,
+          "observed_need": 1,
+          "invitation_cost_units": 1
+        }
+      },
+      "receipt": {
+        "protocol": "lesson11-acquisition-v1",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "a92a2add7893f2d09786fd1f519e192775f2395d112f3ed8c52445111f69efa1",
+        "frame_sha256": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+        "observations_sha256": "3357c1a916f29058e50921707bdac323892214e7253a6c26914f08f514ca9dd8",
+        "mechanism": "register_complete",
+        "invited": 200,
+        "responded": 200,
+        "invitation_cost_units": 264,
+        "cost_scope": "Invitations only; response counts and follow-up costs are not guaranteed",
+        "audit_released": false,
+        "synthetic_teaching_data": true
+      },
+      "post_plan_audit": {
+        "purpose": "Post-plan audit of a fixed synthetic population, not a second sample",
+        "population_id": "weekend-4000-20261011-v1",
+        "request_sha256": "a92a2add7893f2d09786fd1f519e192775f2395d112f3ed8c52445111f69efa1",
+        "population_n": 4000,
+        "population_need_n": 1640,
+        "population_rate": 0.41,
+        "group_rates": {
+          "A": 0.35,
+          "B": 0.65
+        },
+        "simulator_input_sha256": "1230ee05eb580a93061adc71a7c0d87a867471cb7519962cb4c4a3099bbb3f24"
+      }
+    }
+  },
+  "repeated_mechanism_checks": {
+    "register_ordinary": {
+      "repetitions": 100,
+      "invitation_count_each": 200,
+      "mean_respondents": 152.06,
+      "mean_invitation_cost": 279.2,
+      "mean_raw_respondent_rate": 0.3947917952257985,
+      "mean_adjusted_rate": 0.40789662238741925,
+      "adjusted_bias_against_fixed_truth": -0.0021033776125807258,
+      "adjusted_repeated_sample_sd": 0.037289570326467465,
+      "undefined_adjusted_samples": 0
+    },
+    "web_voluntary": {
+      "repetitions": 100,
+      "invitation_count_each": 200,
+      "mean_respondents": 97.91,
+      "mean_invitation_cost": 252.96,
+      "mean_raw_respondent_rate": 0.6887751625232551,
+      "mean_adjusted_rate": 0.6945581669966288,
+      "adjusted_bias_against_fixed_truth": 0.2845581669966288,
+      "adjusted_repeated_sample_sd": 0.0453609774454812,
+      "undefined_adjusted_samples": 0
+    },
+    "register_complete": {
+      "repetitions": 100,
+      "invitation_count_each": 200,
+      "mean_respondents": 200,
+      "mean_invitation_cost": 279.2,
+      "mean_raw_respondent_rate": 0.4053,
+      "mean_adjusted_rate": 0.40572903977179875,
+      "adjusted_bias_against_fixed_truth": -0.004270960228201226,
+      "adjusted_repeated_sample_sd": 0.03312525932378184,
+      "undefined_adjusted_samples": 0
+    }
+  },
+  "interpretation": [
+    "One acquisition is not proof of bias or of its absence; the fixed response rules explain the mechanism.",
+    "Composition correction assumes respondents can represent their group; the web need-dependent rule violates it.",
+    "The repeated-sample SD is dispersion of estimates, not the SD divided by sqrt(repetitions).",
+    "Complete response is an ideal benchmark, not a promise it costs only the listed invitations."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "status": "no_blocking_findings",
+  "review_type": "independent AI simulated novice cold read; not a human student trial",
+  "read_order": [
+    "student-template/lesson-11/README.md",
+    "student-template/lesson-11/LEARN.md",
+    "student-template/lesson-11/SUPPORT.md",
+    "student-template/lesson-11/data/README.md"
+  ],
+  "documents_sha256": {
+    "student-template/lesson-11/README.md": "95ed00b5ad7b60e5055ce5062e1927652d19656b850a43853bcf82ff2c86ae1c",
+    "student-template/lesson-11/LEARN.md": "19e096e66100b44524cb9be95812d323ab24e1a849199f7d9daddae1e3ca962a",
+    "student-template/lesson-11/SUPPORT.md": "015d6f14da3d674bef5c986d0fc7aed68961ac8ad324daa13f79ecaca3ce66e9",
+    "student-template/lesson-11/data/README.md": "f16f19aafa8139dee0a37ed126b1172fb2ae0f9c5d8975da6e4e018dfa6ba219"
+  },
+  "teacher_reference_read": false,
+  "student_source_or_question_bank_edited": false,
+  "formal_four_row_probe": {
+    "mechanism": "web_voluntary",
+    "n": 200,
+    "selection_seed": 11,
+    "response_seed": 11,
+    "saved_plan_before_acquisition": true,
+    "four_rows_exact_match": true,
+    "csv_readback_equal": true,
+    "source_data_hashes_unchanged": true
+  },
+  "limitations": [
+    "Reviewer did not author these student pages but previously authored related draft questions and tool contract tests.",
+    "No actual novice student or classroom timing was observed.",
+    "Global navigation and online presentation were outside this bounded review."
+  ],
+  "final_wording_addendum": {
+    "change": "追踪一个真实编号时 → 追踪一个正式模拟编号时",
+    "finding": "More precise: synthetic formal population IDs are not real people; substantive instruction unchanged.",
+    "simulation_rerun": false,
+    "contract_tests_rerun": false
+  }
+}

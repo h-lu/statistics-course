@@ -1,0 +1,47 @@
+{
+  "population_id": "weekend-4000-20261011-v1",
+  "kind": "teaching_synthetic_fixed_finite_population",
+  "license": "CC0-1.0",
+  "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "population_seed": 20261011,
+  "population_n": 4000,
+  "group_counts": {
+    "A": 3200,
+    "B": 800
+  },
+  "origin_commit": "ce955719b68991166c86fbb1ecae1d203e7a0671",
+  "origin_path": "student-template/data/inference-09-14/weekend_population.csv",
+  "generation": "The same fixed historical population, not a new population per acquisition",
+  "files_sha256": {
+    "frame.csv": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+    "strata.csv": "bc63a744116d2f862372b4f2dbc7cad051fdbfcdd18da3b523ad5da73f951c64",
+    "simulator/weekend_population.csv": "1230ee05eb580a93061adc71a7c0d87a867471cb7519962cb4c4a3099bbb3f24"
+  },
+  "public_planning_columns": [
+    "person_id",
+    "group",
+    "online_frame"
+  ],
+  "simulator_only_column": "need_weekend",
+  "column_roles": {
+    "person_id": "Unique invented unit ID; not a real person",
+    "group": "Teaching contact group A/B, not a protected attribute or causal factor",
+    "online_frame": "Fixed membership in the online contact frame",
+    "need_weekend": "Fixed latent binary need for the same specified weekend; simulation and post-plan audit input"
+  },
+  "acquisition_rules": {
+    "register": "Equal-probability invitations without replacement among all 4000",
+    "register_ordinary_response": {
+      "A": 0.8,
+      "B": 0.6
+    },
+    "ordinary_within_group_independent_of_need": true,
+    "register_complete": "Ideal full response; separate comparison, not default reality",
+    "web": "Equal-probability invitations without replacement among online_frame=1 only",
+    "web_response_given_need": 0.85,
+    "web_response_given_no_need": 0.25
+  },
+  "invitation_cost": "Teaching units A=1/B=3 per invitation in every mechanism; excludes follow-up and response costs",
+  "audit_protocol": "Choose and save all compared plans from frame.csv before acquisition; inspect simulator outcomes only for post-plan audit. Local file readability is not technical access prevention.",
+  "scope": "Synthetic teaching exercise; no real survey observations, personal data, consent records or institutional effects"
+}

@@ -81,7 +81,7 @@ def test_partial_upgrade_lists_only_active_lessons_in_numeric_order():
     banks = stubs(*[f"v2-l{n:02d}-r1" for n in range(1, 33)],
                   *[f"v2-l{n:02d}-r2" for n in range(1, 9)], "bootcamp-01")
     assert [b.lesson_id for b in select_current_banks(tuple(reversed(banks)))] == [
-        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 11)]
+        f"v2-l{n:02d}-r{2 if n <= 8 else 1}" for n in range(1, 12)]
     assert len(banks) == 41  # Selection did not remove history from the input catalog.
 
 

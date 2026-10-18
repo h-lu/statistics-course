@@ -1,0 +1,167 @@
+{
+  "status": "passed",
+  "lesson_id": "v2-l11-r3-20261018",
+  "release_state": "offline draft only; not registered, installed or deployed",
+  "bank_relative_path": "instructor-guide/knowledge-check/drafts/lesson11-20261018/lesson-v2r3-11-20261018.yml",
+  "bank_sha256": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54",
+  "questions_source_sha256": "194aebe0b31aa6365c8635202d1dd55c7c6ee6ae17d71ed5316999081d49edec",
+  "format": "JSON-compatible YAML, existing QuestionBank class validated in isolation",
+  "pure_validation": {
+    "app_imported": false,
+    "database_opened": false,
+    "runtime_registry_executed": false,
+    "runtime_copy_created": false
+  },
+  "concepts": 5,
+  "questions": 10,
+  "options": 40,
+  "unique_wrong_option_diagnostics": 30,
+  "correct_letter_counts": {
+    "A": 3,
+    "B": 3,
+    "C": 2,
+    "D": 2
+  },
+  "duration_seconds": {
+    "attempt_a": 300,
+    "learn": 240,
+    "attempt_b": 300
+  },
+  "grading_policy_changed": false,
+  "independent_references": [
+    {
+      "concept_id": "l11-r3-20261018-c1",
+      "phase": "a",
+      "answer": "B",
+      "calculation": {
+        "target": 4000,
+        "frame": 3500,
+        "invited": 200,
+        "responded": 120,
+        "frame_not_invited": 3300,
+        "undercovered": 500,
+        "unit_nonresponse": 80
+      },
+      "rationale": "Target is fixed by the question; frame, invitation and response are distinct stages."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c1",
+      "phase": "b",
+      "answer": "A",
+      "calculation": {
+        "Zhou": {
+          "in_target": true,
+          "in_frame": true,
+          "invited": false,
+          "unit_nonresponse": false
+        },
+        "Li": {
+          "in_target": true,
+          "in_frame": true,
+          "invited": true,
+          "responded": false,
+          "unit_nonresponse": true
+        }
+      },
+      "rationale": "No answer row does not identify which acquisition stage excluded a person."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c2",
+      "phase": "a",
+      "answer": "D",
+      "calculation": {
+        "A_invitation_probability": "1/16",
+        "B_invitation_probability": "0"
+      },
+      "rationale": "Random selection within a frame cannot give positive invitation probability to an absent group."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c2",
+      "phase": "b",
+      "answer": "C",
+      "calculation": {
+        "pre_draw_probability": "1/5",
+        "percent": 20
+      },
+      "rationale": "A realized nonselection is compatible with a positive pre-draw inclusion probability."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c3",
+      "phase": "a",
+      "answer": "A",
+      "calculation": {
+        "respondent_rate": "3/5",
+        "invitee_rate_if_missing_all_zero": "3/25",
+        "invitee_rate_if_missing_all_one": "23/25"
+      },
+      "rationale": "Only the respondent fraction is observed; random invitations do not identify missing outcomes."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c3",
+      "phase": "b",
+      "answer": "D",
+      "calculation": {
+        "invitee_intention_rate": "1/2",
+        "respondent_intention_rate": "3/4",
+        "response_rate_intending": "3/4",
+        "response_rate_not_intending": "1/4"
+      },
+      "rationale": "Outcome-dependent response changes composition after random invitation; full outcomes here are a declared simulation audit."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c4",
+      "phase": "a",
+      "answer": "C",
+      "calculation": {
+        "X_respondent_rate": "2/5",
+        "Y_respondent_rate": "4/5",
+        "population_share_weighted_rate": "1/2",
+        "unweighted_rate": "3/5",
+        "counterexample_true_rate_under_within_group_selection": "1/4"
+      },
+      "rationale": "Known group shares fix inter-group composition, conditional on usable within-group rates; they do not remove all selection."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c4",
+      "phase": "b",
+      "answer": "B",
+      "calculation": {
+        "new_respondent_rate": null,
+        "old_respondent_rate": "2/5",
+        "if_unobserved_new_rate_zero": "7/25",
+        "if_unobserved_new_rate_one": "29/50"
+      },
+      "rationale": "A missing group produces an undefined 0/0 rate; known group share alone cannot identify its outcome rate."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c5",
+      "phase": "a",
+      "answer": "A",
+      "calculation": {
+        "email_expected_responses": 30,
+        "telephone_expected_responses": 72,
+        "email_invitation_cost_yuan": 120,
+        "telephone_invitation_cost_yuan": 480
+      },
+      "rationale": "Fixed invitation count does not fix expected response count, cost or representativeness; expectations are not realized guarantees."
+    },
+    {
+      "concept_id": "l11-r3-20261018-c5",
+      "phase": "b",
+      "answer": "B",
+      "calculation": {
+        "email_invitations": 100,
+        "telephone_invitations": 40,
+        "email_expected_responses": 20,
+        "telephone_expected_responses": 20
+      },
+      "rationale": "Equal budgets may produce different invitation counts; equal expected replies do not identify the sampling or response mechanism."
+    }
+  ],
+  "limitations": [
+    "QuestionBank format and exact rational arithmetic do not establish equal A/B difficulty or diagnostic performance.",
+    "No real-student reading or classroom timing trial has been performed.",
+    "These hypothetical concept examples do not reveal formal population outcomes, select an automatic optimal design, or establish causal or inference guarantees.",
+    "No student-facing question/answer copies, runtime registration, database writes, deployment, commit or push are performed by this script."
+  ]
+}

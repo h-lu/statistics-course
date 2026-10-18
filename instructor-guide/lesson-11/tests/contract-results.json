@@ -1,0 +1,25 @@
+{
+  "status": "passed",
+  "command": "python3 -B -m unittest discover -s instructor-guide/lesson-11/tests -v",
+  "tests_run": 22,
+  "failures": 0,
+  "errors": 0,
+  "unittest_elapsed_seconds": 0.596,
+  "protected_source_and_data_before_after_sha_equal": true,
+  "protected_files_sha256": {
+    "student-template/lesson-11/sampling_tools.py": "555c479e75be53cb293b3b57df7b59c60b90d6e75cba9b2bb806961a5f2f660b",
+    "student-template/lesson-11/analysis.py": "b8f60eeddd9d3ada09173572b9f2e57b23154eeeee6a76d4d252cbf85b728ea7",
+    "instructor-guide/lesson-11/build_data.py": "cda7e905d38271a64736b3ad08df7f88282a562ea588c16b4658b86d5ae4adb7",
+    "student-template/lesson-11/data/provenance.json": "aca2c86a5928a7a6340d35a9e9745233bd786974be3573cb9930ef21e92eedac",
+    "student-template/lesson-11/data/frame.csv": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+    "student-template/lesson-11/data/strata.csv": "bc63a744116d2f862372b4f2dbc7cad051fdbfcdd18da3b523ad5da73f951c64",
+    "student-template/lesson-11/data/simulator/weekend_population.csv": "1230ee05eb580a93061adc71a7c0d87a867471cb7519962cb4c4a3099bbb3f24"
+  },
+  "test_source_sha256": "3fe92c1d949957cd4a85875df265b09ac625b0abbf09f8e8b9376488dcdfd589",
+  "writes": "Isolated TemporaryDirectory fixtures under task workspace audit/tmp only; no protected source or data changes",
+  "limitations": [
+    "This validates the declared local design/acquisition/audit protocol, not cryptographic secrecy of local files.",
+    "Passing contract checks do not establish representative respondents, an optimal survey design, causal identification or inferential validity.",
+    "No production app, database, student repositories or classroom sessions were accessed."
+  ]
+}

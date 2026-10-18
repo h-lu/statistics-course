@@ -1,3 +1,10 @@
-# 第11课：大纲占位
+# 第11课教师入口
 
-本课只保留[32课课程地图](../COURSE_MAP.md)中的设计；新课包尚未制作，不可运行、同步或发布。旧课包已完整归档，恢复入口见[归档说明](../../archive/redesign-2026-10-09/README.md)。
+本课沿用32课大纲中的取得方式与可代表范围主线，固定4000人教学总体。2026-10-18已审定；实际发布以对应发布回执为准。
+
+- [学生任务](../../student-template/lesson-11/README.md)与[概念小例](../../student-template/lesson-11/LEARN.md)。
+- [教师组织](RUNBOOK.md)：10/65/15安排、巡视问题与六项设计检查。
+- [过程参考](REFERENCE.md)、`reference.py`与`reference_result.json`：真实执行的教学模拟证据，不作为唯一学生路线。
+- [五对A/B审题稿](../knowledge-check/drafts/lesson11-20261018/lesson-v2r3-11-20261018.yml)：独立于正式启用状态。
+
+旧01—10课、评分、历史题库与场次保留。发布课包不等于开放正式测试场次；原始历史草稿仍可从Git历史恢复。

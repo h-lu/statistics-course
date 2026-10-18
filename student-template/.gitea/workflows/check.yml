@@ -30,7 +30,9 @@ jobs:
         env:
           GITHUB_REF: ${{ gitea.ref }}
         run: |
-          if [ -f scripts/course_l10.py ]; then
+          if [ -f scripts/course_l11.py ]; then
+            .venv/bin/python scripts/course_l11.py ci
+          elif [ -f scripts/course_l10.py ]; then
             .venv/bin/python scripts/course_l10.py ci
           else
             .venv/bin/python scripts/course.py ci

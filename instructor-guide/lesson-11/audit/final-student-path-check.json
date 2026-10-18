@@ -1,0 +1,86 @@
+{
+  "passed": true,
+  "scope": "Fresh local synthetic acquisitions and read-only student-path checks; no production operations",
+  "approved_draft_sha256_unchanged": "97fce20fb82fe2fcbca2fe77085a67879680d17ac64256088aa24e4c07f44b54",
+  "protected_previous_files_unchanged": 253,
+  "student_reading_sources_unchanged_by_test": {
+    "student-template/lesson-11/README.md": "95ed00b5ad7b60e5055ce5062e1927652d19656b850a43853bcf82ff2c86ae1c",
+    "student-template/lesson-11/LEARN.md": "19e096e66100b44524cb9be95812d323ab24e1a849199f7d9daddae1e3ca962a",
+    "student-template/lesson-11/SUPPORT.md": "015d6f14da3d674bef5c986d0fc7aed68961ac8ad324daa13f79ecaca3ce66e9",
+    "student-template/lesson-11/sampling_tools.py": "555c479e75be53cb293b3b57df7b59c60b90d6e75cba9b2bb806961a5f2f660b"
+  },
+  "main_mechanism_runs": {
+    "register_ordinary": {
+      "invited": 200,
+      "responded": 145,
+      "invitation_cost_units": 264,
+      "observations_sha256": "b3cfe4c769a0f7bbaa6cff6896bf1f3524034e923471afcdf464c79acb5019bf",
+      "all_4000_rows_csv_roundtrip": true,
+      "all_unobserved_outcomes_none": true,
+      "matches_saved_teacher_snapshot": true
+    },
+    "web_voluntary": {
+      "invited": 200,
+      "responded": 101,
+      "invitation_cost_units": 240,
+      "observations_sha256": "79f9980fe0044b3b9e91e83ac8e2ac5627b233b294d9c12c77d2a3b7cfb72ba1",
+      "all_4000_rows_csv_roundtrip": true,
+      "all_unobserved_outcomes_none": true,
+      "matches_saved_teacher_snapshot": true,
+      "learn_section8_rows": {
+        "A0002": {
+          "person_id": "A0002",
+          "group": "A",
+          "in_frame": 0,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "A0001": {
+          "person_id": "A0001",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 0,
+          "answered": 0,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": null,
+          "invitation_cost_units": 0
+        },
+        "A0004": {
+          "person_id": "A0004",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 0,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": null,
+          "invitation_cost_units": 1
+        },
+        "A0003": {
+          "person_id": "A0003",
+          "group": "A",
+          "in_frame": 1,
+          "invited": 1,
+          "answered": 1,
+          "invite_probability": 0.060514372163388806,
+          "observed_need": 1,
+          "invitation_cost_units": 1
+        }
+      },
+      "positive_invitation_chance_percent": 6.05143721633888
+    }
+  },
+  "invalid_operations_rejected": {
+    "register_ordinary-existing-output": "FileExistsError: [Errno 17] File exists: '/home/hblu/Documents/Codex/2026-10-14/task-5/lesson11-20261018/audit/tmp/student-path-final-s48563lu/register_ordinary'",
+    "web_voluntary-existing-output": "FileExistsError: [Errno 17] File exists: '/home/hblu/Documents/Codex/2026-10-14/task-5/lesson11-20261018/audit/tmp/student-path-final-s48563lu/web_voluntary'",
+    "zero-n": "ValueError: n must be an integer >= 1",
+    "web-frame-overflow": "ValueError: Invitation count exceeds the selected frame",
+    "latent-table-as-planning-frame": "ValueError: Use frame.csv for planning, not the simulator population",
+    "changed-plan-at-audit": "ValueError: The acquired plan differs from the plan supplied for audit"
+  },
+  "missing_response_group_estimate": null,
+  "section8_does_not_fill_formal_comparison_or_truth": true,
+  "cost_basis": "New L11 invitation assumption A=1/B=3; not historical complete-contact prices or real business costs"
+}

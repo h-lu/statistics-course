@@ -1,0 +1,3 @@
+group,population_count,online_count,invitation_cost_units,ordinary_response_probability
+A,3200,2861,1,0.8
+B,800,444,3,0.6

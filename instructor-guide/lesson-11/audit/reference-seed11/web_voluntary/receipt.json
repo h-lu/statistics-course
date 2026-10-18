@@ -1,0 +1,14 @@
+{
+  "audit_released": false,
+  "cost_scope": "Invitations only; response counts and follow-up costs are not guaranteed",
+  "frame_sha256": "5461f03ae642b151920364b5aa8db4f960e2587f1038d044047924d329a33a55",
+  "invitation_cost_units": 240,
+  "invited": 200,
+  "mechanism": "web_voluntary",
+  "observations_sha256": "79f9980fe0044b3b9e91e83ac8e2ac5627b233b294d9c12c77d2a3b7cfb72ba1",
+  "population_id": "weekend-4000-20261011-v1",
+  "protocol": "lesson11-acquisition-v1",
+  "request_sha256": "ffa8c995b44699cec3e95d3fdcc2e79764bf609e7afd6028e182d3d354e0e58b",
+  "responded": 101,
+  "synthetic_teaching_data": true
+}
