@@ -1,6 +1,6 @@
 # 第11课首次使用
 
-从[学生发布仓库](https://hblu.top/gitea/statistics/course-student-release-2026)创建并克隆自己的私有仓库，方法见[学生仓库首页](../README.md#第一次使用)。需要Python3.10或以上。
+使用前面课程已建立的学生仓库，确认 Python 3.10 或以上可用。尚未建立仓库时，按[学生仓库首页](../README.md#第一次使用)完成准备。
 
 在自己的学生仓库 `main` 工作树根目录操作。若缺少 `lesson-11/`，先取得本课材料：
 
