@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="320" viewBox="0 0 800 320"><rect width="800" height="320" fill="white"/><g font-family="sans-serif" font-size="18" fill="#183346"><text x="55" y="30">六种等可能样本，得到五种均值：5出现两次</text><path d="M70 60 V250 H750" stroke="#183346" fill="none"/>
+<rect x="125" y="175" width="65" height="75" fill="#3986b1"/>
+<text x="145" y="280">3</text>
+<text x="133" y="165">1/6</text>
+<rect x="245" y="175" width="65" height="75" fill="#3986b1"/>
+<text x="265" y="280">4</text>
+<text x="253" y="165">1/6</text>
+<rect x="365" y="100" width="65" height="150" fill="#3986b1"/>
+<text x="385" y="280">5</text>
+<text x="373" y="90">2/6</text>
+<rect x="485" y="175" width="65" height="75" fill="#3986b1"/>
+<text x="505" y="280">6</text>
+<text x="493" y="165">1/6</text>
+<rect x="605" y="175" width="65" height="75" fill="#3986b1"/>
+<text x="625" y="280">7</text>
+<text x="613" y="165">1/6</text>
+<text x="300" y="310">样本平均数（每次抽2个）</text></g></svg>

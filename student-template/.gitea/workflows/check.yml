@@ -30,7 +30,9 @@ jobs:
         env:
           GITHUB_REF: ${{ gitea.ref }}
         run: |
-          if [ -f scripts/course_l11.py ]; then
+          if [ -f scripts/course_l12.py ] && printf '%s' "$GITHUB_REF" | grep -Eq '^refs/tags/v2-l12-(final|revision-[1-9][0-9]*)$'; then
+            .venv/bin/python scripts/course_l12.py ci
+          elif [ -f scripts/course_l11.py ]; then
             .venv/bin/python scripts/course_l11.py ci
           elif [ -f scripts/course_l10.py ]; then
             .venv/bin/python scripts/course_l10.py ci
