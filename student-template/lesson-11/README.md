@@ -34,7 +34,7 @@
 
 ## 开始运行
 
-按 [第11课更新说明](../docs/LESSON11_UPDATE.md)取得材料，在学生仓库根目录运行：
+在学生仓库根目录运行以下命令。若缺少本课材料，先按[首次使用指引](../docs/LESSON11_UPDATE.md)取得：
 
 ```sh
 python3 scripts/course_l11.py start 11

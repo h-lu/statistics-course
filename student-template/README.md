@@ -32,7 +32,7 @@
 | 10 | [为随机需求安排复核名额](lesson-10/README.md) | [随机需求与容量小例](lesson-10/LEARN.md) | [计算与运行提示](lesson-10/SUPPORT.md) |
 | 11 | [回答的人很多，就能代表所有人吗](lesson-11/README.md) | [取得机制与构成调整](lesson-11/LEARN.md) | [取得工具与核对提示](lesson-11/SUPPORT.md) |
 
-已有仓库取得第11课请使用[第11课更新说明](docs/LESSON11_UPDATE.md)，只补本课并保留已有作业；第10课仍使用[原更新说明](docs/LESSON10_UPDATE.md)。
+第11课的取得材料和开始步骤见[首次使用指引](docs/LESSON11_UPDATE.md)；第10课见[使用指引](docs/LESSON10_UPDATE.md)。
 
 第12–32课尚未开放，课包完成并核验后由教师另行通知。
 
@@ -86,7 +86,7 @@ python scripts/course.py sync
 - `tests/` 中缺少的检查程序，以及 `.gitea/workflows/check.yml` 自动检查配置；
 - `docs/READING_GUIDE.md` 阅读指南。
 
-第12–32课的大纲占位不会同步、运行或发布。第10课按对应更新说明使用 course_l10.py；第11课使用独立 course_l11.py，原 sync 不会自动取得第11课。已有课次目录会跳过；已有数据、检查程序、配置、指南和学生作品不会被覆盖。发布仓库尚未提供的内容也不会新增。`sync` 不会更新 `scripts/course.py` 自身，因此旧仓库需要先按上面的命令升级工具。
+第12–32课的大纲占位不会同步、运行或发布。第10课和第11课按各自使用指引取得材料，分别使用 `course_l10.py` 和 `course_l11.py`。已有课次目录会跳过；已有数据、检查程序、配置、指南和学生作品不会被覆盖。发布仓库尚未提供的内容也不会新增。`sync` 不会更新 `scripts/course.py` 自身，因此旧仓库需要先按上面的命令升级工具。
 
 同步新增的文件会自动暂存。检查暂存内容，再提交；如果没有新增文件，就跳过提交和推送：
 
