@@ -119,7 +119,18 @@ def reproduce(root: Path, lesson: str) -> None:
         scratch = Path(temp) / "project"
         shutil.copytree(root, scratch, ignore=shutil.ignore_patterns(".git", ".venv", "__pycache__"))
         for path in obj["artifacts"]:
-            inside(scratch, path).unlink()
+            evidence = inside(scratch, path)
+            evidence.unlink()
+            # Acquisition tools require a new output directory. Remove only
+            # empty ancestor directories in this disposable reproduction copy;
+            # rmdir preserves every unlisted file and nonempty directory.
+            parent = evidence.parent
+            while parent != scratch:
+                try:
+                    parent.rmdir()
+                except OSError:
+                    break
+                parent = parent.parent
         run(scratch, lesson)
         check(scratch, lesson)
         if before != digest(scratch, obj["artifacts"]):

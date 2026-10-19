@@ -1,17 +1,60 @@
 # 第11课更新与检查
 
-第11课已发布；请按教师课堂安排更新。在已有学生 Git 仓库根目录执行；只使用 `main` 发布线。助手只补充缺少的 `lesson-11/`、第11课独立入口及本页，不合并远端分支，不覆盖旧课、个人报告、运行结果或工作流。已有 `lesson-11/` 整个跳过；同名新入口若与发布字节不同，会在新增文件前停止，请先保留个人版本并核对。
+在已有学生 Git 仓库根目录执行以下更新，只使用 `main`。本次同时修复第11课的临时复现目录问题：原版检查工具先备份，再单独升级；个人修改过的工具会停止，留待人工核对。课目录、报告、产物和工作流仍保留。
+
+已有第11课者请先打开[发布库中的本页](https://hblu.top/gitea/statistics/course-student-release-2026/src/branch/main/docs/LESSON11_UPDATE.md)新版，本地旧说明不会自动替换。
 
 ```sh
 (
   set -eu
+  lesson11_release=ssh://git@hblu.top:2222/statistics/course-student-release-2026.git
+  configured_release=$(git config --get remote.course-release.url || true)
+  if [ -n "$configured_release" ] && [ "$configured_release" != "$lesson11_release" ]; then
+    echo "course-release指向其他地址，请先核对本课发布仓库。" >&2
+    exit 1
+  fi
   lesson11_helper=$(mktemp)
   trap 'rm -f "$lesson11_helper"' EXIT
-  git fetch ssh://git@hblu.top:2222/statistics/course-student-release-2026.git main
+  git fetch "$lesson11_release" main
   git show FETCH_HEAD:scripts/course_l11.py > "$lesson11_helper"
+  python3 - "$lesson11_helper" <<'PY'
+from pathlib import Path
+import hashlib, os, sys, tempfile
+
+old_sha = "d4fadd4fa62b30ea9a384757ce6569e1c9d3d222a292aec384a4833d57f8c764"
+new_sha = "fe6ee212ae000c2aff9eed5bd85ff19f95c9c00e9962528bc20b18f39a415725"
+sha = lambda data: hashlib.sha256(data).hexdigest()
+candidate = Path(sys.argv[1]).read_bytes()
+if sha(candidate) != new_sha:
+    raise SystemExit("发布工具版本不符，未替换本地工具。")
+target = Path("scripts/course_l11.py")
+if target.is_symlink() or target.parent.is_symlink():
+    raise SystemExit("工具路径是符号链接，请人工核对。")
+if target.exists():
+    original = target.read_bytes()
+    if original != candidate:
+        if sha(original) != old_sha:
+            raise SystemExit("本地工具有个人修改，已保留；请人工核对后升级。")
+        with tempfile.NamedTemporaryFile(prefix="course-l11-backup-", suffix=".py", delete=False) as backup:
+            backup.write(original)
+        assert sha(Path(backup.name).read_bytes()) == old_sha
+        print("原检查工具备份：", backup.name)
+        with tempfile.NamedTemporaryFile(dir=target.parent, prefix=".course-l11-", delete=False) as output:
+            output.write(candidate)
+        pending = Path(output.name)
+        try:
+            if target.read_bytes() != original:
+                raise SystemExit("升级期间本地工具发生变化，已停止。")
+            os.replace(pending, target)
+        finally:
+            pending.unlink(missing_ok=True)
+        assert sha(target.read_bytes()) == new_sha
+PY
   python3 "$lesson11_helper" sync --destination "$PWD"
 )
 ```
+
+已有 `lesson-11/` 会整目录跳过。可直接在线阅读发布库最新的 README、LEARN、SUPPORT 和练习；如需本地更新，只取这些教学说明及 `data/README.md`，先保存自己的批注，保留 `report.md`、`submission.json`、配置、代码和 `artifacts`。
 
 查看 `git status` 和 `git diff` 后，开始本课并运行起点程序：
 
@@ -20,14 +63,14 @@ python3 scripts/course_l11.py start 11
 python3 scripts/course_l11.py run 11
 ```
 
-第11课的抽样工具和数据都在本课目录，不需要替换旧的共享数据。程序能运行不表示已完成正式分析。按 README 自主形成方案、取得证据并解释适用范围，再填写自己的报告与 `submission.json` 中的实际运行命令、结果文件；完成后将状态改为 `complete`，检查并复现：
+完成分析后，在 `submission.json` 登记实际运行命令和结果，将状态改为 `complete`。`check` 核对提交文件，标签 `ci` 在临时副本重跑复现：
 
 ```sh
 python3 scripts/course_l11.py check 11
 GITHUB_REF=refs/tags/v2-l11-final python3 scripts/course_l11.py ci
 ```
 
-这个入口独立支持已准备的第01—11课；原 `course.py` 和 `course_l10.py` 保持原样。提交检查核对声明和产物，不判定统计论证质量，也不表示远端 CI 已运行通过。
+本地检查通过后，按原流程提交。已有最终标签保留，工具修复按既有修订流程使用新标签；原 `course.py` 和 `course_l10.py` 保留。
 
 ## 已有仓库的 CI 入口
 
@@ -44,4 +87,4 @@ GITHUB_REF=refs/tags/v2-l11-final python3 scripts/course_l11.py ci
           fi
 ```
 
-没有迁移时，旧入口对第11课标签不能完成检查；请核对实际工作流，而不要把本地成功写成远端验收。按既有流程提交自己的工作与成果，原标签继续保留。课包更新不会启用、替换或开放线上正式选择题场次。
+工作流迁移后，查看实际远端CI结果。线上选择题场次仍由教师另行开放。
