@@ -43,7 +43,7 @@ python3 lesson-12/repeat.py --config lesson-12/config-example.json --output less
 - `mean_estimate`＝0.4102。
 - `bias`＝0.4102−0.41＝0.0002，即0.02个百分点。
 - `estimated_se`≈0.056223，即5.6223个百分点。
-- `monte_carlo_se_of_mean`≈0.002514，描述500个估计的平均数的模拟误差。
+- `monte_carlo_se_of_mean`≈0.002514，约为0.056223/√500。它描述500个估计的平均数的模拟误差，不是单次调查的波动。
 
 完整回答基准的精确标准误约0.054443；500次模拟估出的0.056223与它不完全相同，是有限重复的波动，不应人为改成精确值。
 
@@ -70,7 +70,7 @@ python3 lesson-12/repeat.py --config lesson-12/plan-b.json --output lesson-12/ar
 
 |字段|可用值与含义|
 |---|---|
-|mechanism|register_complete：完整名册全部回答；register_ordinary：完整名册普通回答；web_voluntary：网上名单自愿回答|
+|mechanism|register_complete：从完整名册抽人，抽中者全部回答；register_ordinary：从完整名册抽人，但有人不回答；web_voluntary：从网上可联系名单邀请，由受邀者自愿回答|
 |n|每轮邀请人数；名册方式不超过4000，网上方式不超过3305|
 |estimator|raw：回答者直接比例；poststrat：按全体A/B的0.8/0.2构成加权|
 |repetitions|重复次数，至少2；可从500开始|
