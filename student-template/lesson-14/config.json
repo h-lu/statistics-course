@@ -1,0 +1,7 @@
+{
+  "n_A": 128,
+  "n_B": 32,
+  "repetitions": 500,
+  "seed": 1401,
+  "budget": 240
+}

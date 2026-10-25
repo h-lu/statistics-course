@@ -1,0 +1,7 @@
+{
+  "n": 80,
+  "repetitions": 500,
+  "seed": 1301,
+  "method": "wilson",
+  "decision_threshold": 0.4
+}

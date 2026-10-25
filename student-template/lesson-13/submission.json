@@ -1,0 +1,15 @@
+{
+  "lesson": "lesson-13",
+  "status": "not_started",
+  "run": [
+    "python3",
+    "lesson-13/analysis.py"
+  ],
+  "artifacts": [
+    "lesson-13/artifacts/baseline/plan.json",
+    "lesson-13/artifacts/baseline/summary.json",
+    "lesson-13/artifacts/baseline/trials.csv",
+    "lesson-13/artifacts/baseline/first_sample.csv"
+  ],
+  "report": "lesson-13/report.md"
+}
