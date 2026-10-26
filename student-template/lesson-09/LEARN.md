@@ -82,7 +82,10 @@ $$
 
 阳性中的故障比例也叫阳性预测值（positive predictive value，PPV）。先给两类阳性起名字：真正故障且报阳性叫真阳性（true positive）；正常却报阳性叫假阳性（false positive）。把前面的台数计算写成一般公式，就是本课用到的贝叶斯公式（Bayes’ theorem）。
 $$
-\text{阳性中的故障比例}=\frac{\text{真阳性数}}{\text{真阳性数}+\text{假阳性数}}
+\begin{aligned}
+&\text{阳性中的故障比例}\\
+&\quad=\frac{\text{真阳性数}}{\text{真阳性数}+\text{假阳性数}}.
+\end{aligned}
 $$
 其中：
 
@@ -113,7 +116,11 @@ $20\times 25\%=5$ 台故障。
 
 
 $$
-\text{预计未发现故障} = \text{这组原有的预计故障数} - \text{复核查出的预计故障数}.
+\begin{aligned}
+&\text{预计未发现故障}\\
+&\quad=\text{原有的预计故障数}\\
+&\qquad-\text{复核查出的预计故障数}.
+\end{aligned}
 $$
 
 “未发现”不只包括初筛阴性的漏检，还包括报了阳性、却没有得到复核的故障设备。只算第一类，会低估问题。

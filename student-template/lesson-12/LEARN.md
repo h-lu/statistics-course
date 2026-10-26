@@ -47,7 +47,10 @@
 
 
 $$
-\text{标准误}=\sqrt{\frac{4+1+0+0+1+4}{6}}=\sqrt{\frac53}\approx1.291.
+\begin{aligned}
+\mathrm{SE}&=\sqrt{\frac{4+1+0+0+1+4}{6}}\\
+&=\sqrt{\frac53}\approx1.291.
+\end{aligned}
 $$
 
 这里除以6，是因为已经列出了全部六种等可能样本。
