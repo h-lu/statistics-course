@@ -52,7 +52,7 @@
 python3 scripts/course.py run 06
 ```
 
-生成 `lesson-06/artifacts/starting_overview.json`。其中 `counts` 保存各中心、各业务层的计数：`n` 是登记工单数，`completed` 是当日办结数，`rate` 是 `completed ÷ n`。可选通用计算帮助见 SUPPORT，全部使用 Python 3 标准库，可离线运行。可以修改或替换分析程序，原始数据保持不变。
+生成 `lesson-06/artifacts/starting_overview.json`。其中 `counts` 保存各中心、各业务层的计数：`n` 是登记工单数，`completed` 是当日办结数，`rate` 是 $\mathrm{completed} \div n$ 。可选通用计算帮助见 SUPPORT，全部使用 Python 3 标准库，可离线运行。可以修改或替换分析程序，原始数据保持不变。
 
 完成后更新 `submission.json` 的状态、报告、结果列表及可复算命令。结果路径从学生仓库根目录写起；自行组织正式计算，不必把起始概览列为正式证据。
 

@@ -18,7 +18,7 @@
 python3 scripts/course.py run 06
 ```
 
-打开 `lesson-06/artifacts/starting_overview.json`，查看用于计算的原始计数。`counts` 中的 `center` 是中心，`business_code` 是业务代码；`basic` 表示常规业务，`case` 表示复杂业务。`n` 是该层登记工单数，`completed` 是当日办结数，`rate` 是 `completed ÷ n`。核对这些字段与计数后，你就有了可开始计算的资料。反思：只看这张表，能直接决定用哪种共同构成吗？
+打开 `lesson-06/artifacts/starting_overview.json`，查看用于计算的原始计数。`counts` 中的 `center` 是中心，`business_code` 是业务代码；`basic` 表示常规业务，`case` 表示复杂业务。`n` 是该层登记工单数，`completed` 是当日办结数，`rate` 是 $\mathrm{completed} \div n$ 。核对这些字段与计数后，你就有了可开始计算的资料。反思：只看这张表，能直接决定用哪种共同构成吗？
 
 **不懂合并与分层。** 核对A中心常规层：238张当日办结工单除以252张登记工单，约为94.44%。再合计该中心两个业务层的办结数和登记数，计算合并比例；分母应仍是该中心全部登记工单数。反思：直接平均两层百分比，相当于让两类业务各占多少？
 
