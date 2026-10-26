@@ -1,11 +1,11 @@
 {
   "files": {
     "docs/LESSONS13_14_UPDATE.md": "f62a3e5add20aa9513833a36b793da4c3e636c3c64dd467ab5378e25394be098",
-    "lesson-13/EXERCISES.md": "ec9cb8e0e09d10b3ecf14dbe445e1ebf73fb1fbae468171c2e8bb4b40534add5",
+    "lesson-13/EXERCISES.md": "1ac77c2e1c03acaa9936abe286e48b3dc689863e3498d7b374b7707299bd9858",
     "lesson-13/HINTS.md": "4ed41e06ff51c7161ef098e048391cb3c20205b6b186e7f65c0affb8b0baab6b",
-    "lesson-13/LEARN.md": "8ba58f725f590283f5238521eebb59e06e311075161f38a0c8c9b4af2dfd423e",
-    "lesson-13/README.md": "0c62332e66c30e0a2f2587f612dc01f3e29aed3c0d0adbefc4242e71ea0af17d",
-    "lesson-13/SUPPORT.md": "a0206bb6de56050cfdd0edd6dfe487c789c3a3926a5bec60d91a37c93d810294",
+    "lesson-13/LEARN.md": "7069d3733575a2369115008648f38578847403e6a70563bd76fc6295d4706444",
+    "lesson-13/README.md": "afc391c834a828655490daafb1e8b2f3af33e78feee1ef8bcd7b38122d236e34",
+    "lesson-13/SUPPORT.md": "bac184f5a5d44f54b47684e4aaf69a921fd8dd0738a8ad934b16111ca62ffd8c",
     "lesson-13/analysis.py": "1b5d374d73b4b2ea091db64a0fc2f9546335f8084bce9da7a2b2a2a0d096301d",
     "lesson-13/config.json": "97ba0814dd954405057e31c84ede8bd86b6afc2bb6d0ef747170a7466c37cb81",
     "lesson-13/figures/bootstrap-boundary.png": "caa9c2d85d1ab006bc534d79be3368ae366491412e5d1887db4cdee85322fd6e",

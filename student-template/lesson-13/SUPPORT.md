@@ -5,8 +5,8 @@
 ## 运行前：区分三种次数
 
 - `n`：一次调查抽取的人数，默认80。
-- `repetitions`：从总体重复调查的次数$R$，默认500。
-- `bootstrap_draws`：每次调查内部自助重抽的次数$B$，仅在bootstrap方法中使用，默认500。
+- `repetitions`：从总体重复调查的次数 $R$ ，默认500。
+- `bootstrap_draws`：每次调查内部自助重抽的次数 $B$ ，仅在bootstrap方法中使用，默认500。
 
 `method`选择wilson、wald_fpc或bootstrap；`seed`确定各轮抽样；`decision_threshold`为事先选择的行动门槛，默认0.4。原始数据位于 `lesson-11/data/`。
 
@@ -31,13 +31,13 @@ python3 lesson-13/analysis.py
 
 ## 比较第二种条件
 
-复制 `lesson-13/config.json` 为 `lesson-13/my-plan.json`。例如比较两种区间方法，可只将method改为wald_fpc，保留$n$和seed，再运行：
+复制 `lesson-13/config.json` 为 `lesson-13/my-plan.json`。例如比较两种区间方法，可只将method改为wald_fpc，保留 $n$ 和seed，再运行：
 
 ```sh
 python3 lesson-13/analysis.py --config lesson-13/my-plan.json --output lesson-13/artifacts/my-plan
 ```
 
-相同$n$和seed产生相同的每轮抽样记录，便于成对比较。自助重抽使用独立随机数序列，改变$B$不会改变从总体抽出的样本。每个条件使用新的输出目录。
+相同 $n$ 和seed产生相同的每轮抽样记录，便于成对比较。自助重抽使用独立随机数序列，改变 $B$ 不会改变从总体抽出的样本。每个条件使用新的输出目录。
 
 ## 提交与复现
 
