@@ -91,13 +91,48 @@ python3 lesson-12/repeat.py --config lesson-12/plan-b.json --output lesson-12/ar
 ```python
 from pathlib import Path
 import json
+import shutil
+import tempfile
 from repeat import run
+from plot_distribution import draw
+
 here = Path(__file__).resolve().parent
-for name in ['plan-a', 'plan-b']:
-    config = json.loads((here / (name + '.json')).read_text(encoding='utf-8'))
-    run(config, here / 'artifacts' / name)
+files = ("plan.json", "first_observations.csv", "trials.csv",
+         "summary.json", "distribution.svg")
+with tempfile.TemporaryDirectory(prefix="lesson12-") as temporary:
+    for name in ("plan-a", "plan-b"):
+        config = json.loads((here / f"{name}.json").read_text(encoding="utf-8"))
+        fresh = Path(temporary) / name
+        run(config, fresh)
+        draw(fresh)
+        destination = here / "artifacts" / "rebuild" / name
+        destination.mkdir(parents=True, exist_ok=True)
+        for filename in files:
+            shutil.copyfile(fresh / filename, destination / filename)
 ```
 
-如需复现图，再在该脚本中调用 `plot_distribution.draw`。在submission中把run设为 `["python3", "lesson-12/my_study.py"]`，artifacts列出该脚本生成的全部必要文件；不把输入配置和报告列作生成产物。完成报告后设complete，运行 `python3 scripts/course_l12.py check 12`。
+脚本先在临时新目录计算，再更新专用rebuild目录中的已知文件；不删除第一次实验结果。两份输入配置须事先保存，仍由你决定比较因素。它同时生成两幅分布图。
 
-重建检查在临时副本中清除已登记输出再运行，不删除原作业。正常新增实验使用新目录，不覆盖第一次结果。
+连续运行两次：
+
+```sh
+python3 lesson-12/my_study.py
+python3 lesson-12/my_study.py
+```
+
+固定数据、配置和环境时，两次输出应一致。可以逐项核对summary数值；正式复现检查会重建登记的文件。
+
+在submission中把run设为 `["python3", "lesson-12/my_study.py"]`，artifacts列出两方案各5个文件，共10个产物。下面代码可以列出示例清单，检查后填入该字段：
+
+```python
+import json
+names = ["plan.json", "first_observations.csv", "trials.csv",
+         "summary.json", "distribution.svg"]
+paths = [f"lesson-12/artifacts/rebuild/{case}/{name}"
+         for case in ("plan-a", "plan-b") for name in names]
+print(json.dumps(paths, ensure_ascii=False, indent=2))
+```
+
+不把输入配置和报告列作生成产物。若增加了模拟稳定性条件或其他必要输出，也应让脚本重建并登记，而不是只交这两个示例条件。完成报告后设complete，运行 `python3 scripts/course_l12.py check 12`，再按[提交流程](../docs/WORKFLOW.md)提交。
+
+重建检查在临时副本中清除已登记输出再运行，不删除原作业。上述脚本可在本地连续重建；前面独立运行repeat的命令仍用于新实验，应使用新目录，避免覆盖第一次结果。
