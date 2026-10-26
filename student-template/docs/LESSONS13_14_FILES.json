@@ -3,8 +3,8 @@
     "docs/LESSONS13_14_UPDATE.md": "f62a3e5add20aa9513833a36b793da4c3e636c3c64dd467ab5378e25394be098",
     "lesson-13/EXERCISES.md": "404c18b0374b8777dd6e3aa6e86a3cb78f30e9ccd8cd0c0322de8faafd2e31eb",
     "lesson-13/HINTS.md": "52b1945cf242863c6e305f8c559cf433ea38450f215333877d98c47c629d28a6",
-    "lesson-13/LEARN.md": "213a12e29a43d8adffabd9bc98191aecbb6d91ec1aacdc01f6022074fe1a06f4",
-    "lesson-13/README.md": "b01e61355f0a90db531fa9dcc9d434fda630845fddbb847e9293a140d86b7711",
+    "lesson-13/LEARN.md": "9a23f23f081d4660c09e6c550ae36a95e889f50060c1f1b02764f7c2555c23d3",
+    "lesson-13/README.md": "d9fc649badec2f20941998473bfded60bdc1fc2f83efd9b111e6482ae876695a",
     "lesson-13/SUPPORT.md": "d810da26b623e6d841491ca89abc488cf893c26b2bbeef35126cda7b0e4c6436",
     "lesson-13/analysis.py": "1b5d374d73b4b2ea091db64a0fc2f9546335f8084bce9da7a2b2a2a0d096301d",
     "lesson-13/config.json": "97ba0814dd954405057e31c84ede8bd86b6afc2bb6d0ef747170a7466c37cb81",
@@ -14,8 +14,8 @@
     "lesson-13/submission.json": "009e2a8ddde11554577cf8ba6fc88010d6ed217e9edcbc818b5f6731ca2f5f5e",
     "lesson-14/EXERCISES.md": "ae591b4cac2fcfc824ee4d872b5f10cc8b19b3f620c544877f03a4e6ef1bad66",
     "lesson-14/HINTS.md": "52b1945cf242863c6e305f8c559cf433ea38450f215333877d98c47c629d28a6",
-    "lesson-14/LEARN.md": "06e9975734e21541e5e1c3e8e8d523372dcf6f7d609db18d1cbd7ae50b028b03",
-    "lesson-14/README.md": "e90aa5a0a5a53085cdd702ecf7ab7c87b3c00b390a6f2886bce2fe963f52c41a",
+    "lesson-14/LEARN.md": "40688df6b7b6255f67d8fccf98431322943e38280a57495268a3745e71450aad",
+    "lesson-14/README.md": "7efe69ed070ec9e62a0e027deac1cce6f64f235b688cacf1cd483de39c8c8d3b",
     "lesson-14/SUPPORT.md": "63c801e43a72c788dc1bed807eaccf69687f826612c2b2d6298c295c18d96252",
     "lesson-14/analysis.py": "d1ff04f6f74cbeb9ba92b20d519b13b3a4d1ba357c311b8b3eb11e4d7f02b667",
     "lesson-14/config.json": "b9ca1e08bdcc244457414d5d59a03ef75ea24d2fd07545386db0787dce9a1ddc",
@@ -24,7 +24,8 @@
     "lesson-14/report.md": "fe5fbe8083b460eb8c091617c0728baae513aed85d11e314c346693caf2c0df9",
     "lesson-14/submission.json": "5d37e4242a380d7ce0af31ee7c4c361a0b1f85a44172e6586517029c000a6333",
     "scripts/course_l1314.py": "0b153d841b2c80b47eddc87d2492a151591cfc55cc303cef9a7d8ccc3425c876",
-    "scripts/inference13_14.py": "253714fc1b5e7712e366d511241b1a492168b38c4b160110975c28509d5663b4"
+    "scripts/inference13_14.py": "253714fc1b5e7712e366d511241b1a492168b38c4b160110975c28509d5663b4",
+    "docs/LESSONS09_14_CONTEXT.md": "ce38a22cc96f5b29ab9251f1c0798e6d93ae4ff0d20c40bbac0538b5f5373191"
   },
   "required_existing": {
     "scripts/course_l12.py": "f2f1ac04a5b923c3d25d2b597c7d94e93bd456079012d3e7bd338b10d7177c57",

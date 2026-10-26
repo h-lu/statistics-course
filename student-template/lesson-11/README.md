@@ -54,3 +54,5 @@ python3 scripts/course_l11.py check 11
 ```
 
 按[提交流程](../docs/WORKFLOW.md)提交，最终标签为 `v2-l11-final`。文件检查与复现通过后，仍须在报告中说明统计依据。课末按教师开放场次完成A题、AI辅助学习和B题。
+
+前后课概念与数据边界可查[第9—14课衔接图](../docs/LESSONS09_14_CONTEXT.md)，不增加提交要求。
