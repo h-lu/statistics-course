@@ -53,3 +53,6 @@ Python 中的 `None` 在 JSON 结果文件里显示为 `null`，表示没有可�
 ## 提交前自检
 
 两种共同构成有用途；所有中心同权重；实际计数保持原样；方向和差距分开；重要决定与备选有证据；比较范围与局限明确。把自己的运行入口和结果路径写入 `submission.json`，执行 `python3 scripts/course.py run 06`、`python3 scripts/course.py check 06`，再复算一个共同构成结果。保存版本按 WORKFLOW，文件检查不证明比较公平。
+
+
+已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。

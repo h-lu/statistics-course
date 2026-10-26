@@ -143,3 +143,6 @@ PY
 |方案或观测不一致|核对同一目录的 `plans`、`request.json` 和 `receipt.json`，确认未手改或混用|
 
 自行编写程序时，`sampling_tools.py` 的接口依次为：`load_frame()`、`make_request(frame, mechanism, n, selection_seed, response_seed)`、`write_request(request, path)`、`run_request(request, output_dir)`、`read_observations(path)`、`response_mean(rows, group=None)`、`composition_estimate(rows, population_counts)`，最后才调用 `audit_population(request, output_dir)`。可直接阅读 `survey_example.py` 查看它们怎样连起来；需要改变方法时仍能复用观测与汇总工具。
+
+
+已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。

@@ -136,3 +136,6 @@ print(json.dumps(paths, ensure_ascii=False, indent=2))
 不把输入配置和报告列作生成产物。若增加了模拟稳定性条件或其他必要输出，也应让脚本重建并登记，而不是只交这两个示例条件。完成报告后设complete，运行 `python3 scripts/course_l12.py check 12`，再按[提交流程](../docs/WORKFLOW.md)提交。
 
 重建检查在临时副本中清除已登记输出再运行，不删除原作业。上述脚本可在本地连续重建；前面独立运行repeat的命令仍用于新实验，应使用新目录，避免覆盖第一次结果。
+
+
+已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。
