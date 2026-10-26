@@ -4,7 +4,7 @@
 
 ## 运行前核对
 
-`n_A`、`n_B`是各层单次抽样人数，`repetitions`是重复调查次数R，`seed`控制抽样，`budget`为邀请费用上限。每组至少2人且不超过该组总体，费用满足n_A+3n_B≤budget。
+`n_A`、`n_B`是各层单次抽样人数，`repetitions`是重复调查次数 $R$ ，`seed`控制抽样，`budget`为邀请费用上限。每组至少2人且不超过该组总体，费用满足 $n_A+3n_B\le\mathrm{budget}$ 。
 
 ## 默认方案
 
@@ -17,7 +17,7 @@ python3 lesson-14/analysis.py
 按以下顺序核对：
 
 1. 默认128/32方案中，两组包含概率均为0.04，设计权重均为25，成本224。
-2. first_sample.csv首轮A组128人中38人有需求，B组32人中22人有需求。重算p̂_A=38/128、p̂_B=22/32=0.6875，总体估计0.8p̂_A+0.2p̂_B=0.375。
+2. first_sample.csv首轮A组128人中38人有需求，B组32人中22人有需求。重算 $\widehat p_A=38/128$ 、 $\widehat p_B=22/32=0.6875$ ，总体估计 $0.8\widehat p_A+0.2\widehat p_B=0.375$ 。
 3. trials.csv第一行应给出相同结果。summary.json的total、B各含empirical_se，即重复估计的标准差。pooled为未加权合并比例，供比较样本构成的影响。
 
 `design_effect_same_n`参照同总人数的简单随机抽样，不是同成本方案。
