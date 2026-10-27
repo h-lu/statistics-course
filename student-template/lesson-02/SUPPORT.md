@@ -39,6 +39,3 @@ README 说明情境、成果与证据要求。你可直接开展分析；遇到�
 - 运行 `python3 scripts/course.py run 02` 和 `python3 scripts/course.py check 02`，再按[工作流](../docs/WORKFLOW.md)检查暂存内容；文件齐全不能代替结论与证据一致。
 
 五组独立自检在 LEARN，课堂选择题入口在 README。
-
-
-已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。

@@ -56,6 +56,3 @@ python3 scripts/course.py run 05
 ## 提交前自检
 
 原始数据未改；两时期分开；规则由行动前信息产生；每天容量可查；重要选择有理由和备选；条件变化说明是否重选名单。将真正的复算命令与所生成结果写入 `submission.json`，运行 `python3 scripts/course.py run 05` 和 `python3 scripts/course.py check 05`。文件检查不证明统计结论，仍复算一个记录或一天。保存与修订按 WORKFLOW 保留历史版本。
-
-
-已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。

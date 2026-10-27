@@ -65,6 +65,3 @@ print(result)
 - 自己的输出放lesson-10/artifacts，路径与submission.json保持一致。
 - status写complete之前，先检查报告中的数字能否从你登记的命令重跑。
 - check通过只说明文件与提交结构符合要求，不证明统计结论正确。
-
-
-已完成结果如何安全重建并核对产物清单，见[第1—12课重建检查](../docs/REBUILD_CHECK.md)。本课的新实验仍保留新目录，不删除原证据。
