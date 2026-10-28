@@ -1,0 +1,16 @@
+{
+  "lesson_id": "v2-l14-r2-20261028",
+  "pairs": 5,
+  "questions": 10,
+  "mirror_byte_identical": true,
+  "answer_positions": {
+    "C": 2,
+    "A": 2,
+    "B": 3,
+    "D": 3
+  },
+  "numerical_checks": "passed",
+  "sha256": "d1330c9aa2731db387840963a3e5c2477834845784f9bd706c47274f684a300d",
+  "isolated_loader_checks": "parse passed; nested draft excluded; lesson 14 not current",
+  "loader_sha256": "2cb7bf46f97cfbd324be082ad577f659d334010391183b136b28d2cd51b4ba7a"
+}

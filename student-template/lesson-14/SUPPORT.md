@@ -1,6 +1,6 @@
 # 第14课｜运行帮助
 
-按“核对配置→追踪一轮→比较方案→重复重建→提交”的顺序使用。沿用前课Python环境，所有命令在学生仓库根目录执行。
+这是可选帮助：基础小例用于建立可信起点，标准任务仍由你决定规划依据、精度优先级与分配方案，提高问题见EXERCISES第四部分。遇到文件问题时，可按“核对配置→追踪一轮→重复重建→提交”排查。沿用前课Python环境，所有命令在学生仓库根目录执行。
 
 ## 一、先算预算，再运行
 
@@ -40,21 +40,24 @@ python3 lesson-14/analysis.py
 |`trials.csv`|重复调查，一行一轮|对照组内、加权及直接合并估计|
 |`summary.json`|精度、费用与设计汇总|最后比较总体和B组的SE|
 
-默认首轮：A组128人中38人有需求，B组32人中22人有需求。两组包含概率均为0.04，设计权重均为25。先算：
+从 `first_sample.csv` 按 `group` 数样本人数和 `observed_need=1` 的人数，自己计算两组比例、加权总体比例和直接合并比例。再对照 `trials.csv` 第一行：`estimate` 是加权总体估计，`B_estimate` 是B组估计，`pooled` 是直接合并比例，`cost` 是费用。
 
-$$
-\widehat p_A=38/128=0.296875,
-$$
+**一轮推断的成功信号**：两组人数与配置一致，手算点估计与首行一致；用同一轮样本算出的估计SE和区间有明确输入与条件。`trials.csv` 保留基础输出，不自动完成你的区间解释。下列可选工具只演示另设的小样本，不读取正式数据、不选择正式方案。
 
-$$
-\widehat p_B=22/32=0.6875,
-$$
+```python
+# 在学生仓库根目录执行，或保存为自己的演示脚本。
+import sys
+sys.path.insert(0, "lesson-14")
+from stratified_tools import sample_inference, planning_precision
+N = {"A": 800, "B": 200}
+n = {"A": 160, "B": 40}
+print(sample_inference(N, n, {"A": 68, "B": 23}))
+print(planning_precision(N, n, {"A": 0.5, "B": 0.5}))
+```
 
-$$
-\widehat p=0.8\widehat p_A+0.2\widehat p_B=0.375.
-$$
+第一项应给出点估计0.455、估计SE约0.0314234、区间约0.393410—0.516590；第二项是保守假设下的规划SE，不是同一批样本的估计SE。工具返回未截断的正态区间，小计数会提示警告；没有警告也不是覆盖率保证。把区间端点截到0和1之间，不能解决近似失效。
 
-再对照 `trials.csv` 第一行：`estimate` 是加权总体估计，`B_estimate` 是B组估计，`pooled` 是直接合并比例，`cost` 是费用。本方案按总体比例分配，因此本轮加权和直接合并恰好相同；不能据此认定任何分配都无需加权。
+正式追踪时，需要你从样本获得计数，并指定正确名册人数和样本人数；不能把模拟真值传入 `successes`（它要求观察到的整数计数）。规划函数则需要明确假设比例，不读取完整总体，不自动推荐分配。
 
 `summary.json` 的主要字段：
 
@@ -73,38 +76,20 @@ $$
 
 比较时先核费用是否相同，再问总体SE和B组SE分别怎样改变。用各层人数和总体份额解释取舍，最后根据调查目标作选择。不要因为某轮估计更靠近真值，就断言整个方案更稳定。
 
-知识讲解的1000人小例只用于理解计算；本脚本固定使用4000人正式名册，输出数值不应与小例强行相等。`design_se_exact` 是理论规划值，不是某次真实调查已知的误差。
+知识讲解的1000人小例只用于理解计算；本脚本固定使用4000人正式名册，输出数值不应与小例强行相等。`design_se_exact` 是模拟中用完整总体计算的理论评价值，不是某次真实调查已知的误差。
 
 ## 三、保存自己的方案
 
-先写比较计划，再另存配置。例如把默认配置复制为 `lesson-14/plan-proportional.json`，改成136/34，其余设置保留。再保存 `plan-b-focus.json`，设为94/48。两者费用都是238，便于比较同费用下的分配取舍。
+先写比较计划，再复制默认配置到自己选择的文件名。根据调查用途自主确定预算240下的比例分配方案、另一可行方案，以及预算180下的新方案；检查人数和实际费用，不照搬教学小例的预算280。
 
-第三份 `plan-budget180.json` 示范100/25、预算180，费用175。它只是一种可行选择，应根据自己的目标决定是否采用。
+可把文件命名为 `plan-proportional.json`、`plan-alternative.json`、`plan-budget180.json`。它们沿用第一节五个字段，根据调查目标自行填写人数；可先用费用不等式列出可行人数，再按总体与B组的精度优先级筛选。
 
-三个示范配置的完整内容如下；分别保存为对应文件，不要覆盖已完成的实验配置：
-
-`lesson-14/plan-proportional.json`：
-
-```json
-{"n_A":136,"n_B":34,"repetitions":500,"seed":1401,"budget":240}
-```
-
-`lesson-14/plan-b-focus.json`：
-
-```json
-{"n_A":94,"n_B":48,"repetitions":500,"seed":1401,"budget":240}
-```
-
-`lesson-14/plan-budget180.json`：
-
-```json
-{"n_A":100,"n_B":25,"repetitions":500,"seed":1401,"budget":180}
-```
+先用 `planning_precision` 或LEARN公式比较你自己的分配在两组合理比例设定下的表现，再运行教学总体模拟。保留两种证据的区别：前者是条件规划，后者是这个合成总体下的评价。不要把改变需求比例的压力情景声称为原模拟器已运行的结果。
 
 单独运行一个新方案可用：
 
 ```sh
-python3 lesson-14/analysis.py --config lesson-14/plan-b-focus.json --output lesson-14/artifacts/b-focus-first
+python3 lesson-14/analysis.py --config lesson-14/plan-alternative.json --output lesson-14/artifacts/alternative-first
 ```
 
 比较时保持总体、重复次数和评价口径一致，列出实际成本。同一种子便于复算，不意味着不同分配下各组抽中的人完全相同。预算下降的比较同时涉及可用资源变化，要与同预算分配比较分开解释。
@@ -126,7 +111,7 @@ ROOT = Path(__file__).resolve().parents[1]
 LESSON = ROOT / "lesson-14"
 CASES = {
     "proportional": "plan-proportional.json",
-    "b-focus": "plan-b-focus.json",
+    "alternative": "plan-alternative.json",
     "budget180": "plan-budget180.json",
 }
 FILES = ("plan.json", "first_sample.csv", "trials.csv", "summary.json")
@@ -146,7 +131,7 @@ for name, config_name in CASES.items():
             shutil.copyfile(fresh / filename, destination / filename)
 ```
 
-该脚本会更新 `artifacts/rebuild/` 下三个方案的四个产物。这个目录专用于重建；要保留旧比较，先另存到其他目录。自己的方案可替换配置内容或增减 `CASES`，不要求照搬示范人数。
+该脚本会更新 `artifacts/rebuild/` 下你登记的方案的四个产物。这个目录专用于重建；要保留旧比较，先另存到其他目录。自己的方案可替换配置内容或增减 `CASES`，不要求采用某个固定人数。
 
 连续运行两次：
 
@@ -159,7 +144,7 @@ python3 lesson-14/my-analysis.py
 
 ## 五、汇总比较与登记提交
 
-建议表中至少列：预算、两层人数、总人数、实际费用、总体SE、B组SE。另保留首轮加权计算；不要只比较平均估计谁更接近真值，因为单次模拟也有随机波动。
+建议表中至少列：预算、两层人数、总人数、实际费用、总体SE、B组SE。另保留首轮加权估计、估计SE、近似区间与条件判断，以及规划假设敏感性的记录；不要只比较平均估计谁更接近真值，因为单次模拟也有随机波动。
 
 完成报告后，`lesson-14/submission.json` 可按以下结构填写。若改了目录或方案，要同步修改路径。
 
@@ -173,10 +158,10 @@ python3 lesson-14/my-analysis.py
     "lesson-14/artifacts/rebuild/proportional/first_sample.csv",
     "lesson-14/artifacts/rebuild/proportional/trials.csv",
     "lesson-14/artifacts/rebuild/proportional/summary.json",
-    "lesson-14/artifacts/rebuild/b-focus/plan.json",
-    "lesson-14/artifacts/rebuild/b-focus/first_sample.csv",
-    "lesson-14/artifacts/rebuild/b-focus/trials.csv",
-    "lesson-14/artifacts/rebuild/b-focus/summary.json",
+    "lesson-14/artifacts/rebuild/alternative/plan.json",
+    "lesson-14/artifacts/rebuild/alternative/first_sample.csv",
+    "lesson-14/artifacts/rebuild/alternative/trials.csv",
+    "lesson-14/artifacts/rebuild/alternative/summary.json",
     "lesson-14/artifacts/rebuild/budget180/plan.json",
     "lesson-14/artifacts/rebuild/budget180/first_sample.csv",
     "lesson-14/artifacts/rebuild/budget180/trials.csv",
@@ -203,7 +188,7 @@ python3 scripts/course_l1314.py ci 14
 |加权与直接合并不同|先核总体份额0.8/0.2与样本份额，不先认定代码错|
 |设计效应小但费用更高|参照是同人数；另做同费用比较|
 |模拟SE不等于理论SE|有限轮数有模拟误差；先核方法与配置，再增加轮数核查|
-|CI产物不一致|检查配置、种子与输入是否固定，避免手改输出或写入运行时间|
+|复现检查产物不一致|检查配置、种子与输入是否固定，避免手改输出或写入运行时间|
 |不知道怎样写联系计划|写明名册、抽取方法、人数、费用、未回答记录与追访安排|
 
 真实无回答会改变实际取得的数据。不要把方便联系到的人随意补入样本，或直接把未回答者当作无需求。

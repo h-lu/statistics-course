@@ -1,6 +1,6 @@
 {
   "files": {
-    "docs/LESSONS13_14_UPDATE.md": "f62a3e5add20aa9513833a36b793da4c3e636c3c64dd467ab5378e25394be098",
+    "docs/LESSONS13_14_UPDATE.md": "c5ea8bb86928018b78f600f5bf736fd4d606759ae48e8ae7256d51b78052a45e",
     "lesson-13/EXERCISES.md": "d17abf8593a93c84299973a1f865ffbf573a253cc2487f56452449cc2d06624b",
     "lesson-13/HINTS.md": "f826394565ba0f4b5221bc44404779385eec19078c21cef51cdf6e44f398de8f",
     "lesson-13/LEARN.md": "7069d3733575a2369115008648f38578847403e6a70563bd76fc6295d4706444",
@@ -12,20 +12,21 @@
     "lesson-13/figures/coverage.png": "55ec04e5b18ed813f153c1c616af4b3f6831a8d13ab44577a391ca1288f62c72",
     "lesson-13/report.md": "8ea54a429c3abc92e3a7cd59d854f4b8becf7dc1d3a12bb7dee336bedceff708",
     "lesson-13/submission.json": "009e2a8ddde11554577cf8ba6fc88010d6ed217e9edcbc818b5f6731ca2f5f5e",
-    "lesson-14/EXERCISES.md": "0bdcc6de37ebb86a46fb2322c5bf4199ead3f025538ec6250904fb1d9aaa46eb",
-    "lesson-14/HINTS.md": "80f8be0675978e01ca1de8e659d40813cc0f8ea444a4a58cea1ff6e2ec13ab5b",
-    "lesson-14/LEARN.md": "6df4193b04b064e2434cd61f2840929257a201f402ef0fbe8152cc663790fc1e",
-    "lesson-14/README.md": "0fc34f331bb33c499c92c564139f99df512c1dbf1957f02c7d790665ec4ad58a",
-    "lesson-14/SUPPORT.md": "6b08f4a643bfe5ae44594c71da59b8e19b0a13dec0de1c60c18ded3959bdb554",
+    "lesson-14/EXERCISES.md": "b3cc2e18ac547b746b43a24a2c49cc02d3181b7a500eaa245bc9940b03b41142",
+    "lesson-14/HINTS.md": "ffe96995b38d140962bf4577243a171a9b81542f4e626ca360106f0e93d81676",
+    "lesson-14/LEARN.md": "b2e7cdb9e0c83981b7bdd4c38fa8845ba2ee5fe483ccdd55c38ff2b82db5c7dd",
+    "lesson-14/README.md": "d4429c8ed75dce99b1c839db155ea15fd63428b5153bcb61c9995dc17f1061ca",
+    "lesson-14/SUPPORT.md": "db0840c6e90c266ee0796f8f3043d51b8ac78834c4cc12c95a8755e1433f9b3f",
     "lesson-14/analysis.py": "d1ff04f6f74cbeb9ba92b20d519b13b3a4d1ba357c311b8b3eb11e4d7f02b667",
     "lesson-14/config.json": "b9ca1e08bdcc244457414d5d59a03ef75ea24d2fd07545386db0787dce9a1ddc",
     "lesson-14/figures/allocation.png": "bf1f29519377bba924ac38be3e34e7ea61c8c683693b6f15faa14c46b02a1b89",
     "lesson-14/figures/weights.png": "26f1a744737a2b2376da29780cac76104240f22837d405276d8539e71717d2ee",
-    "lesson-14/report.md": "fe5fbe8083b460eb8c091617c0728baae513aed85d11e314c346693caf2c0df9",
+    "lesson-14/report.md": "d02e108aed0528374b04073782228b331916697ae03c2d32b749810de049e5b9",
     "lesson-14/submission.json": "5d37e4242a380d7ce0af31ee7c4c361a0b1f85a44172e6586517029c000a6333",
     "scripts/course_l1314.py": "0b153d841b2c80b47eddc87d2492a151591cfc55cc303cef9a7d8ccc3425c876",
     "scripts/inference13_14.py": "253714fc1b5e7712e366d511241b1a492168b38c4b160110975c28509d5663b4",
-    "docs/LESSONS09_14_CONTEXT.md": "ce38a22cc96f5b29ab9251f1c0798e6d93ae4ff0d20c40bbac0538b5f5373191"
+    "docs/LESSONS09_14_CONTEXT.md": "ce38a22cc96f5b29ab9251f1c0798e6d93ae4ff0d20c40bbac0538b5f5373191",
+    "lesson-14/stratified_tools.py": "44e2fd27928bcfb60bc04d9819d29d78bf112b0b0dad9d0203a92aa37f1f9ae1"
   },
   "required_existing": {
     "scripts/course_l12.py": "f2f1ac04a5b923c3d25d2b597c7d94e93bd456079012d3e7bd338b10d7177c57",

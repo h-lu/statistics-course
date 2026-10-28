@@ -1,0 +1,198 @@
+# 离线审题草稿：不注册、不激活，不改变旧题及旧场次。
+lesson_id: v2-l14-r2-20261028
+title: 第14课 · 有限预算下的分层调查
+duration_seconds:
+  attempt_a: 300
+  learn: 240
+  attempt_b: 300
+items:
+- concept_id: known-composition-unknown-proportion
+  title: 名册构成、总体参数与样本统计量
+  tutor_context: 请另用社区调查解释：名册人数能确定什么，哪些比例仍未知，样本比例为什么会变。再提出一个判断问题。
+  pair:
+    a:
+      prompt: 某校名册有住校生900人、走读生300人，尚未调查早餐需求。下列哪项已经能由名册确定？
+      options:
+      - id: A
+        text: 走读生的早餐需求比例为25%。
+        misconception: composition-as-stratum-outcome
+      - id: B
+        text: 全校早餐需求比例为25%。
+        misconception: composition-as-total-outcome
+      - id: C
+        text: 走读生占全校人数的25%。
+        misconception: null
+      - id: D
+        text: 下次样本中走读生的早餐需求比例必为25%。
+        misconception: composition-as-future-statistic
+      answer: C
+      explanation: C正确：300/1200=25%是已知总体份额。A把人数构成误作组内需求参数，B误作全校需求参数，D误作未来样本比例；名册没有需求回答，三者均不能确定。对应LEARN第1节及第3节。
+    b:
+      prompt: 某社区抽取40名老年居民，其中18人愿意参加活动。即使再抽40人，愿意参加的人数也可能改变。如何理解18/40？
+      options:
+      - id: A
+        text: 它是本次样本比例，用来估计老年居民中未知的参加意愿比例。
+        misconception: null
+      - id: B
+        text: 它是老年居民占社区人数的已知份额。
+        misconception: sample-outcome-as-population-share
+      - id: C
+        text: 随机抽样保证它等于全体老年居民的真实意愿比例。
+        misconception: randomness-as-exact-truth
+      - id: D
+        text: 再次调查同样人数，必然仍得到18/40。
+        misconception: fixed-n-as-fixed-statistic
+      answer: A
+      explanation: A正确：18/40是样本统计量，未知的总体意愿比例是它要估计的参数。B混淆了分母；C把随机抽样误作无误差；D忽略换一批人时回答会变化。对应LEARN第1节及第3节。
+- concept_id: allocation-and-design-weights
+  title: 样本分配与设计权重
+  tutor_context: 请另设两层调查，解释改变抽样人数为何会改变包含概率和设计权重，却不改变名册总体份额。
+  pair:
+    a:
+      prompt: 某机构职员分为甲组600人、乙组400人。各组独立等概率无放回抽取100人且全部回答。估计全体职员的支持比例，应怎样处理两组样本？
+      options:
+      - id: A
+        text: 两组样本人数相同，直接各占一半。
+        misconception: sample-share-as-population-weight
+      - id: B
+        text: 按甲组60%、乙组40%合成组内样本比例。
+        misconception: null
+      - id: C
+        text: 乙组人数较少，应让乙组占60%。
+        misconception: small-stratum-reversed-weight
+      - id: D
+        text: 甲组每名样本代表100/600人，乙组代表100/400人。
+        misconception: inclusion-probability-as-design-weight
+      answer: B
+      explanation: B正确：总体份额为0.6、0.4；甲乙每人设计权重分别为600/100=6和400/100=4。A把样本构成当总体构成；C颠倒总体份额；D写的是包含概率，设计权重应取其倒数。对应LEARN第1—2节。
+    b:
+      prompt: 某地区东片900户、西片100户。原计划各抽20户，现改为东片30户、西片10户；仍各片独立等概率无放回抽样且全部回答。哪项变化正确？
+      options:
+      - id: A
+        text: 西片的总体份额从50%降为25%。
+        misconception: changing-sample-share-changes-population
+      - id: B
+        text: 西片每户抽中概率从20%升为40%。
+        misconception: inverse-probability-direction
+      - id: C
+        text: 改变人数后，两片应改用相同设计权重。
+        misconception: equal-weights-after-reallocation
+      - id: D
+        text: 西片的总体份额仍为10%，每名西片样本的设计权重从5变为10。
+        misconception: null
+      answer: D
+      explanation: D正确：西片总体份额始终为100/1000=10%；包含概率由20/100降至10/100，其倒数由5增至10。A用样本构成替代总体构成；B把概率变化方向和数值都算错；C忽略两片不同的抽中概率。对应LEARN第1—2节及第7节。
+- concept_id: sample-se-and-interval
+  title: 一次样本的标准误与区间
+  tutor_context: 请用另设的一次分层样本解释估计SE、近似95%置信区间和适用条件，特别说明样本比例为0不等于总体没有不确定性。
+  pair:
+    a:
+      prompt: 一次分层调查的总体比例估计为0.46。已从这一次样本、按分层设计算得估计SE为0.03，且正态近似适用。近似95%置信区间应怎样计算？
+      options:
+      - id: A
+        text: 0.46加减0.03，即43%至49%。
+        misconception: se-as-95-halfwidth
+      - id: B
+        text: 0.46加减1.96乘0.03，即约40.12%至51.88%。
+        misconception: null
+      - id: C
+        text: 先把两层SE直接平均，再围绕0.46作区间。
+        misconception: averaging-se-instead-of-variances
+      - id: D
+        text: 没有各层真实需求比例，便不能从样本估计区间。
+        misconception: unknown-parameter-prevents-inference
+      answer: B
+      explanation: B正确：半宽为1.96×0.03=0.0588，即5.88个百分点。A把一个SE当作约95%半宽；C忽略总体方差须按份额平方合成；D忽略可用样本估计方差。此处近似适用是题设，不保证任何样本均适用。对应LEARN第3节。
+    b:
+      prompt: 某层共有500人，随机抽取8人且全部回答，8人都说不需要服务。代入样本比例公式后，该层估计SE为0。哪种解释合适？
+      options:
+      - id: A
+        text: 可以确定这500人都不需要服务。
+        misconception: zero-success-as-zero-population
+      - id: B
+        text: 总体参数已经被准确测出，因此区间必须为零宽。
+        misconception: zero-plugin-se-as-certainty
+      - id: C
+        text: 只要随机抽样，任何正态近似区间都保证95%覆盖。
+        misconception: randomness-guarantees-normal-coverage
+      - id: D
+        text: 这次样本未观察到需求，零SE可能低估不确定性，不能据此认定总体需求为零。
+        misconception: null
+      answer: D
+      explanation: D正确：8人只是500人的一部分，样本比例为0使代入式退化；正态近似在这里不可靠。A、B将未观察到误作不存在；C把随机抽样条件误作正态近似的充分保证。可报告点估计并说明局限，补充数据或用适合设计的方法复核。对应LEARN第3节。
+- concept_id: planning-assumptions-and-sensitivity
+  title: 未知比例下的精度规划
+  tutor_context: 请用另一项尚未开展的调查解释先导比例、0.5保守设定和敏感性分析的区别，说明这些都不是已知真值。
+  pair:
+    a:
+      prompt: 调查还没开始，也没有可靠的历史需求比例。对一个已经给定的分层样本分配，暂把各层需求比例设为0.5计算规划SE，理由是什么？
+      options:
+      - id: A
+        text: 0/1变量的比例方差因子在0.5时最大，可作保守规划；并非声称真实比例就是0.5。
+        misconception: null
+      - id: B
+        text: 不知道真实比例，就可以认定它必为0.5。
+        misconception: unknown-means-half
+      - id: C
+        text: 取0.5可以消除选择性无回答的偏差。
+        misconception: conservative-variance-removes-bias
+      - id: D
+        text: 取0.5说明这个样本分配在任何目标下都最优。
+        misconception: conservative-input-guarantees-optimum
+      answer: A
+      explanation: A正确：对固定分配，比例方差因子p(1−p)不超过0.25。B把规划假设当真值；C混淆抽样波动与无回答偏差；D混淆给定方案的保守精度与不同目标下的最优分配。对应LEARN第4—5节。
+    b:
+      prompt: 团队参考去年相近调查的两层比例0.2、0.7，推荐了本年的样本分配。本年尚未取得回答。哪项复核最能检验建议对这些暂定比例的依赖？
+      options:
+      - id: A
+        text: 把0.2、0.7写成本年已知参数，不再讨论。
+        misconception: past-estimate-as-current-truth
+      - id: B
+        text: 只在0.2、0.7下增加模拟轮数，便排除比例设错的影响。
+        misconception: more-simulations-fix-assumptions
+      - id: C
+        text: 换用有依据的其他比例设定，重新比较同一组可行方案，检查精度和推荐是否改变。
+        misconception: null
+      - id: D
+        text: 不变更任何输入，只把报告中的SE多保留几位小数。
+        misconception: more-digits-as-sensitivity
+      answer: C
+      explanation: C正确：这是对规划假设的敏感性分析，需说明替代值的依据。A把历史参考当本年真值；B只能减少模拟评价本身的波动，不能检验假设失配；D没有改变假设，不是敏感性分析。对应LEARN第4—5节及第8节。
+- concept_id: precision-goals-and-evidence
+  title: 精度取舍与标准误的证据来源
+  tutor_context: 请另设两种同费用方案，解释总体与小群体SE的取舍，并区分一次样本估计SE、多轮模拟SE和增加一次调查人数。
+  pair:
+    a:
+      prompt: 同一教学总体中，两方案实际费用均为200。相同口径的重复模拟给出：甲的总体SE为3、小组SE为8；乙分别为4、6，单位均为百分点。若优先保障小组精度，哪项建议及解释正确？
+      options:
+      - id: A
+        text: 甲在两项精度上都更好，因为3小于4。
+        misconception: total-goal-erases-subgroup-goal
+      - id: B
+        text: 乙在两项精度上都更好，因为6小于8。
+        misconception: subgroup-gain-implies-total-gain
+      - id: C
+        text: 选乙后，可直接把模拟总体SE为4当作任意一次样本算出的估计SE。
+        misconception: simulation-se-as-single-sample-estimate
+      - id: D
+        text: 可选乙以改善小组精度，同时接受总体SE上升；模拟SE不能冒充某一次样本的估计SE。
+        misconception: null
+      answer: D
+      explanation: D正确：乙的小组SE从8降到6，但总体SE从3升到4，须按用途取舍。A、B各只看一项目标；C混淆多轮估计值的标准差与单次样本估计SE。两方案同费用让这里的精度比较不混入支出差异。对应LEARN第3节、第6—8节。
+    b:
+      prompt: 某服务调查的两方案花费相同，总体与偏远组精度各有优劣。团队不改变每轮抽样人数，只把模拟轮数从500增至5000，随后宣称“两项目标已同时改善，不必取舍”。怎样评价？
+      options:
+      - id: A
+        text: 成立；模拟轮数增加相当于每次现实调查访问了十倍人数。
+        misconception: simulation-count-as-sample-size
+      - id: B
+        text: 不成立；增加轮数可使模拟SE估计更稳定，但不增加一次调查的信息，仍须比较两个精度目标。
+        misconception: null
+      - id: C
+        text: 成立；模拟足够多就能把任何一次样本的估计SE降到零。
+        misconception: simulation-eliminates-sampling-error
+      - id: D
+        text: 不成立；评价方案只能看总体SE，偏远组SE不应影响选择。
+        misconception: ignoring-subgroup-purpose
+      answer: B
+      explanation: B正确：模拟轮数控制评价的稳定程度，每轮人数和抽样设计不变，真实抽样精度不因此改善。A混淆模拟次数与单次人数；C把重复评价误作消除调查波动；D忽略单独服务偏远组的调查用途。一次样本SE须从该次样本按设计另估。对应LEARN第3节、第6—8节。
